@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Warsztaty Robotow</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+<img src="http://warsztatyrobotow.pl/img/logo.jpg"/>
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Panel administracyjny Warsztaty Robotów</h1>
+        <h2><a th:href="@{/admin}"><button type="button">Panel administratora</button></a></h2>
+        <h2><a th:href="@{/user}"><button type="button">Panel instruktora</button></a></h2>
+        <h2><a th:href="@{/about}"><button type="button">Panel uzytkownika</button></a></h2>
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
