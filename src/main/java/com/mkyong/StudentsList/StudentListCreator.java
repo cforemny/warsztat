@@ -1,5 +1,7 @@
 package com.mkyong.StudentsList;
 
+import com.mkyong.date.CourseDate;
+import com.mkyong.payment.Payment;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -80,8 +82,10 @@ public class StudentListCreator {
 
         try{
             getConnection();
-            String query = "ALTER TABLE " + tableName + " ADD " + date +" DATE";
-            statement.execute(query);
+            String queryData = "INSERT INTO " + tableName + " (data) " +" VALUES ('" + date +"')";
+            statement.execute(queryData);
+            String queryPayment = "INSERT INTO obecnosci " + " () " +" VALUES ()";
+            statement.execute(queryPayment);
 
         }catch(Exception exception){
             System.out.println(exception);
@@ -106,6 +110,30 @@ public class StudentListCreator {
             }
             return dateList;
         }
+
+        public List getPaymentList(String tableName){
+
+            ArrayList<Payment> paymentList = new ArrayList<>();
+            try {
+                getConnection();
+                String query = "select * from " + tableName;
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String studentId = resultSet.getString("studentId");
+                    String date = resultSet.getString("data");
+                    String paymentValue = resultSet.getString("platnosc");
+                    String paymentId = resultSet.getString("obecnoscId");
+
+                    paymentList.add(new Payment(Integer.parseInt(studentId),date,Integer.parseInt(paymentValue),Integer.parseInt(paymentId)));
+
+                }
+            } catch (Exception exception) {
+                System.out.println(exception);
+            }
+            return paymentList;
+        }
+
+
 
     private void getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");

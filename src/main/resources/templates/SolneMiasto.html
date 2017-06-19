@@ -48,19 +48,15 @@
             <td  th:text="${student.email}" />
             <td  th:text="${student.name}" />
             <td  th:text="${student.lastName}" />
-            <td th:each="date: ${dateList}" >tutaj bedzie obecnosc</td>
+            <td th:each="payment: ${paymentList}" th:text="(${student.id}==${payment.studentId})? ${payment.paymentValue} : '-'"></td>
+
+
 
         </tr>
     </table>
 </div>
-
-<table>
-    <tr>
-
-    </tr>
-</table>
-
 <br/>
+<div class="table-responsive col-sm-3 sidenav">
 <tab>
     <tr>
         <td>Dodaj nowego kursanta do listy:</td>
@@ -72,11 +68,13 @@
 <form action="#" th:action="@{/user/SolneMiasto}" th:object="${student}" method="post">
     <table>
         <tr>
-            <td>Numer:</td> <td><input name="id" type="text" th:field="*{id}" /></td><td>  <input type="button" class="btn btn-primary .btn-sx" onclick="clearform()" value="Wyczysc pola"/></td></tr>
+            <td>Numer:</td> <td><input name="id" type="text" th:field="*{id}" /></td>
+            <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj kursanta"/></td></tr>
         <tr>
             <td>Imie:</td> <td><input name="name" type="text" th:field="*{name}" /></td></tr>
         <tr>
-            <td>Nazwisko:</td> <td><input name="lastName" type="text" th:field="*{lastName}" /></td></tr>
+            <td>Nazwisko:</td> <td><input name="lastName" type="text" th:field="*{lastName}" /></td>
+            <td>&nbsp;&nbsp;<input type="button" class="btn btn-primary .btn-xs" onclick="clearform()" value="Wyczysc pola"/></td></tr>
         <tr>
             <td>Wiek:</td><td> <input name="age" type="text" th:field="*{age}" /></td></tr>
         <tr>
@@ -84,10 +82,9 @@
         <tr>
             <td>Telefon:</td><td> <input name="telephone" type="text" th:field="*{telephone}" /></td></tr>
         <tr>
-            <td>Email:</td><td> <input name="email" type="text" th:field="*{email}" /></td>
-        </tr>
+            <td>Email:</td><td> <input name="email" type="text" th:field="*{email}" /></td></tr>
     </table>
-    <p><input type="submit" class="btn btn-primary" value="Dodaj kursanta"/></p>
+
 
 
  </form>
@@ -95,19 +92,46 @@
 <form action="#" th:action="@{/user/SolneMiasto/usun}" th:object="${student}" method="post">
     Usun kursanta o numerze:<br/>
     <input name="lastName" type="text" th:field="*{id}" />
-    <p><input type="submit" class="btn btn-primary" value="Usun kursanta"/></p><br/>
+    <input type="submit" class="btn btn-primary" value="Usun kursanta"/><br/>
 
 </form>
 
 <form action="#" th:action="@{/user/SolneMiasto/dodajDate}" th:object="${courseDate}" method="post">
     Dodaj kolumne<br/>
     <input name="currentDate" type="text" th:field="*{currentDate}" />
-    <p><input type="submit" class="btn btn-primary" value="Dodaj date"/></p>
+     <input type="submit" class="btn btn-primary" value="Dodaj date"/>
 </form>
 <br/><br/><br/><br/><br/>
+</div>
 
+<div class="col-sm-9">
+    Dodaj platnosci: <br/><br/>
 
-<div th:replace="fragments/footer :: footer"/>
+    <form action="#" th:action="@{/user/SolneMiasto/platnosci}" th:object="${student}" method="post">
+        <table>
+            <tr>
+                <td>Wybierz kursanta:&nbsp;&nbsp;</td><td>
+                <div class="form-group">
+                    <select class="form-control" id="listaPlatnosci">
+                    <option th:each="student: ${studentList}" th:text="${student.name}+' '+${student.lastName}"></option>
+                </select>
+            </div> </td>
+                <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj platnosc"/></td></tr>
+            <tr>
+                <td>Wybierz Date:</td>
+                <td>
+                    <div class="form-group">
+                        <select class="form-control" id="listaPlatnosci">
+                            <option th:each="date: ${dateList}" th:text="${date} "></option>
+                        </select>
+                    </div></td></tr>
+            <tr>
+                <td>Kwota:</td> <td><input name="kwota" type="text" th:field="*{lastName}" /></td></tr>
+        </table>
+    </form>
+</div>
+
+<div  th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>
