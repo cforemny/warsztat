@@ -83,7 +83,7 @@ public class InstructorController {
     public String addPayment(@ModelAttribute Payment payment, Model model){
 
         //TODO: zrobic dodawanie planosci do bazy
-        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getDate());
+        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate());
         model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
         model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
         model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));

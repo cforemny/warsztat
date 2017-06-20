@@ -5,14 +5,14 @@ package com.mkyong.payment;
  */
 public class Payment {
 
-    private int studentId;
-    private String date;
+    private String studentId;
+    private String paymentDate;
     private int paymentValue;
     private int paymentId;
 
-    public Payment(int studentId, String date, int paymentValue, int paymentId) {
+    public Payment(String studentId, String date, int paymentValue, int paymentId) {
         this.studentId = studentId;
-        this.date = date;
+        this.paymentDate = date;
         this.paymentValue = paymentValue;
         this.paymentId = paymentId;
     }
@@ -21,20 +21,20 @@ public class Payment {
 
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
-    public String getDate() {
-        return date;
+    public String getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public int getPaymentValue() {

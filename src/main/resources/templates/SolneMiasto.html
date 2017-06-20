@@ -112,10 +112,11 @@
             <tr>
                 <td>Wybierz kursanta:&nbsp;&nbsp;</td><td>
                 <div class="form-group">
-                    <select class="form-control" id="listaPlatnosci" th:field="*{studentId}">
+                    <select class="form-control" th:field="*{studentId}" >
                     <option th:each="student: ${studentList}"
+                            th:field="*{studentId}"
                             th:text="${student.name}+' '+${student.lastName}"
-                            th:value="*{studentId}">
+                            th:value="${student.id}">
                     </option>
                 </select>
             </div> </td>
@@ -124,10 +125,11 @@
                 <td>Wybierz Date:</td>
                 <td>
                     <div class="form-group">
-                        <select class="form-control" id="listaPlatnosci">
+                        <select class="form-control" th:field="*{paymentDate}">
                             <option th:each="date: ${dateList}"
-                                    th:text="${date}">
-                                <input type="hidden" th:field="*{date}" />
+                                    th:field="*{paymentDate}"
+                                    th:text="${date}"
+                                    th:value="${date}">
                             </option>
                         </select>
                     </div></td></tr>

@@ -125,7 +125,7 @@ public class StudentListCreator {
                     String paymentValue = resultSet.getString("platnosc");
                     String paymentId = resultSet.getString("obecnoscId");
 
-                    paymentList.add(new Payment(Integer.parseInt(studentId),date,Integer.parseInt(paymentValue),Integer.parseInt(paymentId)));
+                    paymentList.add(new Payment(studentId,date,Integer.parseInt(paymentValue),Integer.parseInt(paymentId)));
 
                 }
             } catch (Exception exception) {
@@ -134,7 +134,7 @@ public class StudentListCreator {
             return paymentList;
         }
 
-        public void addNewPayment(String tableName, int paymentValue, int studentId, String date){
+        public void addNewPayment(String tableName, int paymentValue, String studentId, String date){
 
 
             try{
