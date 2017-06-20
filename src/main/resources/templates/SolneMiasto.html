@@ -107,13 +107,16 @@
 <div class="col-sm-9">
     Dodaj platnosci: <br/><br/>
 
-    <form action="#" th:action="@{/user/SolneMiasto/platnosci}" th:object="${student}" method="post">
+    <form action="#" th:action="@{/user/SolneMiasto/platnosci}"  th:object="${payment}" method="post">
         <table>
             <tr>
                 <td>Wybierz kursanta:&nbsp;&nbsp;</td><td>
                 <div class="form-group">
-                    <select class="form-control" id="listaPlatnosci">
-                    <option th:each="student: ${studentList}" th:text="${student.name}+' '+${student.lastName}"></option>
+                    <select class="form-control" id="listaPlatnosci" th:field="*{studentId}">
+                    <option th:each="student: ${studentList}"
+                            th:text="${student.name}+' '+${student.lastName}"
+                            th:value="*{studentId}">
+                    </option>
                 </select>
             </div> </td>
                 <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj platnosc"/></td></tr>
@@ -122,11 +125,14 @@
                 <td>
                     <div class="form-group">
                         <select class="form-control" id="listaPlatnosci">
-                            <option th:each="date: ${dateList}" th:text="${date} "></option>
+                            <option th:each="date: ${dateList}"
+                                    th:text="${date}">
+                                <input type="hidden" th:field="*{date}" />
+                            </option>
                         </select>
                     </div></td></tr>
             <tr>
-                <td>Kwota:</td> <td><input name="kwota" type="text" th:field="*{lastName}" /></td></tr>
+                <td>Kwota:</td> <td><input name="kwota" type="text" th:field="*{paymentValue}" /></td></tr>
         </table>
     </form>
 </div>

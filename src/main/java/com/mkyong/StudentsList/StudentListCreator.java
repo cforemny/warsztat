@@ -84,8 +84,9 @@ public class StudentListCreator {
             getConnection();
             String queryData = "INSERT INTO " + tableName + " (data) " +" VALUES ('" + date +"')";
             statement.execute(queryData);
-            String queryPayment = "INSERT INTO obecnosci " + " () " +" VALUES ()";
+            String queryPayment = "INSERT INTO platnosci " + " (studentId,data,platnosc) " + " VALUES (0,'" + date +"',0)";
             statement.execute(queryPayment);
+
 
         }catch(Exception exception){
             System.out.println(exception);
@@ -131,6 +132,22 @@ public class StudentListCreator {
                 System.out.println(exception);
             }
             return paymentList;
+        }
+
+        public void addNewPayment(String tableName, int paymentValue, int studentId, String date){
+
+
+            try{
+                getConnection();
+                String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc) " +" VALUES (" + studentId +"'" + date +"'" + paymentValue +")";
+                statement.execute(queryPayment);
+
+
+
+            }catch(Exception exception){
+                System.out.println(exception);
+            }
+
         }
 
 

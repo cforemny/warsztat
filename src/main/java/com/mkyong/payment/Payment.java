@@ -17,6 +17,10 @@ public class Payment {
         this.paymentId = paymentId;
     }
 
+    public Payment(){
+
+    }
+
     public int getStudentId() {
         return studentId;
     }
