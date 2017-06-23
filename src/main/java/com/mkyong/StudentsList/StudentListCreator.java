@@ -1,14 +1,10 @@
 package com.mkyong.StudentsList;
 
-import com.mkyong.date.CourseDate;
 import com.mkyong.payment.Payment;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -21,41 +17,16 @@ public class StudentListCreator {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
-    private Date date;
 
-    public List getStudentListFromTable(String tableName) {
-
-        List<Student> studentList = new ArrayList<Student>();
-        try {
-            getConnection();
-            String query = "select * from " + tableName;
-            resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                String imie = resultSet.getString("imie");
-                String nazwisko = resultSet.getString("nazwisko");
-                String wiek = resultSet.getString("wiek");
-                String email = resultSet.getString("email");
-                String daneRodzica = resultSet.getString("parentName");
-                String telefon = resultSet.getString("telephone");
-                String id = resultSet.getString("id");
-                studentList.add(new Student(imie, nazwisko, wiek, email, daneRodzica, telefon,id));
-            }
-
-        } catch (Exception exception) {
-            System.out.println(exception);
-        }
-        return studentList;
-    }
 
     public void addStudentToList(Student student, String tableName) {
 
         try {
             getConnection();
 
-            String insertQuery = "INSERT INTO " + tableName  + " (imie, nazwisko, wiek, email, parentName, telephone, id)"
-                    + " VALUES " + "('" + student.getName()+ "'," + "'" + student.getLastName()+ "'," + "'" + student.getAge()+ "',"
-                    + "'" + student.getEmail()+ "'," + "'" + student.getParentName()+ "'," + "'" + student.getTelephone()+ "',"
+            String insertQuery = "INSERT INTO " + tableName + " (imie, nazwisko, wiek, email, parentName, telephone, id)"
+                    + " VALUES " + "('" + student.getName() + "'," + "'" + student.getLastName() + "'," + "'" + student.getAge() + "',"
+                    + "'" + student.getEmail() + "'," + "'" + student.getParentName() + "'," + "'" + student.getTelephone() + "',"
                     + "'" + student.getId() + "')";
 
             statement.execute(insertQuery);
@@ -66,90 +37,48 @@ public class StudentListCreator {
         }
     }
 
-    public void deleteStudent(String studentListId, String tableName){
-        try{
+    public void deleteStudent(String studentListId, String tableName) {
+        try {
             getConnection();
-            String query = "DELETE FROM " + tableName + " WHERE " + tableName + ".id="+studentListId;
+            String query = "DELETE FROM " + tableName + " WHERE " + tableName + ".id=" + studentListId;
             statement.execute(query);
 
-        }catch(Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception);
         }
 
     }
 
-    public void addNewDate(String tableName, String date){
+    public void addNewDate(String tableName, String date) {
 
-        try{
+        try {
             getConnection();
-            String queryData = "INSERT INTO " + tableName + " (data) " +" VALUES ('" + date +"')";
+            String queryData = "INSERT INTO " + tableName + " (data) " + " VALUES ('" + date + "')";
             statement.execute(queryData);
-            String queryPayment = "INSERT INTO platnosci " + " (studentId,data,platnosc) " + " VALUES (0,'" + date +"',0)";
+            String queryPayment = "INSERT INTO platnosci " + " (studentId,data,platnosc) " + " VALUES (0,'" + date + "',0)";
             statement.execute(queryPayment);
 
 
-        }catch(Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception);
         }
     }
 
-    public List getDateTable(String tableName){
 
-            List<String> dateList = new ArrayList<String>();
-            try {
-                getConnection();
-                String query = "select * from " + tableName;
-                resultSet = statement.executeQuery(query);
+    public void addNewPayment(String tableName, int paymentValue, String studentId, String date) {
 
-                while (resultSet.next()) {
-                    String date = resultSet.getString("data");
-                    dateList.add(date);
-                }
 
-            } catch (Exception exception) {
-                System.out.println(exception);
-            }
-            return dateList;
+        try {
+            getConnection();
+            String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + paymentValue + ")";
+            statement.execute(queryPayment);
+
+
+        } catch (Exception exception) {
+            System.out.println(exception);
         }
 
-        public List getPaymentList(String tableName){
-
-            ArrayList<Payment> paymentList = new ArrayList<>();
-            try {
-                getConnection();
-                String query = "select * from " + tableName;
-                resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    String studentId = resultSet.getString("studentId");
-                    String date = resultSet.getString("data");
-                    String paymentValue = resultSet.getString("platnosc");
-                    String paymentId = resultSet.getString("obecnoscId");
-
-                    paymentList.add(new Payment(studentId,date,Integer.parseInt(paymentValue),Integer.parseInt(paymentId)));
-
-                }
-            } catch (Exception exception) {
-                System.out.println(exception);
-            }
-            return paymentList;
-        }
-
-        public void addNewPayment(String tableName, int paymentValue, String studentId, String date){
-
-
-            try{
-                getConnection();
-                String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc) " +" VALUES (" + studentId +"'" + date +"'" + paymentValue +")";
-                statement.execute(queryPayment);
-
-
-
-            }catch(Exception exception){
-                System.out.println(exception);
-            }
-
-        }
-
+    }
 
 
     private void getConnection() throws ClassNotFoundException, SQLException {

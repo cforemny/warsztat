@@ -1,5 +1,6 @@
 package com.mkyong.controller;
 
+import com.mkyong.SQLBase.TableSelector;
 import com.mkyong.StudentsList.Student;
 import com.mkyong.StudentsList.StudentListCreator;
 import com.mkyong.date.CourseDate;
@@ -21,13 +22,14 @@ public class InstructorController {
 
     @Autowired
     private StudentListCreator studentListCreator;
+    private TableSelector tableSelector;
 
 
     @GetMapping("/SolneMiasto")
     public String prepareTable(Model model) {
-        model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
-        model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
-        model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
 
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
@@ -39,9 +41,9 @@ public class InstructorController {
     @PostMapping("/SolneMiasto")
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, "solnemiasto");
-        model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
-        model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
-        model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
 
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
@@ -53,9 +55,9 @@ public class InstructorController {
     @PostMapping("SolneMiasto/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), "solnemiasto");
-        model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
-        model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
-        model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
 
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
@@ -68,9 +70,9 @@ public class InstructorController {
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
 
         studentListCreator.addNewDate("daty", courseDate.getCurrentDate());
-        model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
-        model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
-        model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
 
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
@@ -84,13 +86,13 @@ public class InstructorController {
 
         //TODO: zrobic dodawanie planosci do bazy
         studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate());
-        model.addAttribute("studentList", studentListCreator.getStudentListFromTable("solnemiasto"));
-        model.addAttribute("dateList", studentListCreator.getDateTable("daty"));
-        model.addAttribute("paymentList", studentListCreator.getPaymentList("platnosci"));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
 
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
-//        model.addAttribute("payment", new Payment());
+
 
         return "/SolneMiasto";
     }

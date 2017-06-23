@@ -48,7 +48,8 @@
             <td  th:text="${student.email}" />
             <td  th:text="${student.name}" />
             <td  th:text="${student.lastName}" />
-            <td th:each="payment: ${paymentList}" th:text="(${student.id}==${payment.studentId})? ${payment.paymentValue} : '-'"></td>
+            <td th:each="payment: ${paymentList}"
+                th:text="(${student.id}==${payment.studentId})? ${payment.paymentValue} : '-'"></td>
 
 
 
