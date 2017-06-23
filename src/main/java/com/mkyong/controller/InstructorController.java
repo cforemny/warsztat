@@ -22,6 +22,7 @@ public class InstructorController {
 
     @Autowired
     private StudentListCreator studentListCreator;
+    @Autowired
     private TableSelector tableSelector;
 
 
