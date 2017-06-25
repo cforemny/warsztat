@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:padding-left="http://www.w3.org/1999/xhtml"
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:student="http://www.w3.org/1999/xhtml">
 <head>
     <div th:replace="fragments/header :: header-css"/>
@@ -10,141 +10,179 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        function clearform()
-        {
-            document.getElementById("name").value="";
-            document.getElementById("lastName").value="";
-            document.getElementById("age").value="";
-            document.getElementById("telephone").value="";
-            document.getElementById("email").value="";
-            document.getElementById("parentName").value="";
-            document.getElementById("id").value="";
+        function clearform() {
+            document.getElementById("name").value = "";
+            document.getElementById("lastName").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("telephone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("parentName").value = "";
+            document.getElementById("id").value = "";
         }
     </script>
 </head>
-<body>
+<body background="">
 <img src="http://warsztatyrobotow.pl/img/logo.jpg"/>
 <div class="container">
     <h2>Solne Miasto</h2>
 </div>
 <br/><br/>
 <div class="table-responsive">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-bordered table-condensed table-hover text-center">
         <tr class="info">
-            <td >Numer</td>
-            <td >Dane opiekuna</td>
-            <td >Telefon</td>
-            <td >Wiek</td>
-            <td >email</td>
-            <td >Imie</td>
-            <td >Nazwisko</td>
+            <td class="col-xs-1">Numer</td>
+            <td>Dane opiekuna</td>
+            <td>Telefon</td>
+            <td>Wiek</td>
+            <td>email</td>
+            <td>Imie</td>
+            <td>Nazwisko</td>
             <td th:each="date: ${dateList}" th:text="${date} "></td>
         </tr>
         <tr th:each="student: ${studentList}">
-            <td  th:text="${student.id}" />
-            <td  th:text="${student.parentName}" />
-            <td  th:text="${student.telephone}" />
-            <td  th:text="${student.age}" />
-            <td  th:text="${student.email}" />
-            <td  th:text="${student.name}" />
-            <td  th:text="${student.lastName}" />
+            <td class="col-xs-1" th:text="${student.id}"/>
+            <td th:text="${student.parentName}"/>
+            <td th:text="${student.telephone}"/>
+            <td th:text="${student.age}"/>
+            <td th:text="${student.email}"/>
+            <td th:text="${student.name}"/>
+            <td th:text="${student.lastName}"/>
             <td th:each="date: ${dateList}">
                 <p th:each="payment: ${paymentList}">
-                <p th:if="${payment.paymentDate} == ${date}"
-                       th:text="(${student.id}==${payment.studentId} )? ${payment.paymentValue}">
+                <p style="background-color:greenyellow;" th:if="${payment.paymentDate} == ${date}"
+                   th:text="(${student.id}==${payment.studentId} )? ${payment.paymentValue}">
                 </p></p>
             </td>
 
 
-
         </tr>
     </table>
 </div>
 <br/>
-<div class="table-responsive col-sm-3 sidenav">
-<tab>
-    <tr>
-        <td>Dodaj nowego kursanta do listy:</td>
-    </tr>
-</tab>
-
-<br/>
-<br/>
-<form action="#" th:action="@{/user/SolneMiasto}" th:object="${student}" method="post">
-    <table>
-        <tr>
-            <td>Numer:</td> <td><input name="id" type="text" th:field="*{id}" /></td>
-            <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj kursanta"/></td></tr>
-        <tr>
-            <td>Imie:</td> <td><input name="name" type="text" th:field="*{name}" /></td></tr>
-        <tr>
-            <td>Nazwisko:</td> <td><input name="lastName" type="text" th:field="*{lastName}" /></td>
-            <td>&nbsp;&nbsp;<input type="button" class="btn btn-primary .btn-xs" onclick="clearform()" value="Wyczysc pola"/></td></tr>
-        <tr>
-            <td>Wiek:</td><td> <input name="age" type="text" th:field="*{age}" /></td></tr>
-        <tr>
-            <td>Dane rodzica:</td><td><input name="parentName" type="text" th:field="*{parentName}" /></td></tr>
-        <tr>
-            <td>Telefon:</td><td> <input name="telephone" type="text" th:field="*{telephone}" /></td></tr>
-        <tr>
-            <td>Email:</td><td> <input name="email" type="text" th:field="*{email}" /></td></tr>
-    </table>
 
 
+<div class="container">
+    <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#dodajPlatnosc">Platnosci</a></li>
+        <li><a data-toggle="pill" href="#dodaj">Dodaj</a></li>
+        <li><a data-toggle="pill" href="#usun">Usun</a></li>
+        <li><a data-toggle="pill" href="#dodajDate">Data</a></li>
+    </ul>
 
- </form>
+    <div class="tab-content">
+        <div class="tab-pane fade" id="dodaj">
+            <tab>
+                <tr>
+                    <td>Dodaj nowego kursanta do listy:</td>
+                </tr>
+            </tab>
 
-<form action="#" th:action="@{/user/SolneMiasto/usun}" th:object="${student}" method="post">
-    Usun kursanta o numerze:<br/>
-    <input name="lastName" type="text" th:field="*{id}" />
-    <input type="submit" class="btn btn-primary" value="Usun kursanta"/><br/>
+            <br/>
+            <br/>
+            <form action="#" th:action="@{/user/SolneMiasto}" th:object="${student}" method="post">
+                <table>
+                    <tr>
+                        <td>Numer:</td>
+                        <td><input name="id" type="text" th:field="*{id}"/></td>
+                        <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj kursanta"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Imie:</td>
+                        <td><input name="name" type="text" th:field="*{name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nazwisko:</td>
+                        <td><input name="lastName" type="text" th:field="*{lastName}"/></td>
+                        <td>&nbsp;&nbsp;<input type="button" class="btn btn-primary .btn-xs" onclick="clearform()"
+                                               value="Wyczysc pola"/></td>
+                    </tr>
+                    <tr>
+                        <td>Wiek:</td>
+                        <td><input name="age" type="text" th:field="*{age}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Dane rodzica:</td>
+                        <td><input name="parentName" type="text" th:field="*{parentName}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Telefon:</td>
+                        <td><input name="telephone" type="text" th:field="*{telephone}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input name="email" type="text" th:field="*{email}"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="usun">
+            <form action="#" th:action="@{/user/SolneMiasto/usun}" th:object="${student}" method="post">
+                Usun kursanta o numerze:<br/>
+                <input name="lastName" type="text" th:field="*{id}"/>
+                <input type="submit" class="btn btn-primary" value="Usun kursanta"/><br/>
 
-</form>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="dodajDate">
+            <form action="#" th:action="@{/user/SolneMiasto/dodajDate}" th:object="${courseDate}" method="post">
+                Dodaj kolumne<br/>
+                <input name="currentDate" type="text" th:field="*{currentDate}"/>
+                <input type="submit" class="btn btn-primary" value="Dodaj date"/>
+            </form>
+            <br/><br/><br/><br/><br/>
 
-<form action="#" th:action="@{/user/SolneMiasto/dodajDate}" th:object="${courseDate}" method="post">
-    Dodaj kolumne<br/>
-    <input name="currentDate" type="text" th:field="*{currentDate}" />
-     <input type="submit" class="btn btn-primary" value="Dodaj date"/>
-</form>
-<br/><br/><br/><br/><br/>
+        </div>
+
+        <div class="tab-pane fade" id="dodajPlatnosc">
+            Dodaj platnosci: <br/><br/>
+
+            <form action="#" th:action="@{/user/SolneMiasto/platnosci}" th:object="${payment}" method="post">
+                <table>
+                    <tr>
+                        <td>Wybierz kursanta:&nbsp;&nbsp;</td>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" th:field="*{studentId}">
+                                    <option th:each="student: ${studentList}"
+                                            th:field="*{studentId}"
+                                            th:text="${student.name}+' '+${student.lastName}"
+                                            th:value="${student.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj platnosc"/></td>
+                    </tr>
+                    <tr>
+                        <td>Wybierz Date:</td>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" th:field="*{paymentDate}">
+                                    <option th:each="date: ${dateList}"
+                                            th:field="*{paymentDate}"
+                                            th:text="${date}"
+                                            th:value="${date}">
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kwota:</td>
+                        <td><input name="kwota" type="text" th:field="*{paymentValue}"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
 </div>
 
-<div class="col-sm-9">
-    Dodaj platnosci: <br/><br/>
 
-    <form action="#" th:action="@{/user/SolneMiasto/platnosci}"  th:object="${payment}" method="post">
-        <table>
-            <tr>
-                <td>Wybierz kursanta:&nbsp;&nbsp;</td><td>
-                <div class="form-group">
-                    <select class="form-control" th:field="*{studentId}" >
-                    <option th:each="student: ${studentList}"
-                            th:field="*{studentId}"
-                            th:text="${student.name}+' '+${student.lastName}"
-                            th:value="${student.id}">
-                    </option>
-                </select>
-            </div> </td>
-                <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj platnosc"/></td></tr>
-            <tr>
-                <td>Wybierz Date:</td>
-                <td>
-                    <div class="form-group">
-                        <select class="form-control" th:field="*{paymentDate}">
-                            <option th:each="date: ${dateList}"
-                                    th:field="*{paymentDate}"
-                                    th:text="${date}"
-                                    th:value="${date}">
-                            </option>
-                        </select>
-                    </div></td></tr>
-            <tr>
-                <td>Kwota:</td> <td><input name="kwota" type="text" th:field="*{paymentValue}" /></td></tr>
-        </table>
-    </form>
-</div>
 
-<div  th:replace="fragments/footer :: footer"/>
+
+<div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>
