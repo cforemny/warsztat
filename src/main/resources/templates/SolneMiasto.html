@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:student="http://www.w3.org/1999/xhtml">
+      xmlns:student="http://www.w3.org/1999/xhtml" xmlns:padding-left="http://www.w3.org/1999/xhtml">
 <head>
-    <div th:replace="fragments/header :: header-css"/>
+
     <title>Panel instruktora</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="stylesheet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
@@ -20,12 +22,26 @@
             document.getElementById("id").value = "";
         }
     </script>
+    <style>
+        p.T{
+            background-color: greenyellow;
+        }
+        p.N{
+            background-color: orangered;
+        }
+        footer{
+            position:absolute;
+            right: 10px;
+            bottom : 10px;
+        }
+
+    </style>
 </head>
-<body background="">
+<body>
 <img src="http://warsztatyrobotow.pl/img/logo.jpg"/>
-<div class="container">
+
     <h2>Solne Miasto</h2>
-</div>
+
 <br/><br/>
 <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover text-center">
@@ -39,7 +55,7 @@
             <td>Nazwisko</td>
             <td th:each="date: ${dateList}" th:text="${date} "></td>
         </tr>
-        <tr th:each="student: ${studentList}">
+        <tr  th:each="student: ${studentList}">
             <td class="col-xs-1" th:text="${student.id}"/>
             <td th:text="${student.parentName}"/>
             <td th:text="${student.telephone}"/>
@@ -47,12 +63,16 @@
             <td th:text="${student.email}"/>
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
-            <td th:each="date: ${dateList}">
-                <p th:each="payment: ${paymentList}">
-                <p style="background-color:greenyellow;" th:if="${payment.paymentDate} == ${date}"
-                   th:text="(${student.id}==${payment.studentId} )? ${payment.paymentValue}">
-                </p></p>
-            </td>
+                <th:block  th:each="date: ${dateList}">
+                    <td >
+                        <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">
+                            <p th:class="${payment.paymentType}"
+                               th:text="(${student.id}==${payment.studentId})? ${payment.paymentValue}">
+                            </p>
+                        </th:block>
+                    </td>
+                </th:block>
+
 
 
         </tr>
@@ -61,12 +81,12 @@
 <br/>
 
 
-<div class="container">
+<div align="right, 10px">
     <ul class="nav nav-pills">
         <li class="active"><a data-toggle="pill" href="#dodajPlatnosc">Platnosci</a></li>
-        <li><a data-toggle="pill" href="#dodaj">Dodaj</a></li>
-        <li><a data-toggle="pill" href="#usun">Usun</a></li>
-        <li><a data-toggle="pill" href="#dodajDate">Data</a></li>
+        <li><a data-toggle="pill" href="#dodaj">Dodaj kursanta</a></li>
+        <li><a data-toggle="pill" href="#usun">Usun kursanta</a></li>
+        <li><a data-toggle="pill" href="#dodajDate">Dodaj date</a></li>
     </ul>
 
     <div class="tab-content">
@@ -134,7 +154,7 @@
 
         </div>
 
-        <div class="tab-pane fade" id="dodajPlatnosc">
+        <div class="tab-pane fade in active" id="dodajPlatnosc">
             Dodaj platnosci: <br/><br/>
 
             <form action="#" th:action="@{/user/SolneMiasto/platnosci}" th:object="${payment}" method="post">
@@ -180,9 +200,9 @@
 </div>
 
 
-
-
+<div th:replace="fragments/date :: date"/>
+<input type="date" data-date-inline-picker="true" />
 <div th:replace="fragments/footer :: footer"/>
-
 </body>
+
 </html>

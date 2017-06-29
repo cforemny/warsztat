@@ -9,16 +9,26 @@ public class Payment {
     private String paymentDate;
     private int paymentValue;
     private int paymentId;
+    private char paymentType;
 
-    public Payment(String studentId, String date, int paymentValue, int paymentId) {
+    public Payment(String studentId, String date, int paymentValue, int paymentId, char paymentType) {
         this.studentId = studentId;
         this.paymentDate = date;
         this.paymentValue = paymentValue;
         this.paymentId = paymentId;
+        this.paymentType = paymentType;
     }
 
     public Payment(){
 
+    }
+
+    public char getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(char paymentType) {
+        this.paymentType = paymentType;
     }
 
     public String getStudentId() {

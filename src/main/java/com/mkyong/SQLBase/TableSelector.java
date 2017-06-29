@@ -74,8 +74,9 @@ public class TableSelector {
                 String date = resultSet.getString("data");
                 String paymentValue = resultSet.getString("platnosc");
                 String paymentId = resultSet.getString("obecnoscId");
+                String paymentType = resultSet.getString("typPlatnosci");
 
-                paymentList.add(new Payment(studentId, date, Integer.parseInt(paymentValue), Integer.parseInt(paymentId)));
+                paymentList.add(new Payment(studentId, date, Integer.parseInt(paymentValue), Integer.parseInt(paymentId), paymentType.charAt(0)));
 
             }
         } catch (Exception exception) {
