@@ -19,7 +19,7 @@ public class Payment {
         this.paymentType = paymentType;
     }
 
-    public Payment(){
+    public Payment() {
 
     }
 

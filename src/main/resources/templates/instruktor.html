@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <title>Panel instruktora</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"/>
+    <script src="/app.js"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Strona instruktora</h1>
+
+        <h1 th:inline="text">Jesteś zalogowany jako: [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj sie"/>
+        </form>
+
+    </div>
+
+    <div th:replace="fragments/instruktorPanel :: instruktorPanel"/>
+    <h2><a th:href="@{/instruktor/SolneMiasto}">
+        <button type="button">Solne Miasto</button>
+    </a></h2>
+
+</div>
+<!-- /.container -->
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

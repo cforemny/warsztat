@@ -23,7 +23,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/home", "/about").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .antMatchers("/user/**").hasAnyRole("USER","ADMIN")
+                .antMatchers("/instruktor/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -41,7 +41,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
+                .withUser("instruktor").password("password").roles("USER")
                 .and()
                 .withUser("admin").password("password").roles("ADMIN");
     }

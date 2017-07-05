@@ -13,7 +13,7 @@ public class Student {
     private String telephone;
     private String id;
 
-    public Student(String name, String lastName, String age, String email, String parentName, String telephone,String id) {
+    public Student(String name, String lastName, String age, String email, String parentName, String telephone, String id) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -22,12 +22,17 @@ public class Student {
         this.telephone = telephone;
         this.id = id;
     }
-    public Student(){
+
+    public Student() {
 
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getId() {
@@ -36,10 +41,6 @@ public class Student {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getLastName() {

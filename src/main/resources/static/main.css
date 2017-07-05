@@ -1,0 +1,13 @@
+p.T {
+    background-color: greenyellow;
+}
+
+p.N {
+    background-color: orangered;
+}
+
+footer {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

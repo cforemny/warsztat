@@ -1,11 +1,11 @@
 package com.mkyong.StudentsList;
 
-import com.mkyong.payment.Payment;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-06-04.
@@ -16,8 +16,6 @@ public class StudentListCreator {
 
     private Connection connection;
     private Statement statement;
-    private ResultSet resultSet;
-
 
     public void addStudentToList(Student student, String tableName) {
 
@@ -65,12 +63,13 @@ public class StudentListCreator {
     }
 
 
-    public void addNewPayment(String tableName, int paymentValue, String studentId, String date) {
+    public void addNewPayment(String tableName, int paymentValue, String studentId, String date, char typPlatnosci) {
 
 
         try {
             getConnection();
-            String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + paymentValue + ")";
+            String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + paymentValue +
+                    ",'" + typPlatnosci + "')";
             statement.execute(queryPayment);
 
 

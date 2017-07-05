@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
 </head>
 <body>
 
@@ -12,11 +13,12 @@
     <div class="starter-template">
         <h1>403 - Brak dostępu do podstrony</h1>
         <div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]',
-            tylko wybrani uzytkownicy maja dostep do tej podstrony</div>
+            tylko wybrani uzytkownicy maja dostep do tej podstrony
+        </div>
     </div>
 
 </div>
-<!-- /.container -->
+
 
 <div th:replace="fragments/footer :: footer"/>
 

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by Cyprian on 2017-06-04.
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/instruktor")
 public class InstructorController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class InstructorController {
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
 
-        return "/SolneMiasto";
+        return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("/SolneMiasto")
@@ -50,7 +50,7 @@ public class InstructorController {
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
 
-        return "/SolneMiasto";
+        return "/lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/usun")
@@ -64,7 +64,7 @@ public class InstructorController {
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
 
-        return "/SolneMiasto";
+        return "/lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/dodajDate")
@@ -79,14 +79,14 @@ public class InstructorController {
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
 
-        return "/SolneMiasto";
+        return "/lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/platnosci")
-    public String addPayment(@ModelAttribute Payment payment, Model model){
+    public String addPayment(@ModelAttribute Payment payment, Model model) {
 
         //TODO: zrobic dodawanie planosci do bazy
-        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(),payment.getPaymentType());
         model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
         model.addAttribute("dateList", tableSelector.getDateTable("daty"));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
@@ -95,7 +95,7 @@ public class InstructorController {
         model.addAttribute("student", new Student());
 
 
-        return "/SolneMiasto";
+        return "/lokalizacje/SolneMiasto";
     }
 
 

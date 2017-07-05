@@ -21,9 +21,9 @@ public class DefaultController {
         return "/admin";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/instruktor")
     public String user() {
-        return "/user";
+        return "/instruktor";
     }
 
     @GetMapping("/about")
@@ -39,6 +39,12 @@ public class DefaultController {
     @GetMapping("/403")
     public String error403() {
         return "/error/403";
+    }
+
+    //TODO: usunac przekierowanie na main.css i usunac ten fragment
+    @GetMapping("/main.css")
+    public String home2() {
+        return "/home";
     }
 
 

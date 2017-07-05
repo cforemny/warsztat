@@ -34,7 +34,7 @@ public class TableSelector {
                 String daneRodzica = resultSet.getString("parentName");
                 String telefon = resultSet.getString("telephone");
                 String id = resultSet.getString("id");
-                studentList.add(new Student(imie, nazwisko, wiek, email, daneRodzica, telefon,id));
+                studentList.add(new Student(imie, nazwisko, wiek, email, daneRodzica, telefon, id));
             }
 
         } catch (Exception exception) {
@@ -84,8 +84,6 @@ public class TableSelector {
         }
         return paymentList;
     }
-
-
 
 
     private void getConnection() throws ClassNotFoundException, SQLException {
