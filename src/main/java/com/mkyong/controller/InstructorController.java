@@ -27,7 +27,7 @@ public class InstructorController {
 
 
     @GetMapping("/SolneMiasto")
-    public String prepareTable(Model model) {
+    public String showLocation(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
         model.addAttribute("dateList", tableSelector.getDateTable("daty"));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
@@ -86,7 +86,7 @@ public class InstructorController {
     public String addPayment(@ModelAttribute Payment payment, Model model) {
 
         //TODO: zrobic dodawanie planosci do bazy
-        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(),payment.getPaymentType());
+        studentListCreator.addNewPayment("platnosci", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         model.addAttribute("studentList", tableSelector.getStudentListFromTable("solnemiasto"));
         model.addAttribute("dateList", tableSelector.getDateTable("daty"));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci"));
@@ -94,8 +94,13 @@ public class InstructorController {
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
 
-
         return "/lokalizacje/SolneMiasto";
+    }
+
+    @GetMapping("naszeLokalizacje")
+    public String showAllOurLocations() {
+
+        return "lokalizacje/naszeLokalizacje";
     }
 
 

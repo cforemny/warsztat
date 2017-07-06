@@ -8,31 +8,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/webjars/jquery/jquery.min.js"/>
     <script src="/app.js"/>
-    <link rel="stylesheet" type="text/css" href="/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/main.css"/>
+    <style>
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        body {
+            background: url("http://cache.lego.com/r/ldd/-/media/digital%20designer/subpages/mindstorms/mindstorms%20robot.png?l.r2=1612758670") no-repeat fixed bottom right;
+        }
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
 </head>
 <body>
 
 <div th:replace="fragments/header :: header"/>
 
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Strona instruktora</h1>
-
-        <h1 th:inline="text">Jesteś zalogowany jako: [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Wyloguj sie"/>
-        </form>
-
-    </div>
-
-    <div th:replace="fragments/instruktorPanel :: instruktorPanel"/>
-    <h2><a th:href="@{/instruktor/SolneMiasto}">
-        <button type="button">Solne Miasto</button>
-    </a></h2>
-
+<div class="well ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Panel instruktora</h1></p></td>
+        </tr>
+    </table>
 </div>
-<!-- /.container -->
+<div th:replace="fragments/instruktorPanel :: instruktorPanel"/>
+
+
+
 <div th:replace="fragments/footer :: footer"/>
 
 </body>

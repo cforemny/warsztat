@@ -3,6 +3,7 @@
       xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="/main.css"/>
+
 </head>
 <body>
 <div th:fragment="footer">
@@ -10,8 +11,7 @@
         <!-- this is footer -->
         © 2017 Cyprian Foremny
         <span sec:authorize="isAuthenticated()">
-                | Zalogowany użytkownik: <span sec:authentication="name"></span> |
-                Typ użytkownika: <span sec:authentication="principal.authorities"></span> |
+                | Zalogowany użytkownik: <span sec:authentication="name"></span>
                 <a th:href="@{/logout}">Wyloguj się</a>
             </span>
 

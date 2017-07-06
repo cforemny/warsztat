@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:student="http://www.w3.org/1999/xhtml"
->
+      xmlns:student="http://www.w3.org/1999/xhtml">
 <head>
 
     <title>Panel instruktora</title>
@@ -11,9 +10,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/webjars/jquery/jquery.min.js"/>
-    <script src="/app.js"/>
-    <link rel="stylesheet" type="text/css" href="/main.css"/>
+    <script src="/static/app.js"/>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <style>
+        p.T {
+            background-color: greenyellow;
+        }
+
+        p.N {
+            background-color: orangered;
+        }
+
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+    <script>
+        function clearform() {
+            document.getElementById("name").value = "";
+            document.getElementById("lastName").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("telephone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("parentName").value = "";
+            document.getElementById("id").value = "";
+        }
+    </script>
+
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
@@ -170,7 +196,7 @@
                         <td>
                             <div class="form-group">
                                 <select class="form-control" th:field="*{paymentType}">
-                                    <option th:value="'T'"  th:text="'Tak'"></option>
+                                    <option th:value="'T'" th:text="'Tak'"></option>
                                     <option th:value="'N'" th:text="'Nie'"></option>
                                 </select>
                             </div>
