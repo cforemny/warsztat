@@ -2,25 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
 </head>
 <body>
 
 <div th:replace="fragments/header :: header"/>
 
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Strona administratora</h1>
-
-        <h1 th:inline="text">Zalogowales sie jako:[[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-
-    </div>
-
+<body>
+<div class="well ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Podsumowanie zysków</h1></p></td>
+        </tr>
+    </table>
 </div>
-<!-- /.container -->
+<div>
+    <table>
+        <tr th:each="date: ${dataSet}" >
+            <a th:href="@{/instruktor/SolneMiasto}">
+                <button class="btn btn-info" type="button" th:text="${date}"></button>
+            </a>
+        </tr>
+    </table>
+</div>
+
+
+</body>
 
 <div th:replace="fragments/footer :: footer"/>
 

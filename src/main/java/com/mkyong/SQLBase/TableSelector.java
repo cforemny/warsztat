@@ -43,6 +43,7 @@ public class TableSelector {
         return studentList;
     }
 
+    @SuppressWarnings("ThrowablePrintedToSystemOut")
     public List getDateTable(String tableName) {
 
         List<String> dateList = new ArrayList<String>();
@@ -84,6 +85,27 @@ public class TableSelector {
         }
         return paymentList;
     }
+
+    public List showTablesFromBase() {
+
+        List<String> tableList = new ArrayList<>();
+        try {
+            getConnection();
+            String query =  "show TABLES from warsztatyrobotow";
+            resultSet = statement.executeQuery(query);
+            resultSet.toString();
+
+            while (resultSet.next()) {
+                String tableName = resultSet.getString("Tables_in_warsztatyrobotow");
+                tableList.add(tableName);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return tableList;
+    }
+
 
 
     private void getConnection() throws ClassNotFoundException, SQLException {

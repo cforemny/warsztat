@@ -1,10 +1,18 @@
 package com.mkyong.controller;
 
+import com.mkyong.SQLBase.TableSelector;
+import com.mkyong.payment.paymentSummary.MonthSummary;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DefaultController {
+
+    @Autowired
+    TableSelector tableSelector;
+    @Autowired
+    MonthSummary monthSummary;
 
     @GetMapping("/")
     public String home1() {
@@ -16,10 +24,6 @@ public class DefaultController {
         return "/home";
     }
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "/admin";
-    }
 
     @GetMapping("/instruktor")
     public String user() {

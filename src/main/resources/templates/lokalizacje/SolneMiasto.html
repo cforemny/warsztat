@@ -28,6 +28,9 @@
             right: 10px;
             bottom: 10px;
         }
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
     </style>
     <script>
         function clearform() {
@@ -45,10 +48,16 @@
 <body>
 <div th:replace="fragments/header :: header"/>
 
-<img src="http://warsztatyrobotow.pl/img/logo.jpg"/>
-
-<h2>Solne Miasto</h2>
-
+<div class="well ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Solne Miasto</h1></p></td>
+        </tr>
+    </table>
+</div>
 <br/><br/>
 <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover text-center">
