@@ -20,18 +20,6 @@ public class MonthSummary {
     private Connection connection;
     private static final String REGEX = "-";
 
-
-//    public List getPaymentTables() {
-//
-//        List<String> tableList = tableSelector.showTablesFromBase();
-//        List<String> paymentTables = new ArrayList<>();
-//        for (String tableName : tableList) {
-//            if (tableName.contains("platnosci")) ;
-//            paymentTables.add(tableName);
-//        }
-//        return paymentTables;
-//    }
-
     public List getDataTables() {
 
         List<String> tableList = tableSelector.showTablesFromBase();
@@ -65,17 +53,29 @@ public class MonthSummary {
         return dataList;
     }
 
-    public Set prepareMonthButtonListForSite(){
+    public Set prepareYearSetForSite() {
 
         List<String> dataList = getDataList();
-        Set<String> dataSet = new TreeSet<String>();
+        Set<String> yearSet = new TreeSet<String>();
 
         for (String data : dataList) {
-           dataSet.add(switchMonthNumberToName(cutData(data)));
+            yearSet.add(cutDataYear(data));
         }
 
-        return dataSet;
+        return yearSet;
     }
+
+    public Map prepareButtons() {
+
+        Map<String, Set> monthAndYearMap = new HashMap();
+        Set<String> yearSet = prepareYearSetForSite();
+
+        for (String year : yearSet) {
+            monthAndYearMap.put(year, getMonthSetForYear(year));
+        }
+        return monthAndYearMap;
+    }
+
 
     private void getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -83,30 +83,48 @@ public class MonthSummary {
         statement = connection.createStatement();
     }
 
-    private String cutData (String data){
+    private String cutDataMonth(String data) {
 
         String[] splittedData = data.split(REGEX);
         return splittedData[1];
     }
 
-    private String switchMonthNumberToName(String numberOfMonth ){
+    private String cutDataYear(String data) {
 
-        switch (numberOfMonth){
+        String[] splittedData = data.split(REGEX);
+        return splittedData[0];
+    }
+
+    private Set getMonthSetForYear(String year) {
+
+        List<String> dataList = getDataList();
+        Set<String> monthSet = new TreeSet<>();
+        for (String data : dataList) {
+            if (data.contains(year)) {
+                monthSet.add(switchMonthNumberToName(cutDataMonth(data)));
+            }
+        }
+        return monthSet;
+    }
+
+    private String switchMonthNumberToName(String numberOfMonth) {
+
+        switch (numberOfMonth) {
             case "01":
                 return "Styczen";
-            case  "02":
+            case "02":
                 return "Luty";
-            case  "03":
+            case "03":
                 return "Marzec";
-            case  "04":
+            case "04":
                 return "Kwiecien";
-            case  "05":
+            case "05":
                 return "Maj";
-            case  "06":
+            case "06":
                 return "Czerwiec";
-            case  "07":
+            case "07":
                 return "Lipiec";
-            case  "08":
+            case "08":
                 return "Sierpień";
         }
         return "";
