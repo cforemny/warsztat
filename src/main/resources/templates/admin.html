@@ -32,7 +32,7 @@
         <li th:each="year: ${dataMap}">
             <div class="btn btn-danger" th:text="${year.key}"></div>
             <th:block th:each="month : ${year.value}">
-                <a th:href="@{${month}}"><button class="btn btn-info" type="button" th:text="${month}"></button></a>
+                <a th:href="@{${year.key}+${month}}"><button class="btn btn-info" type="button" th:text="${month}"></button></a>
                 &nbsp;</th:block>
             <br/><br/><br/>
         </li>

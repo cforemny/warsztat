@@ -11,7 +11,7 @@ import java.util.*;
  * Created by Cyprian on 2017-07-09.
  */
 @Component
-public class MonthSummary {
+public class NumberOfMonths {
 
     @Autowired
     TableSelector tableSelector;
@@ -20,7 +20,19 @@ public class MonthSummary {
     private Connection connection;
     private static final String REGEX = "-";
 
-    public List getDataTables() {
+
+    public Map prepareButtons() {
+
+        Map<String, Set> monthAndYearMap = new HashMap();
+        Set<String> yearSet = prepareYearSetForSite();
+
+        for (String year : yearSet) {
+            monthAndYearMap.put(year, getMonthSetForYear(year));
+        }
+        return monthAndYearMap;
+    }
+
+    private List getDataTables() {
 
         List<String> tableList = tableSelector.showTablesFromBase();
         List<String> dataTables = new ArrayList<>();
@@ -31,7 +43,7 @@ public class MonthSummary {
         return dataTables;
     }
 
-    public List getDataList() {
+    private List getDataList() {
 
         List dataList = new ArrayList<String>();
         try {
@@ -53,7 +65,7 @@ public class MonthSummary {
         return dataList;
     }
 
-    public Set prepareYearSetForSite() {
+    private Set prepareYearSetForSite() {
 
         List<String> dataList = getDataList();
         Set<String> yearSet = new TreeSet<String>();
@@ -64,18 +76,6 @@ public class MonthSummary {
 
         return yearSet;
     }
-
-    public Map prepareButtons() {
-
-        Map<String, Set> monthAndYearMap = new HashMap();
-        Set<String> yearSet = prepareYearSetForSite();
-
-        for (String year : yearSet) {
-            monthAndYearMap.put(year, getMonthSetForYear(year));
-        }
-        return monthAndYearMap;
-    }
-
 
     private void getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
