@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div class="container" th:fragment="ourLocationsSummary">
+    <div>
+        <table>
+            <tr>Wpływy z własnych lokalizacji</tr>
+            <tr>
+                <td>Przelew: <p th:text="${remittancePayment}"></p></td>
+            </tr>
+            <tr>
+                <td>Gotowka: <p th:text="${cashPayment}"></p></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

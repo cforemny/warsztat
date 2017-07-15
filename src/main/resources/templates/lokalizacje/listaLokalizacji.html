@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:student="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <meta charset="UTF-8"/>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:fragment="listaLokalizacji">
+<a th:href="@{/instruktor/SolneMiasto}">
+    <button class="btn btn-info" type="button">Solne Miasto</button>
+</a>
+<br/><br/>
+<a th:href="@{/instruktor/Swietokrzyska}">
+    <button class="btn btn-info" type="button">Świętokrzyska</button>
+</a>
+<br/><br/>
+<a th:href="@{/instruktor/Kampus}">
+    <button class="btn btn-info" type="button">Kampus Wielicki</button>
+</a>
+</div>
+</body>
+</html>

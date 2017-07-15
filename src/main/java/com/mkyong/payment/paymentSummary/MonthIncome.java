@@ -11,47 +11,80 @@ import java.util.List;
  */
 @Component
 public class MonthIncome {
-    private Connection connection;
 
-    private Statement statement;
+    private Connection connection;
+    private Statement statement = getConnection();
     private ResultSet resultSet;
 
+    public MonthIncome() throws SQLException, ClassNotFoundException {
+    }
 
-    public double getPaymentFromMonth(String date){
 
+    public int getCashFromLocations(String date) {
+
+        int cashPayment = 0;
         try {
-            getConnection();
             List<String> paymentTables = preapareTableList();
-            String year =  getYearForSummary(date);
+            String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
+            date = switchMonth(month);
             for (String paymentTable : paymentTables) {
-                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'";
+                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
+                        "AND data LIKE '%-" + date + "-%'";
                 resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String paymentType = resultSet.getString("typPlatnosci");
+                    String paymentValue = resultSet.getString("platnosc");
+                    if (paymentType.equals("T")) {
+                        cashPayment = cashPayment + Integer.parseInt(paymentValue);
+                    }
+                }
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return 0;
-
+        return cashPayment;
     }
 
+    public int getRemittamceFromLocations(String date) {
+        int remittancePayment = 0;
+        try {
+
+            List<String> paymentTables = preapareTableList();
+            String year = getYearForSummary(date);
+            String month = getMonthForSummary(date);
+
+            date = switchMonth(month);
+            for (String paymentTable : paymentTables) {
+                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
+                        "AND data LIKE '%-" + date + "-%'";
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String paymentType = resultSet.getString("typPlatnosci");
+                    String paymentValue = resultSet.getString("platnosc");
+                    if (paymentType.equals("N")) {
+                        remittancePayment = remittancePayment + +Integer.parseInt(paymentValue);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return remittancePayment;
+    }
 
     private String getYearForSummary(String date) {
         return date.substring(0, 4);
     }
 
     private String getMonthForSummary(String date) {
-        return date.substring(5, date.length()-1);
+        return date.substring(4, date.length());
     }
 
-
-    public List preapareTableList() {
+    private List preapareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
-            getConnection();
+
             String query = "show tables from warsztatyrobotow like '%platnosci%' ";
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
@@ -64,9 +97,40 @@ public class MonthIncome {
         return paymentTables;
     }
 
-    private void getConnection() throws ClassNotFoundException, SQLException {
+    private Statement getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/warsztatyrobotow?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-        statement = connection.createStatement();
+        return connection.createStatement();
+    }
+
+    private String switchMonth(String month) {
+
+        switch (month) {
+            case "Styczeń":
+                return "01";
+            case "Luty":
+                return "02";
+            case "Marzec":
+                return "03";
+            case "Kwiecień":
+                return "04";
+            case "Maj":
+                return "5";
+            case "Czerwiec":
+                return "06";
+            case "Lipiec":
+                return "07";
+            case "Sierpień":
+                return "08";
+            case "Wrzesień":
+                return "09";
+            case "Październik":
+                return "10";
+            case "Listopad":
+                return "11";
+            case "Grudzień":
+                return "12";
+        }
+        return "Zly miesiac";
     }
 }

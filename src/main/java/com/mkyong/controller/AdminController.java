@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.security.acl.Owner;
+
 /**
  * Created by Cyprian on 2017-07-09.
  */
@@ -17,30 +19,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 public class AdminController {
 
-    @Autowired
-    private TableSelector tableSelector;
+
     @Autowired
     NumberOfMonths numerofmonths;
     @Autowired
     MonthIncome monthIncome;
 
+
     @GetMapping("/admin")
     public String admin(Model model) {
-        monthIncome.preapareTableList();
-
         model.addAttribute("dataMap", numerofmonths.prepareButtons());
         return "admin";
     }
 
-    @GetMapping("/{month}")
-    public String getMonth(@PathVariable("month") String napis, Model model) {
+    @GetMapping("/admin/{month}")
+    public String getMonth(@PathVariable("month") String data, Model model) {
 
-        monthIncome.getPaymentFromMonth(napis);
+        monthIncome.getCashFromLocations(data);
         model.addAttribute("dataMap", numerofmonths.prepareButtons());
-        String nowyNapis = napis +" przrobiony na maksa";
-        model.addAttribute("napis",nowyNapis);
+        model.addAttribute("remittancePayment", monthIncome.getRemittamceFromLocations(data));
+        model.addAttribute("cashPayment", monthIncome.getCashFromLocations(data));
 
         return "/admin";
     }
+
+
 
 }

@@ -14,6 +14,11 @@
         td.odstepy {
             padding: 0px 5px 0px 150px;
         }
+        .jumbotron {
+            padding: 0.2em 0.3em;
+        }
+
+
     </style>
 </head>
 <body>
@@ -32,13 +37,20 @@
         <li th:each="year: ${dataMap}">
             <div class="btn btn-danger" th:text="${year.key}"></div>
             <th:block th:each="month : ${year.value}">
-                <a th:href="@{${year.key}+${month}}"><button class="btn btn-info" type="button" th:text="${month}"></button></a>
+                <a th:href="${'admin/'}+${year.key}+${month}"><button class="btn btn-info" type="button" th:text="${month}"></button></a>
                 &nbsp;</th:block>
             <br/><br/><br/>
         </li>
 </div>
-<div class="btn btn-danger" th:text="${napis}"></div>
+<div class="container" >
+<th:block th:if="${month} != null">
+    <div class="jumbotron" style="background-color: #4682B4;">
+        <p th:text="${month}"></p>
+    </div>
+    <div th:replace="paymentSummaryFragments/ourLocationsSummary :: ourLocationsSummary"/>
 
+</th:block>
+</div>
 
 <div th:replace="fragments/footer :: footer"/>
 </body>

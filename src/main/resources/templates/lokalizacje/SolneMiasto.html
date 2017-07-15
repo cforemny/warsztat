@@ -1,19 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:student="http://www.w3.org/1999/xhtml" xmlns:padding-left="http://www.w3.org/1999/xhtml"
-      xmlns:padding-bottom="http://www.w3.org/1999/xhtml">
+      xmlns:student="http://www.w3.org/1999/xhtml"
+>
 <head>
 
     <title>Panel instruktora</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/webjars/jquery/jquery.min.js"/>
-    <script src="/static/app.js"/>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <div th:replace="fragments/header :: header-css"/>
     <style>
         p.T {
             background-color: greenyellow;
@@ -22,7 +14,6 @@
         p.N {
             background-color: orangered;
         }
-
         footer {
             position: absolute;
             right: 10px;
@@ -31,6 +22,7 @@
         .well {
             background-color: rgba(200, 245, 255, 0.5);
         }
+
         td.odstepy {
             padding: 0px 5px 0px 150px;
         }
@@ -46,7 +38,6 @@
             document.getElementById("id").value = "";
         }
     </script>
-
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>

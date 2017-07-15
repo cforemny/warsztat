@@ -24,12 +24,6 @@ public class DefaultController {
         return "/home";
     }
 
-
-    @GetMapping("/instruktor")
-    public String user() {
-        return "/instruktor";
-    }
-
     @GetMapping("/about")
     public String about() {
         return "/about";

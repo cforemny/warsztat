@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:fragment="listaPrzedszkoli">
+    <ul class="nav nav-pills">
+
+        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Bajka Skośna</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Bajka Lubostroń</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Przedszkole Panda</a></li>
+    </ul>
+
+    <div id="tabelaPrzedszkola">
+        Ten div sie uzupelni dynamiczne jak wcisne jakies przedszkole np.
+        <th:block th:text="${zawartosc}"></th:block>
+    </div>
+</div>
+
+</body>
+</html>
