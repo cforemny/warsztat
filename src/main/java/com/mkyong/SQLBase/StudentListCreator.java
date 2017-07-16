@@ -1,5 +1,6 @@
-package com.mkyong.StudentsList;
+package com.mkyong.SQLBase;
 
+import com.mkyong.StudentsList.Student;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
