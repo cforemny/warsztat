@@ -25,7 +25,7 @@ public class InstruktorController {
         String zawartosc = "jakas zawartosc z kontrolera";
         model.addAttribute("zawartosc", zawartosc);
         model.addAttribute("expense", new Expense());
-        return "/instruktor";
+                return "/instruktor";
     }
 
     @PostMapping("/dodajWydatek")

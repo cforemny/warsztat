@@ -1,5 +1,6 @@
 package com.mkyong.payment.paymentSummary;
 
+import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by Cyprian on 2017-07-11.
  */
 @Component
-public class MonthIncome {
+public class MonthIncome extends Summary {
 
     private Connection connection;
     private Statement statement = getConnection();
@@ -73,14 +74,6 @@ public class MonthIncome {
         return remittancePayment;
     }
 
-    private String getYearForSummary(String date) {
-        return date.substring(0, 4);
-    }
-
-    private String getMonthForSummary(String date) {
-        return date.substring(4, date.length());
-    }
-
     private List preapareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
@@ -95,42 +88,5 @@ public class MonthIncome {
             e.printStackTrace();
         }
         return paymentTables;
-    }
-
-    private Statement getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/warsztatyrobotow?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-        return connection.createStatement();
-    }
-
-    private String switchMonth(String month) {
-
-        switch (month) {
-            case "Styczeń":
-                return "01";
-            case "Luty":
-                return "02";
-            case "Marzec":
-                return "03";
-            case "Kwiecień":
-                return "04";
-            case "Maj":
-                return "5";
-            case "Czerwiec":
-                return "06";
-            case "Lipiec":
-                return "07";
-            case "Sierpień":
-                return "08";
-            case "Wrzesień":
-                return "09";
-            case "Październik":
-                return "10";
-            case "Listopad":
-                return "11";
-            case "Grudzień":
-                return "12";
-        }
-        return "Zly miesiac";
     }
 }
