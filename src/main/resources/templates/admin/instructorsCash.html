@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div class="container" th:fragment="cashFromInstrutors">
+    Gotówka u instruktorów:
+    <table>
+        <tr th:each="instructor : ${instructorsCashMap}">
+              <td style="text-align: center; width: 50%;" th:text="${instructor.key} +'  zł'"></td>
+              <td style="text-align: center; width: 50%;" th:text="${instructor.value} +'  zł'"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

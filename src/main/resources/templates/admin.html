@@ -47,9 +47,10 @@
     <div class="jumbotron" style="background-color: #4682B4;">
         <p th:text="${month}"></p>
     </div>
-    <div th:replace="paymentSummaryFragments/ourLocationsSummary :: ourLocationsSummary"/>
-
+    <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
+    <div th:replace="admin/instructorsCash :: cashFromInstrutors"/>
 </th:block>
+
 </div>
 
 <div th:replace="fragments/footer :: footer"/>

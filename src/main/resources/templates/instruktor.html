@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Panel instruktora</title>
     <div th:replace="fragments/header :: header-css"/>
-     <style>
+    <style>
         footer {
             position: absolute;
             right: 10px;
             bottom: 10px;
         }
         body {
-            background: url("http://cache.lego.com/r/ldd/-/media/digital%20designer/subpages/mindstorms/mindstorms%20robot.png?l.r2=1612758670")
-            no-repeat fixed 98% 95%;
+            background: url("http://cache.lego.com/r/ldd/-/media/digital%20designer/subpages/mindstorms/mindstorms%20robot.png?l.r2=1612758670") no-repeat fixed 98% 95%;
         }
+
         .well {
             background-color: rgba(200, 245, 255, 0.5);
         }
@@ -20,7 +20,7 @@
             padding: 0px 5px 0px 150px;
         }
     </style>
-</head>
+    </head>
 <body>
 
 <div th:replace="fragments/header :: header"/>
@@ -35,9 +35,10 @@
         </tr>
     </table>
 </div>
-<div th:replace="fragments/instruktorPanel :: instruktorPanel"/>
+<div th:replace="instruktor/instruktorPanel :: instruktorPanel"/>
 
 <div th:replace="fragments/footer :: footer"/>
+
 
 </body>
 </html>

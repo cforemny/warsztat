@@ -4,8 +4,7 @@ import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Cyprian on 2017-07-11.
@@ -20,60 +19,56 @@ public class MonthIncome extends Summary {
     public MonthIncome() throws SQLException, ClassNotFoundException {
     }
 
+    public Map getCashPerInstrutor(String date){
+        Map<String, Double> instructorsCash = new HashMap<>();
 
-    public int getCashFromLocations(String date) {
+        try {
+            String year = getYearForSummary(date);
+            String month = getMonthForSummary(date);
+            String monthNumber = switchMonth(month);
+            getConnection();
+            String query = "SELECT SUM(kwota), instruktor FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
+            "AND data LIKE '%-" + monthNumber + "-%'"  +  "GROUP BY instruktor";
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()){
+                String instructor = resultSet.getString("instruktor");
+                String value = resultSet.getString("SUM(kwota)");
+                instructorsCash.put(instructor, Double.parseDouble(value));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return instructorsCash;
+    }
+    
+    public int getPaymentFromLocations(String date, String isCash) {
 
-        int cashPayment = 0;
+        int payment = 0;
         try {
             List<String> paymentTables = preapareTableList();
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
-            date = switchMonth(month);
+            String monthNumber = switchMonth(month);
             for (String paymentTable : paymentTables) {
                 String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
-                        "AND data LIKE '%-" + date + "-%'";
+                        "AND data LIKE '%-" + monthNumber + "-%'";
                 resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
                     String paymentType = resultSet.getString("typPlatnosci");
                     String paymentValue = resultSet.getString("platnosc");
-                    if (paymentType.equals("T")) {
-                        cashPayment = cashPayment + Integer.parseInt(paymentValue);
+                    if (paymentType.equals(isCash)) {
+                        payment = payment + Integer.parseInt(paymentValue);
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return cashPayment;
+        return payment;
     }
-
-    public int getRemittamceFromLocations(String date) {
-        int remittancePayment = 0;
-        try {
-
-            List<String> paymentTables = preapareTableList();
-            String year = getYearForSummary(date);
-            String month = getMonthForSummary(date);
-
-            date = switchMonth(month);
-            for (String paymentTable : paymentTables) {
-                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
-                        "AND data LIKE '%-" + date + "-%'";
-                resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    String paymentType = resultSet.getString("typPlatnosci");
-                    String paymentValue = resultSet.getString("platnosc");
-                    if (paymentType.equals("N")) {
-                        remittancePayment = remittancePayment + +Integer.parseInt(paymentValue);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return remittancePayment;
-    }
-
+    
     private List preapareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {

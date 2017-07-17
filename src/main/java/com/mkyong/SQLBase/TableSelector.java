@@ -1,7 +1,7 @@
 package com.mkyong.SQLBase;
 
 import com.mkyong.StudentsList.Student;
-import com.mkyong.payment.Payment;
+import com.mkyong.payment.paymentSummary.Payment;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

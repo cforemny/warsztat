@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * Created by Cyprian on 2017-07-16.
@@ -40,5 +41,6 @@ public class MonthExpense extends Summary {
         }
         return expense;
     }
+
 
 }

@@ -1,6 +1,6 @@
 package com.mkyong.SQLBase;
 
-import com.mkyong.payment.Expense;
+import com.mkyong.payment.expenseSummary.Expense;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

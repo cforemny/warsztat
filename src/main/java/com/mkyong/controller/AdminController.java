@@ -8,13 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by Cyprian on 2017-07-09.
  */
 
 @Controller
-
+@RequestMapping("/admin")
 public class AdminController {
 
 
@@ -25,20 +26,26 @@ public class AdminController {
     @Autowired
     MonthExpense monthExpense;
 
-    @GetMapping("/admin")
+    @GetMapping("")
     public String admin(Model model) {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         return "admin";
     }
 
-    @GetMapping("/admin/{month}")
+    @GetMapping("/{month}")
     public String getMonth(@PathVariable("month") String data, Model model) {
-
 
         model.addAttribute("instructorExpense",monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
-        model.addAttribute("remittancePayment", monthIncome.getRemittamceFromLocations(data));
-        model.addAttribute("cashPayment", monthIncome.getCashFromLocations(data));
+        model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
+        model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
+        model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstrutor(data));
+
+        return "/admin";
+    }
+
+    @GetMapping("/dodajKosztStaly")
+    public String addPermanentExpense(Model model){
 
         return "/admin";
     }

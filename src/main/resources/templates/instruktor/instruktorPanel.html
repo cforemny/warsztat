@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Panel instruktora</title>
-    <link rel="stylesheet" type="text/css" href="/main.css"/>
-</head>
+   </head>
 <body>
 
 <div class="container" th:fragment="instruktorPanel">
@@ -13,23 +12,29 @@
         <li><a data-toggle="pill" class="btn btn-danger" href="#przedszkola">Przedszkola</a></li>
         <li><a data-toggle="pill" class="btn btn-success" href="#eventy">Zajęcia jednorazowe</a></li>
         <li><a data-toggle="pill" class="btn btn-warning" href="#wydatki">Wydatki</a></li>
+        <li><a data-toggle="pill" class="btn btn-default" href="#odbioryGotowki">Gotówka</a></li>
     </ul>
     <br/>
     <div class="tab-content">
         <div class="tab-pane fade in active" id="naszeLokalizacje">
-            <div th:replace="lokalizacje/listaLokalizacji :: listaLokalizacji"/>
+            <div th:replace="instruktor/listaLokalizacji :: listaLokalizacji"/>
         </div>
         <div class="tab-pane fade" id="przedszkola">
-            <div th:replace="przedszkola/listaPrzedszkoli :: listaPrzedszkoli"/>
+            <div th:replace="instruktor/listaPrzedszkoli :: listaPrzedszkoli"/>
         </div>
         <div class="tab-pane fade" id="eventy">
 
         </div>
         <div class="tab-pane fade" id="wydatki">
-            <div th:replace="wydatki/wydatki :: wydatki"/>
+            <div th:replace="instruktor/wydatki :: wydatki"/>
+        </div>
+        <div class="tab-pane fade" id="odbioryGotowki">
+            <div th:replace="instruktor/odbioryGotowki :: odbiorGotowki"></div>
         </div>
 
     </div>
 </div>
+
+
 </body>
 </html>

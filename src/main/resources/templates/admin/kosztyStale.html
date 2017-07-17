@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:fragment="kosztyStale">
+
+    <form action="#" th:action="@{/instruktor/dodajKosztStaly}" th:object="${expense}" method="post">
+        <input size="3" name="value" type="text" th:field="*{expenseValue}" placeholder="Kwota"/>
+        <input size="35" name="target" type="text" th:field="*{expenseType}" placeholder="Rodzaj kosztu"/>
+        <input type="submit" class="btn btn-primary" value="Dodaj wydatek"/>
+    </form>
+
+
+</div>
+
+</body>
+</html>
