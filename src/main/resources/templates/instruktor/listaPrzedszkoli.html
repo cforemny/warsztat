@@ -4,27 +4,23 @@
 <head>
     <meta charset="UTF-8"/>
     <div th:replace="fragments/header :: header-css"/>
-    <script>
-        function przypiszCene(przedszkole) {
-
-        }
-    </script>
 </head>
 <body>
 <div th:fragment="listaPrzedszkoli">
 
-    <form action="#" th:action="@{/instruktor/obecnoscWPrzedszkolu}" method="post">
-        <select id="listaPrzedszkoli" style="width: 200px" class="form-control">
-            <option>=Wybierz przedszkole=</option>
-            <option>Bajka Skośna</option>
-            <option>Bajka Lubostroń</option>
-            <option>Lenkowo</option>
-            <option>Bułgarska</option>
-            <option>Lipińskiego</option>
+    <form action="#" th:action="@{/instruktor/obecnoscWPrzedszkolu}" th:object="${nurserySchool}" method="post">
+        <select  style="width: 200px" class="form-control" th:field="*{name}">
+            <option th:value="default">=Wybierz przedszkole=</option>
+            <option id="skosna" th:value="skosna">Bajka Skośna</option>
+            <option th:value="lubostron">Bajka Lubostroń</option>
+            <option th:value="lenkowo">Lenkowo</option>
+            <option th:value="bulgarska">Bułgarska</option>
+            <option th:value="lipinskiego">Lipińskiego</option>
         </select>
-        <input size="10" name="value" type="text" placeholder="Liczba dzieci"/>
-        <input size="15" name="date" type="text" placeholder="Data"/>
-        <input type="submit" class="btn btn-primary" value="Zatwierdź zajęcia"/>
+        <input size="10" name="number" th:field="*{numberOfChildren}" type="text" placeholder="Liczba dzieci"/>
+        <input size="15" th:field="*{date}" type="text" placeholder="Data"/>
+        <input size="5"  name="value" th:field="*{value}" type="text" placeholder="Cena"/>
+        <input type="submit" th:field="*{value}" class="btn btn-primary" value="Zatwierdź zajęcia"/>
 
     </form>
 
