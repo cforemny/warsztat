@@ -43,28 +43,28 @@ public class SolneMiastoController {
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/SolneMiasto";
+        return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/SolneMiasto";
+        return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
         studentListCreator.addNewDate("datysolnemiasto", courseDate.getCurrentDate());
         preapreSiteObjects(model);
-        return "/lokalizacje/SolneMiasto";
+        return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.addNewPayment("platnosciSolneMiasto", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
+        studentListCreator.addNewPayment("platnoscisolnemiasto", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         preapreSiteObjects(model);
-        return "/lokalizacje/SolneMiasto";
+        return "lokalizacje/SolneMiasto";
     }
 
     @GetMapping("naszeLokalizacje")
@@ -78,7 +78,7 @@ public class SolneMiastoController {
     private void preapreSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
         model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto"));
-        model.addAttribute("paymentList", tableSelector.getPaymentList("platnosciSolneMiasto"));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscisolnemiasto"));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());

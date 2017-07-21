@@ -30,18 +30,23 @@ public class InstruktorController {
         model.addAttribute("zawartosc", zawartosc);
         model.addAttribute("expense", new Expense());
         model.addAttribute("cashCollection", new CashCollection());
-                return "/instruktor";
+                return "instruktor";
     }
 
     @PostMapping("/dodajWydatek")
     public String addExpense(@ModelAttribute Expense expense, Model model){
         expenseCreator.insertExpenseToTable(expense);
-        return "/instruktor";
+        return "instruktor";
     }
     @PostMapping("/odbioryGotowki")
     public String getInstructorPayment(@ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense, Model model){
         cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
-        return "/instruktor";
+        return "instruktor";
+    }
+    @PostMapping("/obecnoscWPrzedszkolu")
+    public String countKidsInPreSchool(Model model){
+
+        return "instruktor";
     }
 
 }

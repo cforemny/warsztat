@@ -43,28 +43,28 @@ public class KampusController {
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/Kampus";
+        return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/Kampus";
+        return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
         studentListCreator.addNewDate("datykampus", courseDate.getCurrentDate());
         preapreSiteObjects(model);
-        return "/lokalizacje/Kampus";
+        return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
         studentListCreator.addNewPayment("platnoscikampus", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         preapreSiteObjects(model);
-        return "/lokalizacje/Kampus";
+        return "lokalizacje/Kampus";
     }
 
     private String currentTable(String adress) {

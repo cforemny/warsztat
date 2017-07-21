@@ -20,11 +20,11 @@ public class AdminController {
 
 
     @Autowired
-    NumberOfMonths numberOfMonths;
+    private NumberOfMonths numberOfMonths;
     @Autowired
-    MonthIncome monthIncome;
+    private MonthIncome monthIncome;
     @Autowired
-    MonthExpense monthExpense;
+    private MonthExpense monthExpense;
 
     @GetMapping("")
     public String admin(Model model) {
@@ -41,13 +41,13 @@ public class AdminController {
         model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
         model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstrutor(data));
 
-        return "/admin";
+        return "admin";
     }
 
     @GetMapping("/dodajKosztStaly")
     public String addPermanentExpense(Model model){
 
-        return "/admin";
+        return "admin";
     }
 
 

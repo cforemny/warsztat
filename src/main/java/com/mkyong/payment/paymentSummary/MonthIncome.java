@@ -9,10 +9,10 @@ import java.util.*;
 /**
  * Created by Cyprian on 2017-07-11.
  */
+
 @Component
 public class MonthIncome extends Summary {
 
-    private Connection connection;
     private Statement statement = getConnection();
     private ResultSet resultSet;
 
@@ -73,10 +73,10 @@ public class MonthIncome extends Summary {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
 
-            String query = "show tables from warsztatyrobotow like '%platnosci%' ";
+            String query = "show tables from cfrobotics like '%platnosci%' ";
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                String tableName = resultSet.getString("Tables_in_warsztatyrobotow (%platnosci%)");
+                String tableName = resultSet.getString("Tables_in_cfrobotics (%platnosci%)");
                 paymentTables.add(tableName);
             }
         } catch (Exception e) {

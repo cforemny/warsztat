@@ -4,20 +4,30 @@
 <head>
     <meta charset="UTF-8"/>
     <div th:replace="fragments/header :: header-css"/>
-  </head>
+    <script>
+        function przypiszCene(przedszkole) {
+
+        }
+    </script>
+</head>
 <body>
 <div th:fragment="listaPrzedszkoli">
-    <ul class="nav nav-pills">
 
-        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Bajka Skośna</a></li>
-        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Bajka Lubostroń</a></li>
-        <li><a data-toggle="pill" class="btn btn-danger" href="#tabelaPrzedszkola">Przedszkole Panda</a></li>
-    </ul>
+    <form action="#" th:action="@{/instruktor/obecnoscWPrzedszkolu}" method="post">
+        <select id="listaPrzedszkoli" style="width: 200px" class="form-control">
+            <option>=Wybierz przedszkole=</option>
+            <option>Bajka Skośna</option>
+            <option>Bajka Lubostroń</option>
+            <option>Lenkowo</option>
+            <option>Bułgarska</option>
+            <option>Lipińskiego</option>
+        </select>
+        <input size="10" name="value" type="text" placeholder="Liczba dzieci"/>
+        <input size="15" name="date" type="text" placeholder="Data"/>
+        <input type="submit" class="btn btn-primary" value="Zatwierdź zajęcia"/>
 
-    <div id="tabelaPrzedszkola">
-        Ten div sie uzupelni dynamiczne jak wcisne jakies przedszkole np.
-        <th:block th:text="${zawartosc}"></th:block>
-    </div>
+    </form>
+
 </div>
 
 </body>

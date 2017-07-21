@@ -43,28 +43,28 @@ public class SwietokrzyskaController {
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/Swietokrzyska";
+        return "lokalizacje/Swietokrzyska";
     }
 
     @PostMapping("Swietokrzyska/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
         preapreSiteObjects(model);
-        return "/lokalizacje/Swietokrzyska";
+        return "lokalizacje/Swietokrzyska";
     }
 
     @PostMapping("Swietokrzyska/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
         studentListCreator.addNewDate("datyswietokrzyska", courseDate.getCurrentDate());
         preapreSiteObjects(model);
-        return "/lokalizacje/Swietokrzyska";
+        return "lokalizacje/Swietokrzyska";
     }
 
     @PostMapping("Swietokrzyska/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
         studentListCreator.addNewPayment("platnosciswietokrzyska", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         preapreSiteObjects(model);
-        return "/lokalizacje/Swietokrzyska";
+        return "lokalizacje/Swietokrzyska";
     }
 
     private String currentTable(String adress) {

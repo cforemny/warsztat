@@ -1,13 +1,9 @@
 package com.mkyong.payment.paymentSummary;
 
-import com.mkyong.payment.Summary;
-
-import java.sql.SQLException;
-
 /**
  * Created by Cyprian on 2017-07-16.
  */
-public class CashCollection  {
+public class CashCollection {
 
     private String instructor;
     private String value;
@@ -15,7 +11,7 @@ public class CashCollection  {
     private String location;
 
 
-    public CashCollection(){
+    public CashCollection() {
     }
 
     public CashCollection(String instructor, String value, String date, String location) {

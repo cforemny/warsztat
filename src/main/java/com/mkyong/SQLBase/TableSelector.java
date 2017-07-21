@@ -91,12 +91,12 @@ public class TableSelector {
         List<String> tableList = new ArrayList<>();
         try {
             getConnection();
-            String query =  "show TABLES from warsztatyrobotow";
+            String query =  "show TABLES from cfrobotics";
             resultSet = statement.executeQuery(query);
             resultSet.toString();
 
             while (resultSet.next()) {
-                String tableName = resultSet.getString("Tables_in_warsztatyrobotow");
+                String tableName = resultSet.getString("Tables_in_cfrobotics");
                 tableList.add(tableName);
             }
 
@@ -108,7 +108,7 @@ public class TableSelector {
 
     private void getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/warsztatyrobotow?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+        connection = DriverManager.getConnection("jdbc:mysql:// cfrobotics.nazwa.pl:3306/cfrobotics?useLegacyDatetimeCode=false&serverTimezone=UTC", "cfrobotics", "cfRoB0T!C$");
         statement = connection.createStatement();
     }
 }

@@ -9,10 +9,6 @@
 <div th:fragment="wydatki">
 
     <form action="#" th:action="@{/instruktor/dodajWydatek}" th:object="${expense}" method="post">
-        <input size="3" name="value" type="text" th:field="*{expenseValue}" placeholder="Kwota"/>
-        <input size="35" name="target" type="text" th:field="*{expenseType}" placeholder="Cel"/>
-        <input size="15" name="date" type="text" th:field="*{expenseData}" placeholder="Data"/>
-        <input type="submit" class="btn btn-primary" value="Dodaj wydatek"/>
         <select style="width: 200px" class="form-control" th:field="*{expenseInstructor}">
             <option th:value="default">=Instruktor=</option>
             <option th:value="Aska">Joanna Cichon</option>
@@ -21,6 +17,11 @@
             <option th:value="Cyprian">Cyprian Foremny</option>
             <option th:value="Kuba">Jakub Zagorowski</option>
         </select>
+        <input size="3" name="value" type="text" th:field="*{expenseValue}" placeholder="Kwota"/>
+        <input size="35" name="target" type="text" th:field="*{expenseType}" placeholder="Cel"/>
+        <input size="15" name="date" type="text" th:field="*{expenseData}" placeholder="Data"/>
+        <input type="submit" class="btn btn-primary" value="Dodaj wydatek"/>
+
     </form>
 
 </div>
