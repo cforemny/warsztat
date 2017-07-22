@@ -24,7 +24,7 @@
             <div th:replace="instruktor/listaPrzedszkoli :: listaPrzedszkoli"/>
         </div>
         <div class="tab-pane fade" id="eventy">
-
+            <div th:replace="instruktor/eventy :: eventy"/>
         </div>
         <div class="tab-pane fade" id="wydatki">
             <div th:replace="instruktor/wydatki :: wydatki"/>
@@ -50,6 +50,10 @@
                 dateFormat: 'yy-mm-dd'
             });
             $('#datepicker2').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker3').datepicker({
                 minDate: new Date(currentYear, currentMonth, currentDate),
                 dateFormat: 'yy-mm-dd'
             });

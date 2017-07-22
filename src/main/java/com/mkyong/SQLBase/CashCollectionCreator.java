@@ -1,7 +1,7 @@
 package com.mkyong.SQLBase;
 
 import com.mkyong.payment.Summary;
-import com.mkyong.payment.paymentSummary.CashCollection;
+import com.mkyong.utils.CashCollection;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -24,6 +24,13 @@ public class CashCollectionCreator extends Summary {
             getConnection().execute(query);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

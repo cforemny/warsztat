@@ -22,7 +22,24 @@
         <input size="15" id="datepicker1" name="date" type="text" placeholder="Data" th:field="*{date}"/>
         <input type="submit" class="btn btn-primary" value="Dodaj odbiór gotówki"/>
     </form>
-
+    <br/><br/><br/>
+    <div>
+        <table class="table table-bordered table-condensed table-hover text-center">
+            <tr><b>Odbiory gotowki w tym miesiącu:</b><br/></tr>
+            <tr>
+                <td>Instruktoru</td>
+                <td>Kwota</td>
+                <td>Data</td>
+                <td>Skąd odebrano</td>
+            </tr>
+            <tr th:each="cash : ${cashCollectionList} ">
+                <td th:text="${cash.instructor}"></td>
+                <td th:text="${cash.value}"></td>
+                <td th:text="${cash.date}"></td>
+                <td th:text="${cash.location}"></td>
+            </tr>
+        </table>
+    </div>
 
 </div>
 

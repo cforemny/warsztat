@@ -1,6 +1,6 @@
 package com.mkyong.SQLBase;
 
-import com.mkyong.StudentsList.Student;
+import com.mkyong.utils.Student;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -64,7 +64,7 @@ public class StudentListCreator {
     }
 
 
-    public void addNewPayment(String tableName, int paymentValue, String studentId, String date, char typPlatnosci) {
+    public void addNewPayment(String tableName, double paymentValue, String studentId, String date, char typPlatnosci) {
 
 
         try {

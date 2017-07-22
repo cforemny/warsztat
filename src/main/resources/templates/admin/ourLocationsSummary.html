@@ -8,16 +8,25 @@
 
 <div class="container" th:fragment="ourLocationsSummary">
     <div>
-        <table>
-            <tr>Wpływy z własnych lokalizacji</tr>
+        <table class="table">
             <tr>
-                <td>Przelew: <p th:text="${remittancePayment}"></p></td>
+                <td>Wpływy z własnych lokalizacji:
+
+                <p th:text=" 'Przelew:&nbsp;' + ${remittancePayment} + '&nbsp;zł' + '&nbsp;Gotówka:&nbsp;' + ${cashPayment} + '&nbsp;zł' "></p></td>
             </tr>
             <tr>
-                <td>Gotowka: <p th:text="${cashPayment}"></p></td>
+                <td>Wpływy z przedszkoli:
+                <p th:text="${nurserySchoolIncome} + 'zł'"></p></td>
             </tr>
             <tr>
-                <td>Wydatki instruktorow: <p th:text="${instructorExpense}"></p></td>
+                <td>Wpływy z zajęć jednorazowych:
+                <p th:text="${eventsIncome} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <td>Wydatki instruktorow: <p th:text="${instructorExpense} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <div th:replace="admin/instructorsCash :: cashFromInstrutors"/>
             </tr>
         </table>
     </div>

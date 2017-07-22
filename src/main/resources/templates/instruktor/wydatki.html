@@ -22,6 +22,24 @@
         <input size="15" id="datepicker2" name="date" type="text" th:field="*{expenseData}" placeholder="Data"/>
         <input type="submit" class="btn btn-primary" value="Dodaj wydatek"/>
     </form>
+    <br/><br/><br/>
+    <div>
+        <table class="table table-bordered table-condensed table-hover text-center">
+            <tr><b>Wydatki w tym miesiącu:</b><br/></tr>
+            <tr>
+                <td>Typ wydatku</td>
+                <td>Cena</td>
+                <td>Data</td>
+                <td>Instruktor</td>
+            </tr>
+            <tr th:each="expense : ${expenseList} ">
+                <td th:text="${expense.expenseType}"></td>
+                <td th:text="${expense.expenseValue}"></td>
+                <td th:text="${expense.expenseData}"></td>
+                <td th:text="${expense.expenseInstructor}"></td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 </html>

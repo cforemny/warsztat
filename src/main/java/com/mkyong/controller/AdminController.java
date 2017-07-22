@@ -1,8 +1,11 @@
 package com.mkyong.controller;
 
 import com.mkyong.payment.expenseSummary.MonthExpense;
+import com.mkyong.payment.paymentSummary.EventSummary;
 import com.mkyong.payment.paymentSummary.MonthIncome;
 import com.mkyong.payment.paymentSummary.NumberOfMonths;
+import com.mkyong.payment.paymentSummary.NurserySchoolSummary;
+import com.mkyong.utils.NurserySchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +28,10 @@ public class AdminController {
     private MonthIncome monthIncome;
     @Autowired
     private MonthExpense monthExpense;
+    @Autowired
+    private NurserySchoolSummary nurserySchoolSummary;
+    @Autowired
+    private EventSummary eventSummary;
 
     @GetMapping("")
     public String admin(Model model) {
@@ -40,6 +47,8 @@ public class AdminController {
         model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
         model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
         model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstrutor(data));
+        model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
+        model.addAttribute("eventsIncome", eventSummary.getIncomFromEvent(data));
 
         return "admin";
     }

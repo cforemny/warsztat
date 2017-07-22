@@ -43,6 +43,12 @@ public class MonthIncome extends Summary {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return instructorsCash;
     }
@@ -70,6 +76,12 @@ public class MonthIncome extends Summary {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return payment;
     }
@@ -86,6 +98,12 @@ public class MonthIncome extends Summary {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return paymentTables;
     }

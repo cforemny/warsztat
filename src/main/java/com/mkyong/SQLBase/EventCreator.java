@@ -1,6 +1,6 @@
 package com.mkyong.SQLBase;
 
-import com.mkyong.utils.Expense;
+import com.mkyong.utils.Event;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -9,28 +9,33 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by Cyprian on 2017-07-16.
+ * Created by Cyprian on 2017-07-22.
  */
 @Component
-public class ExpenseCreator {
+public class EventCreator {
 
     private Connection connection;
     private Statement statement;
 
 
-    public ExpenseCreator() throws SQLException, ClassNotFoundException {
+    public EventCreator() throws SQLException, ClassNotFoundException {
     }
 
-    public void insertExpenseToTable(Expense expense) {
+    public void insertNewEventToTable(Event event) {
 
-        String query = "INSERT INTO wydatkiinstruktorow (instruktor, opisWydatku,kwota,data) VALUES ('" + expense.getExpenseInstructor() + "','" +
-                expense.getExpenseType() + "'," + expense.getExpenseValue() + ",'" + expense.getExpenseData() + "')";
+        String query = "INSERT INTO eventy (data, rodzajeventu,cena,faktura) VALUES ('" + event.getDate() + "','" +
+                event.getEventType() + "'," + event.getValue() + ",'" + event.getFaktura() + "')";
         try {
             getConnection();
             statement.execute(query);
-            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -44,5 +49,4 @@ public class ExpenseCreator {
         }
 
     }
-
 }

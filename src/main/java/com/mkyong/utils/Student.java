@@ -1,4 +1,4 @@
-package com.mkyong.StudentsList;
+package com.mkyong.utils;
 
 /**
  * Created by Cyprian on 2017-06-04.

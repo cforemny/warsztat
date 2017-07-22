@@ -1,6 +1,6 @@
 package com.mkyong.SQLBase;
 
-import com.mkyong.StudentsList.NurserySchool;
+import com.mkyong.utils.NurserySchool;
 import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +26,12 @@ public class PreSchoolCreator extends Summary {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.mkyong.payment.expenseSummary;
+package com.mkyong.utils;
 
 /**
  * Created by Cyprian on 2017-07-16.

@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Cyprian on 2017-07-16.
@@ -24,11 +27,16 @@ public class Summary {
         return date.substring(4, date.length());
     }
 
+    public String getActualMonthForSummary(String date) {
+        return  date.substring(5, 7);
+    }
+
     public Statement getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql:// cfrobotics.nazwa.pl:3306/cfrobotics?useLegacyDatetimeCode=false&serverTimezone=UTC", "cfrobotics", "cfRoB0T!C$");
         return connection.createStatement();
     }
+
 
     public String switchMonth(String month) {
         switch (month) {
