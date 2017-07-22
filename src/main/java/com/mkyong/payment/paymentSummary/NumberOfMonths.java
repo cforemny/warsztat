@@ -14,13 +14,12 @@ import java.util.*;
 @Component
 public class NumberOfMonths {
 
+    private static final String REGEX = "-";
     @Autowired
     private TableSelector tableSelector;
     private Statement statement;
     private ResultSet resultSet;
     private Connection connection;
-    private static final String REGEX = "-";
-
 
     public Map prepareButtons() {
 

@@ -91,7 +91,7 @@ public class TableSelector {
         List<String> tableList = new ArrayList<>();
         try {
             getConnection();
-            String query =  "show TABLES from cfrobotics";
+            String query = "show TABLES from cfrobotics";
             resultSet = statement.executeQuery(query);
             resultSet.toString();
 

@@ -1,6 +1,9 @@
 package com.mkyong.payment;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-07-16.
@@ -8,6 +11,7 @@ import java.sql.*;
 public class Summary {
 
     private Connection connection;
+
 
     public Summary() throws SQLException, ClassNotFoundException {
     }

@@ -39,13 +39,15 @@ public class InstruktorController {
     }
 
     @PostMapping("/dodajWydatek")
-    public String addExpense(@ModelAttribute Expense expense, Model model) {
+    public String addExpense(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
+                             @ModelAttribute Expense expense, Model model) {
         expenseCreator.insertExpenseToTable(expense);
         return "instruktor";
     }
 
     @PostMapping("/odbioryGotowki")
-    public String getInstructorPayment(@ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense, Model model) {
+    public String getInstructorPayment(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
+                                       @ModelAttribute Expense expense, Model model) {
         cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
         return "instruktor";
     }

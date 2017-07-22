@@ -35,7 +35,7 @@ public class AdminController {
     @GetMapping("/{month}")
     public String getMonth(@PathVariable("month") String data, Model model) {
 
-        model.addAttribute("instructorExpense",monthExpense.getInstructorExpenseForMonth(data));
+        model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
         model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
@@ -45,11 +45,10 @@ public class AdminController {
     }
 
     @GetMapping("/dodajKosztStaly")
-    public String addPermanentExpense(Model model){
+    public String addPermanentExpense(Model model) {
 
         return "admin";
     }
-
 
 
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-07-16.
@@ -13,8 +12,6 @@ import java.sql.Statement;
 @Component
 public class MonthExpense extends Summary {
 
-
-    private Statement statement = getConnection();
     private ResultSet resultSet;
 
     public MonthExpense() throws SQLException, ClassNotFoundException {
@@ -29,13 +26,13 @@ public class MonthExpense extends Summary {
         String query = "select kwota from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
                 "AND data LIKE '%-" + date + "-%'";
         try {
-            resultSet = statement.executeQuery(query);
+
+            resultSet = getConnection().executeQuery(query);
             while (resultSet.next()) {
                 String kwota = resultSet.getString("kwota");
                 expense = expense + Double.parseDouble(kwota);
             }
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return expense;

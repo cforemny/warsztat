@@ -1,7 +1,5 @@
 package com.mkyong.StudentsList;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Created by Cyprian on 2017-07-21.
  */

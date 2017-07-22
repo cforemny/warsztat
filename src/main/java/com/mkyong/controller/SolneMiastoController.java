@@ -1,9 +1,9 @@
 package com.mkyong.controller;
 
 import com.mkyong.SQLBase.CurrentUrlCutter;
+import com.mkyong.SQLBase.StudentListCreator;
 import com.mkyong.SQLBase.TableSelector;
 import com.mkyong.StudentsList.Student;
-import com.mkyong.SQLBase.StudentListCreator;
 import com.mkyong.date.CourseDate;
 import com.mkyong.payment.paymentSummary.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,9 +72,10 @@ public class SolneMiastoController {
         return "lokalizacje/naszeLokalizacje";
     }
 
-    private String currentTable(String adress){
+    private String currentTable(String adress) {
         return currentUrlCutter.getTableNameFromUrl(adress);
     }
+
     private void preapreSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
         model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto"));

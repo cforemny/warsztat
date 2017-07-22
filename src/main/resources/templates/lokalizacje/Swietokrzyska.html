@@ -4,14 +4,7 @@
 <head>
 
     <title>Panel instruktora</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/webjars/jquery/jquery.min.js"/>
-    <script src="/static/app.js"/>
-
+    <div th:replace="fragments/header :: header-css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <style>
         p.T {
@@ -27,6 +20,7 @@
             right: 10px;
             bottom: 10px;
         }
+
         td.odstepy {
             padding: 0px 5px 0px 150px;
         }
@@ -41,6 +35,19 @@
             document.getElementById("parentName").value = "";
             document.getElementById("id").value = "";
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var currentMonth = date.getMonth();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+
+            $('#datepicker').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+        });
     </script>
 
 </head>
@@ -156,8 +163,8 @@
         </div>
         <div class="tab-pane fade" id="dodajDate">
             <form action="#" th:action="@{/instruktor/Swietokrzyska/dodajDate}" th:object="${courseDate}" method="post">
-                Dodaj kolumne<br/>
-                <input name="currentDate" type="text" th:field="*{currentDate}"/>
+                Dodaj datę:<br/>
+                <input name="currentDate" id="datepicker" type="text" th:field="*{currentDate}"/>
                 <input type="submit" class="btn btn-primary" value="Dodaj date"/>
             </form>
             <br/><br/><br/><br/><br/>

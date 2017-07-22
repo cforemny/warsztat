@@ -10,10 +10,10 @@ public class CurrentUrlCutter {
 
     private final String REGEX = "/";
 
-    public String getTableNameFromUrl(String urlAdress){
+    public String getTableNameFromUrl(String urlAdress) {
 
         String[] cuttedUrl = urlAdress.split(REGEX);
-        String tableName = cuttedUrl [cuttedUrl.length-1];
+        String tableName = cuttedUrl[cuttedUrl.length - 1];
         return tableName.toLowerCase();
     }
 }

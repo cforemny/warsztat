@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <name>Spring Boot Web Spring Security</name>
     <description>Spring Boot Web Spring Security Example</description>
-     <version>1.0</version>
+    <version>1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
