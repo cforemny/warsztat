@@ -4,13 +4,17 @@
     <div th:replace="fragments/header :: header-css"/>
     <style>
         footer {
-            position: absolute;
+            position: fixed;
             right: 10px;
             bottom: 10px;
         }
 
         .well {
             background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        body {
+            background: url("https://sh-s7-live-s.legocdn.com/is/image/LEGO/8547?$PDPDefault$") no-repeat fixed 98% 95%;
         }
 
         td.odstepy {
@@ -20,9 +24,16 @@
         .jumbotron {
             padding: 0.2em 0.3em;
         }
-
-
     </style>
+    <script>
+        function komunikat(element) {
+
+            var para = document.createElement("P");
+            var t = document.createTextNode("This is a paragraph.");
+            para.appendChild(t);
+            document.getElementById("podsumowanie").appendChild(para);
+        }
+    </script>
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
@@ -40,23 +51,24 @@
     <li th:each="year: ${dataMap}">
         <div class="btn btn-danger" th:text="${year.key}"></div>
         <th:block th:each="month : ${year.value}">
-            <a th:href="${'admin/'}+${year.key}+${month}">
-                <button class="btn btn-info" type="button" th:text="${month}"></button>
+            <a th:href="'admin/'+${year.key}+${month}">
+                <button class="btn btn-info" type="button" th:value="${year.key}+${month}" th:text="${month}"></button>
             </a>
             &nbsp;</th:block>
         <br/><br/><br/>
     </li>
 </div>
-<div class="container">
+<div id="podsumowanie" class="container">
     <th:block th:if="${month} != null">
         <div class="jumbotron" style="background-color: #4682B4;">
             <p th:text="${month}"></p>
         </div>
+        <a th:href="@{/admin/podgladSzczegolowy(data=${month})}">
+            <button th:align="center" class="btn btn-info" th:text="Sczegóły"/>
+        </a><br/><br/>
         <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
     </th:block>
-
 </div>
-
 <div th:replace="fragments/footer :: footer"/>
 </body>
 </html>

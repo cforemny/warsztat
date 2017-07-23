@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ public class MonthIncome extends Summary {
 
 
     private ResultSet resultSet;
+    private Statement statement;
 
     public MonthIncome() throws SQLException, ClassNotFoundException {
     }
@@ -33,7 +35,8 @@ public class MonthIncome extends Summary {
 
             String query = "SELECT SUM(kwota), instruktor FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'" + "GROUP BY instruktor";
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String instructor = resultSet.getString("instruktor");
                 String value = resultSet.getString("SUM(kwota)");
@@ -57,7 +60,7 @@ public class MonthIncome extends Summary {
 
         int payment = 0;
         try {
-            getConnection();
+
             List<String> paymentTables = preapareTableList();
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
@@ -65,7 +68,8 @@ public class MonthIncome extends Summary {
             for (String paymentTable : paymentTables) {
                 String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
                         "AND data LIKE '%-" + monthNumber + "-%'";
-                resultSet = getConnection().executeQuery(query);
+                statement = getConnection().createStatement();
+                resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
                     String paymentType = resultSet.getString("typPlatnosci");
                     String paymentValue = resultSet.getString("platnosc");
@@ -91,19 +95,14 @@ public class MonthIncome extends Summary {
         try {
             getConnection();
             String query = "show tables from cfrobotics like '%platnosci%' ";
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String tableName = resultSet.getString("Tables_in_cfrobotics (%platnosci%)");
                 paymentTables.add(tableName);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return paymentTables;
     }

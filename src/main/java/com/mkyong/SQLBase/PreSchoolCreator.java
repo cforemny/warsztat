@@ -5,6 +5,7 @@ import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-07-21.
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 @Component
 public class PreSchoolCreator extends Summary {
 
+    private Statement statement;
 
     public PreSchoolCreator() throws SQLException, ClassNotFoundException {
     }
@@ -21,7 +23,9 @@ public class PreSchoolCreator extends Summary {
         try {
             String query = "INSERT INTO listaprzedszkoli (liczbadzieci, data, cena, nazwaprzedszkola) VALUES(" + nurserySchool.getNumberOfChildren() +
                     ",'" + nurserySchool.getDate() + "'," + nurserySchool.getValue() + ",'" + nurserySchool.getName() + "')";
-            getConnection().execute(query);
+            statement = getConnection().createStatement();
+
+            statement.execute(query);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

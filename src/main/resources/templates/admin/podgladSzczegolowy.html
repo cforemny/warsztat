@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="admin/wydatkiSzczegolowe :: wydatkiSzczegolowe"/>
+<div th:replace="admin/gotowkaSzczegolowo :: gotowkaSzczegolowo"/>
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

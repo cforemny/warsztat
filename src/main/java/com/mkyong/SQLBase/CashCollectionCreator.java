@@ -5,12 +5,15 @@ import com.mkyong.utils.CashCollection;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-07-16.
  */
 @Component
 public class CashCollectionCreator extends Summary {
+
+    private Statement statement;
 
     public CashCollectionCreator() throws SQLException, ClassNotFoundException {
     }
@@ -21,11 +24,12 @@ public class CashCollectionCreator extends Summary {
                 cashCollection.getLocation() + "'," + cashCollection.getValue() + ",'" + cashCollection.getDate() + "')";
         try {
 
-            getConnection().execute(query);
+
+            statement = getConnection().createStatement();
+            statement.execute(query);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 getConnection().close();
             } catch (Exception e) {

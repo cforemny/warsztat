@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .jumbotron {
+            padding: 0.9em 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="wydatkiSzczegolowe">
+    <div class="jumbotron" style="background-color: #4682B4;">
+        <p>Wydatki instruktorow</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>Instruktor</td>
+            <td>Kwota wydatku</td>
+            <td>Cel</td>
+            <td>Data</td>
+        </tr>
+        <th:block th:each="expense : ${expenseDetailsList}">
+            <tr>
+                <td th:text="${expense.expenseInstructor}"/>
+                <td th:text="${expense.expenseValue}"/>
+                <td th:text="${expense.expenseType}"/>
+                <td th:text="${expense.expenseData}"/>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

@@ -6,10 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,6 +17,8 @@ import java.util.List;
 public class MonthExpense extends Summary {
 
     private ResultSet resultSet;
+    private Statement statement;
+    private final String REGEX = "-";
 
     public MonthExpense() throws SQLException, ClassNotFoundException {
     }
@@ -33,34 +33,47 @@ public class MonthExpense extends Summary {
                 "AND data LIKE '%-" + date + "-%'";
         try {
 
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String kwota = resultSet.getString("kwota");
                 expense = expense + Double.parseDouble(kwota);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return expense;
     }
 
-    public List<Expense> getExpenseListByMonth(String date){
+    public List<Expense> getExpenseListByDate(String date) {
 
         List<Expense> expenseList = new ArrayList<>();
-        try {
-            String year = getYearForSummary(date);
-            String monthNumber = getActualMonthForSummary(date);
+        String monthNumber;
+        String year = getYearForSummary(date);
+        if (date.contains(REGEX)) {
+            monthNumber = getActualMonthForSummary(date);
+        } else {
+            monthNumber = switchMonth(getMonthForSummary(date));
 
+        }
+        try {
             String query = "select instruktor, opisWydatku, kwota, data from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            resultSet = getConnection().executeQuery(query);
-            while (resultSet.next()){
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
                 String instructor = resultSet.getString("instruktor");
                 String description = resultSet.getString("opisWydatku");
                 String expenseDate = resultSet.getString("data");
                 String value = resultSet.getString("kwota");
 
-                expenseList.add(new Expense(description,value,instructor,expenseDate));
+                expenseList.add(new Expense(description, value, instructor, expenseDate));
             }
         } catch (Exception e) {
             e.printStackTrace();

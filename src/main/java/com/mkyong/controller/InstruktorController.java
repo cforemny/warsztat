@@ -58,7 +58,7 @@ public class InstruktorController {
         model.addAttribute("event", new Event());
         model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserbySchoolByMonth(getCurrentDate()));
         model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
-        model.addAttribute("expenseList", monthExpense.getExpenseListByMonth(getCurrentDate()));
+        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
         model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
         return "instruktor";
     }

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .jumbotron {
+            padding: 0.9em 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="gotowkaSzczegolowo">
+    <div class="jumbotron" style="background-color: #4682B4;">
+        <p>Odbiory gotowki</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>Instruktor</td>
+            <td>Liczba gotowki</td>
+            <td>Miejsce odbioru</td>
+            <td>Data</td>
+        </tr>
+        <th:block th:each="cash : ${cashDetailList}">
+            <tr>
+                <td th:text="${cash.key}"/>
+                <td th:text="${cash.value}"/>
+
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

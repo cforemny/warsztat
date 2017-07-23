@@ -62,6 +62,13 @@ public class NumberOfMonths {
         } catch (Exception e) {
             System.out.println(e);
         }
+        finally {
+            try {
+                statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return dataList;
     }
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class CashSummary extends Summary {
 
     private ResultSet resultSet;
+    private Statement statement;
 
     public CashSummary() throws SQLException, ClassNotFoundException {
     }
@@ -28,7 +30,8 @@ public class CashSummary extends Summary {
 
             String query = "select data, instruktor, kwota, miejsce from odbioryinstruktorow " + " WHERE data LIKE '" + getYearForSummary(date) + "%'" +
                     "AND data LIKE '%-" + getActualMonthForSummary(date) + "-%'";
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()){
                 String location = resultSet.getString("miejsce");
                 String instructor = resultSet.getString("instruktor");

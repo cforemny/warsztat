@@ -2,15 +2,12 @@ package com.mkyong.payment.paymentSummary;
 
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.Event;
-import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,15 +17,15 @@ import java.util.List;
 public class EventSummary extends Summary {
 
     private ResultSet resultSet;
+    private Statement statement;
 
     public EventSummary() throws SQLException, ClassNotFoundException {
     }
 
-    public double getIncomFromEvent(String date){
+    public double getIncomFromEvent(String date) {
 
         double payment = 0;
         try {
-            getConnection();
 
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
@@ -37,10 +34,11 @@ public class EventSummary extends Summary {
             String query = "select data, cena from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
 
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String cena = resultSet.getString("cena");
-                payment = payment +  Double.parseDouble(cena);
+                payment = payment + Double.parseDouble(cena);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,26 +52,25 @@ public class EventSummary extends Summary {
         return payment;
     }
 
-    public List<Event> getListOfEventsByMonth(String date){
+    public List<Event> getListOfEventsByMonth(String date) {
 
         List<Event> events = new ArrayList<>();
-            try {
-
+        try {
 
             String year = getYearForSummary(date);
             String monthNumber = getActualMonthForSummary(date);
 
-
             String query = "select data, rodzajeventu, cena, faktura from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            resultSet = getConnection().executeQuery(query);
-            while (resultSet.next()){
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
                 String eventType = resultSet.getString("rodzajeventu");
                 String facture = resultSet.getString("faktura");
                 String eventDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
 
-                events.add(new Event(eventDate,eventType,Double.parseDouble(value),facture.charAt(0)));
+                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0)));
             }
         } catch (Exception e) {
             e.printStackTrace();

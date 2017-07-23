@@ -1,17 +1,15 @@
 package com.mkyong.controller;
 
+import com.mkyong.date.CourseDate;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.paymentSummary.EventSummary;
 import com.mkyong.payment.paymentSummary.MonthIncome;
 import com.mkyong.payment.paymentSummary.NumberOfMonths;
 import com.mkyong.payment.paymentSummary.NurserySchoolSummary;
-import com.mkyong.utils.NurserySchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Cyprian on 2017-07-09.
@@ -40,7 +38,7 @@ public class AdminController {
     }
 
     @GetMapping("/{month}")
-    public String getMonth(@PathVariable("month") String data, Model model) {
+    public String getMonth(@PathVariable("month") String data,  Model model) {
 
         model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
@@ -49,14 +47,21 @@ public class AdminController {
         model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstrutor(data));
         model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
         model.addAttribute("eventsIncome", eventSummary.getIncomFromEvent(data));
+        model.addAttribute("miesiac", new CourseDate());
 
         return "admin";
     }
 
     @GetMapping("/dodajKosztStaly")
-    public String addPermanentExpense(Model model) {
+    public String addPermanentExpense( Model model) {
 
         return "admin";
+    }
+    @GetMapping("/podgladSzczegolowy")
+    public String showDetails( @RequestParam("data") String data, Model model) {
+        model.addAttribute("expenseDetailsList", monthExpense.getExpenseListByDate(data));
+        model.addAttribute("cashDetailList", monthIncome.getCashPerInstrutor(data));
+        return "admin/podgladSzczegolowy";
     }
 
 

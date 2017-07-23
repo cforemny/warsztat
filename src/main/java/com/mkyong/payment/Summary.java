@@ -31,10 +31,10 @@ public class Summary {
         return  date.substring(5, 7);
     }
 
-    public Statement getConnection() throws ClassNotFoundException, SQLException {
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql:// cfrobotics.nazwa.pl:3306/cfrobotics?useLegacyDatetimeCode=false&serverTimezone=UTC", "cfrobotics", "cfRoB0T!C$");
-        return connection.createStatement();
+        return connection;
     }
 
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
 public class NurserySchoolSummary extends Summary {
 
     private ResultSet resultSet;
+    private Statement statement;
 
     public NurserySchoolSummary() throws SQLException, ClassNotFoundException {
     }
@@ -34,7 +36,8 @@ public class NurserySchoolSummary extends Summary {
 
             String query = "select data, liczbadzieci, cena from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String liczbaDzieci = resultSet.getString("liczbadzieci");
                 String cena = resultSet.getString("cena");
@@ -62,7 +65,8 @@ public class NurserySchoolSummary extends Summary {
 
             String query = "select data, liczbadzieci, cena, nazwaprzedszkola from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            resultSet = getConnection().executeQuery(query);
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()){
                 String nurserySchoolName = resultSet.getString("nazwaprzedszkola");
                 String childrens = resultSet.getString("liczbadzieci");
