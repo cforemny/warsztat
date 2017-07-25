@@ -1,0 +1,62 @@
+package com.mkyong.payment.paymentSummary;
+
+import org.springframework.stereotype.Component;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+/**
+ * Created by Cyprian on 2017-07-25.
+ */
+@Component
+public class MonthIncomeForLocations extends MonthIncome {
+
+    private ResultSet resultSet;
+    private Statement statement;
+
+    public MonthIncomeForLocations() throws SQLException, ClassNotFoundException {
+    }
+
+    public Map<String,Integer> getLocationSummary(String date, String isCash) {
+
+        Map<String, Integer> locationSummary = new TreeMap<>();
+        int payment = 0;
+        try {
+
+            List<String> paymentTables = super.preapareTableList();
+            String year = getYearForSummary(date);
+            String month = getMonthForSummary(date);
+            String monthNumber = switchMonth(month);
+
+            for (String paymentTable : paymentTables) {
+                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
+                        "AND data LIKE '%-" + monthNumber + "-%'";
+                statement = getConnection().createStatement();
+                resultSet = statement.executeQuery(query);
+
+                while (resultSet.next()) {
+                    String paymentType = resultSet.getString("typPlatnosci");
+                    String paymentValue = resultSet.getString("platnosc");
+                    if (paymentType.equals(isCash)) {
+                        payment = payment + Integer.parseInt(paymentValue);
+                    }
+                }
+                locationSummary.put(paymentTable,payment);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return locationSummary;
+    }
+}

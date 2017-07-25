@@ -12,23 +12,21 @@
 </head>
 <body>
 
-<div class="container" th:fragment="wydatkiSzczegolowe">
+<div class="container" th:fragment="wplywyZPrzedszkoli">
     <div class="well well-sm" style="background-color: #4682B4;">
-       <p style="font-size: 130%; font-weight: bold">Wydatki instruktorów</p>
+        <p style="font-size: 130%; font-weight: bold">Wpływy z przedszkoli</p>
     </div>
     <table class="table">
         <tr style="font-weight: bold">
-            <td>Instruktor</td>
-            <td>Kwota wydatku</td>
-            <td>Cel</td>
+            <td>Przedszkole</td>
+            <td>Zysk</td>
             <td>Data</td>
         </tr>
-        <th:block th:each="expense : ${expenseDetailsList}">
+        <th:block th:each="nurseryIncome : ${nurserySchoolDetails}">
             <tr>
-                <td th:text="${expense.expenseInstructor}"/>
-                <td th:text="${expense.expenseValue}"/>
-                <td th:text="${expense.expenseType}"/>
-                <td th:text="${expense.expenseData}"/>
+                <td th:text="${nurseryIncome.name}"/>
+                <td th:text="${nurseryIncome.numberOfChildren}*${nurseryIncome.value}"/>
+                <td th:text="${nurseryIncome.date}"/>
             </tr>
         </th:block>
     </table>

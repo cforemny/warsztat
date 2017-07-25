@@ -30,7 +30,7 @@ public class MonthExpense extends Summary {
         date = switchMonth(month);
         double expense = 0;
         String query = "select kwota from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
-                "AND data LIKE '%-" + date + "-%'";
+                "AND data LIKE '%-" + date + "-%' " ;
         try {
 
             statement = getConnection().createStatement();
@@ -64,7 +64,7 @@ public class MonthExpense extends Summary {
         }
         try {
             String query = "select instruktor, opisWydatku, kwota, data from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'";
+                    "AND data LIKE '%-" + monthNumber + "-%'" + "order by instruktor";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {

@@ -4,7 +4,7 @@
     <div th:replace="fragments/header :: header-css"/>
     <style>
         footer {
-            position: absolute;
+            position: fixed;
             right: 10px;
             bottom: 10px;
         }
@@ -13,8 +13,11 @@
 <body>
 <div th:replace="fragments/header :: header"/>
 
+<div th:replace="admin/wplywyZLokalizacji :: wplywyZLokalizacji"/>
+<div th:replace="admin/wplywyZPrzedszkoli :: wplywyZPrzedszkoli"/>
 <div th:replace="admin/wydatkiSzczegolowe :: wydatkiSzczegolowe"/>
 <div th:replace="admin/gotowkaSzczegolowo :: gotowkaSzczegolowo"/>
+
 <div th:replace="fragments/footer :: footer"/>
 
 </body>

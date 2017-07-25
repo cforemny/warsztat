@@ -4,23 +4,20 @@
     <div th:replace="fragments/header :: header-css"/>
     <style>
         footer {
-            position: absolute;
+            position: fixed;
             right: 10px;
             bottom: 10px;
-        }
-        .jumbotron {
-            padding: 0.9em 0.9em;
         }
     </style>
 </head>
 <body>
 
 <div class="container" th:fragment="gotowkaSzczegolowo">
-    <div class="jumbotron" style="background-color: #4682B4;">
-        <p>Odbiory gotowki</p>
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Gotówka</p>
     </div>
     <table class="table">
-        <tr>
+        <tr style="font-weight: bold">
             <td>Instruktor</td>
             <td>Liczba gotowki</td>
             <td>Miejsce odbioru</td>
@@ -28,9 +25,10 @@
         </tr>
         <th:block th:each="cash : ${cashDetailList}">
             <tr>
-                <td th:text="${cash.key}"/>
+                <td th:text="${cash.instructor}"/>
                 <td th:text="${cash.value}"/>
-
+                <td th:text="${cash.location}"/>
+                <td th:text="${cash.date}"/>
             </tr>
         </th:block>
     </table>

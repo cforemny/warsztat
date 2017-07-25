@@ -21,6 +21,7 @@ public class NurserySchoolSummary extends Summary {
 
     private ResultSet resultSet;
     private Statement statement;
+    private final String REGEX = "-";
 
     public NurserySchoolSummary() throws SQLException, ClassNotFoundException {
     }
@@ -55,13 +56,20 @@ public class NurserySchoolSummary extends Summary {
         return payment;
     }
 
-    public List<NurserySchool> getListOfNurserbySchoolByMonth(String date){
+    public List<NurserySchool> getListOfNurserySchoolByMonth(String date){
 
         List<NurserySchool> nurserySchools = new ArrayList<>();
         try {
 
             String year = getYearForSummary(date);
-            String monthNumber = getActualMonthForSummary(date);
+            String monthNumber;
+
+            if (date.contains(REGEX)) {
+                monthNumber = getActualMonthForSummary(date);
+            } else {
+                monthNumber = switchMonth(getMonthForSummary(date));
+
+            }
 
             String query = "select data, liczbadzieci, cena, nazwaprzedszkola from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";

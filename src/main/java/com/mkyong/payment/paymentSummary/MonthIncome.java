@@ -1,15 +1,13 @@
 package com.mkyong.payment.paymentSummary;
 
 import com.mkyong.payment.Summary;
+import com.mkyong.utils.CashCollection;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Cyprian on 2017-07-11.
@@ -25,22 +23,24 @@ public class MonthIncome extends Summary {
     public MonthIncome() throws SQLException, ClassNotFoundException {
     }
 
-    public Map getCashPerInstrutor(String date) {
-        Map<String, Double> instructorsCash = new HashMap<>();
+    public List<CashCollection> getCashPerInstructor(String date) {
+        List <CashCollection> instructorsCash = new LinkedList<CashCollection>();
 
         try {
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
 
-            String query = "SELECT SUM(kwota), instruktor FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'" + "GROUP BY instruktor";
+            String query = "SELECT kwota, instruktor, data, miejsce FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
+                    "AND data LIKE '%-" + monthNumber + "-%'" + "order by instruktor";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String instructor = resultSet.getString("instruktor");
-                String value = resultSet.getString("SUM(kwota)");
-                instructorsCash.put(instructor, Double.parseDouble(value));
+                String value = resultSet.getString("kwota");
+                String location = resultSet.getString("miejsce");
+                String collectionDate = resultSet.getString("data");
+                instructorsCash.add(new CashCollection(instructor,value,collectionDate,location));
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -54,6 +54,36 @@ public class MonthIncome extends Summary {
             }
         }
         return instructorsCash;
+    }
+
+    public double getCashByDate(String date){
+
+        double cash = 0;
+        try {
+            String year = getYearForSummary(date);
+            String month = getMonthForSummary(date);
+            String monthNumber = switchMonth(month);
+
+            String query = "SELECT kwota FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
+                    "AND data LIKE '%-" + monthNumber + "-%'";
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String cashValue = resultSet.getString("kwota");
+                cash = cash + Double.parseDouble(cashValue);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return cash;
     }
 
     public int getPaymentFromLocations(String date, String isCash) {
@@ -90,7 +120,7 @@ public class MonthIncome extends Summary {
         return payment;
     }
 
-    private List preapareTableList() {
+    public List preapareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
             getConnection();

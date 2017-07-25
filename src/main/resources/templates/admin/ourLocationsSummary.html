@@ -26,7 +26,7 @@
                 <td>Wydatki instruktorow: <p th:text="${instructorExpense} + 'zł'"></p></td>
             </tr>
             <tr>
-                <div th:replace="admin/instructorsCash :: cashFromInstrutors"/>
+                <td>Gotówka po uwzględnieniu wydatków: <p th:text="${monthCash} + 'zł'"></p></td>
             </tr>
         </table>
     </div>
