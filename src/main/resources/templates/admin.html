@@ -12,6 +12,7 @@
         .well {
             background-color: rgba(200, 245, 255, 0.5);
         }
+
         td.odstepy {
             padding: 0px 5px 0px 150px;
         }
@@ -40,15 +41,23 @@
         <br/><br/><br/>
     </li>
 </div>
-<div id="podsumowanie" class="container">
+<div class="container">
     <th:block th:if="${month} != null">
         <div class="well well-sm" style="background-color: #4682B4;">
             <h2><p th:align="center" th:text="${month}"></p></h2>
         </div>
         <a th:href="@{/admin/podgladSzczegolowy(data=${month})}">
-            <button th:align="center" class="btn btn-primary" th:text="Szczegóły"/>
+            <button th:align="center" class="btn btn-primary" th:text="'Podgląd ' + 'szczegółowy'"/>
+        </a>
+        <a th:href="@{/admin/kosztyStale(data=${month})}">
+            <button th:align="center" class="btn btn-primary" th:text="'Koszty' + ' administracyjne'"/>
+        </a>
+        <a th:href="@{/admin/zyski(data=${month})}">
+            <button th:align="center" class="btn btn-primary" th:text="'Podatki/' + 'Zyski'"/>
         </a><br/><br/>
-        <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
+        <div class="container">
+            <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
+        </div>
     </th:block>
 </div>
 <div th:replace="fragments/footer :: footer"/>

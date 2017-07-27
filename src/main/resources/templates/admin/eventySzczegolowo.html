@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
+<div class="container" th:fragment="eventySzczegolowo">
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Zajęcia jednorazowe</p>
+    </div>
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Zajęcia</td>
+            <td>Cena</td>
+            <td>Data</td>
+        </tr>
+        <th:block th:each="eventDetail : ${eventListDetails}">
+            <tr>
+                <td th:text="${eventDetail.eventType}"/>
+                <td th:text="${eventDetail.value}"/>
+                <td th:text="${eventDetail.date}"/>
+            </tr>
+        </th:block>
+    </table>
+</div>
 </body>
 </html>

@@ -1,8 +1,8 @@
 package com.mkyong.controller;
 
-import com.mkyong.SQLBase.CurrentUrlCutter;
-import com.mkyong.SQLBase.StudentListCreator;
-import com.mkyong.SQLBase.TableSelector;
+import com.mkyong.sqlBase.CurrentUrlCutter;
+import com.mkyong.sqlBase.StudentListCreator;
+import com.mkyong.sqlBase.TableSelector;
 import com.mkyong.utils.Student;
 import com.mkyong.date.CourseDate;
 import com.mkyong.payment.paymentSummary.Payment;

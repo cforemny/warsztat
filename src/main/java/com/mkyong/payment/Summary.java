@@ -14,6 +14,7 @@ import java.util.Date;
 public class Summary {
 
     private Connection connection;
+    protected final String REGEX = "-";
 
 
     public Summary() throws SQLException, ClassNotFoundException {

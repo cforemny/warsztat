@@ -1,18 +1,11 @@
 package com.mkyong.controller;
 
-import com.mkyong.SQLBase.TableSelector;
-import com.mkyong.payment.paymentSummary.NumberOfMonths;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DefaultController {
 
-    @Autowired
-    TableSelector tableSelector;
-    @Autowired
-    NumberOfMonths monthSummary;
 
     @GetMapping("/")
     public String home1() {

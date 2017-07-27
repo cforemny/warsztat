@@ -1,4 +1,4 @@
-package com.mkyong.SQLBase;
+package com.mkyong.sqlBase;
 
 import com.mkyong.utils.NurserySchool;
 import com.mkyong.payment.Summary;

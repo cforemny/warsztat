@@ -1,4 +1,4 @@
-package com.mkyong.SQLBase;
+package com.mkyong.sqlBase;
 
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.CashCollection;
@@ -23,8 +23,6 @@ public class CashCollectionCreator extends Summary {
         String query = "Insert into odbioryinstruktorow (instruktor, miejsce, kwota, data) values ('" + cashCollection.getInstructor() + "','" +
                 cashCollection.getLocation() + "'," + cashCollection.getValue() + ",'" + cashCollection.getDate() + "')";
         try {
-
-
             statement = getConnection().createStatement();
             statement.execute(query);
         } catch (Exception e) {

@@ -58,7 +58,13 @@ public class EventSummary extends Summary {
         try {
 
             String year = getYearForSummary(date);
-            String monthNumber = getActualMonthForSummary(date);
+            String monthNumber;
+            if (date.contains(REGEX)) {
+                monthNumber = getActualMonthForSummary(date);
+            } else {
+                monthNumber = switchMonth(getMonthForSummary(date));
+
+            }
 
             String query = "select data, rodzajeventu, cena, faktura from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";

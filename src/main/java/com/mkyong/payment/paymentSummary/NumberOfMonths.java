@@ -1,6 +1,6 @@
 package com.mkyong.payment.paymentSummary;
 
-import com.mkyong.SQLBase.TableSelector;
+import com.mkyong.sqlBase.TableSelector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

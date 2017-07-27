@@ -1,9 +1,9 @@
 package com.mkyong.controller;
 
-import com.mkyong.SQLBase.CashCollectionCreator;
-import com.mkyong.SQLBase.EventCreator;
-import com.mkyong.SQLBase.ExpenseCreator;
-import com.mkyong.SQLBase.PreSchoolCreator;
+import com.mkyong.sqlBase.CashCollectionCreator;
+import com.mkyong.sqlBase.EventCreator;
+import com.mkyong.sqlBase.ExpenseCreator;
+import com.mkyong.sqlBase.PreSchoolCreator;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.paymentSummary.CashSummary;
 import com.mkyong.payment.paymentSummary.EventSummary;

@@ -1,12 +1,14 @@
 package com.mkyong.controller;
 
-import com.mkyong.date.CourseDate;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.paymentSummary.*;
+import com.mkyong.taxes.PermanentExpense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLException;
 
 /**
  * Created by Cyprian on 2017-07-09.
@@ -29,43 +31,73 @@ public class AdminController {
     private EventSummary eventSummary;
     @Autowired
     private MonthIncomeForLocations monthIncomeForLocations;
+    @Autowired
+    private PermanentExpense permanentExpense;
 
     @GetMapping("")
-    public String admin(Model model) {
+    public String admin(Model model) throws SQLException, ClassNotFoundException {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
+
         return "admin";
     }
 
     @GetMapping("/{month}")
-    public String getMonth(@PathVariable("month") String data,  Model model) {
+    public String getMonth(@PathVariable("month") String data, Model model) {
 
         model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
         model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
         model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstructor(data));
-        model.addAttribute("monthCash", monthIncome.getCashByDate(data)- monthExpense.getInstructorExpenseForMonth(data));
+        model.addAttribute("monthCash", monthIncome.getCashByDate(data) - monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
         model.addAttribute("eventsIncome", eventSummary.getIncomFromEvent(data));
-        model.addAttribute("miesiac", new CourseDate());
+        model.addAttribute("adminExpensesSummary", permanentExpense.getPermanenetExpenseSummary(data));
 
         return "admin";
     }
 
-    @GetMapping("/dodajKosztStaly")
-    public String addPermanentExpense( Model model) {
-
-        return "admin";
+    @GetMapping("/kosztyStale")
+    public String showPermanentExpense(@RequestParam("data") String data, Model model) throws SQLException, ClassNotFoundException {
+        model.addAttribute("permanentExpenses", permanentExpense.getPermanentExpense(data));
+        model.addAttribute("permanentExpense", new PermanentExpense());
+        return "admin/kosztyStale";
     }
+
+    @GetMapping("/zyski")
+    public String getIncome(@RequestParam("data") String data, Model model) {
+        model.addAttribute("incomeSummary", addAllIncome(data));
+        return "admin/zyski";
+    }
+
+    @PostMapping("/kosztyStale")
+    public String addPermanentExpense(@RequestParam("data") String data, Model model, @ModelAttribute PermanentExpense expense) {
+        permanentExpense.insertPermanentExpense(expense);
+        model.addAttribute("permanentExpenses", permanentExpense.getPermanentExpense(data));
+        return "admin/kosztyStale";
+    }
+
+
     @GetMapping("/podgladSzczegolowy")
-    public String showDetails( @RequestParam("data") String data, Model model) {
+    public String showDetails(@RequestParam("data") String data, Model model) {
         model.addAttribute("expenseDetailsList", monthExpense.getExpenseListByDate(data));
         model.addAttribute("cashDetailList", monthIncome.getCashPerInstructor(data));
-        model.addAttribute("locationsIncomeCash", monthIncomeForLocations.getLocationSummary(data,"T"));
-        model.addAttribute("locationsIncomeRemittance", monthIncomeForLocations.getLocationSummary(data,"N"));
-        model.addAttribute("nurserySchoolDetails",nurserySchoolSummary.getListOfNurserySchoolByMonth(data));
+        model.addAttribute("locationsIncomeCash", monthIncomeForLocations.getLocationSummary(data, "T"));
+        model.addAttribute("locationsIncomeRemittance", monthIncomeForLocations.getLocationSummary(data, "N"));
+        model.addAttribute("nurserySchoolDetails", nurserySchoolSummary.getListOfNurserySchoolByMonth(data));
+        model.addAttribute("eventListDetails", eventSummary.getListOfEventsByMonth(data));
         return "admin/podgladSzczegolowy";
     }
 
+    private double addAllIncome(String data) {
+
+        double monthIncomeSummary = monthIncome.getPaymentFromLocations(data, "N") +
+                monthIncome.getPaymentFromLocations(data, "T") +
+                eventSummary.getIncomFromEvent(data) +
+                nurserySchoolSummary.getPaymentFromNurserySchools(data);
+
+        return monthIncomeSummary;
+
+    }
 
 }

@@ -123,7 +123,7 @@ public class MonthIncome extends Summary {
     public List preapareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
-            getConnection();
+
             String query = "show tables from cfrobotics like '%platnosci%' ";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
@@ -133,6 +133,13 @@ public class MonthIncome extends Summary {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return paymentTables;
     }

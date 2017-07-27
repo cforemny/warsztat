@@ -1,21 +1,74 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
     <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
 </head>
 <body>
-<div th:fragment="kosztyStale">
-
-    <form action="#" th:action="@{/instruktor/dodajKosztStaly}" th:object="${expense}" method="post">
-        <input size="3" name="value" type="text" th:field="*{expenseValue}" placeholder="Kwota"/>
-        <input size="35" name="target" type="text" th:field="*{expenseType}" placeholder="Rodzaj kosztu"/>
-        <input type="submit" class="btn btn-primary" value="Dodaj wydatek"/>
-    </form>
-
-
+<div th:replace="fragments/header :: header"/>
+<div class="well well-sm ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Koszty stałe</h1></p></td>
+        </tr>
+    </table>
 </div>
+<div class="container">
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Koszt</td>
+            <td>Kwota</td>
+        </tr>
+        <th:block th:each="expense : ${permanentExpenses}">
+            <tr>
+                <td th:text="${expense.name}"/>
+                <td th:text="${expense.value} +' zł'"/>
+            </tr>
+        </th:block>
+    </table>
+
+    <form action="#"  th:object="${permanentExpense}" method="post">
+        <input size="3" th:field="*{value}" type="text" placeholder="Kwota"/>
+        <input size="35" th:field="*{name}" type="text" placeholder="Na co wydano"/>
+        <input size="15" th:field="*{date}" id="datepicker" name="date" type="text" placeholder="Data"/>
+        Czy faktura: <select th:field="*{bill}">
+        <option value="T">Tak</option>
+        <option value="N">Nie</option>
+    </select>
+        <input type="submit" class="btn btn-primary" value="Dodaj koszt"/>
+    </form>
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var currentMonth = date.getMonth();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+
+            $('#datepicker').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+    </script>
+</div>
+<div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>

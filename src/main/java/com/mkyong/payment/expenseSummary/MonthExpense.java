@@ -18,7 +18,7 @@ public class MonthExpense extends Summary {
 
     private ResultSet resultSet;
     private Statement statement;
-    private final String REGEX = "-";
+
 
     public MonthExpense() throws SQLException, ClassNotFoundException {
     }

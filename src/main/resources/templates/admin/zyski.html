@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="well well-sm ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Podsumowanie zysków</h1></p></td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <table class="table">
+        <tr><b>Przychód:&nbsp;&nbsp;</b></tr>
+        <tr th:text="${incomeSummary} + ' zł'"></tr>
+        <tr><b>Koszty niefakturowane:&nbsp;&nbsp;</b></tr>
+        <tr th:text="${incomeSummary} + ' zł'"></tr>
+        <tr><b>Koszty fakturowane:&nbsp;&nbsp;</b></tr>
+        <tr th:text="${incomeSummary} + ' zł'"></tr>
+
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
