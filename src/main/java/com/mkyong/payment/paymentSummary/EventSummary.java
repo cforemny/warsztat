@@ -22,7 +22,7 @@ public class EventSummary extends Summary {
     public EventSummary() throws SQLException, ClassNotFoundException {
     }
 
-    public double getIncomFromEvent(String date) {
+    public double getIncomeFromEvent(String date, String isCash) {
 
         double payment = 0;
         try {
@@ -32,7 +32,7 @@ public class EventSummary extends Summary {
             String monthNumber = switchMonth(month);
 
             String query = "select data, cena from eventy " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'";
+                    "AND data LIKE '%-" + monthNumber + "-%' and faktura='" + isCash + "'";
 
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);

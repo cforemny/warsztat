@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Cyprian on 2017-07-11.
@@ -24,7 +26,7 @@ public class MonthIncome extends Summary {
     }
 
     public List<CashCollection> getCashPerInstructor(String date) {
-        List <CashCollection> instructorsCash = new LinkedList<CashCollection>();
+        List<CashCollection> instructorsCash = new LinkedList<>();
 
         try {
             String year = getYearForSummary(date);
@@ -40,7 +42,7 @@ public class MonthIncome extends Summary {
                 String value = resultSet.getString("kwota");
                 String location = resultSet.getString("miejsce");
                 String collectionDate = resultSet.getString("data");
-                instructorsCash.add(new CashCollection(instructor,value,collectionDate,location));
+                instructorsCash.add(new CashCollection(instructor, value, collectionDate, location));
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -56,7 +58,7 @@ public class MonthIncome extends Summary {
         return instructorsCash;
     }
 
-    public double getCashByDate(String date){
+    public double getCashByDate(String date) {
 
         double cash = 0;
         try {
@@ -91,7 +93,7 @@ public class MonthIncome extends Summary {
         int payment = 0;
         try {
 
-            List<String> paymentTables = preapareTableList();
+            List<String> paymentTables = prepareTableList();
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
@@ -100,13 +102,8 @@ public class MonthIncome extends Summary {
                         "AND data LIKE '%-" + monthNumber + "-%'";
                 statement = getConnection().createStatement();
                 resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    String paymentType = resultSet.getString("typPlatnosci");
-                    String paymentValue = resultSet.getString("platnosc");
-                    if (paymentType.equals(isCash)) {
-                        payment = payment + Integer.parseInt(paymentValue);
-                    }
-                }
+
+                payment = payment + getIncomeValue(resultSet, isCash);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,7 +117,7 @@ public class MonthIncome extends Summary {
         return payment;
     }
 
-    public List preapareTableList() {
+    public List prepareTableList() {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
 
@@ -133,8 +130,7 @@ public class MonthIncome extends Summary {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 getConnection().close();
             } catch (Exception e) {
@@ -143,4 +139,22 @@ public class MonthIncome extends Summary {
         }
         return paymentTables;
     }
+
+    public int getIncomeValue(ResultSet resultSet, String isCash) {
+        int payment = 0;
+
+        try {
+            while (resultSet.next()) {
+                String paymentType = resultSet.getString("typPlatnosci");
+                String paymentValue = resultSet.getString("platnosc");
+                if (paymentType.equals(isCash)) {
+                    payment = payment + Integer.parseInt(paymentValue);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return payment;
+    }
+
 }

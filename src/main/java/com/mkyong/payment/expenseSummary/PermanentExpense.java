@@ -1,4 +1,4 @@
-package com.mkyong.taxes;
+package com.mkyong.payment.expenseSummary;
 
 import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
@@ -22,6 +22,21 @@ public class PermanentExpense extends Summary {
     private ResultSet resultSet;
     private Statement statement;
 
+    public PermanentExpense() throws SQLException, ClassNotFoundException {
+    }
+
+    public PermanentExpense(String name, double value, String date, char bill) throws SQLException, ClassNotFoundException {
+        this.name = name;
+        this.value = value;
+        this.date = date;
+        this.bill = bill;
+    }
+
+    public PermanentExpense(String name, double value) throws SQLException, ClassNotFoundException {
+        this.name = name;
+        this.value = value;
+    }
+
     public String getDate() {
         return date;
     }
@@ -36,21 +51,6 @@ public class PermanentExpense extends Summary {
 
     public void setBill(char bill) {
         this.bill = bill;
-    }
-
-    public PermanentExpense() throws SQLException, ClassNotFoundException {
-    }
-
-    public PermanentExpense(String name, double value, String date, char bill) throws SQLException, ClassNotFoundException {
-        this.name = name;
-        this.value = value;
-        this.date = date;
-        this.bill = bill;
-    }
-
-    public PermanentExpense(String name, double value) throws SQLException, ClassNotFoundException {
-        this.name = name;
-        this.value = value;
     }
 
     public String getName() {
@@ -93,9 +93,7 @@ public class PermanentExpense extends Summary {
         } finally {
             try {
                 getConnection().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

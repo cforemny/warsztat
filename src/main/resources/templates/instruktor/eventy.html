@@ -9,13 +9,13 @@
 <div th:fragment="eventy">
 
     <form action="#" th:action="@{/instruktor/dodajEvent}" th:object="${event}" method="post">
-        <input size="3"  type="text" placeholder="Kwota" th:field="*{value}"/>
+        <input size="3" type="text" placeholder="Kwota" th:field="*{value}"/>
         <input size="35" type="text" placeholder="Jaki event" th:field="*{eventType}"/>
         <input size="15" id="datepicker3" name="date" type="text" placeholder="Data" th:field="*{date}"/>
         Czy faktura: <select th:field="*{faktura}">
-            <option value="T">Tak</option>
-            <option value="N">Nie</option>
-        </select>
+        <option value="T">Tak</option>
+        <option value="N">Nie</option>
+    </select>
         <input type="submit" class="btn btn-primary" value="Dodaj event"/>
     </form>
     <br/><br/><br/>

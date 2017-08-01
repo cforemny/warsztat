@@ -2,7 +2,6 @@ package com.mkyong.payment.paymentSummary;
 
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.CashCollection;
-import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ public class CashSummary extends Summary {
     public CashSummary() throws SQLException, ClassNotFoundException {
     }
 
-    public List<CashCollection> getListOfCashCollectionByMonth(String date){
+    public List<CashCollection> getListOfCashCollectionByMonth(String date) {
 
         List<CashCollection> cashList = new ArrayList<>();
         try {
@@ -32,13 +31,13 @@ public class CashSummary extends Summary {
                     "AND data LIKE '%-" + getActualMonthForSummary(date) + "-%'";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String location = resultSet.getString("miejsce");
                 String instructor = resultSet.getString("instruktor");
                 String collectionDate = resultSet.getString("data");
                 String value = resultSet.getString("kwota");
 
-                cashList.add(new CashCollection(instructor,value,collectionDate,location));
+                cashList.add(new CashCollection(instructor, value, collectionDate, location));
             }
         } catch (Exception e) {
             e.printStackTrace();

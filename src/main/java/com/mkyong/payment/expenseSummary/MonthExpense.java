@@ -28,27 +28,11 @@ public class MonthExpense extends Summary {
         String year = getYearForSummary(date);
         String month = getMonthForSummary(date);
         date = switchMonth(month);
-        double expense = 0;
-        String query = "select kwota from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
-                "AND data LIKE '%-" + date + "-%' " ;
-        try {
 
-            statement = getConnection().createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String kwota = resultSet.getString("kwota");
-                expense = expense + Double.parseDouble(kwota);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return expense;
+        String query = "select kwota from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%' ";
+
+        return getValue(query);
     }
 
     public List<Expense> getExpenseListByDate(String date) {
@@ -63,7 +47,7 @@ public class MonthExpense extends Summary {
 
         }
         try {
-            String query = "select instruktor, opisWydatku, kwota, data from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
+            String query = "select instruktor, opisWydatku, kwota, data, faktura from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'" + "order by instruktor";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
@@ -72,8 +56,9 @@ public class MonthExpense extends Summary {
                 String description = resultSet.getString("opisWydatku");
                 String expenseDate = resultSet.getString("data");
                 String value = resultSet.getString("kwota");
+                String facture = resultSet.getString("faktura");
 
-                expenseList.add(new Expense(description, value, instructor, expenseDate));
+                expenseList.add(new Expense(description, value, instructor, expenseDate, facture.charAt(0)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,5 +72,47 @@ public class MonthExpense extends Summary {
         return expenseList;
     }
 
+    public double getNoneBackExpenses(String date) {
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        date = switchMonth(month);
+        String query = "select kwota from wydatkiinstruktorow where faktura = 'N' AND " + "data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'" + " UNION select kosztWartosc from kosztystale where faktura = 'N'" + " AND data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'";
+        return getValue(query);
+    }
+
+    public double getExpensesToPayback(String date) {
+
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        date = switchMonth(month);
+        String query = "select kwota from wydatkiinstruktorow where faktura = 'T' AND " + "data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'" + " UNION select kosztWartosc from kosztystale where faktura = 'T'" + " AND data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'";
+        return getValue(query);
+    }
+
+    private double getValue(String query) {
+
+        double value = 0;
+        try {
+            statement = getConnection().createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String expense = resultSet.getString("kwota");
+                value = value + Double.parseDouble(expense);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                getConnection().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return value;
+    }
 
 }

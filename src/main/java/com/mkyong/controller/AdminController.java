@@ -1,8 +1,8 @@
 package com.mkyong.controller;
 
 import com.mkyong.payment.expenseSummary.MonthExpense;
+import com.mkyong.payment.expenseSummary.PermanentExpense;
 import com.mkyong.payment.paymentSummary.*;
-import com.mkyong.taxes.PermanentExpense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,7 +51,7 @@ public class AdminController {
         model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstructor(data));
         model.addAttribute("monthCash", monthIncome.getCashByDate(data) - monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
-        model.addAttribute("eventsIncome", eventSummary.getIncomFromEvent(data));
+        model.addAttribute("eventsIncome", eventSummary.getIncomeFromEvent(data, "T") + eventSummary.getIncomeFromEvent(data, "N"));
         model.addAttribute("adminExpensesSummary", permanentExpense.getPermanenetExpenseSummary(data));
 
         return "admin";
@@ -67,6 +67,11 @@ public class AdminController {
     @GetMapping("/zyski")
     public String getIncome(@RequestParam("data") String data, Model model) {
         model.addAttribute("incomeSummary", addAllIncome(data));
+        model.addAttribute("paybackExpenses", monthExpense.getExpensesToPayback(data));
+        model.addAttribute("noneBackExpenses", monthExpense.getNoneBackExpenses(data));
+        model.addAttribute("incomeForTaxes", addAllIncomeForTaxes(data));
+        model.addAttribute("vat", countVat(data));
+        model.addAttribute("tax", incomeTax(data));
         return "admin/zyski";
     }
 
@@ -93,11 +98,34 @@ public class AdminController {
 
         double monthIncomeSummary = monthIncome.getPaymentFromLocations(data, "N") +
                 monthIncome.getPaymentFromLocations(data, "T") +
-                eventSummary.getIncomFromEvent(data) +
+                eventSummary.getIncomeFromEvent(data, "T") + eventSummary.getIncomeFromEvent(data, "N") +
                 nurserySchoolSummary.getPaymentFromNurserySchools(data);
 
         return monthIncomeSummary;
 
     }
 
+    private double addAllIncomeForTaxes(String data) {
+
+        double incomeForTaxes = monthIncome.getPaymentFromLocations(data, "N") + eventSummary.getIncomeFromEvent(data, "N")
+                + nurserySchoolSummary.getPaymentFromNurserySchools(data);
+
+        return incomeForTaxes;
+    }
+
+    private double countVat(String data){
+
+        double vat;
+        double expenses = monthExpense.getExpensesToPayback(data);
+        double income = addAllIncomeForTaxes(data);
+        vat = (income - income/1.23) - (expenses - expenses/1.23);
+        return (int)vat;
+    }
+
+    private double incomeTax(String data){
+
+        double tax;
+        tax = (addAllIncomeForTaxes(data)/1.23)*0.19;
+        return (int)tax;
+    }
 }

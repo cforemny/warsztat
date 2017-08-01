@@ -30,7 +30,7 @@ public class EventCreator {
             statement.execute(query);
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 statement.close();
             } catch (SQLException e) {

@@ -1,17 +1,17 @@
 package com.mkyong.controller;
 
-import com.mkyong.sqlBase.CashCollectionCreator;
-import com.mkyong.sqlBase.EventCreator;
-import com.mkyong.sqlBase.ExpenseCreator;
-import com.mkyong.sqlBase.PreSchoolCreator;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.paymentSummary.CashSummary;
 import com.mkyong.payment.paymentSummary.EventSummary;
 import com.mkyong.payment.paymentSummary.NurserySchoolSummary;
-import com.mkyong.utils.Event;
-import com.mkyong.utils.NurserySchool;
-import com.mkyong.utils.Expense;
+import com.mkyong.sqlBase.CashCollectionCreator;
+import com.mkyong.sqlBase.EventCreator;
+import com.mkyong.sqlBase.ExpenseCreator;
+import com.mkyong.sqlBase.PreSchoolCreator;
 import com.mkyong.utils.CashCollection;
+import com.mkyong.utils.Event;
+import com.mkyong.utils.Expense;
+import com.mkyong.utils.NurserySchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,33 +65,33 @@ public class InstruktorController {
 
     @PostMapping("/dodajWydatek")
     public String addExpense(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                             @ModelAttribute Expense expense,@ModelAttribute Event event, Model model) {
+                             @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
         expenseCreator.insertExpenseToTable(expense);
         return "instruktor";
     }
 
     @PostMapping("/odbioryGotowki")
     public String getInstructorPayment(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                                       @ModelAttribute Expense expense,@ModelAttribute Event event, Model model) {
+                                       @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
         cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
         return "instruktor";
     }
 
     @PostMapping("/obecnoscWPrzedszkolu")
     public String countKidsInPreSchool(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                                       @ModelAttribute Expense expense,@ModelAttribute Event event, Model model) {
+                                       @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
         preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
         return "instruktor";
     }
 
     @PostMapping("/dodajEvent")
     public String addNewEvent(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                                       @ModelAttribute Expense expense,@ModelAttribute Event event, Model model) {
+                              @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
         eventCreator.insertNewEventToTable(event);
         return "instruktor";
     }
 
-    public String getCurrentDate(){
+    public String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         return dateFormat.format(date);

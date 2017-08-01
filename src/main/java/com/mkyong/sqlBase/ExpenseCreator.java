@@ -23,8 +23,8 @@ public class ExpenseCreator {
 
     public void insertExpenseToTable(Expense expense) {
 
-        String query = "INSERT INTO wydatkiinstruktorow (instruktor, opisWydatku,kwota,data) VALUES ('" + expense.getExpenseInstructor() + "','" +
-                expense.getExpenseType() + "'," + expense.getExpenseValue() + ",'" + expense.getExpenseData() + "')";
+        String query = "INSERT INTO wydatkiinstruktorow (instruktor, opisWydatku,kwota,data,faktura) VALUES ('" + expense.getExpenseInstructor() + "','" +
+                expense.getExpenseType() + "'," + expense.getExpenseValue() + ",'" + expense.getExpenseData() + "','" + expense.getBill() + "')";
         try {
             getConnection();
             statement.execute(query);

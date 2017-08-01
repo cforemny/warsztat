@@ -1,7 +1,7 @@
 package com.mkyong.sqlBase;
 
-import com.mkyong.utils.NurserySchool;
 import com.mkyong.payment.Summary;
+import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;

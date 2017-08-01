@@ -19,6 +19,16 @@
             padding: 0px 5px 0px 150px;
         }
     </style>
+    <script>
+        function countIncome() {
+
+            var zysk = document.getElementById("income") -
+                document.getElementById("tax") -
+                document.getElementById("vat");
+            document.getElementById('zysk').innerHTML = zysk;
+                   }
+
+    </script>
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
@@ -33,13 +43,46 @@
     </table>
 </div>
 <div class="container">
-    <table class="table">
-        <tr><b>Przychód:&nbsp;&nbsp;</b></tr>
-        <tr th:text="${incomeSummary} + ' zł'"></tr>
-        <tr><b>Koszty niefakturowane:&nbsp;&nbsp;</b></tr>
-        <tr th:text="${incomeSummary} + ' zł'"></tr>
-        <tr><b>Koszty fakturowane:&nbsp;&nbsp;</b></tr>
-        <tr th:text="${incomeSummary} + ' zł'"></tr>
+    <table class="table container">
+        <tr>
+            <td><b>Przychód:&nbsp;&nbsp;</b>
+            <td id="income" th:text="${incomeSummary} + ' zł'"></td>
+            </td></tr>
+
+
+        <tr>
+            <td><b>Koszty niefakturowane:&nbsp;&nbsp;</b></td>
+
+            <td th:text="${noneBackExpenses} + ' zł'"></td>
+        </tr>
+
+        <tr>
+            <td><b>Koszty fakturowane:&nbsp;&nbsp;</b></td>
+
+            <td th:text="${paybackExpenses} + ' zł'"></td>
+        </tr>
+
+        <tr>
+            <td><b>Do opodatkowania:&nbsp;&nbsp;</b></td>
+
+            <td th:text="${incomeForTaxes} + ' zł'"></td>
+        </tr>
+
+        <tr>
+            <td><b>Podatek VAT:&nbsp;&nbsp;</b></td>
+
+            <td id="vat" th:text="${vat} + ' zł'"></td>
+        </tr>
+        <tr>
+            <td><b>Podatek dochodowy:&nbsp;&nbsp;</b></td>
+
+            <td id="tax" th:text="${tax} + ' zł'"></td>
+        </tr>
+        <tr>
+            <td><b>Zysk:&nbsp;&nbsp;</b></td>
+            <td th:text="${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax} + ' zł'"></td>
+        </tr>
+
 
     </table>
 </div>

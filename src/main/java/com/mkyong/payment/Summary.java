@@ -3,18 +3,14 @@ package com.mkyong.payment;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Cyprian on 2017-07-16.
  */
 public class Summary {
 
-    private Connection connection;
     protected final String REGEX = "-";
+    private Connection connection;
 
 
     public Summary() throws SQLException, ClassNotFoundException {
@@ -29,7 +25,7 @@ public class Summary {
     }
 
     public String getActualMonthForSummary(String date) {
-        return  date.substring(5, 7);
+        return date.substring(5, 7);
     }
 
     public Connection getConnection() throws ClassNotFoundException, SQLException {

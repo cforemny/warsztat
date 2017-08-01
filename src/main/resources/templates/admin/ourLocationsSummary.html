@@ -10,26 +10,30 @@
     <div>
         <table class="table">
             <tr>
-                <td ><b>Wpływy z własnych lokalizacji:</b>
+                <td><b>Wpływy z własnych lokalizacji:</b>
 
-                <p th:text=" 'Przelew:&nbsp;' + ${remittancePayment} + '&nbsp;zł' + '&nbsp;Gotówka:&nbsp;' + ${cashPayment} + '&nbsp;zł' "></p></td>
+                    <p th:text=" 'Przelew:&nbsp;' + ${remittancePayment} + '&nbsp;zł' + '&nbsp;Gotówka:&nbsp;' + ${cashPayment} + '&nbsp;zł' "></p>
+                </td>
             </tr>
             <tr>
                 <td><b>Wpływy z przedszkoli:</b>
-                <p th:text="${nurserySchoolIncome} + 'zł'"></p></td>
+                    <p th:text="${nurserySchoolIncome} + 'zł'"></p></td>
             </tr>
             <tr>
                 <td><b>Wpływy z zajęć jednorazowych:</b>
-                <p th:text="${eventsIncome} + 'zł'"></p></td>
+                    <p th:text="${eventsIncome} + 'zł'"></p></td>
             </tr>
             <tr>
-                <td><b>Koszty prowadzenia działalności:</b><p th:text="${instructorExpense} + 'zł'"></p></td>
+                <td><b>Koszty prowadzenia działalności:</b>
+                    <p th:text="${instructorExpense} + 'zł'"></p></td>
             </tr>
             <tr>
-                <td><b>Wydatki instruktorów</b><p th:text="${adminExpensesSummary} + 'zł'"></p></td>
+                <td><b>Wydatki instruktorów</b>
+                    <p th:text="${adminExpensesSummary} + 'zł'"></p></td>
             </tr>
             <tr>
-                <td><b>Gotówka po uwzględnieniu wydatków:</b> <p th:text="${monthCash} + 'zł'"></p></td>
+                <td><b>Gotówka po uwzględnieniu wydatków:</b>
+                    <p th:text="${monthCash} + 'zł'"></p></td>
             </tr>
         </table>
     </div>

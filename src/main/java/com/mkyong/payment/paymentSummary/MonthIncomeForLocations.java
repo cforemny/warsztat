@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -22,13 +21,13 @@ public class MonthIncomeForLocations extends MonthIncome {
     public MonthIncomeForLocations() throws SQLException, ClassNotFoundException {
     }
 
-    public Map<String,Integer> getLocationSummary(String date, String isCash) {
+    public Map<String, Integer> getLocationSummary(String date, String isCash) {
 
         Map<String, Integer> locationSummary = new TreeMap<>();
         int payment = 0;
         try {
 
-            List<String> paymentTables = super.preapareTableList();
+            List<String> paymentTables = super.prepareTableList();
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
@@ -39,14 +38,8 @@ public class MonthIncomeForLocations extends MonthIncome {
                 statement = getConnection().createStatement();
                 resultSet = statement.executeQuery(query);
 
-                while (resultSet.next()) {
-                    String paymentType = resultSet.getString("typPlatnosci");
-                    String paymentValue = resultSet.getString("platnosc");
-                    if (paymentType.equals(isCash)) {
-                        payment = payment + Integer.parseInt(paymentValue);
-                    }
-                }
-                locationSummary.put(paymentTable,payment);
+                payment = payment + getIncomeValue(resultSet, isCash);
+                locationSummary.put(paymentTable, payment);
             }
         } catch (Exception e) {
             e.printStackTrace();

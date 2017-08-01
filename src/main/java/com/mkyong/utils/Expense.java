@@ -9,8 +9,17 @@ public class Expense {
     private String expenseValue;
     private String expenseInstructor;
     private String expenseData;
+    private char bill;
 
     public Expense() {
+    }
+
+    public Expense(String expenseType, String expenseValue, String expenseInstructor, String expenseData, char bill) {
+        this.expenseType = expenseType;
+        this.expenseValue = expenseValue;
+        this.expenseInstructor = expenseInstructor;
+        this.expenseData = expenseData;
+        this.bill = bill;
     }
 
     public Expense(String expenseType, String expenseValue, String expenseInstructor, String expenseData) {
@@ -18,6 +27,14 @@ public class Expense {
         this.expenseValue = expenseValue;
         this.expenseInstructor = expenseInstructor;
         this.expenseData = expenseData;
+    }
+
+    public char getBill() {
+        return bill;
+    }
+
+    public void setBill(char bill) {
+        this.bill = bill;
     }
 
     public String getExpenseType() {

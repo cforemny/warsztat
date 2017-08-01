@@ -7,10 +7,7 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,9 +16,9 @@ import java.util.List;
 @Component
 public class NurserySchoolSummary extends Summary {
 
+    private final String REGEX = "-";
     private ResultSet resultSet;
     private Statement statement;
-    private final String REGEX = "-";
 
     public NurserySchoolSummary() throws SQLException, ClassNotFoundException {
     }
@@ -56,7 +53,7 @@ public class NurserySchoolSummary extends Summary {
         return payment;
     }
 
-    public List<NurserySchool> getListOfNurserySchoolByMonth(String date){
+    public List<NurserySchool> getListOfNurserySchoolByMonth(String date) {
 
         List<NurserySchool> nurserySchools = new ArrayList<>();
         try {
@@ -75,13 +72,13 @@ public class NurserySchoolSummary extends Summary {
                     "AND data LIKE '%-" + monthNumber + "-%'";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String nurserySchoolName = resultSet.getString("nazwaprzedszkola");
                 String childrens = resultSet.getString("liczbadzieci");
                 String lessonDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
 
-                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens),lessonDate,Integer.parseInt(value),nurserySchoolName));
+                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName));
             }
         } catch (Exception e) {
             e.printStackTrace();

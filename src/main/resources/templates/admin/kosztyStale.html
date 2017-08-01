@@ -44,7 +44,7 @@
         </th:block>
     </table>
 
-    <form action="#"  th:object="${permanentExpense}" method="post">
+    <form action="#" th:object="${permanentExpense}" method="post">
         <input size="3" th:field="*{value}" type="text" placeholder="Kwota"/>
         <input size="35" th:field="*{name}" type="text" placeholder="Na co wydano"/>
         <input size="15" th:field="*{date}" id="datepicker" name="date" type="text" placeholder="Data"/>
