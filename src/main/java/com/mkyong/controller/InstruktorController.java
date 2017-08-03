@@ -50,8 +50,8 @@ public class InstruktorController {
 
     @GetMapping("")
     public String defaultInstruktor(@ModelAttribute String skosna, Model model) {
-        String zawartosc = "jakas zawartosc z kontrolera";
-        model.addAttribute("zawartosc", zawartosc);
+
+
         model.addAttribute("expense", new Expense());
         model.addAttribute("cashCollection", new CashCollection());
         model.addAttribute("nurserySchool", new NurserySchool());
@@ -63,33 +63,30 @@ public class InstruktorController {
         return "instruktor";
     }
 
-    @PostMapping("/dodajWydatek")
+    @PostMapping("")
     public String addExpense(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
                              @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
+        if(expense.getExpenseValue() != null)
         expenseCreator.insertExpenseToTable(expense);
-        return "instruktor";
-    }
-
-    @PostMapping("/odbioryGotowki")
-    public String getInstructorPayment(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                                       @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
+        if(cashCollection.getValue() != null)
         cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
-        return "instruktor";
-    }
-
-    @PostMapping("/obecnoscWPrzedszkolu")
-    public String countKidsInPreSchool(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                                       @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
+        if(nurserySchool.getName() != null)
         preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
+        if(event.getEventType() != null)
+        eventCreator.insertNewEventToTable(event);
+
+        model.addAttribute("expense", new Expense());
+        model.addAttribute("cashCollection", new CashCollection());
+        model.addAttribute("nurserySchool", new NurserySchool());
+        model.addAttribute("event", new Event());
+        model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
+        model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
+        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
+        model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
         return "instruktor";
     }
 
-    @PostMapping("/dodajEvent")
-    public String addNewEvent(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                              @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
-        eventCreator.insertNewEventToTable(event);
-        return "instruktor";
-    }
+
 
     public String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
