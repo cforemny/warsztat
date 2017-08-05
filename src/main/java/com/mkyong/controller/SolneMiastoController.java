@@ -35,35 +35,42 @@ public class SolneMiastoController {
     @GetMapping("/SolneMiasto")
     public String showLocation(Model model) {
         this.adress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI().toString();
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("/SolneMiasto")
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
         studentListCreator.addNewDate("datysolnemiasto", courseDate.getCurrentDate());
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/SolneMiasto";
     }
 
     @PostMapping("SolneMiasto/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
         studentListCreator.addNewPayment("platnoscisolnemiasto", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
+        return "lokalizacje/SolneMiasto";
+    }
+
+    @PostMapping("SolneMiasto/usunPlatnosc")
+    public String removePayment(@ModelAttribute Payment payment, Model model) {
+        studentListCreator.removePayment("platnoscisolnemiasto",  payment.getStudentId(), payment.getPaymentDate());
+        prepareSiteObjects(model);
         return "lokalizacje/SolneMiasto";
     }
 
@@ -76,7 +83,7 @@ public class SolneMiastoController {
         return currentUrlCutter.getTableNameFromUrl(adress);
     }
 
-    private void preapreSiteObjects(Model model) {
+    private void prepareSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
         model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto"));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscisolnemiasto"));

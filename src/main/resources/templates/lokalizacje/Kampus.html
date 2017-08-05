@@ -68,20 +68,13 @@
     <table class="table table-bordered table-condensed table-hover text-center">
         <tr class="info">
             <td class="col-xs-1">Numer</td>
-            <td>Dane opiekuna</td>
-            <td>Telefon</td>
-            <td>Wiek</td>
-            <td>email</td>
+
             <td>Imie</td>
             <td>Nazwisko</td>
             <td th:each="date: ${dateList}" th:text="${date} "></td>
         </tr>
         <tr th:each="student: ${studentList}">
             <td th:text="${student.id}"/>
-            <td th:text="${student.parentName}"/>
-            <td th:text="${student.telephone}"/>
-            <td th:text="${student.age}"/>
-            <td th:text="${student.email}"/>
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
             <th:block th:each="date: ${dateList}">
@@ -101,12 +94,49 @@
 
 <div align="right, 10px">
     <ul class="nav nav-pills">
-        <li class="active"><a data-toggle="pill" href="#dodajPlatnosc">Platnosci</a></li>
+        <li class="active"><a data-toggle="pill" href="#dodajPlatnosc">Płatności</a></li>
         <li><a data-toggle="pill" href="#dodaj">Dodaj kursanta</a></li>
-        <li><a data-toggle="pill" href="#usun">Usun kursanta</a></li>
+        <li><a data-toggle="pill" href="#usun">Usuń kursanta</a></li>
         <li><a data-toggle="pill" href="#dodajDate">Dodaj date</a></li>
+        <li><a data-toggle="pill" href="#usunPlatnosc">Usuń płatność</a></li>
     </ul>
     <div class="tab-content">
+        <div class="tab-pane fade" id="usunPlatnosc">
+            <form action="#" th:action="@{/instruktor/Kampus/usunPlatnosc}" th:object="${payment}" method="post">
+                <table>
+                    <tr>
+                        <td>Wybierz kursanta:&nbsp;&nbsp;</td>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" th:field="*{studentId}">
+                                    <option th:each="student: ${studentList}"
+                                            th:field="*{studentId}"
+                                            th:text="${student.name}+' '+${student.lastName}"
+                                            th:value="${student.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Usun platnosc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Wybierz Date:</td>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" th:field="*{paymentDate}">
+                                    <option th:each="date: ${dateList}"
+                                            th:field="*{paymentDate}"
+                                            th:text="${date}"
+                                            th:value="${date}">
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
         <div class="tab-pane fade" id="dodaj">
             <tab>
                 <tr>

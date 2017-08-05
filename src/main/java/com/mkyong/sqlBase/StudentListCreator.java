@@ -33,6 +33,12 @@ public class StudentListCreator {
         } catch (Exception exception) {
             System.out.println(exception);
 
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -44,8 +50,13 @@ public class StudentListCreator {
 
         } catch (Exception exception) {
             System.out.println(exception);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 
     public void addNewDate(String tableName, String date) {
@@ -60,6 +71,12 @@ public class StudentListCreator {
 
         } catch (Exception exception) {
             System.out.println(exception);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -76,6 +93,32 @@ public class StudentListCreator {
 
         } catch (Exception exception) {
             System.out.println(exception);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void removePayment(String tableName, String studentId, String date) {
+
+        try {
+            getConnection();
+            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date+"'";
+            statement.execute(queryPayment);
+
+
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }

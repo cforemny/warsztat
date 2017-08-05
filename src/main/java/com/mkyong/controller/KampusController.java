@@ -35,35 +35,41 @@ public class KampusController {
     @GetMapping("/Kampus")
     public String showLocation(Model model) {
         this.adress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI().toString();
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
 
     @PostMapping("/Kampus")
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
         studentListCreator.addNewDate("datykampus", courseDate.getCurrentDate());
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
 
     @PostMapping("Kampus/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
         studentListCreator.addNewPayment("platnoscikampus", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
-        preapreSiteObjects(model);
+        prepareSiteObjects(model);
+        return "lokalizacje/Kampus";
+    }
+    @PostMapping("Kampus/usunPlatnosc")
+    public String removePayment(@ModelAttribute Payment payment, Model model) {
+        studentListCreator.removePayment("platnoscikampus",  payment.getStudentId(), payment.getPaymentDate());
+        prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
 
@@ -71,7 +77,7 @@ public class KampusController {
         return currentUrlCutter.getTableNameFromUrl(adress);
     }
 
-    private void preapreSiteObjects(Model model) {
+    private void prepareSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
         model.addAttribute("dateList", tableSelector.getDateTable("datykampus"));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscikampus"));
