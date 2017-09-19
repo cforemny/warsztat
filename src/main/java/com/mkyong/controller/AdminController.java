@@ -3,6 +3,8 @@ package com.mkyong.controller;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.expenseSummary.PermanentExpense;
 import com.mkyong.payment.paymentSummary.*;
+import com.mkyong.sqlBase.EventCreator;
+import com.mkyong.utils.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,27 +35,22 @@ public class AdminController {
     private MonthIncomeForLocations monthIncomeForLocations;
     @Autowired
     private PermanentExpense permanentExpense;
+    @Autowired
+    private EventCreator eventCreator;
+
 
     @GetMapping("")
     public String admin(Model model) throws SQLException, ClassNotFoundException {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
-
+        model.addAttribute("event", new Event());
         return "admin";
     }
 
     @GetMapping("/{month}")
     public String getMonth(@PathVariable("month") String data, Model model) {
 
-        model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
-        model.addAttribute("dataMap", numberOfMonths.prepareButtons());
-        model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
-        model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
-        model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstructor(data));
-        model.addAttribute("monthCash", monthIncome.getCashByDate(data) - monthExpense.getInstructorExpenseForMonth(data));
-        model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
-        model.addAttribute("eventsIncome", eventSummary.getIncomeFromEvent(data, "T") + eventSummary.getIncomeFromEvent(data, "N"));
-        model.addAttribute("adminExpensesSummary", permanentExpense.getPermanenetExpenseSummary(data));
-
+        prepareDataForDetails(data,model);
+        model.addAttribute("event", new Event());
         return "admin";
     }
 
@@ -85,6 +82,7 @@ public class AdminController {
 
     @GetMapping("/podgladSzczegolowy")
     public String showDetails(@RequestParam("data") String data, Model model) {
+
         model.addAttribute("expenseDetailsList", monthExpense.getExpenseListByDate(data));
         model.addAttribute("cashDetailList", monthIncome.getCashPerInstructor(data));
         model.addAttribute("locationsIncomeCash", monthIncomeForLocations.getLocationSummary(data, "T"));
@@ -107,7 +105,7 @@ public class AdminController {
 
     private double addAllIncomeForTaxes(String data) {
 
-        double incomeForTaxes = monthIncome.getPaymentFromLocations(data, "N") + eventSummary.getIncomeFromEvent(data, "N")
+        double incomeForTaxes = monthIncome.getPaymentFromLocations(data, "N") + eventSummary.getIncomeFromEvent(data, "T")
                 + nurserySchoolSummary.getPaymentFromNurserySchools(data);
 
         return incomeForTaxes;
@@ -127,5 +125,20 @@ public class AdminController {
         double tax;
         tax = (addAllIncomeForTaxes(data)/1.23)*0.19;
         return (int)tax;
+    }
+
+    private void prepareDataForDetails(String data, Model model){
+
+        model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
+        model.addAttribute("dataMap", numberOfMonths.prepareButtons());
+        model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
+        model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
+        model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstructor(data));
+        model.addAttribute("monthCash", monthIncome.getCashByDate(data) - monthExpense.getInstructorExpenseForMonth(data));
+        model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
+        model.addAttribute("eventsIncome", eventSummary.getIncomeFromEvent(data, "T") + eventSummary.getIncomeFromEvent(data, "N"));
+        model.addAttribute("adminExpensesSummary", permanentExpense.getPermanenetExpenseSummary(data));
+        model.addAttribute("event", new Event());
+
     }
 }

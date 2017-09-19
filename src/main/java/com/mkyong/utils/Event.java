@@ -9,12 +9,14 @@ public class Event {
     private String eventType;
     private double value;
     private char faktura;
+    private char isPaid;
 
-    public Event(String date, String eventType, double value, char faktura) {
+    public Event(String date, String eventType, double value, char faktura, char isPaid) {
         this.date = date;
         this.eventType = eventType;
         this.value = value;
         this.faktura = faktura;
+        this.isPaid = isPaid;
     }
 
     public Event() {
@@ -50,5 +52,13 @@ public class Event {
 
     public void setFaktura(char faktura) {
         this.faktura = faktura;
+    }
+
+    public char getIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(char isPaid) {
+        this.isPaid = isPaid;
     }
 }

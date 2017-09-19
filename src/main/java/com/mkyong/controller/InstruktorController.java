@@ -68,7 +68,7 @@ public class InstruktorController {
                              @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
         if(expense.getExpenseValue() != null)
         expenseCreator.insertExpenseToTable(expense);
-        if(cashCollection.getValue() != null)
+        if(cashCollection.getLocation() != null)
         cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
         if(nurserySchool.getName() != null)
         preSchoolCreator.insertPreschoolIntoTable(nurserySchool);

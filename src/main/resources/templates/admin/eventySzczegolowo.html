@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:backgroundcolor="http://www.w3.org/1999/xhtml">
 <head>
     <div th:replace="fragments/header :: header-css"/>
     <style>
@@ -14,21 +14,30 @@
 
 <div class="container" th:fragment="eventySzczegolowo">
     <div class="well well-sm" style="background-color: #4682B4;">
-        <p style="font-size: 130%; font-weight: bold">Zajęcia jednorazowe</p>
+        <p style="font-size: 130%; font-weight: bold">Inne wpływy</p>
     </div>
     <table class="table">
         <tr style="font-weight: bold">
             <td>Zajęcia</td>
             <td>Cena</td>
             <td>Data</td>
+            <td>Czy zapłacono</td>
         </tr>
+
         <th:block th:each="eventDetail : ${eventListDetails}">
             <tr>
-                <td th:text="${eventDetail.eventType}"/>
+                <td th:text="${eventDetail.eventType}">
+                    <input type="hidden" th:field="*{eventType}"/></td>
                 <td th:text="${eventDetail.value}"/>
                 <td th:text="${eventDetail.date}"/>
+                <div th:switch="${eventDetail.isPaid}">
+                    <td th:case="'T'">Zapłacono</td>
+                    <td th:case="'N'">Niezapłacono</td>
+                </div>
+
             </tr>
         </th:block>
+
     </table>
 </div>
 </body>

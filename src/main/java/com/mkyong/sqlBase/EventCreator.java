@@ -25,6 +25,16 @@ public class EventCreator {
 
         String query = "INSERT INTO eventy (data, rodzajeventu,cena,faktura) VALUES ('" + event.getDate() + "','" +
                 event.getEventType() + "'," + event.getValue() + ",'" + event.getFaktura() + "')";
+        execute(query);
+    }
+
+    public void updateEventPayment(Event event) {
+        String query = "UPDATE eventy SET czyzaplacono =  'T' WHERE data ='" + event.getDate() + "' AND cena = '" +
+                event.getValue() + "'";
+        execute(query);
+    }
+
+    private void execute(String query) {
         try {
             getConnection();
             statement.execute(query);

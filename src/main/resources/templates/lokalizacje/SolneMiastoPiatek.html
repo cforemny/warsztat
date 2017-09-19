@@ -63,7 +63,7 @@
             <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
             </td>
             <td class="odstepy"><p>
-                <h1>Solne Miasto Wtorek</h1></p></td>
+                <h1>Solne Miasto Piątek</h1></p></td>
         </tr>
     </table>
 </div>
@@ -106,7 +106,7 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade" id="usunPlatnosc">
-            <form action="#" th:action="@{/instruktor/SolneMiasto/usunPlatnosc}" th:object="${payment}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/usunPlatnosc}" th:object="${payment}" method="post">
                 <table>
                     <tr>
                         <td>Wybierz kursanta:&nbsp;&nbsp;</td>
@@ -150,7 +150,7 @@
 
             <br/>
             <br/>
-            <form action="#" th:action="@{/instruktor/SolneMiasto}" th:object="${student}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek}" th:object="${student}" method="post">
                 <table>
                     <tr>
                         <td>Numer:</td>
@@ -188,14 +188,14 @@
             </form>
         </div>
         <div class="tab-pane fade" id="usun">
-            <form action="#" th:action="@{/instruktor/SolneMiasto/usun}" th:object="${student}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/usun}" th:object="${student}" method="post">
                 Usun kursanta o numerze:<br/>
                 <input name="lastName" type="text" th:field="*{id}"/>
                 <input type="submit" class="btn btn-primary" value="Usun kursanta"/><br/>
             </form>
         </div>
         <div class="tab-pane fade" id="dodajDate">
-            <form action="#" th:action="@{/instruktor/SolneMiasto/dodajDate}" th:object="${courseDate}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/dodajDate}" th:object="${courseDate}" method="post">
                 Dodaj datę:<br/>
                 <input name="currentDate" id="datepicker" type="text" th:field="*{currentDate}"/>
                 <input type="submit" class="btn btn-primary" value="Dodaj date"/>
@@ -205,7 +205,7 @@
         <div class="tab-pane fade in active" id="dodajPlatnosc">
             Dodaj platnosci: <br/><br/>
 
-            <form action="#" th:action="@{/instruktor/SolneMiasto/platnosci}" th:object="${payment}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/platnosci}" th:object="${payment}" method="post">
                 <table>
                     <tr>
                         <td>Wybierz kursanta:&nbsp;&nbsp;</td>

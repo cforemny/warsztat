@@ -66,7 +66,7 @@ public class EventSummary extends Summary {
 
             }
 
-            String query = "select data, rodzajeventu, cena, faktura from eventy " + " WHERE data LIKE '" + year + "%'" +
+            String query = "select data, rodzajeventu, cena, faktura, czyzaplacono from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
@@ -75,8 +75,9 @@ public class EventSummary extends Summary {
                 String facture = resultSet.getString("faktura");
                 String eventDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
+                String czyZaplacono = resultSet.getString("czyzaplacono");
 
-                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0)));
+                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0), czyZaplacono.charAt(0)));
             }
         } catch (Exception e) {
             e.printStackTrace();

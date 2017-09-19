@@ -24,7 +24,7 @@ public class MonthIncomeForLocations extends MonthIncome {
     public Map<String, Integer> getLocationSummary(String date, String isCash) {
 
         Map<String, Integer> locationSummary = new TreeMap<>();
-        int payment = 0;
+
         try {
 
             List<String> paymentTables = super.prepareTableList();
@@ -38,8 +38,7 @@ public class MonthIncomeForLocations extends MonthIncome {
                 statement = getConnection().createStatement();
                 resultSet = statement.executeQuery(query);
 
-                payment = payment + getIncomeValue(resultSet, isCash);
-                locationSummary.put(paymentTable, payment);
+                locationSummary.put(paymentTable, getIncomeValue(resultSet, isCash));
             }
         } catch (Exception e) {
             e.printStackTrace();
