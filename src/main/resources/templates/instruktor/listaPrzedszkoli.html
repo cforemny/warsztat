@@ -8,7 +8,7 @@
 <body>
 <div th:fragment="listaPrzedszkoli">
     <form  th:object="${nurserySchool}" method="post">
-        <select style="width: 200px" class="form-control" th:field="*{name}">
+        <select name="przedszkola" style="width: 200px" class="form-control" th:field="*{name}">
             <option th:value="default">=Wybierz przedszkole=</option>
             <option th:value="skosna">Bajka Skośna</option>
             <option th:value="lubostron">Bajka Lubostroń</option>
@@ -21,11 +21,12 @@
         Cena zajęć:<input size="5" th:field="*{value}" type="text" placeholder="Cena"/>
         <input type="submit" class="btn btn-primary" value="Zatwierdź zajęcia"/>
     </form>
+
     <br/><br/><br/>
     <div>
         <table class="table table-bordered table-condensed table-hover text-center">
             <tr><b>Zajęcia przedszkolne w tym miesiącu:</b><br/></tr>
-            <tr>
+            <tr style="font-weight: bold;">
                 <td>Przedszkole</td>
                 <td>Liczba dzieci</td>
                 <td>Data zajęć</td>
@@ -38,7 +39,5 @@
         </table>
     </div>
 </div>
-
-
 </body>
 </html>

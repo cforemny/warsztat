@@ -65,9 +65,6 @@ public class StudentListCreator {
             getConnection();
             String queryData = "INSERT INTO " + tableName + " (data) " + " VALUES ('" + date + "')";
             statement.execute(queryData);
-            String queryPayment = "INSERT INTO platnosci " + " (studentId,data,platnosc) " + " VALUES (0,'" + date + "',0)";
-            statement.execute(queryPayment);
-
 
         } catch (Exception exception) {
             System.out.println(exception);

@@ -15,10 +15,7 @@ import com.mkyong.utils.NurserySchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -49,7 +46,7 @@ public class InstruktorController {
     private CashSummary cashSummary;
 
     @GetMapping("")
-    public String defaultInstruktor(@ModelAttribute String skosna, Model model) {
+    public String defaultInstruktor(Model model) {
 
 
         model.addAttribute("expense", new Expense());
@@ -64,8 +61,11 @@ public class InstruktorController {
     }
 
     @PostMapping("")
-    public String addExpense(@ModelAttribute NurserySchool nurserySchool, @ModelAttribute CashCollection cashCollection,
-                             @ModelAttribute Expense expense, @ModelAttribute Event event, Model model) {
+    public String addExpense(@RequestParam("potwierdzenie") String potwierdzenie, @RequestParam("cenaWydarzenia") String cenaWydarzenia,
+                             @RequestParam("dataWydarzenia") String dataWydarzenia,@ModelAttribute NurserySchool nurserySchool,
+                             @ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense,
+                             @ModelAttribute Event event, Model model) {
+
         if(expense.getExpenseValue() != null)
         expenseCreator.insertExpenseToTable(expense);
         if(cashCollection.getLocation() != null)
@@ -74,6 +74,9 @@ public class InstruktorController {
         preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
         if(event.getEventType() != null)
         eventCreator.insertNewEventToTable(event);
+        if(potwierdzenie.equals("T"))
+            eventCreator.updateEventPayment(dataWydarzenia, cenaWydarzenia);
+
 
         model.addAttribute("expense", new Expense());
         model.addAttribute("cashCollection", new CashCollection());

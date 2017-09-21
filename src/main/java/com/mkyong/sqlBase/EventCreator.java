@@ -28,9 +28,9 @@ public class EventCreator {
         execute(query);
     }
 
-    public void updateEventPayment(Event event) {
-        String query = "UPDATE eventy SET czyzaplacono =  'T' WHERE data ='" + event.getDate() + "' AND cena = '" +
-                event.getValue() + "'";
+    public void updateEventPayment(String data, String cena) {
+        String query = "UPDATE eventy SET czyzaplacono =  'T' WHERE data ='" + data + "' AND cena = '" +
+                cena + "'";
         execute(query);
     }
 
