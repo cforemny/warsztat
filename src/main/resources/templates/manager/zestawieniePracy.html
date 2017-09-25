@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+<div th:fragment="zestawieniePracy">
+
+    <form th:object="${workSummary}" method="post">
+    <input type="submit" class="btn btn-primary" value="Zatwierdz godziny pracy"/>
+        <br/>
+        <br/>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="zestawieniePracy">
+            <table class="table table-bordered table-condensed table-hover text-center">
+                <tr class="info">
+                    <td>Numer</td>
+                    <td>Data</td>
+                    <td>Zajęcia</td>
+                    <td>Cyprian</td>
+                    <td>Ola Foremna</td>
+                    <td>Joanna Cichoń</td>
+                    <td>Krzysztof Skotniczny</td>
+                    <td>Lukasz Krasoń</td>
+                    <td>Piotr Szydło</td>
+                    <td>Katarzyna</td>
+                </tr>
+
+                <tr th:each="number: ${instructorMap}">
+                    <td th:text="${number.key}"></td>
+                    <td th:text="${number.value.data}"></td>
+                    <td th:text="${number.value.miejsce}"></td>
+                    <td th:if="${number.value.cforemny}==0">
+
+                            <input  size="3" type="text" placeholder="czas" th:field="*{cforemny}"/>
+
+                    </td>
+                    <td th:if="${number.value.cforemny}!=0" th:text="${number.value.cforemny}"></td>
+                    <td th:text="${number.value.oforemna}"></td>
+                    <td th:text="${number.value.jcichon}"></td>
+                    <td th:text="${number.value.kskotniczny}"></td>
+                    <td th:text="${number.value.lkrason}"></td>
+                    <td th:text="${number.value.pszydlo}"></td>
+                    <td th:text="${number.value.kasiak}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>

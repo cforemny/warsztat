@@ -27,11 +27,6 @@ public class DefaultController {
         return "login";
     }
 
-    @GetMapping("/manager")
-    public String manager() {
-        return "manager";
-    }
-
     @GetMapping("/403")
     public String error403() {
         return "error/403";

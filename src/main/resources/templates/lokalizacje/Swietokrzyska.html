@@ -71,12 +71,16 @@
             <td class="col-xs-1">Numer</td>
             <td>Imie</td>
             <td>Nazwisko</td>
+            <td>Telefon</td>
+            <td>Mail</td>
             <td th:each="date: ${dateList}" th:text="${date} "></td>
         </tr>
         <tr th:each="student: ${studentList}">
-            <td class="col-xs-1" th:text="${student.id}"/>
+            <td th:text="${student.id}"/>
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
+            <td th:text="${student.telephone}"/>
+            <td style="color: blue" th:text="${student.email}"/>
             <th:block th:each="date: ${dateList}">
                 <td>
                     <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">

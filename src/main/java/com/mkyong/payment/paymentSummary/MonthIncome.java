@@ -121,11 +121,11 @@ public class MonthIncome extends Summary {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
 
-            String query = "show tables from cfrobotics like '%platnosci%' ";
+            String query = "show tables from testowa like '%platnosci%' ";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                String tableName = resultSet.getString("Tables_in_cfrobotics (%platnosci%)");
+                String tableName = resultSet.getString("Tables_in_testowa (%platnosci%)");
                 paymentTables.add(tableName);
             }
         } catch (Exception e) {

@@ -41,7 +41,7 @@
                     </div>
                     <div th:case="'N'">
                         <form th:action="@{/instruktor/(cenaWydarzenia=${event.value},dataWydarzenia=${event.date}, potwierdzenie=${'T'})}" th:object="${event}" method="post">
-                            <!--(potwierdzenie=${'T'})-->
+
                             <input type="submit" class="btn btn-primary" value="Potwierdz wplate"/>
                         </form>
                     </div>
