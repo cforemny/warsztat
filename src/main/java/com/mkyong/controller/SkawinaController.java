@@ -66,9 +66,10 @@ public class SkawinaController {
         prepareSiteObjects(model);
         return "lokalizacje/Skawina";
     }
+
     @PostMapping("Skawina/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnosciskawina",  payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnosciskawina", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
         return "lokalizacje/Skawina";
     }

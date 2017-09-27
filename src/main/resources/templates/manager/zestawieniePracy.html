@@ -4,15 +4,30 @@
 <head>
     <meta charset="UTF-8"/>
     <div th:replace="fragments/header :: header-css"/>
-
 </head>
 <body>
 <div th:fragment="zestawieniePracy">
 
-    <form th:object="${workSummary}" method="post">
-    <input type="submit" class="btn btn-primary" value="Zatwierdz godziny pracy"/>
-        <br/>
-        <br/>
+    <form th:object="${instructor}" method="post">
+        <input size="3" type="text" placeholder="czas" th:field="*{time}"/>
+        <input size="15" type="text" placeholder="Zajęcia" th:field="*{place}"/>
+        <input size="15" id="datepicker3" name="date" type="text" placeholder="Data" th:field="*{date}"/>
+        Instruktor <select th:field="*{name}">
+        <option value="cforemny">Cyprian Foremny</option>
+        <option value="oforemna">Aleksandra Foremna</option>
+        <option value="jcichon">Joanna Cichon</option>
+        <option value="kskotniczny">Krzysztof Skotniczny</option>
+        <option value="kasiak">Katarzyna Kipias</option>
+        <option value="lkrason">Lukasz Krasoń</option>
+        <option value="pszydlo">Piotr Szydło</option>
+
+    </select>
+        <input type="submit" class="btn btn-primary" value="Dodaj przepracowane godziny"/>
+    </form>
+    Podgląd zestawienia jest generowany dla aktualnego miesiąca. Żeby sprawdzić inne miesiące należy przestawić zegar na komputerze.
+    Przy dodawaniu godzin, w sytuacji pomylki jest mozliwość nadpisania błednej wartosci - trzeba wypelnic jeszcze raz odpowiednie dane z poprawnymi danymi.
+    <br/>
+    <br/>
     <div class="tab-content">
         <div class="tab-pane fade in active" id="zestawieniePracy">
             <table class="table table-bordered table-condensed table-hover text-center">
@@ -22,34 +37,49 @@
                     <td>Zajęcia</td>
                     <td>Cyprian</td>
                     <td>Ola Foremna</td>
+                    <td>Katarzyna Kipias</td>
                     <td>Joanna Cichoń</td>
                     <td>Krzysztof Skotniczny</td>
-                    <td>Lukasz Krasoń</td>
                     <td>Piotr Szydło</td>
-                    <td>Katarzyna</td>
+                    <td>Lukasz Krasoń</td>
                 </tr>
 
                 <tr th:each="number: ${instructorMap}">
                     <td th:text="${number.key}"></td>
                     <td th:text="${number.value.data}"></td>
                     <td th:text="${number.value.miejsce}"></td>
-                    <td th:if="${number.value.cforemny}==0">
-
-                            <input  size="3" type="text" placeholder="czas" th:field="*{cforemny}"/>
-
-                    </td>
-                    <td th:if="${number.value.cforemny}!=0" th:text="${number.value.cforemny}"></td>
-                    <td th:text="${number.value.oforemna}"></td>
-                    <td th:text="${number.value.jcichon}"></td>
-                    <td th:text="${number.value.kskotniczny}"></td>
-                    <td th:text="${number.value.lkrason}"></td>
-                    <td th:text="${number.value.pszydlo}"></td>
-                    <td th:text="${number.value.kasiak}"></td>
+                    <td th:text=" ((${number.value.cforemny} != 0) ? ${number.value.cforemny} : '')"></td>
+                    <td th:text=" ((${number.value.oforemna} != 0) ? ${number.value.oforemna} : '')"></td>
+                    <td th:text=" ((${number.value.kasiak} != 0) ? ${number.value.kasiak} : '')"></td>
+                    <td th:text=" ((${number.value.jcichon} != 0) ? ${number.value.jcichon} : '')"></td>
+                    <td th:text=" ((${number.value.kskotniczny} != 0) ? ${number.value.kskotniczny} : '')"></td>
+                    <td th:text=" ((${number.value.pszydlo} != 0) ? ${number.value.pszydlo} : '')"></td>
+                    <td th:text=" ((${number.value.lkrason} != 0) ? ${number.value.lkrason} : '')"></td>
                 </tr>
             </table>
         </div>
     </div>
-    </form>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        var date = new Date();
+        var currentMonth = date.getMonth();
+        var currentDate = date.getDate();
+        var currentYear = date.getFullYear();
+
+        $('#datepicker').datepicker({
+            minDate: new Date(currentYear, currentMonth, currentDate),
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#datepicker1').datepicker({
+            minDate: new Date(currentYear, currentMonth, currentDate),
+            dateFormat: 'yy-mm-dd'
+        });
+
+    });
+</script>
+
 </body>
 </html>

@@ -59,7 +59,7 @@
             <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
             </td>
             <td class="odstepy"><p>
-                <h1>Luzycka Wielicki</h1></p></td>
+                <h1>Luzycka</h1></p></td>
         </tr>
     </table>
 </div>
@@ -79,7 +79,7 @@
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
             <td th:text="${student.telephone}"/>
-            <td  style="color: blue" th:text="${student.email}"/>
+            <td style="color: blue" th:text="${student.email}"/>
             <th:block th:each="date: ${dateList}">
                 <td>
                     <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">

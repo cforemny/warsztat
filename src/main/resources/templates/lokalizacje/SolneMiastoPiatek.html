@@ -83,7 +83,7 @@
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
             <td th:text="${student.telephone}"/>
-            <td  style="color: blue" th:text="${student.email}"/>
+            <td style="color: blue" th:text="${student.email}"/>
             <th:block th:each="date: ${dateList}">
                 <td>
                     <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">
@@ -109,7 +109,8 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade" id="usunPlatnosc">
-            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/usunPlatnosc}" th:object="${payment}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/usunPlatnosc}" th:object="${payment}"
+                  method="post">
                 <table>
                     <tr>
                         <td>Wybierz kursanta:&nbsp;&nbsp;</td>
@@ -198,7 +199,8 @@
             </form>
         </div>
         <div class="tab-pane fade" id="dodajDate">
-            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/dodajDate}" th:object="${courseDate}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/dodajDate}" th:object="${courseDate}"
+                  method="post">
                 Dodaj datę:<br/>
                 <input name="currentDate" id="datepicker" type="text" th:field="*{currentDate}"/>
                 <input type="submit" class="btn btn-primary" value="Dodaj date"/>
@@ -208,7 +210,8 @@
         <div class="tab-pane fade in active" id="dodajPlatnosc">
             Dodaj platnosci: <br/><br/>
 
-            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/platnosci}" th:object="${payment}" method="post">
+            <form action="#" th:action="@{/instruktor/SolneMiastoPiatek/platnosci}" th:object="${payment}"
+                  method="post">
                 <table>
                     <tr>
                         <td>Wybierz kursanta:&nbsp;&nbsp;</td>

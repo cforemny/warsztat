@@ -65,7 +65,6 @@ public class NurserySchoolSummary extends Summary {
                 monthNumber = getActualMonthForSummary(date);
             } else {
                 monthNumber = switchMonth(getMonthForSummary(date));
-
             }
 
             String query = "select data, liczbadzieci, cena, nazwaprzedszkola from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +

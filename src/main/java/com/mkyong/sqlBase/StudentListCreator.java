@@ -68,7 +68,7 @@ public class StudentListCreator {
 
         } catch (Exception exception) {
             System.out.println(exception);
-        }finally {
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -90,7 +90,7 @@ public class StudentListCreator {
 
         } catch (Exception exception) {
             System.out.println(exception);
-        }finally {
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -104,13 +104,13 @@ public class StudentListCreator {
 
         try {
             getConnection();
-            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date+"'";
+            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
             statement.execute(queryPayment);
 
 
         } catch (Exception exception) {
             System.out.println(exception);
-        }finally {
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {

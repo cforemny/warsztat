@@ -69,7 +69,7 @@ public class SwietokrzyskaController {
 
     @PostMapping("Swietokrzyska/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnosciswietokrzyska",  payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnosciswietokrzyska", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
         return "lokalizacje/Swietokrzyska";
     }

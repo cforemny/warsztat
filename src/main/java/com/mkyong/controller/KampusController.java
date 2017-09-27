@@ -66,9 +66,10 @@ public class KampusController {
         prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }
+
     @PostMapping("Kampus/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnoscikampus",  payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnoscikampus", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
         return "lokalizacje/Kampus";
     }

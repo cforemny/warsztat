@@ -61,21 +61,19 @@ public class InstruktorController {
     }
 
     @PostMapping("")
-    public String addExpense(@RequestParam("potwierdzenie") String potwierdzenie, @RequestParam("cenaWydarzenia") String cenaWydarzenia,
-                             @RequestParam("dataWydarzenia") String dataWydarzenia,@ModelAttribute NurserySchool nurserySchool,
+    public String addExpense( @ModelAttribute NurserySchool nurserySchool,
                              @ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense,
                              @ModelAttribute Event event, Model model) {
 
-        if(expense.getExpenseValue() != null)
-        expenseCreator.insertExpenseToTable(expense);
-        if(cashCollection.getLocation() != null)
-        cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
-        if(nurserySchool.getName() != null)
-        preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
-        if(event.getEventType() != null)
-        eventCreator.insertNewEventToTable(event);
-        if(potwierdzenie.equals("T"))
-            eventCreator.updateEventPayment(dataWydarzenia, cenaWydarzenia);
+        if (expense.getExpenseValue() != null)
+            expenseCreator.insertExpenseToTable(expense);
+        if (cashCollection.getLocation() != null)
+            cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
+        if (nurserySchool.getName() != null)
+            preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
+        if (event.getEventType() != null)
+            eventCreator.insertNewEventToTable(event);
+
 
 
         model.addAttribute("expense", new Expense());
@@ -89,6 +87,22 @@ public class InstruktorController {
         return "instruktor";
     }
 
+    @PostMapping("/")
+    public String confirmEventIncome(@RequestParam("potwierdzenie") String potwierdzenie, @RequestParam("cenaWydarzenia") String cenaWydarzenia,
+                                     @RequestParam("dataWydarzenia") String dataWydarzenia, Model model){
+        if (potwierdzenie.equals("T"))
+            eventCreator.updateEventPayment(dataWydarzenia, cenaWydarzenia);
+        model.addAttribute("expense", new Expense());
+        model.addAttribute("cashCollection", new CashCollection());
+        model.addAttribute("nurserySchool", new NurserySchool());
+        model.addAttribute("event", new Event());
+        model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
+        model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
+        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
+        model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
+
+        return "instruktor";
+    }
 
 
     public String getCurrentDate() {

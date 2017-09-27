@@ -66,9 +66,10 @@ public class RuczajController {
         prepareSiteObjects(model);
         return "lokalizacje/Ruczaj";
     }
+
     @PostMapping("Ruczaj/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnosciruczaj",  payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnosciruczaj", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
         return "lokalizacje/Ruczaj";
     }

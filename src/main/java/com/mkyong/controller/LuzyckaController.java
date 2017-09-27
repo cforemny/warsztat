@@ -66,9 +66,10 @@ public class LuzyckaController {
         prepareSiteObjects(model);
         return "lokalizacje/Luzycka";
     }
+
     @PostMapping("Luzycka/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnosciluzycka",  payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnosciluzycka", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
         return "lokalizacje/Luzycka";
     }

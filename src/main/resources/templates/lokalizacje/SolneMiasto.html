@@ -83,7 +83,7 @@
             <td th:text="${student.name}"/>
             <td th:text="${student.lastName}"/>
             <td th:text="${student.telephone}"/>
-            <td  style="color: blue" th:text="${student.email}"/>
+            <td style="color: blue" th:text="${student.email}"/>
             <th:block th:each="date: ${dateList}">
                 <td>
                     <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">

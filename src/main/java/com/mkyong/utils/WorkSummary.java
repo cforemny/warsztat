@@ -5,7 +5,7 @@ package com.mkyong.utils;
  */
 public class WorkSummary {
 
-    private int id;
+    private String id;
     private String data;
     private String miejsce;
     private String cforemny;
@@ -19,7 +19,23 @@ public class WorkSummary {
     public WorkSummary() {
     }
 
-    public WorkSummary(int id, String data, String miejsce, String cforemny, String oforemna, String jcichon, String kskotniczny, String lkrason, String pszydlo, String kasiak) {
+    public WorkSummary(String data, String miejsce) {
+        this.data = data;
+        this.miejsce = miejsce;
+    }
+
+
+    public WorkSummary(String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo,String lkrason ) {
+        this.cforemny = cforemny;
+        this.oforemna = oforemna;
+        this.jcichon = jcichon;
+        this.kskotniczny = kskotniczny;
+        this.lkrason = lkrason;
+        this.pszydlo = pszydlo;
+        this.kasiak = kasiak;
+    }
+
+    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo,String lkrason) {
         this.id = id;
         this.data = data;
         this.miejsce = miejsce;
@@ -32,11 +48,11 @@ public class WorkSummary {
         this.kasiak = kasiak;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

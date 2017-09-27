@@ -8,7 +8,7 @@
 <body>
 <div th:fragment="odbiorGotowki">
 
-    <form  th:object="${cashCollection}" method="post">
+    <form th:object="${cashCollection}" method="post">
         <select style="width: 180px" class="form-control" th:field="*{instructor}">
             <option th:value="default">=Instruktor=</option>
             <option th:value="Aska">Joanna Cichon</option>

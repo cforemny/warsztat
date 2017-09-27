@@ -22,7 +22,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/home", "/about").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/instruktor/**").hasAnyRole("USER", "ADMIN", "MANAGER")
                 .antMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER")
                 .anyRequest().authenticated()
@@ -42,12 +42,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("instruktor").password("password").roles("USER")
+
+                .withUser("jcichon").password("jcichon1a").roles("MANAGER")
+                .and()
+                .withUser("kskotniczny").password("kskotniczny2z").roles("USER")
+                .and()
+                .withUser("pszydlo").password("pszydlo4k").roles("USER")
+                .and()
+                .withUser("lkrason").password("lkrason4s").roles("USER")
                 .and()
                 .withUser("szef").password("szef").roles("ADMIN")
                 .and()
-                .withUser("admin").password("password").roles("ADMIN")
-                .and()
-                .withUser("manager").password("password").roles("MANAGER");
+                .withUser("kipias").password("kipias7x").roles("MANAGER");
     }
 }

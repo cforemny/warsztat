@@ -49,7 +49,7 @@ public class AdminController {
     @GetMapping("/{month}")
     public String getMonth(@PathVariable("month") String data, Model model) {
 
-        prepareDataForDetails(data,model);
+        prepareDataForDetails(data, model);
         model.addAttribute("event", new Event());
         return "admin";
     }
@@ -111,23 +111,23 @@ public class AdminController {
         return incomeForTaxes;
     }
 
-    private double countVat(String data){
+    private double countVat(String data) {
 
         double vat;
         double expenses = monthExpense.getExpensesToPayback(data);
         double income = addAllIncomeForTaxes(data);
-        vat = (income - income/1.23) - (expenses - expenses/1.23);
-        return (int)vat;
+        vat = (income - income / 1.23) - (expenses - expenses / 1.23);
+        return (int) vat;
     }
 
-    private double incomeTax(String data){
+    private double incomeTax(String data) {
 
         double tax;
-        tax = (addAllIncomeForTaxes(data)/1.23)*0.19;
-        return (int)tax;
+        tax = (addAllIncomeForTaxes(data) / 1.23) * 0.19;
+        return (int) tax;
     }
 
-    private void prepareDataForDetails(String data, Model model){
+    private void prepareDataForDetails(String data, Model model) {
 
         model.addAttribute("instructorExpense", monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());

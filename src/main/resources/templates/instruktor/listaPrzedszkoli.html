@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:fragment="listaPrzedszkoli">
-    <form  th:object="${nurserySchool}" method="post">
+    <form th:object="${nurserySchool}" method="post">
         <select name="przedszkola" style="width: 200px" class="form-control" th:field="*{name}">
             <option th:value="default">=Wybierz przedszkole=</option>
             <option th:value="skosna">Bajka Skośna</option>
