@@ -61,7 +61,7 @@ public class InstruktorController {
     }
 
     @PostMapping("")
-    public String addExpense( @ModelAttribute NurserySchool nurserySchool,
+    public String addExpense(@ModelAttribute NurserySchool nurserySchool,
                              @ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense,
                              @ModelAttribute Event event, Model model) {
 
@@ -73,7 +73,6 @@ public class InstruktorController {
             preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
         if (event.getEventType() != null)
             eventCreator.insertNewEventToTable(event);
-
 
 
         model.addAttribute("expense", new Expense());
@@ -89,7 +88,7 @@ public class InstruktorController {
 
     @PostMapping("/")
     public String confirmEventIncome(@RequestParam("potwierdzenie") String potwierdzenie, @RequestParam("cenaWydarzenia") String cenaWydarzenia,
-                                     @RequestParam("dataWydarzenia") String dataWydarzenia, Model model){
+                                     @RequestParam("dataWydarzenia") String dataWydarzenia, Model model) {
         if (potwierdzenie.equals("T"))
             eventCreator.updateEventPayment(dataWydarzenia, cenaWydarzenia);
         model.addAttribute("expense", new Expense());

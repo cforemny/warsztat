@@ -84,15 +84,14 @@
             <td th:text="${student.lastName}"/>
             <td th:text="${student.telephone}"/>
             <td style="color: blue" th:text="${student.email}"/>
-            <th:block th:each="date: ${dateList}">
-                <td>
-                    <th:block th:each="payment: ${paymentList}" th:if="${payment.paymentDate} == ${date}">
-                        <p th:class="${payment.paymentType}"
-                           th:text="(${student.id}==${payment.studentId})? ${payment.paymentValue}">
-                        </p>
-                    </th:block>
-                </td>
-            </th:block>
+            <td th:each="date: ${dateList}">
+                <div th:each="payment: ${paymentList}"
+                     th:if="${payment.paymentDate} == ${date} and ${student.id}==${payment.studentId}">
+                    <p th:class="${payment.paymentType}"
+                       th:text=" ${payment.paymentValue}">
+                    </p>
+                </div>
+            </td>
         </tr>
     </table>
 </div>

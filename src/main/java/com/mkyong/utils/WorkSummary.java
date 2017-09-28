@@ -25,7 +25,7 @@ public class WorkSummary {
     }
 
 
-    public WorkSummary(String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo,String lkrason ) {
+    public WorkSummary(String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason) {
         this.cforemny = cforemny;
         this.oforemna = oforemna;
         this.jcichon = jcichon;
@@ -35,7 +35,7 @@ public class WorkSummary {
         this.kasiak = kasiak;
     }
 
-    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo,String lkrason) {
+    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason) {
         this.id = id;
         this.data = data;
         this.miejsce = miejsce;

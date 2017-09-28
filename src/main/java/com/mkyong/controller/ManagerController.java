@@ -2,7 +2,9 @@ package com.mkyong.controller;
 
 import com.mkyong.payment.paymentSummary.NumberOfMonths;
 import com.mkyong.sqlBase.JobSummaryCreator;
+import com.mkyong.sqlBase.ManagerTaskCreator;
 import com.mkyong.utils.Instructor;
+import com.mkyong.utils.ManagerTask;
 import com.mkyong.utils.WorkSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,23 +30,32 @@ public class ManagerController {
     private JobSummaryCreator jobSummaryCreator;
     @Autowired
     private NumberOfMonths numberOfMonths;
+    @Autowired
+    private ManagerTaskCreator managerTaskCreator;
 
     @GetMapping("")
     public String getInstrucorWorkList(Model model) {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
         model.addAttribute("instructor", new Instructor());
+        model.addAttribute("task", new ManagerTask());
+        model.addAttribute("taskList", managerTaskCreator.getTasksList());
 
         return "manager";
     }
 
     @PostMapping("")
-    public String insertWorkingHours(@ModelAttribute Instructor instructor, @ModelAttribute WorkSummary workSummaryDate, Model model) {
+    public String insertWorkingHours(@ModelAttribute Instructor instructor, @ModelAttribute ManagerTask managerTask, @ModelAttribute WorkSummary workSummaryDate, Model model) {
 
+        if (instructor.getName() != null){
+            jobSummaryCreator.insertWorkingHour(instructor);
+        }
+        managerTaskCreator.confirmTask(managerTask);
 
-        jobSummaryCreator.insertWorkingHour(instructor);
         model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
         model.addAttribute("instructor", new Instructor());
+        model.addAttribute("task", new ManagerTask());
+        model.addAttribute("taskList", managerTaskCreator.getTasksList());
         return "manager";
     }
 

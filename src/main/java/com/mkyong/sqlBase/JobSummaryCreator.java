@@ -1,12 +1,13 @@
 package com.mkyong.sqlBase;
 
-import com.mkyong.controller.InstruktorController;
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.Instructor;
 import com.mkyong.utils.WorkSummary;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +18,9 @@ import java.util.Map;
 public class JobSummaryCreator extends Summary {
 
 
+    private final String REGEX = "-";
     private Statement statement = getConnection().createStatement();
     private ResultSet resultSet;
-    private final String REGEX = "-";
 
     public JobSummaryCreator() throws SQLException, ClassNotFoundException {
     }
@@ -71,21 +72,19 @@ public class JobSummaryCreator extends Summary {
         try {
             getConnection();
 
-            String selectQuery = "select data, miejsce from zestawieniePracy where data = '" + instructor.getDate() +"' and miejsce ='" +
+            String selectQuery = "select data, miejsce from zestawieniePracy where data = '" + instructor.getDate() + "' and miejsce ='" +
                     instructor.getPlace() + "'";
 
             resultSet = statement.executeQuery(selectQuery);
 
-            if(resultSet.next() == false) {
+            if (resultSet.next() == false) {
                 String query = "INSERT INTO zestawieniePracy (data," + instructor.getName() + ",miejsce) VALUES (" +
                         "'" + instructor.getDate() + "','" + instructor.getTime() + "','" + instructor.getPlace() +
                         "')";
                 statement.execute(query);
-            }
-            else
-            {
+            } else {
                 String query = "UPDATE zestawieniePracy SET " + instructor.getName() + " = '" + instructor.getTime() +
-                        "' WHERE data = '" + instructor.getDate() + "' and miejsce ='" +  instructor.getPlace() + "'" ;
+                        "' WHERE data = '" + instructor.getDate() + "' and miejsce ='" + instructor.getPlace() + "'";
                 statement.execute(query);
             }
 
@@ -93,8 +92,6 @@ public class JobSummaryCreator extends Summary {
             System.out.println(exception);
         }
     }
-
-
 
 
 }

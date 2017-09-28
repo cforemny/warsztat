@@ -8,7 +8,28 @@
 </head>
 <body>
 <div th:fragment="zadania">
-    zadania
+
+
+    <form th:object="${task}" method="post">
+        <input size="5" type="text" placeholder="Numer zadania" th:field="*{id}"/>
+        <input size="12" type="text" placeholder="Uwagi" th:field="*{comments}"/>
+        <input type="submit" class="btn btn-primary" value="Potwierdz wykonanie"/>
+    </form>
+    <br/>
+    <table class="table table-bordered table-condensed table-hover text-center">
+        <tr style="font-weight: bold">
+            <td>Numer</td>
+            <td>Zadanie</td>
+            <td>Uwagi</td>
+            <td>Status Wykonania</td>
+        </tr>
+        <tr th:each=" task : ${taskList}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${task.task}"></td>
+            <td th:text="${task.comments}"></td>
+            <td th:text="${task.status}"></td>
+        </tr>
+    </table>
 </div>
 
 </body>
