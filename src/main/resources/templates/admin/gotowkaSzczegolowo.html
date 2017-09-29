@@ -20,15 +20,15 @@
         <tr style="font-weight: bold">
             <td>Instruktor</td>
             <td>Liczba gotowki</td>
-            <td>Miejsce odbioru</td>
-            <td>Data</td>
+            <!--<td>Miejsce odbioru</td>-->
+            <!--<td>Data</td>-->
         </tr>
         <th:block th:each="cash : ${cashDetailList}">
             <tr>
                 <td th:text="${cash.instructor}"/>
                 <td th:text="${cash.value}"/>
-                <td th:text="${cash.location}"/>
-                <td th:text="${cash.date}"/>
+                <!--<td th:text="${cash.location}"/>-->
+                <!--<td th:text="${cash.date}"/>-->
             </tr>
         </th:block>
     </table>

@@ -29,30 +29,33 @@ public class ManagerController {
     @Autowired
     private JobSummaryCreator jobSummaryCreator;
     @Autowired
-    private NumberOfMonths numberOfMonths;
-    @Autowired
     private ManagerTaskCreator managerTaskCreator;
 
     @GetMapping("")
     public String getInstrucorWorkList(Model model) {
-        model.addAttribute("dataMap", numberOfMonths.prepareButtons());
+
+        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getinstructorWorkSummaryByMonth(getCurrentDate()));
         model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
+        model.addAttribute("wybranaData", new com.mkyong.utils.Date());
         model.addAttribute("taskList", managerTaskCreator.getTasksList());
 
         return "manager";
     }
 
-    @PostMapping("")
-    public String insertWorkingHours(@ModelAttribute Instructor instructor, @ModelAttribute ManagerTask managerTask, @ModelAttribute WorkSummary workSummaryDate, Model model) {
 
-        if (instructor.getName() != null){
+    @PostMapping("")
+    public String insertWorkingHours(@ModelAttribute com.mkyong.utils.Date wybranaData, @ModelAttribute Instructor instructor, @ModelAttribute ManagerTask managerTask, @ModelAttribute WorkSummary workSummaryDate, Model model) {
+
+
+        if (instructor.getName() != null) {
             jobSummaryCreator.insertWorkingHour(instructor);
         }
         managerTaskCreator.confirmTask(managerTask);
-
-        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
+        model.addAttribute("wybranaData", new com.mkyong.utils.Date());
+        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getDate()));
+        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getinstructorWorkSummaryByMonth(wybranaData.getDate()));
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
         model.addAttribute("taskList", managerTaskCreator.getTasksList());
@@ -60,7 +63,7 @@ public class ManagerController {
     }
 
     private String getCurrentDate() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         Date date = new Date();
         return dateFormat.format(date);
     }

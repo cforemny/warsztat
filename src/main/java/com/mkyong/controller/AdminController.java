@@ -133,7 +133,7 @@ public class AdminController {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("remittancePayment", monthIncome.getPaymentFromLocations(data, "N"));
         model.addAttribute("cashPayment", monthIncome.getPaymentFromLocations(data, "T"));
-        model.addAttribute("instructorsCashMap", monthIncome.getCashPerInstructor(data));
+
         model.addAttribute("monthCash", monthIncome.getCashByDate(data) - monthExpense.getInstructorExpenseForMonth(data));
         model.addAttribute("nurserySchoolIncome", nurserySchoolSummary.getPaymentFromNurserySchools(data));
         model.addAttribute("eventsIncome", eventSummary.getIncomeFromEvent(data, "T") + eventSummary.getIncomeFromEvent(data, "N"));

@@ -33,8 +33,8 @@ public class MonthIncome extends Summary {
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
 
-            String query = "SELECT kwota, instruktor, data, miejsce FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'" + "order by instruktor";
+            String query = "SELECT SUM(kwota) as kwota, instruktor, data, miejsce FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
+                    "AND data LIKE '%-" + monthNumber + "-%'" + "GROUP by instruktor order by instruktor ";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {

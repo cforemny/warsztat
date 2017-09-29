@@ -3,31 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Panel instruktora</title>
-    <script>
-        $(document).ready(function () {
-            var date = new Date();
-            var currentMonth = date.getMonth();
-            var currentDate = date.getDate();
-            var currentYear = date.getFullYear();
 
-            $('#datepicker').datepicker({
-                minDate: new Date(currentYear, currentMonth, currentDate),
-                dateFormat: 'yy-mm-dd'
-            });
-            $('#datepicker1').datepicker({
-                minDate: new Date(currentYear, currentMonth, currentDate),
-                dateFormat: 'yy-mm-dd'
-            });
-            $('#datepicker2').datepicker({
-                minDate: new Date(currentYear, currentMonth, currentDate),
-                dateFormat: 'yy-mm-dd'
-            });
-            $('#datepicker3').datepicker({
-                minDate: new Date(currentYear, currentMonth, currentDate),
-                dateFormat: 'yy-mm-dd'
-            });
-        });
-    </script>
 </head>
 <body>
 
@@ -62,6 +38,31 @@
         </div>
 
     </div>
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var currentMonth = date.getMonth();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+
+            $('#datepicker').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker1').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker2').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker3').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+    </script>
 </div>
 
 

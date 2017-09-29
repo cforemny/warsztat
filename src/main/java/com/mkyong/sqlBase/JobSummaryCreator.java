@@ -30,18 +30,8 @@ public class JobSummaryCreator extends Summary {
 
         try {
 
-            String year = getYearForSummary(date);
-            String monthNumber;
-
-            if (date.contains(REGEX)) {
-                monthNumber = getActualMonthForSummary(date);
-            } else {
-                monthNumber = switchMonth(getMonthForSummary(date));
-            }
-
             getConnection();
-            String query = "select * from zestawieniePracy" + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'";
+            String query = "select * from zestawieniePracy" + " WHERE data LIKE '%" + date + "%'";
             resultSet = statement.executeQuery(query);
 
             int record = 0;
@@ -66,6 +56,34 @@ public class JobSummaryCreator extends Summary {
         }
         return instructorList;
     }
+
+    public WorkSummary getinstructorWorkSummaryByMonth(String date) {
+
+        try {
+
+            getConnection();
+            String query = "select SUM(cforemny) as cforemny, SUM(oforemna) as oforemna,  SUM(kasiak) as kasiak, SUM(jcichon) as jcichon, " +
+                    "SUM(kskotniczny) as kskotniczny, SUM(pszydlo) as pszydlo,  SUM(lkrason) as lkrason from zestawieniePracy"
+                    + " WHERE data LIKE '%" + date + "%'";
+            resultSet = statement.executeQuery(query);
+            resultSet.next();
+            String cforemny = resultSet.getString("cforemny");
+            String oforemna = resultSet.getString("oforemna");
+            String kasiak = resultSet.getString("kasiak");
+            String jcichon = resultSet.getString("jcichon");
+            String kskotniczny = resultSet.getString("kskotniczny");
+            String pszydlo = resultSet.getString("pszydlo");
+            String lkrason = resultSet.getString("lkrason");
+
+            WorkSummary workSummary = new WorkSummary(cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason);
+            return workSummary;
+
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+        return null;
+    }
+
 
     public void insertWorkingHour(Instructor instructor) {
 

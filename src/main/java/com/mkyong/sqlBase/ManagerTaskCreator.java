@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,7 +46,7 @@ public class ManagerTaskCreator extends Summary {
         } catch (Exception exception) {
             System.out.println(exception);
         }
-
+        Collections.reverse(taskList);
         return taskList;
     }
 
