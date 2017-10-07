@@ -7,10 +7,8 @@
 </head>
 <body>
 <div th:fragment="zestawieniePracy">
-
-
     <form th:object="${wybranaData}" method="post">
-        <input size="15"  id="datepicker1"  name="date" type="text" placeholder="rok-miesiac" th:field="*{date}" />
+        <input size="15" id="datepicker1" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
         <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
     </form>
     <br/>
@@ -27,6 +25,9 @@
         <option value="kasiak">Katarzyna Kipias</option>
         <option value="lkrason">Lukasz Krasoń</option>
         <option value="pszydlo">Piotr Szydło</option>
+        <option value="mpiech">Marcin Piech </option>
+        <option value="rjanus">Robert Janus</option>
+        <option value="dduda">Diana Duda</option>
 
     </select>
         <input type="submit" class="btn btn-primary" value="Dodaj przepracowane godziny"/>
@@ -51,6 +52,9 @@
                     <td>Krzysztof Skotniczny</td>
                     <td>Piotr Szydło</td>
                     <td>Lukasz Krasoń</td>
+                    <td>Marcin Piech</td>
+                    <td>Robert Janus</td>
+                    <td>Diana Duda</td>
                 </tr>
 
                 <tr th:each="number: ${instructorMap}">
@@ -63,6 +67,9 @@
                     <td th:text=" ((${number.value.kskotniczny} != 0) ? ${number.value.kskotniczny} : '')"></td>
                     <td th:text=" ((${number.value.pszydlo} != 0) ? ${number.value.pszydlo} : '')"></td>
                     <td th:text=" ((${number.value.lkrason} != 0) ? ${number.value.lkrason} : '')"></td>
+                    <td th:text=" ((${number.value.mpiech} != 0) ? ${number.value.mpiech} : '')"></td>
+                    <td th:text=" ((${number.value.rjanus} != 0) ? ${number.value.rjanus} : '')"></td>
+                    <td th:text=" ((${number.value.dduda} != 0) ? ${number.value.dduda} : '')"></td>
                 </tr>
                 <tr style="font-weight: bold">
                     <td></td>
@@ -74,6 +81,9 @@
                     <td th:text="${instructorWorkSummary.kskotniczny}"></td>
                     <td th:text="${instructorWorkSummary.pszydlo}"></td>
                     <td th:text="${instructorWorkSummary.lkrason}"></td>
+                    <td th:text="${instructorWorkSummary.mpiech}"></td>
+                    <td th:text="${instructorWorkSummary.rjanus}"></td>
+                    <td th:text="${instructorWorkSummary.dduda}"></td>
                 </tr>
             </table>
         </div>

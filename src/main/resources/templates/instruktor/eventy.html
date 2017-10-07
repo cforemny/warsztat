@@ -8,7 +8,9 @@
 </head>
 <body>
 <div th:fragment="eventy">
-
+    Nie używać polskich znakow przy wpisywaniu żadnych danych w pola.
+    <br/>
+    <br/>
     <form th:object="${event}" method="post">
         <input size="3" type="text" placeholder="Kwota" th:field="*{value}"/>
         <input size="35" type="text" placeholder="Jaki event" th:field="*{eventType}"/>
@@ -40,11 +42,7 @@
                         <p>Zapłacono</p>
                     </div>
                     <div th:case="'N'">
-                        <form th:action="@{/instruktor/(cenaWydarzenia=${event.value},dataWydarzenia=${event.date}, potwierdzenie=${'T'})}"
-                              th:object="${event}" method="post">
-
-                            <input type="submit" class="btn btn-primary" value="Potwierdz wplate"/>
-                        </form>
+                        <p>Nie zapłacono</p>
                     </div>
                 </td>
             </tr>

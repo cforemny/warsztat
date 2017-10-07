@@ -15,6 +15,9 @@ public class WorkSummary {
     private String lkrason;
     private String pszydlo;
     private String kasiak;
+    private String mpiech;
+    private String rjanus;
+    private String dduda;
 
     public WorkSummary() {
     }
@@ -25,17 +28,21 @@ public class WorkSummary {
     }
 
 
-    public WorkSummary(String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason) {
+    public WorkSummary(String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason,
+                       String mpiech, String rjanus, String dduda) {
         this.cforemny = cforemny;
         this.oforemna = oforemna;
+        this.kasiak = kasiak;
         this.jcichon = jcichon;
         this.kskotniczny = kskotniczny;
         this.lkrason = lkrason;
         this.pszydlo = pszydlo;
-        this.kasiak = kasiak;
+        this.mpiech = mpiech;
+        this.rjanus = rjanus;
+        this.dduda = dduda;
     }
 
-    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason) {
+    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason,   String mpiech, String rjanus, String dduda) {
         this.id = id;
         this.data = data;
         this.miejsce = miejsce;
@@ -46,6 +53,9 @@ public class WorkSummary {
         this.lkrason = lkrason;
         this.pszydlo = pszydlo;
         this.kasiak = kasiak;
+        this.mpiech = mpiech;
+        this.rjanus = rjanus;
+        this.dduda = dduda;
     }
 
     public String getId() {
@@ -126,5 +136,29 @@ public class WorkSummary {
 
     public void setKasiak(String kasiak) {
         this.kasiak = kasiak;
+    }
+
+    public String getMpiech() {
+        return mpiech;
+    }
+
+    public void setMpiech(String mpiech) {
+        this.mpiech = mpiech;
+    }
+
+    public String getRjanus() {
+        return rjanus;
+    }
+
+    public void setRjanus(String rjanus) {
+        this.rjanus = rjanus;
+    }
+
+    public String getDduda() {
+        return dduda;
+    }
+
+    public void setDduda(String dduda) {
+        this.dduda = dduda;
     }
 }

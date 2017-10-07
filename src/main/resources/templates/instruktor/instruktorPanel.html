@@ -8,6 +8,13 @@
 <body>
 
 <div class="container" th:fragment="instruktorPanel">
+
+    <form th:object="${wybranaData}" method="post">
+        <input size="15" id="datepicker4" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
+        <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
+    </form>
+    <br/>
+    <br/>
     <ul class="nav nav-pills">
         <li><a data-toggle="pill" class="btn btn-info" href="#naszeLokalizacje">Nasze lokalizacje</a></li>
         <li><a data-toggle="pill" class="btn btn-danger" href="#przedszkola">Przedszkola</a></li>
@@ -15,6 +22,7 @@
         <li><a data-toggle="pill" class="btn btn-warning" href="#wydatki">Wydatki</a></li>
         <li><a data-toggle="pill" class="btn btn-default" href="#odbioryGotowki">Gotówka</a></li>
         <li><a data-toggle="pill" class="btn btn-info" href="#cennik">Cennik</a></li>
+        <li><a data-toggle="pill" class="btn btn-success" href="#faktury">Faktury</a></li>
     </ul>
     <br/>
     <div class="tab-content">
@@ -35,6 +43,9 @@
         </div>
         <div class="tab-pane fade" id="cennik">
             <div th:replace="instruktor/cennik :: cennik"></div>
+        </div>
+        <div class="tab-pane fade" id="faktury">
+            <div th:replace="instruktor/faktury :: faktury"></div>
         </div>
 
     </div>
@@ -60,6 +71,10 @@
             $('#datepicker3').datepicker({
                 minDate: new Date(currentYear, currentMonth, currentDate),
                 dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker4').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm'
             });
         });
     </script>

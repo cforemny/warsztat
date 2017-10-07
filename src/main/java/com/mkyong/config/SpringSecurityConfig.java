@@ -52,6 +52,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("szef").password("szef").roles("ADMIN")
                 .and()
-                .withUser("kipias").password("kipias7x").roles("MANAGER");
+                .withUser("kipias").password("kipias7x").roles("MANAGER")
+                .and()
+                .withUser("ajanczarska").password("ajanczarsk1ax").roles("USER");
     }
 }

@@ -57,6 +57,5 @@ public class EventCreator {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -31,7 +31,7 @@ public class JobSummaryCreator extends Summary {
         try {
 
             getConnection();
-            String query = "select * from zestawieniePracy" + " WHERE data LIKE '%" + date + "%'";
+            String query = "select * from zestawieniePracy" + " WHERE data LIKE '%" + date + "%' order by data";
             resultSet = statement.executeQuery(query);
 
             int record = 0;
@@ -46,8 +46,12 @@ public class JobSummaryCreator extends Summary {
                 String kskotniczny = resultSet.getString("kskotniczny");
                 String pszydlo = resultSet.getString("pszydlo");
                 String lkrason = resultSet.getString("lkrason");
+                String mpiech = resultSet.getString("mpiech");
+                String rjanus = resultSet.getString("rjanus");
+                String dduda = resultSet.getString("dduda");
                 record++;
-                instructorList.put(record, new WorkSummary(numer, data, miejsce, cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason));
+                instructorList.put(record, new WorkSummary(numer, data, miejsce, cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason
+                        , mpiech, rjanus, dduda));
 
             }
 
@@ -63,7 +67,8 @@ public class JobSummaryCreator extends Summary {
 
             getConnection();
             String query = "select SUM(cforemny) as cforemny, SUM(oforemna) as oforemna,  SUM(kasiak) as kasiak, SUM(jcichon) as jcichon, " +
-                    "SUM(kskotniczny) as kskotniczny, SUM(pszydlo) as pszydlo,  SUM(lkrason) as lkrason from zestawieniePracy"
+                    "SUM(kskotniczny) as kskotniczny, SUM(pszydlo) as pszydlo,  SUM(lkrason) as lkrason," +
+                    " SUM(mpiech) as mpiech, SUM(rjanus) as rjanus, SUM(dduda) as dduda  from zestawieniePracy"
                     + " WHERE data LIKE '%" + date + "%'";
             resultSet = statement.executeQuery(query);
             resultSet.next();
@@ -74,8 +79,11 @@ public class JobSummaryCreator extends Summary {
             String kskotniczny = resultSet.getString("kskotniczny");
             String pszydlo = resultSet.getString("pszydlo");
             String lkrason = resultSet.getString("lkrason");
+            String mpiech = resultSet.getString("mpiech");
+            String rjanus = resultSet.getString("rjanus");
+            String dduda = resultSet.getString("dduda");
 
-            WorkSummary workSummary = new WorkSummary(cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason);
+            WorkSummary workSummary = new WorkSummary(cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason, mpiech, rjanus, dduda);
             return workSummary;
 
         } catch (Exception exception) {

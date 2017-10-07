@@ -67,7 +67,7 @@ public class NurserySchoolSummary extends Summary {
                 monthNumber = switchMonth(getMonthForSummary(date));
             }
 
-            String query = "select data, liczbadzieci, cena, nazwaprzedszkola from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
+            String query = "select data, liczbadzieci, cena, nazwaprzedszkola, czyzaplacono from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
@@ -76,8 +76,9 @@ public class NurserySchoolSummary extends Summary {
                 String childrens = resultSet.getString("liczbadzieci");
                 String lessonDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
+                String platnosc = resultSet.getString("czyzaplacono");
 
-                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName));
+                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName, platnosc));
             }
         } catch (Exception e) {
             e.printStackTrace();

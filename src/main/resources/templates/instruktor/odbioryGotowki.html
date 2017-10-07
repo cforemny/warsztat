@@ -8,6 +8,9 @@
 <body>
 <div th:fragment="odbiorGotowki">
 
+    Nie używać polskich znakow przy wpisywaniu żadnych danych w pola.
+    <br/>
+    <br/>
     <form th:object="${cashCollection}" method="post">
         <select style="width: 180px" class="form-control" th:field="*{instructor}">
             <option th:value="default">=Instruktor=</option>

@@ -2,6 +2,7 @@ package com.mkyong.sqlBase;
 
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.ManagerTask;
+import com.mkyong.utils.Note;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
@@ -61,5 +62,42 @@ public class ManagerTaskCreator extends Summary {
         } catch (Exception exception) {
             System.out.println(exception);
         }
+    }
+
+    public void createNote(Note note){
+
+        try {
+            getConnection();
+            String query = "INSERT INTO  notatki (notatkaId, tresc) VALUES ('" + note.getId() + "','" + note.getContent() + "')" ;
+            statement.execute(query);
+
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+    }
+
+    public List getNoteList() {
+
+        List<Note> noteList = new ArrayList<Note>();
+
+        try {
+            getConnection();
+            String query = "select * from notatki";
+            resultSet = statement.executeQuery(query);
+
+            int i = 0;
+            while (resultSet.next() || i == 10) {
+
+                int id = resultSet.getInt("notatkaId");
+                String tresc = resultSet.getString("tresc");
+                noteList.add(new Note(tresc, id));
+                i++;
+            }
+
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+        Collections.reverse(noteList);
+        return noteList;
     }
 }

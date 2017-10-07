@@ -46,24 +46,17 @@ public class InstruktorController {
     private CashSummary cashSummary;
 
     @GetMapping("")
-    public String defaultInstruktor(Model model) {
+    public String defaultInstruktor(Model model, @ModelAttribute com.mkyong.utils.Date wybranaData) {
 
 
-        model.addAttribute("expense", new Expense());
-        model.addAttribute("cashCollection", new CashCollection());
-        model.addAttribute("nurserySchool", new NurserySchool());
-        model.addAttribute("event", new Event());
-        model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
-        model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
-        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
-        model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
+        createAtributtes(model, wybranaData);
         return "instruktor";
     }
 
     @PostMapping("")
     public String addExpense(@ModelAttribute NurserySchool nurserySchool,
                              @ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense,
-                             @ModelAttribute Event event, Model model) {
+                             @ModelAttribute Event event, @ModelAttribute com.mkyong.utils.Date wybranaData, Model model) {
 
         if (expense.getExpenseValue() != null)
             expenseCreator.insertExpenseToTable(expense);
@@ -75,32 +68,54 @@ public class InstruktorController {
             eventCreator.insertNewEventToTable(event);
 
 
-        model.addAttribute("expense", new Expense());
-        model.addAttribute("cashCollection", new CashCollection());
-        model.addAttribute("nurserySchool", new NurserySchool());
-        model.addAttribute("event", new Event());
-        model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
-        model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
-        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
-        model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
+        createAtributtes(model, wybranaData);
         return "instruktor";
     }
 
     @PostMapping("/")
     public String confirmEventIncome(@RequestParam("potwierdzenie") String potwierdzenie, @RequestParam("cenaWydarzenia") String cenaWydarzenia,
-                                     @RequestParam("dataWydarzenia") String dataWydarzenia, Model model) {
+                                     @RequestParam("dataWydarzenia") String dataWydarzenia, @ModelAttribute com.mkyong.utils.Date wybranaData, Model model) {
         if (potwierdzenie.equals("T"))
             eventCreator.updateEventPayment(dataWydarzenia, cenaWydarzenia);
+        createAtributtes(model, wybranaData);
+
+        return "instruktor";
+    }
+
+    @PostMapping("/przedszkole/")
+    public String confirmNurseryIncome(@RequestParam("potwierdzeniePrzedszkola") String potwierdzeniePrzedszkola, @RequestParam("liczbaDzieci") String liczbaDzieci,
+                                       @RequestParam("dataPrzedszkola") String dataPrzedszkola, @ModelAttribute com.mkyong.utils.Date wybranaData, Model model) {
+        if (potwierdzeniePrzedszkola.equals("T"))
+            preSchoolCreator.updateNurseryPayment(dataPrzedszkola, liczbaDzieci);
+
+        createAtributtes(model, wybranaData);
+
+        return "instruktor";
+    }
+
+    private void createAtributtes(Model model, com.mkyong.utils.Date wybranaData) {
+
+        if (wybranaData.getDate() != null) {
+            model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(wybranaData.getDate()));
+            model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(wybranaData.getDate()));
+            model.addAttribute("expenseList", monthExpense.getExpenseListByDate(wybranaData.getDate()));
+            model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(wybranaData.getDate()));
+
+        } else {
+
+            model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
+            model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
+            model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
+            model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
+ 
+        }
+        model.addAttribute("wybranaData", new com.mkyong.utils.Date());
         model.addAttribute("expense", new Expense());
         model.addAttribute("cashCollection", new CashCollection());
         model.addAttribute("nurserySchool", new NurserySchool());
         model.addAttribute("event", new Event());
-        model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(getCurrentDate()));
-        model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
-        model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
-        model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
 
-        return "instruktor";
+
     }
 
 

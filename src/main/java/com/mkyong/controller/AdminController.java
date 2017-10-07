@@ -123,7 +123,8 @@ public class AdminController {
     private double incomeTax(String data) {
 
         double tax;
-        tax = (addAllIncomeForTaxes(data) / 1.23) * 0.19;
+        double expenses = monthExpense.getExpensesToPayback(data);
+        tax = ((addAllIncomeForTaxes(data) / 1.23) - ( expenses / 1.23)) * 0.19;
         return (int) tax;
     }
 

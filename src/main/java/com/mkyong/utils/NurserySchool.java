@@ -10,6 +10,15 @@ public class NurserySchool {
     private String date;
     private int value;
     private String name;
+    private String czyZaplacono;
+
+    public NurserySchool(int numberOfChildren, String date, int value, String name, String czyZaplacono) {
+        this.numberOfChildren = numberOfChildren;
+        this.date = date;
+        this.value = value;
+        this.name = name;
+        this.czyZaplacono = czyZaplacono;
+    }
 
     public NurserySchool(int numerOfChildren, String date, int value, String name) {
         this.numberOfChildren = numerOfChildren;
@@ -19,6 +28,14 @@ public class NurserySchool {
     }
 
     public NurserySchool() {
+    }
+
+    public String getCzyZaplacono() {
+        return czyZaplacono;
+    }
+
+    public void setCzyZaplacono(String czyZaplacono) {
+        this.czyZaplacono = czyZaplacono;
     }
 
     public int getNumberOfChildren() {
