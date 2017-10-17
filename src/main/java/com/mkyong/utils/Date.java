@@ -11,11 +11,11 @@ public class Date {
         this.date = date;
     }
 
-    public String getDate() {
-        return date;
+    public Date() {
     }
 
-    public Date() {
+    public String getDate() {
+        return date;
     }
 
     public void setDate(String date) {

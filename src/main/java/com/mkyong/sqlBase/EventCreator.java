@@ -21,6 +21,7 @@ public class EventCreator {
     public EventCreator() throws SQLException, ClassNotFoundException {
     }
 
+
     public void insertNewEventToTable(Event event) {
 
         String query = "INSERT INTO eventy (data, rodzajeventu,cena,faktura) VALUES ('" + event.getDate() + "','" +

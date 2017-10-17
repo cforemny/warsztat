@@ -61,7 +61,7 @@ public class JobSummaryCreator extends Summary {
         return instructorList;
     }
 
-    public WorkSummary getinstructorWorkSummaryByMonth(String date) {
+    public WorkSummary getInstructorWorkSummaryByMonth(String date) {
 
         try {
 

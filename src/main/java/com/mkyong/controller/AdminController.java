@@ -124,7 +124,7 @@ public class AdminController {
 
         double tax;
         double expenses = monthExpense.getExpensesToPayback(data);
-        tax = ((addAllIncomeForTaxes(data) / 1.23) - ( expenses / 1.23)) * 0.19;
+        tax = ((addAllIncomeForTaxes(data) / 1.23) - (expenses / 1.23)) * 0.19;
         return (int) tax;
     }
 

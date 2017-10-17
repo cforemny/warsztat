@@ -64,11 +64,11 @@ public class ManagerTaskCreator extends Summary {
         }
     }
 
-    public void createNote(Note note){
+    public void createNote(Note note) {
 
         try {
             getConnection();
-            String query = "INSERT INTO  notatki (notatkaId, tresc) VALUES ('" + note.getId() + "','" + note.getContent() + "')" ;
+            String query = "INSERT INTO  notatki (notatkaId, tresc) VALUES ('" + note.getId() + "','" + note.getContent() + "')";
             statement.execute(query);
 
         } catch (Exception exception) {

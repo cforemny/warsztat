@@ -107,7 +107,7 @@ public class InstruktorController {
             model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(getCurrentDate()));
             model.addAttribute("expenseList", monthExpense.getExpenseListByDate(getCurrentDate()));
             model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(getCurrentDate()));
- 
+
         }
         model.addAttribute("wybranaData", new com.mkyong.utils.Date());
         model.addAttribute("expense", new Expense());

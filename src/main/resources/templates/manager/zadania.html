@@ -28,7 +28,8 @@
             <td th:text="${task.id}"></td>
             <td th:text="${task.task}"></td>
             <td th:text="${task.comments}"></td>
-            <td th:style=" ${task.status} == 'wykonane' ? 'background: green' : ' background: red' " th:text="${task.status}"></td>
+            <td th:style=" ${task.status} == 'wykonane' ? 'background: green' : ' background: red' "
+                th:text="${task.status}"></td>
         </tr>
     </table>
 </div>

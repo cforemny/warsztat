@@ -28,7 +28,7 @@ public class CashSummary extends Summary {
         try {
 
             String query = "select data, instruktor, kwota, miejsce from odbioryinstruktorow " + " WHERE data LIKE '" + getYearForSummary(date) + "%'" +
-                    "AND data LIKE '%-" + getActualMonthForSummary(date) + "-%'";
+                    "AND data LIKE '%-" + getActualMonthForSummary(date) + "-%' order by data";
             statement = getConnection().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {

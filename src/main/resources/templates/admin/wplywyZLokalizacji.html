@@ -25,10 +25,17 @@
                         <td>Wpływ w gotówce</td>
                     </tr>
                     <th:block th:each="cashIncome : ${locationsIncomeCash}">
-                        <tr>
-                            <td th:text="${cashIncome.key}"/>
-                            <td th:text="${cashIncome.value}"/>
+                        <tr th:switch="${cashIncome.key}">
 
+                            <td th:case="'platnoscikampus'" th:text="'Kampus Wielicki'"/>
+                            <td th:case="'platnosciluzycka'" th:text="'Luzycka'"/>
+                            <td th:case="'platnosciruczaj'" th:text="'Ruczaj'"/>
+                            <td th:case="'platnosciskawina'" th:text="'Skawina'"/>
+                            <td th:case="'platnoscisolnemiasto'" th:text="'Solne miasto - wtorek'"/>
+                            <td th:case="'platnoscisolnemiastopiatek'" th:text="'Solne Miasto - piatek'"/>
+                            <td th:case="'platnosciswietokrzyska'" th:text="'Swietokrzyska'"/>
+
+                            <td th:text="${cashIncome.value}"/>
                         </tr>
                     </th:block>
                 </table>

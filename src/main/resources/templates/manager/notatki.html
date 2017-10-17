@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+<div th:fragment="notatki">
+
+
+    <form th:object="${notatka}" method="post">
+        <input size="5" type="text" placeholder="Numer notatki" th:field="*{id}"/>
+        <input size="20" type="text" placeholder="Tresc" th:field="*{content}"/>
+        <input type="submit" class="btn btn-primary" value="Potwierdz notatke"/>
+    </form>
+    <br/>
+
+    <table class="table table-bordered table-condensed table-hover text-center">
+        <tr style="font-weight: bold ">
+            <td>Numer</td>
+            <td>Tresc</td>
+        </tr>
+        <tr th:each=" note : ${noteList}">
+            <td th:text="${note.id}"></td>
+            <td th:text="${note.content}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

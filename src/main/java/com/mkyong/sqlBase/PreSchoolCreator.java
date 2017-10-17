@@ -4,7 +4,6 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -26,12 +25,11 @@ public class PreSchoolCreator extends Summary {
                     liczbaDzieci + "'";
             getConnection();
 
-           statement = getConnection().createStatement();
+            statement = getConnection().createStatement();
             statement.execute(query);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
 
         }
     }
@@ -39,8 +37,8 @@ public class PreSchoolCreator extends Summary {
     public void insertPreschoolIntoTable(NurserySchool nurserySchool) {
 
         try {
-            String query = "INSERT INTO listaprzedszkoli (liczbadzieci, data, cena, nazwaprzedszkola, czy placono ) VALUES(" + nurserySchool.getNumberOfChildren() +
-                    ",'" + nurserySchool.getDate() + "'," + nurserySchool.getValue() + ",'" + nurserySchool.getName() + "','N')"  ;
+            String query = "INSERT INTO listaprzedszkoli (liczbadzieci, data, cena, nazwaprzedszkola, czyzaplacono ) VALUES(" + nurserySchool.getNumberOfChildren() +
+                    ",'" + nurserySchool.getDate() + "'," + nurserySchool.getValue() + ",'" + nurserySchool.getName() + "','N')";
             statement = getConnection().createStatement();
 
             statement.execute(query);
@@ -56,8 +54,6 @@ public class PreSchoolCreator extends Summary {
             }
         }
     }
-
-
 
 
 }

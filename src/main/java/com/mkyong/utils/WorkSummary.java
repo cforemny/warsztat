@@ -42,7 +42,7 @@ public class WorkSummary {
         this.dduda = dduda;
     }
 
-    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason,   String mpiech, String rjanus, String dduda) {
+    public WorkSummary(String id, String data, String miejsce, String cforemny, String oforemna, String kasiak, String jcichon, String kskotniczny, String pszydlo, String lkrason, String mpiech, String rjanus, String dduda) {
         this.id = id;
         this.data = data;
         this.miejsce = miejsce;

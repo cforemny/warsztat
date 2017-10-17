@@ -15,6 +15,7 @@ public class CashCollectionCreator extends Summary {
 
     private Statement statement;
 
+
     public CashCollectionCreator() throws SQLException, ClassNotFoundException {
     }
 

@@ -32,10 +32,10 @@ public class ManagerController {
     private ManagerTaskCreator managerTaskCreator;
 
     @GetMapping("")
-    public String getInstrucorWorkList(Model model) {
+    public String getInstructorWorkList(Model model) {
 
-        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getinstructorWorkSummaryByMonth(getCurrentDate()));
         model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
+        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(getCurrentDate()));
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
         model.addAttribute("wybranaData", new com.mkyong.utils.Date());
@@ -57,20 +57,26 @@ public class ManagerController {
         }
         if (note.getContent() != null) {
             managerTaskCreator.createNote(note);
-        }if(managerTask.getTask() != null){
+        }
+        if (managerTask.getTask() != null) {
             managerTaskCreator.confirmTask(managerTask);
         }
-        if (wybranaData.getDate() == null)
-            wybranaData.setDate(getCurrentDate());
 
-        model.addAttribute("wybranaData", new com.mkyong.utils.Date());
-        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getDate()));
-        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getinstructorWorkSummaryByMonth(wybranaData.getDate()));
+
+        if (wybranaData.getDate() == null) {
+            model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
+            model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(getCurrentDate()));
+        } else {
+            model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getDate()));
+            model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(wybranaData.getDate()));
+        }
+
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
         model.addAttribute("notatka", new Note());
         model.addAttribute("taskList", managerTaskCreator.getTasksList());
         model.addAttribute("noteList", managerTaskCreator.getNoteList());
+        model.addAttribute("wybranaData", new com.mkyong.utils.Date());
         return "manager";
     }
 
