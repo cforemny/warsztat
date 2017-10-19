@@ -4,9 +4,7 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.Event;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +16,7 @@ public class EventSummary extends Summary {
 
     private ResultSet resultSet;
     private Statement statement;
+    private Connection connection;
 
     public EventSummary() throws SQLException, ClassNotFoundException {
     }
@@ -34,20 +33,17 @@ public class EventSummary extends Summary {
             String query = "select data, cena from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%' and faktura='" + isCash + "'";
 
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String cena = resultSet.getString("cena");
                 payment = payment + Double.parseDouble(cena);
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return payment;
     }
@@ -68,7 +64,9 @@ public class EventSummary extends Summary {
 
             String query = "select data, rodzajeventu, cena, faktura, czyzaplacono from eventy " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String eventType = resultSet.getString("rodzajeventu");
@@ -79,14 +77,9 @@ public class EventSummary extends Summary {
 
                 events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0), czyZaplacono.charAt(0)));
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return events;
     }

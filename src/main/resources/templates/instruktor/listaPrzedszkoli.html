@@ -29,11 +29,13 @@
             <tr style="font-weight: bold;">
                 <td>Przedszkole</td>
                 <td>Liczba dzieci</td>
+                <td>Kwota do faktury</td>
                 <td>Data zajęć</td>
             </tr>
             <tr th:each="przedszkole : ${nurserySchoolList} ">
                 <td th:text="${przedszkole.name}"></td>
                 <td th:text="${przedszkole.numberOfChildren}"></td>
+                <td th:text="${przedszkole.value}*${przedszkole.numberOfChildren}"></td>
                 <td th:text="${przedszkole.date}"></td>
             </tr>
         </table>

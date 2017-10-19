@@ -4,9 +4,7 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.CashCollection;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,8 +19,33 @@ public class MonthIncome extends Summary {
 
     private ResultSet resultSet;
     private Statement statement;
+    private Connection connection;
 
     public MonthIncome() throws SQLException, ClassNotFoundException {
+    }
+
+    public double incomeFromNowySacz(String date) {
+
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        String monthNumber = switchMonth(month);
+
+        String query = "select wartosc from zyskNowySacz where data like ('%" + year + "%')" +
+                " AND data LIKE ('%-" + monthNumber + "-%')";
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            resultSet.next();
+            double value = resultSet.getDouble("wartosc");
+            connection.close();
+            return value;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public List<CashCollection> getCashPerInstructor(String date) {
@@ -33,9 +56,12 @@ public class MonthIncome extends Summary {
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
 
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+
             String query = "SELECT SUM(kwota) as kwota, instruktor, data, miejsce FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'" + "GROUP by instruktor order by instruktor ";
-            statement = getConnection().createStatement();
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String instructor = resultSet.getString("instruktor");
@@ -44,16 +70,9 @@ public class MonthIncome extends Summary {
                 String collectionDate = resultSet.getString("data");
                 instructorsCash.add(new CashCollection(instructor, value, collectionDate, location));
             }
-        } catch (ClassNotFoundException e) {
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return instructorsCash;
     }
@@ -68,22 +87,19 @@ public class MonthIncome extends Summary {
 
             String query = "SELECT kwota FROM odbioryinstruktorow " + "WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            statement = getConnection().createStatement();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String cashValue = resultSet.getString("kwota");
                 cash = cash + Double.parseDouble(cashValue);
             }
-        } catch (ClassNotFoundException e) {
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return cash;
     }
@@ -97,22 +113,22 @@ public class MonthIncome extends Summary {
             String year = getYearForSummary(date);
             String month = getMonthForSummary(date);
             String monthNumber = switchMonth(month);
+
+
             for (String paymentTable : paymentTables) {
                 String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
                         "AND data LIKE '%-" + monthNumber + "-%'";
-                statement = getConnection().createStatement();
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+                statement = connection.createStatement();
                 resultSet = statement.executeQuery(query);
 
                 payment = payment + getIncomeValue(resultSet, isCash);
+                connection.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return payment;
     }
@@ -121,21 +137,18 @@ public class MonthIncome extends Summary {
         ArrayList<String> paymentTables = new ArrayList<>();
         try {
 
-            String query = "show tables from testowa like '%platnosci%' ";
-            statement = getConnection().createStatement();
+            String query = "SHOW TABLES FROM testowa LIKE '%platnosci%' ";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String tableName = resultSet.getString("Tables_in_testowa (%platnosci%)");
                 paymentTables.add(tableName);
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return paymentTables;
     }

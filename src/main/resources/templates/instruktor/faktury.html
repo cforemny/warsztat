@@ -23,7 +23,14 @@
                 <td th:text="${event.eventType}"></td>
                 <td th:text="${event.value}"></td>
                 <td th:text="${event.date}"></td>
-                <td th:text="${event.faktura}"></td>
+                <td th:switch="${event.faktura}">
+                    <div th:case="'T'">
+                        <p style="background-color: chartreuse">Tak</p>
+                    </div>
+                    <div th:case="'N'">
+                        <p style=" background-color: lightsalmon">Nie</p>
+                    </div>
+                </td>
                 <td th:switch="${event.isPaid}">
                     <div th:case="'T'">
                         <p>Zapłacono</p>
@@ -38,9 +45,9 @@
             </tr>
             <tr th:each="nurserySchool : ${nurserySchoolList} ">
                 <td th:text="${nurserySchool.name}"></td>
-                <td th:text="${nurserySchool.numberOfChildren}"></td>
+                <td th:text="${nurserySchool.value}*${nurserySchool.numberOfChildren}"></td>
                 <td th:text="${nurserySchool.date}"></td>
-                <td>T</td>
+                <td> <p style="background-color: chartreuse">Tak</p></td>
                 <td th:switch="${nurserySchool.czyZaplacono}">
                     <div th:case="'T'">
                         <p>Zapłacono</p>

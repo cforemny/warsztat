@@ -4,6 +4,8 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,6 +16,7 @@ import java.sql.Statement;
 public class PreSchoolCreator extends Summary {
 
     private Statement statement;
+    private Connection connection;
 
     public PreSchoolCreator() throws SQLException, ClassNotFoundException {
     }
@@ -23,10 +26,11 @@ public class PreSchoolCreator extends Summary {
         try {
             String query = "UPDATE listaprzedszkoli SET czyzaplacono =  'T' WHERE data ='" + data + "' AND liczbadzieci = '" +
                     liczbaDzieci + "'";
-            getConnection();
-
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             statement.execute(query);
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -39,19 +43,13 @@ public class PreSchoolCreator extends Summary {
         try {
             String query = "INSERT INTO listaprzedszkoli (liczbadzieci, data, cena, nazwaprzedszkola, czyzaplacono ) VALUES(" + nurserySchool.getNumberOfChildren() +
                     ",'" + nurserySchool.getDate() + "'," + nurserySchool.getValue() + ",'" + nurserySchool.getName() + "','N')";
-            statement = getConnection().createStatement();
-
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             statement.execute(query);
-        } catch (SQLException e) {
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 

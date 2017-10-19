@@ -5,9 +5,7 @@ import com.mkyong.utils.Instructor;
 import com.mkyong.utils.WorkSummary;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +17,9 @@ public class JobSummaryCreator extends Summary {
 
 
     private final String REGEX = "-";
-    private Statement statement = getConnection().createStatement();
+    private Statement statement;
     private ResultSet resultSet;
+    private Connection connection;
 
     public JobSummaryCreator() throws SQLException, ClassNotFoundException {
     }
@@ -30,7 +29,9 @@ public class JobSummaryCreator extends Summary {
 
         try {
 
-            getConnection();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             String query = "select * from zestawieniePracy" + " WHERE data LIKE '%" + date + "%' order by data";
             resultSet = statement.executeQuery(query);
 
@@ -54,7 +55,7 @@ public class JobSummaryCreator extends Summary {
                         , mpiech, rjanus, dduda));
 
             }
-
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }
@@ -65,11 +66,14 @@ public class JobSummaryCreator extends Summary {
 
         try {
 
-            getConnection();
+
             String query = "select SUM(cforemny) as cforemny, SUM(oforemna) as oforemna,  SUM(kasiak) as kasiak, SUM(jcichon) as jcichon, " +
                     "SUM(kskotniczny) as kskotniczny, SUM(pszydlo) as pszydlo,  SUM(lkrason) as lkrason," +
                     " SUM(mpiech) as mpiech, SUM(rjanus) as rjanus, SUM(dduda) as dduda  from zestawieniePracy"
                     + " WHERE data LIKE '%" + date + "%'";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             resultSet.next();
             String cforemny = resultSet.getString("cforemny");
@@ -84,6 +88,7 @@ public class JobSummaryCreator extends Summary {
             String dduda = resultSet.getString("dduda");
 
             WorkSummary workSummary = new WorkSummary(cforemny, oforemna, kasiak, jcichon, kskotniczny, pszydlo, lkrason, mpiech, rjanus, dduda);
+            connection.close();
             return workSummary;
 
         } catch (Exception exception) {
@@ -96,7 +101,9 @@ public class JobSummaryCreator extends Summary {
     public void insertWorkingHour(Instructor instructor) {
 
         try {
-            getConnection();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
 
             String selectQuery = "select data, miejsce from zestawieniePracy where data = '" + instructor.getDate() + "' and miejsce ='" +
                     instructor.getPlace() + "'";
@@ -113,7 +120,7 @@ public class JobSummaryCreator extends Summary {
                         "' WHERE data = '" + instructor.getDate() + "' and miejsce ='" + instructor.getPlace() + "'";
                 statement.execute(query);
             }
-
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }

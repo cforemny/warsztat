@@ -35,8 +35,7 @@ public class AdminController {
     private MonthIncomeForLocations monthIncomeForLocations;
     @Autowired
     private PermanentExpense permanentExpense;
-    @Autowired
-    private EventCreator eventCreator;
+
 
 
     @GetMapping("")
@@ -69,6 +68,7 @@ public class AdminController {
         model.addAttribute("incomeForTaxes", addAllIncomeForTaxes(data));
         model.addAttribute("vat", countVat(data));
         model.addAttribute("tax", incomeTax(data));
+        model.addAttribute("zyskNowySacz",monthIncome.incomeFromNowySacz(data));
         return "admin/zyski";
     }
 

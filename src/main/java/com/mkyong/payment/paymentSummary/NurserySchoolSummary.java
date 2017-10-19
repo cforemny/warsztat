@@ -4,9 +4,7 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.NurserySchool;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +17,7 @@ public class NurserySchoolSummary extends Summary {
     private final String REGEX = "-";
     private ResultSet resultSet;
     private Statement statement;
+    private Connection connection;
 
     public NurserySchoolSummary() throws SQLException, ClassNotFoundException {
     }
@@ -34,21 +33,18 @@ public class NurserySchoolSummary extends Summary {
 
             String query = "select data, liczbadzieci, cena from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String liczbaDzieci = resultSet.getString("liczbadzieci");
                 String cena = resultSet.getString("cena");
                 payment = payment + Integer.parseInt(liczbaDzieci) * Integer.parseInt(cena);
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return payment;
     }
@@ -69,7 +65,9 @@ public class NurserySchoolSummary extends Summary {
 
             String query = "select data, liczbadzieci, cena, nazwaprzedszkola, czyzaplacono from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String nurserySchoolName = resultSet.getString("nazwaprzedszkola");
@@ -79,15 +77,9 @@ public class NurserySchoolSummary extends Summary {
                 String platnosc = resultSet.getString("czyzaplacono");
 
                 nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName, platnosc));
-            }
+            }connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return nurserySchools;
     }

@@ -3,9 +3,7 @@ package com.mkyong.payment.expenseSummary;
 import com.mkyong.payment.Summary;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,6 +19,7 @@ public class PermanentExpense extends Summary {
     private char bill;
     private ResultSet resultSet;
     private Statement statement;
+    private Connection connection;
 
     public PermanentExpense() throws SQLException, ClassNotFoundException {
     }
@@ -79,23 +78,18 @@ public class PermanentExpense extends Summary {
 
             String query = "select * from kosztystale " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String name = resultSet.getString("kosztOpis");
                 String value = resultSet.getString("kosztWartosc");
                 permanentExpenses.add(new PermanentExpense(name, Double.parseDouble(value)));
             }
-        } catch (ClassNotFoundException e) {
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return permanentExpenses;
     }
@@ -108,23 +102,18 @@ public class PermanentExpense extends Summary {
         String query = "select * from kosztystale " + " WHERE data LIKE '" + year + "%'" +
                 "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
         try {
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
 
                 String value = resultSet.getString("kosztWartosc");
                 expensesSummary = expensesSummary + Double.parseDouble(value);
             }
-        } catch (SQLException e) {
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return expensesSummary;
     }
@@ -134,19 +123,13 @@ public class PermanentExpense extends Summary {
         String query = "insert into kosztystale (kosztOpis, kosztWartosc, data, faktura) values('" + permanentExpense.getName() + "'," + permanentExpense.getValue() +
                 ",'" + permanentExpense.getDate() + "','" + permanentExpense.getBill() + "')";
         try {
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             statement.execute(query);
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
-
     }
-
-
 }

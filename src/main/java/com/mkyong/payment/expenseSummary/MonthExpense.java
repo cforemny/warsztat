@@ -4,9 +4,7 @@ import com.mkyong.payment.Summary;
 import com.mkyong.utils.Expense;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +16,7 @@ public class MonthExpense extends Summary {
 
     private ResultSet resultSet;
     private Statement statement;
+    private Connection connection;
 
 
     public MonthExpense() throws SQLException, ClassNotFoundException {
@@ -31,7 +30,6 @@ public class MonthExpense extends Summary {
 
         String query = "select kwota from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
                 "AND data LIKE '%-" + date + "-%' ";
-
         return getValue(query);
     }
 
@@ -49,7 +47,9 @@ public class MonthExpense extends Summary {
         try {
             String query = "select instruktor, opisWydatku, kwota, data, faktura from wydatkiinstruktorow " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'" + "order by instruktor";
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String instructor = resultSet.getString("instruktor");
@@ -60,14 +60,9 @@ public class MonthExpense extends Summary {
 
                 expenseList.add(new Expense(description, value, instructor, expenseDate, facture.charAt(0)));
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return expenseList;
     }
@@ -97,20 +92,17 @@ public class MonthExpense extends Summary {
 
         double value = 0;
         try {
-            statement = getConnection().createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String expense = resultSet.getString("kwota");
                 value = value + Double.parseDouble(expense);
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                getConnection().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return value;
     }

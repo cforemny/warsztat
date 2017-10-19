@@ -92,6 +92,11 @@ public class InstruktorController {
 
         return "instruktor";
     }
+    @GetMapping("/Zyrafa")
+    public String zyrafa(){
+
+        return "lokalizacje/Zyrafa";
+    }
 
     private void createAtributtes(Model model, com.mkyong.utils.Date wybranaData) {
 

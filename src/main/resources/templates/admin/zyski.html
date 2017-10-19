@@ -43,31 +43,27 @@
     </table>
 </div>
 <div class="container">
+    <h1>Kraków</h1>
     <table class="table container">
         <tr>
             <td><b>Przychód:&nbsp;&nbsp;</b>
             <td id="income" th:text="${incomeSummary} + ' zł'"></td>
             </td></tr>
-
-
         <tr>
             <td><b>Koszty niefakturowane:&nbsp;&nbsp;</b></td>
 
             <td th:text="${noneBackExpenses} + ' zł'"></td>
         </tr>
-
         <tr>
             <td><b>Koszty fakturowane:&nbsp;&nbsp;</b></td>
 
             <td th:text="${paybackExpenses} + ' zł'"></td>
         </tr>
-
         <tr>
             <td><b>Do opodatkowania:&nbsp;&nbsp;</b></td>
 
             <td th:text="${incomeForTaxes} + ' zł'"></td>
         </tr>
-
         <tr>
             <td><b>Podatek VAT:&nbsp;&nbsp;</b></td>
 
@@ -75,15 +71,30 @@
         </tr>
         <tr>
             <td><b>Podatek dochodowy:&nbsp;&nbsp;</b></td>
-
             <td id="tax" th:text="${tax} + ' zł'"></td>
         </tr>
         <tr>
             <td><b>Zysk:&nbsp;&nbsp;</b></td>
             <td th:text="${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax} + ' zł'"></td>
         </tr>
-
-
+        <tr>
+            <td> Prowizja dla managera:</td>
+            <td th:text="(${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax})*0.1"/>
+        </tr>
+    </table>
+    <h1>Nowy Sącz</h1>
+    <table class="table container">
+        <tr>
+            <td>Zysk w Nowym Sączu</td>
+            <td th:text="${zyskNowySacz}"/>
+        </tr>
+    </table>
+    <h1>Zysk całościowy</h1>
+    <table class="table container">
+        <tr>
+            <td>Kuba i Cyprian</td>
+            <td th:text="((${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax})*0.9) + ${zyskNowySacz} "/>
+        </tr>
     </table>
 </div>
 <div th:replace="fragments/footer :: footer"/>
