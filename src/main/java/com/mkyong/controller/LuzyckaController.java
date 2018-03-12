@@ -5,6 +5,7 @@ import com.mkyong.payment.paymentSummary.Payment;
 import com.mkyong.sqlBase.CurrentUrlCutter;
 import com.mkyong.sqlBase.StudentListCreator;
 import com.mkyong.sqlBase.TableSelector;
+import com.mkyong.utils.Checkbox;
 import com.mkyong.utils.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,16 +75,24 @@ public class LuzyckaController {
         return "lokalizacje/Luzycka";
     }
 
+    @PostMapping("Luzycka/wyswietlWszystko")
+    public String showAll(@ModelAttribute Payment payment, Model model, @ModelAttribute Checkbox checkbox) {
+        prepareSiteObjects(model);
+        model.addAttribute("dateList", tableSelector.getDateTable("datyluzycka",checkbox.isCheckbox()));
+        return "lokalizacje/Luzycka";
+    }
+
     private String currentTable(String adress) {
         return currentUrlCutter.getTableNameFromUrl(adress);
     }
 
     private void prepareSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
-        model.addAttribute("dateList", tableSelector.getDateTable("datyluzycka"));
+        model.addAttribute("dateList", tableSelector.getDateTable("datyluzycka",true));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosciluzycka"));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
+        model.addAttribute("checkbox", new Checkbox(false));
     }
 }

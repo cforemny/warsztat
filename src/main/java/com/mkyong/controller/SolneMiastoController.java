@@ -5,6 +5,7 @@ import com.mkyong.payment.paymentSummary.Payment;
 import com.mkyong.sqlBase.CurrentUrlCutter;
 import com.mkyong.sqlBase.StudentListCreator;
 import com.mkyong.sqlBase.TableSelector;
+import com.mkyong.utils.Checkbox;
 import com.mkyong.utils.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,6 +75,13 @@ public class SolneMiastoController {
         return "lokalizacje/SolneMiasto";
     }
 
+    @PostMapping("SolneMiasto/wyswietlWszystko")
+    public String showAll(@ModelAttribute Payment payment, Model model, @ModelAttribute Checkbox checkbox) {
+        prepareSiteObjects(model);
+        model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto",checkbox.isCheckbox()));
+        return "lokalizacje/SolneMiasto";
+    }
+
     @GetMapping("naszeLokalizacje")
     public String showAllOurLocations() {
         return "lokalizacje/naszeLokalizacje";
@@ -85,10 +93,11 @@ public class SolneMiastoController {
 
     private void prepareSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
-        model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto"));
+        model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiasto",true));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscisolnemiasto"));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());
+        model.addAttribute("checkbox", new Checkbox(false));
     }
 }

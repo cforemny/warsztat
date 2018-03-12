@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <div th:replace="fragments/header :: header-css"/>
     <style>
@@ -54,10 +54,13 @@
         </a>
         <a th:href="@{/admin/zyski(data=${month})}">
             <button th:align="center" class="btn btn-primary" th:text="'Podatki/' + 'Zyski'"/>
-        </a><br/><br/>
+        </a>
+        <a th:href="@{/admin/wlasciciele}">
+            <button sec:authorize="hasRole('ADMIN')" th:align="center" class="btn btn-primary" th:text="'Wlaściciele'"/>
+        </a>
         <div class="container">
             <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
-        </div>
+        </div><br/><br/>
     </th:block>
 </div>
 <div th:replace="fragments/footer :: footer"/>

@@ -26,7 +26,7 @@
                     </tr>
                     <th:block th:each="cashIncome : ${locationsIncomeCash}">
                         <tr th:switch="${cashIncome.key}">
-
+                            <td th:case="'platnoscialeksandry'" th:text="'Aleksandry-zerówka'"/>
                             <td th:case="'platnoscikampus'" th:text="'Kampus Wielicki'"/>
                             <td th:case="'platnosciluzycka'" th:text="'Luzycka'"/>
                             <td th:case="'platnosciruczaj'" th:text="'Ruczaj'"/>

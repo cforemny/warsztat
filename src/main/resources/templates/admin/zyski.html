@@ -78,21 +78,21 @@
             <td th:text="${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax} + ' zł'"></td>
         </tr>
         <tr>
-            <td> Prowizja dla managera:</td>
+            <td><b>Prowizja dla managera:</b></td>
             <td th:text="(${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax})*0.1"/>
         </tr>
     </table>
     <h1>Nowy Sącz</h1>
     <table class="table container">
         <tr>
-            <td>Zysk w Nowym Sączu</td>
+            <td><b>Zysk w Nowym Sączu:</b></td>
             <td th:text="${zyskNowySacz}"/>
         </tr>
     </table>
     <h1>Zysk całościowy</h1>
     <table class="table container">
         <tr>
-            <td>Kuba i Cyprian</td>
+            <td><b>Kuba i Cyprian:</b></td>
             <td th:text="((${incomeSummary} - ${noneBackExpenses} - ${paybackExpenses} - ${vat} - ${tax})*0.9) + ${zyskNowySacz} "/>
         </tr>
     </table>

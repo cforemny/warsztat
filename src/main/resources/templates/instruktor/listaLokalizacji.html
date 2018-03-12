@@ -8,37 +8,51 @@
 </head>
 <body>
 <div th:fragment="listaLokalizacji">
-    <a th:href="@{/instruktor/SolneMiasto}">
-        <button class="btn btn-info" type="button">Solne Miasto Wtorek</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Swietokrzyska}">
-        <button class="btn btn-info" type="button">Świętokrzyska</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Kampus}">
-        <button class="btn btn-info" type="button">Kampus Wielicki</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Skawina}">
-        <button class="btn btn-info" type="button">Skawina</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Ruczaj}">
-        <button class="btn btn-info" type="button">Ruczaj</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/SolneMiastoPiatek}">
-        <button class="btn btn-info" type="button">Solne Miasto Piatek</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Luzycka}">
-        <button class="btn btn-info" type="button">Luzycka</button>
-    </a>
-    <br/><br/>
-    <a th:href="@{/instruktor/Zyrafa}">
-        <button class="btn btn-info" type="button">Przedszkole zyrafa</button>
-    </a>
+    <table cellpadding="10">
+        <tr>
+            <td>
+                <a th:href="@{/instruktor/SolneMiasto}">
+                    <button class="btn btn-info" type="button">Solne Miasto Wtorek</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Swietokrzyska}">
+                    <button class="btn btn-info" type="button">Świętokrzyska</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Kampus}">
+                    <button class="btn btn-info" type="button">Kampus Wielicki</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Skawina}">
+                    <button class="btn btn-info" type="button">Skawina</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Aleksandry}">
+                    <button class="btn btn-info" type="button">Aleksandry-zerówka</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/instruktor/Ruczaj}">
+                    &nbsp;&nbsp;&nbsp;<button class="btn btn-info" type="button">Ruczaj</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/SolneMiastoPiatek}">
+                    &nbsp;&nbsp; <button class="btn btn-info" type="button">Solne Miasto Piatek</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Luzycka}">
+                    &nbsp;&nbsp;  <button class="btn btn-info" type="button">Luzycka</button>
+                </a>
+                <br/><br/>
+                <a th:href="@{/instruktor/Zyrafa}">
+                    &nbsp;&nbsp; <button class="btn btn-info" type="button">Przedszkole zyrafa</button>
+                </a> <br/><br/>
+                <a th:href="@{/instruktor/TestOgolny}">
+                    &nbsp;&nbsp; <button class="btn btn-info" type="button">Test Ogolny</button>
+                </a>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

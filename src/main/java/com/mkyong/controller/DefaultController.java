@@ -27,9 +27,19 @@ public class DefaultController {
         return "login";
     }
 
+    @GetMapping("/404")
+    public String error404() {
+        return "error/404";
+    }
+
     @GetMapping("/403")
     public String error403() {
         return "error/403";
+    }
+
+    @GetMapping("/500")
+    public String error500() {
+        return "error/500";
     }
 
     //TODO: usunac przekierowanie na main.css i usunac ten fragment

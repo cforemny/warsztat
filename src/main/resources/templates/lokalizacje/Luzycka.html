@@ -92,7 +92,10 @@
     </table>
 </div>
 <br/>
-
+<form action="#" th:action="@{/instruktor/Luzycka/wyswietlWszystko}" th:object="${checkbox.isCheckbox()}" method="post">
+    <input type="submit" class="btn btn-primary" value="Pokaz calosc"/> <input type="checkbox" th:value="false" />
+</form>
+<br/>
 
 <div align="right, 10px">
     <ul class="nav nav-pills">

@@ -6,6 +6,7 @@ import com.mkyong.utils.Instructor;
 import com.mkyong.utils.ManagerTask;
 import com.mkyong.utils.Note;
 import com.mkyong.utils.WorkSummary;
+import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +46,6 @@ public class ManagerController {
         return "manager";
     }
 
-
     @PostMapping("")
     public String insertWorkingHours(@ModelAttribute com.mkyong.utils.Date wybranaData, @ModelAttribute Instructor instructor,
                                      @ModelAttribute Note note, @ModelAttribute ManagerTask managerTask,
@@ -61,10 +61,17 @@ public class ManagerController {
         if (managerTask.getId() != 0) {
             managerTaskCreator.confirmTask(managerTask);
         }
+        if(wybranaData.getDate() == null) {
+            model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
+            model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(getCurrentDate()));
+        }
+        if(managerTask.getTask() != null){
+            managerTaskCreator.addTask(managerTask);
+        }
 
-        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
-        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(getCurrentDate()));
 
+        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getDate()));
+        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(wybranaData.getDate()));
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
         model.addAttribute("notatka", new Note());

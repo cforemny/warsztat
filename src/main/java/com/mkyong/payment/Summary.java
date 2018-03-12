@@ -1,7 +1,6 @@
 package com.mkyong.payment;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
@@ -26,12 +25,6 @@ public class Summary {
 
     public String getActualMonthForSummary(String date) {
         return date.substring(5, 7);
-    }
-
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-        return connection;
     }
 
 

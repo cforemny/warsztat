@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Cyprian on 2017-07-15.
@@ -92,8 +93,9 @@ public class InstruktorController {
 
         return "instruktor";
     }
+
     @GetMapping("/Zyrafa")
-    public String zyrafa(){
+    public String zyrafa() {
 
         return "lokalizacje/Zyrafa";
     }
@@ -119,6 +121,10 @@ public class InstruktorController {
         model.addAttribute("cashCollection", new CashCollection());
         model.addAttribute("nurserySchool", new NurserySchool());
         model.addAttribute("event", new Event());
+
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+
+        stringObjectHashMap.put("Jakis string", null);
 
 
     }

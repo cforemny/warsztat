@@ -10,6 +10,25 @@ public class Event {
     private double value;
     private char faktura;
     private char isPaid;
+    private String comments;
+
+
+    public Event(String date, String eventType, double value, char faktura, char isPaid, String comments) {
+        this.date = date;
+        this.eventType = eventType;
+        this.value = value;
+        this.faktura = faktura;
+        this.isPaid = isPaid;
+        this.comments = comments;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 
     public Event(String date, String eventType, double value, char faktura, char isPaid) {
         this.date = date;

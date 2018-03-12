@@ -3,7 +3,7 @@ package com.mkyong.controller;
 import com.mkyong.payment.expenseSummary.MonthExpense;
 import com.mkyong.payment.expenseSummary.PermanentExpense;
 import com.mkyong.payment.paymentSummary.*;
-import com.mkyong.sqlBase.EventCreator;
+import com.mkyong.utils.Debt;
 import com.mkyong.utils.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +35,8 @@ public class AdminController {
     private MonthIncomeForLocations monthIncomeForLocations;
     @Autowired
     private PermanentExpense permanentExpense;
-
+    @Autowired
+    private Debt debt;
 
 
     @GetMapping("")
@@ -43,6 +44,12 @@ public class AdminController {
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("event", new Event());
         return "admin";
+    }
+    @GetMapping("/wlasciciele")
+    public String owners(Model model   ){
+        model.addAttribute("debts",debt.getDebtList());
+        model.addAttribute("payedValue",debt.payedValue());
+        return "admin/wlasciciele";
     }
 
     @GetMapping("/{month}")
@@ -68,7 +75,7 @@ public class AdminController {
         model.addAttribute("incomeForTaxes", addAllIncomeForTaxes(data));
         model.addAttribute("vat", countVat(data));
         model.addAttribute("tax", incomeTax(data));
-        model.addAttribute("zyskNowySacz",monthIncome.incomeFromNowySacz(data));
+        model.addAttribute("zyskNowySacz", monthIncome.incomeFromNowySacz(data));
         return "admin/zyski";
     }
 

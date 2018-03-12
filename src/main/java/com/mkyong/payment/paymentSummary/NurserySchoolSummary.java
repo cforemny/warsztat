@@ -63,7 +63,7 @@ public class NurserySchoolSummary extends Summary {
                 monthNumber = switchMonth(getMonthForSummary(date));
             }
 
-            String query = "select data, liczbadzieci, cena, nazwaprzedszkola, czyzaplacono from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
+            String query = "select data, liczbadzieci, cena, nazwaprzedszkola, czyzaplacono, uwagi from listaprzedszkoli " + " WHERE data LIKE '" + year + "%'" +
                     "AND data LIKE '%-" + monthNumber + "-%'";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
@@ -75,9 +75,11 @@ public class NurserySchoolSummary extends Summary {
                 String lessonDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
                 String platnosc = resultSet.getString("czyzaplacono");
+                String uwagi = resultSet.getString("uwagi");
 
-                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName, platnosc));
-            }connection.close();
+                nurserySchools.add(new NurserySchool(Integer.parseInt(childrens), lessonDate, Integer.parseInt(value), nurserySchoolName, platnosc, uwagi));
+            }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

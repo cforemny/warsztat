@@ -1,6 +1,7 @@
 package com.mkyong.sqlBase;
 
 import com.mkyong.payment.paymentSummary.Payment;
+import com.mkyong.utils.Checkbox;
 import com.mkyong.utils.Student;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +45,7 @@ public class TableSelector {
     }
 
     @SuppressWarnings("ThrowablePrintedToSystemOut")
-    public List getDateTable(String tableName) {
+    public List getDateTable(String tableName, boolean checkbox) {
 
         List<String> dateList = new ArrayList<String>();
         try {
@@ -57,8 +58,14 @@ public class TableSelector {
                 dateList.add(date);
             }
 
+
         } catch (Exception exception) {
             System.out.println(exception);
+        }
+        if(checkbox && dateList.size() >=8){
+
+            List<String> sublist = dateList.subList(dateList.size() - 8, dateList.size());
+            return sublist;
         }
         return dateList;
     }

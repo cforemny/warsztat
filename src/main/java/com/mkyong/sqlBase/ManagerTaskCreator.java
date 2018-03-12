@@ -5,9 +5,7 @@ import com.mkyong.utils.ManagerTask;
 import com.mkyong.utils.Note;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +17,8 @@ import java.util.List;
 public class ManagerTaskCreator extends Summary {
 
 
-    private Statement statement = getConnection().createStatement();
+    private Connection connection;
+    private Statement statement;
     private ResultSet resultSet;
 
     public ManagerTaskCreator() throws SQLException, ClassNotFoundException {
@@ -30,8 +29,10 @@ public class ManagerTaskCreator extends Summary {
         List<ManagerTask> taskList = new ArrayList<ManagerTask>();
 
         try {
-            getConnection();
-            String query = "select * from zadaniaManagera";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
+            String query = "SELECT * FROM zadaniaManagera";
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
@@ -43,7 +44,7 @@ public class ManagerTaskCreator extends Summary {
 
                 taskList.add(new ManagerTask(id, zadanie, uwagi, status));
             }
-
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }
@@ -54,11 +55,27 @@ public class ManagerTaskCreator extends Summary {
     public void confirmTask(ManagerTask managerTask) {
 
         try {
-            getConnection();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             String query = "UPDATE zadaniaManagera SET uwagi =' " + managerTask.getComments() + "', status = 'wykonane' " +
                     " WHERE zadanieId = " + managerTask.getId();
             statement.execute(query);
+            connection.close();
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+    }
 
+    public void addTask(ManagerTask managerTask) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
+            String query = "INSERT INTO zadaniaManagera (status, typZadania) VALUES('niewykonane','" + managerTask.getTask() + "')";
+            statement.execute(query);
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }
@@ -67,10 +84,12 @@ public class ManagerTaskCreator extends Summary {
     public void createNote(Note note) {
 
         try {
-            getConnection();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
             String query = "INSERT INTO  notatki (notatkaId, tresc) VALUES ('" + note.getId() + "','" + note.getContent() + "')";
             statement.execute(query);
-
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }
@@ -81,8 +100,10 @@ public class ManagerTaskCreator extends Summary {
         List<Note> noteList = new ArrayList<Note>();
 
         try {
-            getConnection();
-            String query = "select * from notatki";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
+            statement = connection.createStatement();
+            String query = "SELECT * FROM notatki";
             resultSet = statement.executeQuery(query);
 
             int i = 0;
@@ -93,7 +114,7 @@ public class ManagerTaskCreator extends Summary {
                 noteList.add(new Note(tresc, id));
                 i++;
             }
-
+            connection.close();
         } catch (Exception exception) {
             System.out.println(exception);
         }

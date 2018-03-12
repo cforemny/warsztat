@@ -23,7 +23,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  */
 @Controller
 @RequestMapping("/instruktor")
-public class SolneMiastoPiatekController {
+public class AleksandryController {
 
     @Autowired
     private StudentListCreator studentListCreator;
@@ -33,55 +33,54 @@ public class SolneMiastoPiatekController {
     private CurrentUrlCutter currentUrlCutter;
     private String adress;
 
-    @GetMapping("/SolneMiastoPiatek")
+    @GetMapping("/Aleksandry")
     public String showLocation(Model model) {
         this.adress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI().toString();
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("/SolneMiastoPiatek")
+    @PostMapping("/Aleksandry")
     public String submitNewStudent(@ModelAttribute Student student, CourseDate courseDate, Model model) {
         studentListCreator.addStudentToList(student, currentTable(adress));
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("SolneMiastoPiatek/usun")
+    @PostMapping("Aleksandry/usun")
     public String deleteStudentFromRecord(@ModelAttribute Student student, Model model) {
         studentListCreator.deleteStudent(student.getId(), currentTable(adress));
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("SolneMiastoPiatek/dodajDate")
+    @PostMapping("Aleksandry/dodajDate")
     public String addNewColumn(@ModelAttribute CourseDate courseDate, Model model) {
-        studentListCreator.addNewDate("datysolnemiastopiatek", courseDate.getCurrentDate());
+        studentListCreator.addNewDate("datyaleksandry", courseDate.getCurrentDate());
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("SolneMiastoPiatek/platnosci")
+    @PostMapping("Aleksandry/platnosci")
     public String addPayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.addNewPayment("platnoscisolnemiastopiatek", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
+        studentListCreator.addNewPayment("platnoscialeksandry", payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("SolneMiastoPiatek/usunPlatnosc")
+    @PostMapping("Aleksandry/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, Model model) {
-        studentListCreator.removePayment("platnoscisolnemiastopiatek", payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnoscialeksandry", payment.getStudentId(), payment.getPaymentDate());
         prepareSiteObjects(model);
-        return "lokalizacje/SolneMiastoPiatek";
+        return "lokalizacje/Aleksandry";
     }
 
-    @PostMapping("SolneMiastoPiatek/wyswietlWszystko")
+    @PostMapping("Aleksandry/wyswietlWszystko")
     public String showAll(@ModelAttribute Payment payment, Model model, @ModelAttribute Checkbox checkbox) {
         prepareSiteObjects(model);
-        model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiastopiatek",checkbox.isCheckbox()));
-        return "lokalizacje/SolneMiastoPiatek";
+        model.addAttribute("dateList", tableSelector.getDateTable("datyaleksandry",checkbox.isCheckbox()));
+        return "lokalizacje/Aleksandry";
     }
-
 
     private String currentTable(String adress) {
         return currentUrlCutter.getTableNameFromUrl(adress);
@@ -89,8 +88,8 @@ public class SolneMiastoPiatekController {
 
     private void prepareSiteObjects(Model model) {
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress)));
-        model.addAttribute("dateList", tableSelector.getDateTable("datysolnemiastopiatek",true));
-        model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscisolnemiastopiatek"));
+        model.addAttribute("dateList", tableSelector.getDateTable("datyaleksandry",true));
+        model.addAttribute("paymentList", tableSelector.getPaymentList("platnoscialeksandry"));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
         model.addAttribute("payment", new Payment());

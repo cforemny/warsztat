@@ -31,8 +31,8 @@
                 <td th:text="${eventDetail.value}"/>
                 <td th:text="${eventDetail.date}"/>
                 <div th:switch="${eventDetail.isPaid}">
-                    <td th:case="'T'">Zapłacono</td>
-                    <td th:case="'N'">Niezapłacono</td>
+                    <td th:case="'T'" style="background-color: chartreuse">Zapłacono</td>
+                    <td th:case="'N'" style="background-color: lightcoral">Niezapłacono</td>
                 </div>
 
             </tr>

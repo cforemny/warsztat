@@ -72,7 +72,7 @@ public class MonthExpense extends Summary {
         String month = getMonthForSummary(date);
         date = switchMonth(month);
         String query = "select kwota from wydatkiinstruktorow where faktura = 'N' AND " + "data LIKE '" + year + "%'" +
-                "AND data LIKE '%-" + date + "-%'" + " UNION select kosztWartosc from kosztystale where faktura = 'N'" + " AND data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'" + " UNION ALL select kosztWartosc from kosztystale where faktura = 'N'" + " AND data LIKE '" + year + "%'" +
                 "AND data LIKE '%-" + date + "-%'";
         return getValue(query);
     }
@@ -83,7 +83,7 @@ public class MonthExpense extends Summary {
         String month = getMonthForSummary(date);
         date = switchMonth(month);
         String query = "select kwota from wydatkiinstruktorow where faktura = 'T' AND " + "data LIKE '" + year + "%'" +
-                "AND data LIKE '%-" + date + "-%'" + " UNION select kosztWartosc from kosztystale where faktura = 'T'" + " AND data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + date + "-%'" + " UNION ALL select kosztWartosc from kosztystale where faktura = 'T'" + " AND data LIKE '" + year + "%'" +
                 "AND data LIKE '%-" + date + "-%'";
         return getValue(query);
     }

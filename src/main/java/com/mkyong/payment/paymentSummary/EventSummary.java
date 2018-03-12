@@ -62,8 +62,8 @@ public class EventSummary extends Summary {
 
             }
 
-            String query = "select data, rodzajeventu, cena, faktura, czyzaplacono from eventy " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%'";
+            String query = "select data, rodzajeventu, cena, faktura, czyzaplacono, uwagi from eventy " + " WHERE data LIKE '" + year + "%'" +
+                    "AND data LIKE '%-" + monthNumber + "-%' order by data";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
             statement = connection.createStatement();
@@ -74,8 +74,10 @@ public class EventSummary extends Summary {
                 String eventDate = resultSet.getString("data");
                 String value = resultSet.getString("cena");
                 String czyZaplacono = resultSet.getString("czyzaplacono");
+                String uwagi = resultSet.getString("uwagi");
 
-                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0), czyZaplacono.charAt(0)));
+
+                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0), czyZaplacono.charAt(0), uwagi));
             }
             connection.close();
         } catch (Exception e) {

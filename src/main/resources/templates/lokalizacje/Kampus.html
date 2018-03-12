@@ -64,9 +64,13 @@
         </tr>
     </table>
 </div>
-<br/><br/>
+<br/>
+
+
+
+<br/>
 <div class="table-responsive">
-    <table class="table table-bordered table-condensed table-hover text-center">
+    <table  id = "kampus" class="table table-bordered table-condensed table-hover text-center">
         <tr class="info">
             <td class="col-xs-1">Numer</td>
             <td>Imie</td>
@@ -94,7 +98,10 @@
     </table>
 </div>
 <br/>
-
+<form action="#" th:action="@{/instruktor/Kampus/wyswietlWszystko}" th:object="${checkbox.isCheckbox()}" method="post">
+   <input type="submit" class="btn btn-primary" value="Pokaz calosc"/> <input type="checkbox" th:value="false" />
+</form>
+<br/>
 
 <div align="right, 10px">
     <ul class="nav nav-pills">
@@ -258,7 +265,6 @@
         </div>
     </div>
 </div>
-
 
 <div th:replace="fragments/footer :: footer"/>
 
