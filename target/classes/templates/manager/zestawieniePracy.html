@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:fragment="zestawieniePracy">
+    <form th:object="${wybranaData}" method="post">
+        <input size="15" id="datepicker1" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
+        <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
+    </form>
+    <br/>
+    <br/>
+    <form th:object="${instructor}" method="post">
+        <input size="3" type="text" placeholder="czas" th:field="*{time}"/>
+        <input size="15" type="text" placeholder="Zajęcia" th:field="*{place}"/>
+        <input size="15" id="datepicker" name="date" type="text" placeholder="Data" th:field="*{date}"/>
+        Instruktor <select th:field="*{name}">
+        <option value="cforemny">Cyprian Foremny</option>
+        <option value="oforemna">Aleksandra Foremna</option>
+        <option value="jcichon">Joanna Cichon</option>
+        <option value="kskotniczny">Krzysztof Skotniczny</option>
+        <option value="kasiak">Katarzyna Kipias</option>
+        <option value="lkrason">Lukasz Krasoń</option>
+        <option value="pszydlo">Piotr Szydło</option>
+        <option value="mpiech">Marcin Piech</option>
+        <option value="rjanus">Robert Janus</option>
+        <option value="dduda">Diana Duda</option>
+
+    </select>
+        <input type="submit" class="btn btn-primary" value="Dodaj przepracowane godziny"/>
+    </form>
+    <br/>
+    <br/>
+    Podgląd zestawienia jest generowany dla aktualnego miesiąca. Żeby sprawdzić inne miesiące należy podac inny miesiac.
+    Przy dodawaniu godzin, w sytuacji pomylki jest mozliwość nadpisania błednej wartosci - trzeba wypelnic jeszcze raz
+    odpowiednie dane z poprawnymi danymi.
+    <br/>
+    <br/>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="zestawieniePracy">
+            <table class="table table-bordered table-condensed table-hover text-center">
+                <tr class="info">
+                    <td>Data</td>
+                    <td>Zajęcia</td>
+                    <td>Cyprian</td>
+                    <td>Ola Foremna</td>
+                    <td>Katarzyna Kipias</td>
+                    <td>Joanna Cichoń</td>
+                    <td>Krzysztof Skotniczny</td>
+                    <td>Piotr Szydło</td>
+                    <td>Lukasz Krasoń</td>
+                    <td>Marcin Piech</td>
+                    <td>Robert Janus</td>
+                    <td>Diana Duda</td>
+                </tr>
+
+                <tr th:each="number: ${instructorMap}">
+                    <td th:text="${number.value.data}"></td>
+                    <td th:text="${number.value.miejsce}"></td>
+                    <td th:text=" ((${number.value.cforemny} != 0) ? ${number.value.cforemny} : '')"></td>
+                    <td th:text=" ((${number.value.oforemna} != 0) ? ${number.value.oforemna} : '')"></td>
+                    <td th:text=" ((${number.value.kasiak} != 0) ? ${number.value.kasiak} : '')"></td>
+                    <td th:text=" ((${number.value.jcichon} != 0) ? ${number.value.jcichon} : '')"></td>
+                    <td th:text=" ((${number.value.kskotniczny} != 0) ? ${number.value.kskotniczny} : '')"></td>
+                    <td th:text=" ((${number.value.pszydlo} != 0) ? ${number.value.pszydlo} : '')"></td>
+                    <td th:text=" ((${number.value.lkrason} != 0) ? ${number.value.lkrason} : '')"></td>
+                    <td th:text=" ((${number.value.mpiech} != 0) ? ${number.value.mpiech} : '')"></td>
+                    <td th:text=" ((${number.value.rjanus} != 0) ? ${number.value.rjanus} : '')"></td>
+                    <td th:text=" ((${number.value.dduda} != 0) ? ${number.value.dduda} : '')"></td>
+                </tr>
+                <tr style="font-weight: bold">
+                <td></td>
+                <td>Podsumowanie:</td>
+                <td th:text="${instructorWorkSummary.cforemny}"></td>
+                <td th:text="${instructorWorkSummary.oforemna}"></td>
+                <td th:text="${instructorWorkSummary.kasiak}"></td>
+                <td th:text="${instructorWorkSummary.jcichon}"></td>
+                <td th:text="${instructorWorkSummary.kskotniczny}"></td>
+                <td th:text="${instructorWorkSummary.pszydlo}"></td>
+                <td th:text="${instructorWorkSummary.lkrason}"></td>
+                <td th:text="${instructorWorkSummary.mpiech}"></td>
+                <td th:text="${instructorWorkSummary.rjanus}"></td>
+                <td th:text="${instructorWorkSummary.dduda}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="well well-sm ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Podsumowanie zysków</h1></p></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <li th:each="year: ${dataMap}">
+        <div class="btn btn-danger" th:text="${year.key}"></div>
+        <th:block th:each="month : ${year.value}">
+            <a th:href="'admin/'+${year.key}+${month}">
+                <button class="btn btn-info" type="button" th:value="${year.key}+${month}" th:text="${month}"></button>
+            </a>
+            &nbsp;</th:block>
+        <br/><br/><br/>
+    </li>
+</div>
+<div class="container">
+    <th:block th:if="${month} != null">
+        <div class="well well-sm" style="background-color: #4682B4;">
+            <h2><p th:align="center" th:text="${month}"></p></h2>
+        </div>
+        <a th:href="@{/admin/podgladSzczegolowy(data=${month})}">
+            <button th:align="center" class="btn btn-primary" th:text="'Podgląd ' + 'szczegółowy'"/>
+        </a>
+        <a th:href="@{/admin/kosztyStale(data=${month})}">
+            <button th:align="center" class="btn btn-primary" th:text="'Koszty' + ' administracyjne'"/>
+        </a>
+        <a th:href="@{/admin/zyski(data=${month})}">
+            <button th:align="center" class="btn btn-primary" th:text="'Podatki/' + 'Zyski'"/>
+        </a>
+        <a th:href="@{/admin/wlasciciele}">
+            <button sec:authorize="hasRole('ADMIN')" th:align="center" class="btn btn-primary" th:text="'Wlaściciele'"/>
+        </a>
+        <div class="container">
+            <div th:replace="admin/ourLocationsSummary :: ourLocationsSummary"/>
+        </div><br/><br/>
+    </th:block>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

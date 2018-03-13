@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <link href="Content/bootstrap-datetimepicker.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="/resources/demos/style.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="/main.css"/>
+    </div>
+</head>
+<body>
+
+<div th:fragment="header">
+
+    <nav class="navbar navbar-light" style="background-color: #4682B4;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://www.warsztatyrobotow.pl"><p style="color: black">Warsztaty
+                    Robotow</p></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}"><p style="color: black">Strona glówna</p></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/instruktor}"><p style="color: black">Panel instruktora</p></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/admin}"><p style="color: black">Panel administratora</p></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/manager}"><p style="color: black">Panel managera</p></a>
+            </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

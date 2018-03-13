@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="warsztatWAR" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="311f6f3a-425a-49ea-845b-7c43df284c50" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/AleksandryController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/KampusController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/LuzyckaController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/RuczajController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SkawinaController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoPiatekController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SwietokrzyskaController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Aleksandry.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Kampus.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Luzycka.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Ruczaj.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Skawina.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiasto.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiastoPiatek.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Swietokrzyska.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/DefaultController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/InstruktorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/InstruktorController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/ManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_tiles2_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_tiles2_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring3_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring3_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring4_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring4_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/spring-boot-web-spring-security$SpringBootWebApplication.coverage" NAME="SpringBootWebApplication Coverage Results" MODIFIED="1506510611308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\exportToHTML" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Lokalizacja.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="131" column="62" lean-forward="true" selection-start-line="131" selection-start-column="62" selection-end-line="131" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="113" column="43" lean-forward="false" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Date.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+              <folding>
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MonthExpense.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/expenseSummary/MonthExpense.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+              <folding>
+                <marker date="1511542530117" expanded="true" signature="1327:1530" ph="select instr... wydatkiinstruktorow" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>form</find>
+      <find>if</find>
+      <find>th:if</find>
+      <find>currentdate</find>
+      <find>prepareDataForDetails</find>
+      <find>non</find>
+      <find>datap</find>
+      <find>appconfig</find>
+      <find>instructorWorkSummary</find>
+      <find>th</find>
+      <find>wybrana</find>
+      <find>rct</find>
+      <find>incomesumma</find>
+      <find>Kampus</find>
+      <find>locationsIncomeCash</find>
+      <find>usun</find>
+      <find>managerTask</find>
+      <find>ctz</find>
+      <find>checkbo</find>
+      <find>adress</find>
+      <find>kampus</find>
+      <find>tablename</find>
+      <find>studentlist</find>
+      <find>Dodaj platnosc</find>
+      <find>dodajDate</find>
+      <find>usuń pła</find>
+      <find>usun platnosc</find>
+      <find>--&gt;</find>
+      <find>date</find>
+      <find>content</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>Swietokrzyska</replace>
+      <replace>Kampus</replace>
+      <replace>position fixed;</replace>
+      <replace>position: fixed;</replace>
+      <replace>SolneMiastoPiatek</replace>
+      <replace>Ruczaj</replace>
+      <replace>Skawina</replace>
+      <replace>Luzycka</replace>
+      <replace>datysolnemiasto</replace>
+      <replace>platnoscisolnemiasto</replace>
+      <replace>datyruczaj</replace>
+      <replace>platnosciruczaj</replace>
+      <replace>platnosciluzycka</replace>
+      <replace>datyluzycka</replace>
+      <replace>datyskawina</replace>
+      <replace>platnosciskawinadatyskawina</replace>
+      <replace>&lt;li&gt;&lt;a href=&quot;#&quot;&gt;</replace>
+      <replace>&lt;/a&gt;&lt;/li&gt;</replace>
+      <replace>&lt; li class=&quot;list-group-item&quot;&gt;</replace>
+      <replace>td</replace>
+      <replace>Aleksandry</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\admin</dir>
+      <dir>C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/templates/manager/zestawieniePracy.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/eventySzczegolowo.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/zyski.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaPrzedszkoli.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/wplywyZLokalizacji.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/NurserySchool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/faktury.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/EventSummary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/NurserySchoolSummary.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/error/404.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/home.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/DefaultController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/error/500.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/payment/expenseSummary/MonthExpense.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/manager/zadania.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/ManagerTaskCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/manager/adminZadania.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/Checkbox.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/KampusController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/AleksandryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/RuczajController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/LuzyckaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SkawinaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoPiatekController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/SwietokrzyskaController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Kampus.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Luzycka.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Ruczaj.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Skawina.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiasto.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiastoPiatek.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Aleksandry.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/manager.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/wlasciciele.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/Debt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/InstruktorController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/TestOgolny.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/OgolnyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Spring Boot Web Spring Security" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="2558" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mkyong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mkyong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mkyong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Valeo" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\lokalizacje" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\manager" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\error" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mkyong.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\lokalizacje" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\admin" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\instruktor" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates\paymentSummaryFragments" />
+      <recent name="C:\Users\Cyprian\IdeaProjects\Cypek\spring-boot-web-spring-security\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringBootWebApplication">
+    <configuration default="false" name="NumberOfMonths" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.mkyong.sqlBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.mkyong.payment.paymentSummary.NumberOfMonths" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="spring-boot-web-spring-security" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SpringBootJdbcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.mkyong.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mkyong.SpringBootJdbcApplication" />
+      <module name="spring-boot-web-spring-security" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="spring-boot-web-spring-security" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="false" name="SpringBootWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mkyong.SpringBootWebApplication" />
+      <module name="spring-boot-web-spring-security" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.SpringBootWebApplication" />
+      <item index="1" class="java.lang.String" itemvalue="Application.NumberOfMonths" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.SpringBootJdbcApplication" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Spring Boot.SpringBootJdbcApplication" />
+        <item index="1" class="java.lang.String" itemvalue="Application.NumberOfMonths" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="311f6f3a-425a-49ea-845b-7c43df284c50" name="Default" comment="" />
+      <created>1496430443923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1496430443923</updated>
+      <workItem from="1496430449281" duration="5250000" />
+      <workItem from="1496478408457" duration="491000" />
+      <workItem from="1496583543039" duration="13648000" />
+      <workItem from="1496683918652" duration="3946000" />
+      <workItem from="1496858501253" duration="3814000" />
+      <workItem from="1496947990577" duration="5671000" />
+      <workItem from="1497026776118" duration="10166000" />
+      <workItem from="1497085589380" duration="3482000" />
+      <workItem from="1497207941574" duration="914000" />
+      <workItem from="1497210226768" duration="358000" />
+      <workItem from="1497279146268" duration="6803000" />
+      <workItem from="1497298130542" duration="838000" />
+      <workItem from="1497384542005" duration="399000" />
+      <workItem from="1497518242823" duration="1851000" />
+      <workItem from="1497552573926" duration="4391000" />
+      <workItem from="1497558191346" duration="3915000" />
+      <workItem from="1497617747419" duration="3043000" />
+      <workItem from="1497621800911" duration="2410000" />
+      <workItem from="1497624303432" duration="2800000" />
+      <workItem from="1497628580453" duration="1489000" />
+      <workItem from="1497891128202" duration="8731000" />
+      <workItem from="1497973976551" duration="1961000" />
+      <workItem from="1497986477120" duration="3552000" />
+      <workItem from="1498238844987" duration="7188000" />
+      <workItem from="1498383567514" duration="6123000" />
+      <workItem from="1498422222199" duration="1190000" />
+      <workItem from="1498496201975" duration="1620000" />
+      <workItem from="1498582527417" duration="6232000" />
+      <workItem from="1498589705506" duration="368000" />
+      <workItem from="1498668150380" duration="5423000" />
+      <workItem from="1498681258705" duration="1408000" />
+      <workItem from="1498750377578" duration="4095000" />
+      <workItem from="1498755307472" duration="7147000" />
+      <workItem from="1498940551681" duration="3362000" />
+      <workItem from="1499019592535" duration="960000" />
+      <workItem from="1499280959562" duration="4873000" />
+      <workItem from="1499352225907" duration="4475000" />
+      <workItem from="1499363007999" duration="7594000" />
+      <workItem from="1499438453097" duration="14138000" />
+      <workItem from="1499610772706" duration="4564000" />
+      <workItem from="1499621157363" duration="5959000" />
+      <workItem from="1499701392988" duration="12158000" />
+      <workItem from="1499792615761" duration="6748000" />
+      <workItem from="1499868950714" duration="6290000" />
+      <workItem from="1500045382721" duration="7219000" />
+      <workItem from="1500121730981" duration="15059000" />
+      <workItem from="1500207416279" duration="13143000" />
+      <workItem from="1500234952520" duration="2335000" />
+      <workItem from="1500299662198" duration="12245000" />
+      <workItem from="1500391535346" duration="3390000" />
+      <workItem from="1500491533637" duration="1365000" />
+      <workItem from="1500549209236" duration="1359000" />
+      <workItem from="1500630836391" duration="18418000" />
+      <workItem from="1500717940908" duration="4925000" />
+      <workItem from="1500726664417" duration="12728000" />
+      <workItem from="1500744219815" duration="7661000" />
+      <workItem from="1500802612508" duration="13808000" />
+      <workItem from="1500836875361" duration="3677000" />
+      <workItem from="1500904449574" duration="3241000" />
+      <workItem from="1500975663083" duration="15946000" />
+      <workItem from="1501177540933" duration="5614000" />
+      <workItem from="1501260490428" duration="6289000" />
+      <workItem from="1501602911061" duration="7076000" />
+      <workItem from="1501682252930" duration="866000" />
+      <workItem from="1501779309188" duration="5029000" />
+      <workItem from="1501785983253" duration="641000" />
+      <workItem from="1501935492046" duration="5873000" />
+      <workItem from="1501956357996" duration="3953000" />
+      <workItem from="1503997662003" duration="4299000" />
+      <workItem from="1505237154735" duration="3002000" />
+      <workItem from="1505637438829" duration="1072000" />
+      <workItem from="1505666671841" duration="4201000" />
+      <workItem from="1505757370969" duration="641000" />
+      <workItem from="1505835891382" duration="9296000" />
+      <workItem from="1505919261022" duration="4654000" />
+      <workItem from="1506016312790" duration="7489000" />
+      <workItem from="1506274197085" duration="602000" />
+      <workItem from="1506339669271" duration="382000" />
+      <workItem from="1506340288506" duration="2581000" />
+      <workItem from="1506353494743" duration="13496000" />
+      <workItem from="1506418460691" duration="14013000" />
+      <workItem from="1506508389115" duration="13637000" />
+      <workItem from="1506527756381" duration="896000" />
+      <workItem from="1506535204055" duration="8210000" />
+      <workItem from="1506582144874" duration="239000" />
+      <workItem from="1506582677750" duration="4931000" />
+      <workItem from="1506674440204" duration="13117000" />
+      <workItem from="1506758122730" duration="1098000" />
+      <workItem from="1506879913369" duration="667000" />
+      <workItem from="1506960850622" duration="740000" />
+      <workItem from="1506963512808" duration="1466000" />
+      <workItem from="1506972223101" duration="672000" />
+      <workItem from="1507037110101" duration="13913000" />
+      <workItem from="1507222067895" duration="1418000" />
+      <workItem from="1507391815967" duration="2909000" />
+      <workItem from="1507564982483" duration="2487000" />
+      <workItem from="1507571063523" duration="467000" />
+      <workItem from="1507646108285" duration="1394000" />
+      <workItem from="1507659695617" duration="28000" />
+      <workItem from="1507732373574" duration="832000" />
+      <workItem from="1507736732417" duration="266000" />
+      <workItem from="1507904401376" duration="276000" />
+      <workItem from="1507971721342" duration="357000" />
+      <workItem from="1508163304834" duration="2132000" />
+      <workItem from="1508172130346" duration="474000" />
+      <workItem from="1508252530705" duration="5394000" />
+      <workItem from="1508336815234" duration="1114000" />
+      <workItem from="1508404541255" duration="14497000" />
+      <workItem from="1508513359333" duration="2835000" />
+      <workItem from="1508584103296" duration="1414000" />
+      <workItem from="1508768443033" duration="2923000" />
+      <workItem from="1508783743747" duration="1123000" />
+      <workItem from="1508855870954" duration="693000" />
+      <workItem from="1508942486494" duration="669000" />
+      <workItem from="1509029688756" duration="2096000" />
+      <workItem from="1510086164170" duration="1029000" />
+      <workItem from="1510763918358" duration="770000" />
+      <workItem from="1510856899786" duration="1002000" />
+      <workItem from="1511287295867" duration="937000" />
+      <workItem from="1511464851248" duration="2292000" />
+      <workItem from="1511541612844" duration="4498000" />
+      <workItem from="1512403585226" duration="7490000" />
+      <workItem from="1512814920067" duration="3364000" />
+      <workItem from="1513009301077" duration="1173000" />
+      <workItem from="1513249097635" duration="762000" />
+      <workItem from="1514919361614" duration="27000" />
+      <workItem from="1516128752882" duration="113000" />
+      <workItem from="1520873218457" duration="15958000" />
+      <workItem from="1520958135934" duration="11249000" />
+    </task>
+    <task id="LOCAL-00001" summary="Dzialjaca funkcjonalnosc dodawania i usuwania studentow, dodawania dat i wyswietlania platnosci">
+      <created>1497895423923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1497895423923</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Dzialjaca funkcjonalnosc dodawania i usuwania studentow, dodawania dat i wyswietlania platnosci 2">
+      <created>1497981045912</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1497981045912</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Poprawiono dodawanie nowej platnosci. Insert do bazy danych generowany jest prawidlowo.">
+      <created>1497990480762</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1497990480762</updated>
+    </task>
+    <task id="LOCAL-00004" summary="przed joinem zapytan">
+      <created>1498243291833</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1498243291833</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Poprawiono fukncjonalnosc poprawnego wyswietlania dat i platnosci po dodaniu nowej wplaty">
+      <created>1498247066145</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1498247066145</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dodano kolorowanie wplat oraz zakladki dla psozczegolnych funkcji">
+      <created>1498390236696</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1498390236696</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Kilka zmian graficznych">
+      <created>1498750967783</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1498750967783</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Dodano opcje wybierania formy platnosci na formularzu lokalizacji, zrobiono tymczasowa obsluge rpzekierowania na /main.css, rozszerzono procedure insertu platnosci do bazy o typ platnosci">
+      <created>1499284860463</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1499284860463</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dodano elementy graficzne na stronie glownej i podstronie isntruktora, porpawiono kilka ltierowek, dodano nowa tabele wyboru lokalizacji">
+      <created>1499373389063</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1499373389063</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Dodano druga lokalziacje zajec, poprawiono header, uzalezniono nazwy tabeli od rzadania z rpzegladarki dodano tabele do bazy danych">
+      <created>1499453965795</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1499453965795</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Dodano tworzenie przyciskow na stornie administratora w zaleznosci od zawartosci tabel z datami w bazie">
+      <created>1499630533108</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1499630533108</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Poprawiono wyswietlanie przyciskow do roziczen - uzalezniono je od lat i miesiecy. Dodano tez pobieranie aktualnie kliknietego meisiaca z abzy">
+      <created>1499716963922</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1499716963922</updated>
+    </task>
+    <task id="LOCAL-00013" summary="przed puszczeniem na serwer&#10;">
+      <created>1499869015897</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1499869015897</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Dodano podliczanie zyskow na miesiac dla lokalizacji ze wzgledu na gotowke i przelew. Dolozono kampus wielicki i panel rpzedszkoli + kosmetyczne poprawki headera z ustawieniami">
+      <created>1500133034936</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1500133034936</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Dodano funkcje doawania wydatkow rpzez insturktorow">
+      <created>1500213669966</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1500213669966</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Zmieniono strukture podsumowania. Teraz wydatki i przychody dziedzicza po klasie Summary zeby nie kopiowac kodu. Dodano wyswietlanie wydatkow isntruktorw na meisiac na pdosumowaniu dla admina.">
+      <created>1500217146120</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1500217146120</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Dolozono podlcizanie i wyswietlanie gotowki zebranej rpzez instruktorow w danym miesiacu">
+      <created>1500320703624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1500320703624</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Poprawiono mapowanie zeby dzialalo na serwerze">
+      <created>1500655013848</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1500655013848</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Dodano insert liczby dzieci w rpzedszkoach do bazy">
+      <created>1500657223588</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1500657223588</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Dodano wybieranie dat z kalendarza plus obsluge baz danych zeby sie nei sypala przy wielkrotnym, polaczeniu">
+      <created>1500731472576</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1500731472576</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Dodano zamykanie polaczenia po pobraniu danych z bazy oraz podsumwoanie dla aktualnego meisiaca dla kazdej opcji dostepnej isnturktorom.">
+      <created>1500749759901</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1500749759901</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Dodano controller i widok podgladus zczegolowego">
+      <created>1500840549042</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1500840549042</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Roszczerzono podglad szczegolowy">
+      <created>1500984676828</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1500984676828</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Skonczono dodawanie skoztow stalych, dolozono widok zyskow">
+      <created>1501182567374</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1501182567374</updated>
+    </task>
+    <task id="LOCAL-00025" summary="dodano obliczanie podatkow">
+      <created>1501612310436</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1501612310436</updated>
+    </task>
+    <task id="LOCAL-00026" summary="poprawiono aktualizacje akcji isnturktorow">
+      <created>1501785364150</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1501785364150</updated>
+    </task>
+    <task id="LOCAL-00027" summary="poprawiono aktualizacje akcji isnturktorow">
+      <created>1501940025511</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1501940025511</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix bugow">
+      <created>1505844002037</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1505844002037</updated>
+    </task>
+    <task id="LOCAL-00029" summary="dodano opcje aktualizacji platnosci eventow i cennik do tego pare zmian wizualnych">
+      <created>1506023759429</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1506023759429</updated>
+    </task>
+    <task id="LOCAL-00030" summary="przenisiono baze danych dodano zestawienie rpacy isntruktorow  - w trakcie zmian">
+      <created>1506369928459</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1506369928459</updated>
+    </task>
+    <task id="LOCAL-00031" summary="dodano zestawienie rpacy isntruktorow, zmieniono cennik">
+      <created>1506528291714</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1506528291714</updated>
+    </task>
+    <task id="LOCAL-00032" summary="dodano zadania dla managera">
+      <created>1506605203959</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1506605203959</updated>
+    </task>
+    <task id="LOCAL-00033" summary="zmieniono gotowke w podgladzie na sumowanie, poprawiono datepickery, dodano mozliwosc wyboru miesiaca dla zestawienia rpacy, dolozono wiersz z pdosumwoaniem godzin w meisiacu">
+      <created>1506687126335</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1506687126335</updated>
+    </task>
+    <task id="LOCAL-00034" summary="male fixy">
+      <created>1506758233529</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1506758233529</updated>
+    </task>
+    <task id="LOCAL-00035" summary="male fixy">
+      <created>1506758617831</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1506758617831</updated>
+    </task>
+    <task id="LOCAL-00036" summary="opcja wpisywania notatek odswiezenie daty">
+      <created>1507394603970</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1507394603970</updated>
+    </task>
+    <task id="LOCAL-00037" summary="poprawienie lokalizacji na podsumwoaniu">
+      <created>1508266469776</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1508266469776</updated>
+    </task>
+    <task id="LOCAL-00038" summary="zmiany w polaczeniu z baza - nie powinno sie wysypac z powodu zbyt duzej ilosci polaczen. Pdosumwoanie z saczem">
+      <created>1508435794095</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1508435794095</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Wersja przed zmianami na ogolny template lokalizacji">
+      <created>1520873953457</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1520873953457</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="595474000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="2558" height="1048" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3875546" sideWeight="0.64451563" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.101281025" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298639" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939951" sideWeight="0.49348232" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34716156" sideWeight="0.3554844" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.49679744" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24672489" sideWeight="0.4759808" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.48879102" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.389738" sideWeight="0.8614892" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49679744" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.49359488" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23859087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19825707" sideWeight="0.4427542" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24979983" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960254" sideWeight="0.5065177" order="9" side_tool="true" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="przed puszczeniem na serwer&#10;" />
+    <MESSAGE value="Dodano podliczanie zyskow na miesiac dla lokalizacji ze wzgledu na gotowke i przelew. Dolozono kampus wielicki i panel rpzedszkoli + kosmetyczne poprawki headera z ustawieniami" />
+    <MESSAGE value="Dodano funkcje doawania wydatkow rpzez insturktorow" />
+    <MESSAGE value="Zmieniono strukture podsumowania. Teraz wydatki i przychody dziedzicza po klasie Summary zeby nie kopiowac kodu. Dodano wyswietlanie wydatkow isntruktorw na meisiac na pdosumowaniu dla admina." />
+    <MESSAGE value="Dolozono podlcizanie i wyswietlanie gotowki zebranej rpzez instruktorow w danym miesiacu" />
+    <MESSAGE value="Poprawiono mapowanie zeby dzialalo na serwerze" />
+    <MESSAGE value="Dodano insert liczby dzieci w rpzedszkoach do bazy" />
+    <MESSAGE value="Dodano wybieranie dat z kalendarza plus obsluge baz danych zeby sie nei sypala przy wielkrotnym, polaczeniu" />
+    <MESSAGE value="Dodano zamykanie polaczenia po pobraniu danych z bazy oraz podsumwoanie dla aktualnego meisiaca dla kazdej opcji dostepnej isnturktorom." />
+    <MESSAGE value="Dodano controller i widok podgladus zczegolowego" />
+    <MESSAGE value="Roszczerzono podglad szczegolowy" />
+    <MESSAGE value="Skonczono dodawanie skoztow stalych, dolozono widok zyskow" />
+    <MESSAGE value="dodano obliczanie podatkow" />
+    <MESSAGE value="poprawiono aktualizacje akcji isnturktorow" />
+    <MESSAGE value="fix bugow" />
+    <MESSAGE value="dodano opcje aktualizacji platnosci eventow i cennik do tego pare zmian wizualnych" />
+    <MESSAGE value="przenisiono baze danych dodano zestawienie rpacy isntruktorow  - w trakcie zmian" />
+    <MESSAGE value="dodano zestawienie rpacy isntruktorow, zmieniono cennik" />
+    <MESSAGE value="dodano zadania dla managera" />
+    <MESSAGE value="zmieniono gotowke w podgladzie na sumowanie, poprawiono datepickery, dodano mozliwosc wyboru miesiaca dla zestawienia rpacy, dolozono wiersz z pdosumwoaniem godzin w meisiacu" />
+    <MESSAGE value="male fixy" />
+    <MESSAGE value="opcja wpisywania notatek odswiezenie daty" />
+    <MESSAGE value="poprawienie lokalizacji na podsumwoaniu" />
+    <MESSAGE value="zmiany w polaczeniu z baza - nie powinno sie wysypac z powodu zbyt duzej ilosci polaczen. Pdosumwoanie z saczem" />
+    <MESSAGE value="Wersja przed zmianami na ogolny template lokalizacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wersja przed zmianami na ogolny template lokalizacji" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/CurrentUrlCutter.java</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/expenseSummary/MonthExpense.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/InstruktorController.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/ManagerController.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="255" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((StatementImpl)statement).connectionId" custom="com.mysql.cj.jdbc.StatementImpl" />
+        <watch expression="year" />
+        <watch expression="isCash" />
+        <watch expression="workSummary" />
+        <watch expression="checkbox" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoPiatekController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/SwietokrzyskaController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Luzycka.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Ruczaj.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Skawina.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/AleksandryController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiastoPiatek.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiasto.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/PreSchoolCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/NurserySchool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/JobSummaryCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="80" column="58" lean-forward="true" selection-start-line="78" selection-start-column="11" selection-end-line="80" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/ExpenseCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/kosztyStale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/ourLocationsSummary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/podgladSzczegolowy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/wydatkiSzczegolowe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/zyski.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-boot-web-spring-security.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/codeStyleSettings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Debt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="74" column="23" lean-forward="false" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/gotowkaSzczegolowo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="33" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/wplywyZPrzedszkoli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/wplywyZLokalizacji.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/instruktor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/instruktor/instruktorPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/wlasciciele.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Aleksandry.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/RuczajController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Kampus.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/KampusController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/CurrentUrlCutter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/InstruktorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1586">
+          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2303">
+          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding>
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#658#659#0" expanded="false" />
+            <element signature="e#792#793#0" expanded="false" />
+            <element signature="e#824#825#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Checkbox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/Summary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#357#358#0" expanded="false" />
+            <element signature="e#400#401#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/expenseSummary/MonthExpense.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <marker date="1511542530117" expanded="true" signature="1327:1530" ph="select instr... wydatkiinstruktorow" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.8.RELEASE/spring-web-4.3.8.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.8.RELEASE/spring-webmvc-4.3.8.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="834" column="0" lean-forward="false" selection-start-line="834" selection-start-column="0" selection-end-line="834" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.8.RELEASE/spring-webmvc-4.3.8.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="972" column="0" lean-forward="false" selection-start-line="972" selection-start-column="0" selection-end-line="972" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="116" column="87" lean-forward="false" selection-start-line="116" selection-start-column="87" selection-end-line="116" selection-end-column="87" />
+          <folding>
+            <marker date="1520968590374" expanded="true" signature="537:941" ph="INSERT INTO missingValue... " />
+            <marker date="1520968590374" expanded="true" signature="1397:1454" ph="DELETE FROM " />
+            <marker date="1520968590374" expanded="true" signature="1910:1976" ph="INSERT INTO missingValue... " />
+            <marker date="1520968590374" expanded="true" signature="2485:2684" ph="INSERT INTO missingValue... " />
+            <marker date="1520968590374" expanded="true" signature="3155:3265" ph="DELETE from " />
+            <marker date="1520968590374" expanded="true" signature="4066:4108" ph="DELETE from " />
+            <marker date="1520968590374" expanded="true" signature="4066:4123" ph="DELETE from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="178" column="34" lean-forward="true" selection-start-line="178" selection-start-column="34" selection-end-line="178" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#620#629#0" expanded="true" />
+            <element signature="e#689#698#0" expanded="true" />
+            <element signature="e#2044#2052#0" expanded="true" />
+            <marker date="1520966805744" expanded="true" signature="773:787" ph="select * fro... missingValue" />
+            <marker date="1520966805744" expanded="true" signature="2127:2141" ph="select * fro... missingValue" />
+            <marker date="1520966805744" expanded="true" signature="2845:2859" ph="select * fro... missingValue" />
+            <marker date="1520966805744" expanded="true" signature="3763:3787" ph="SHOW TABLES " />
+            <marker date="1520966805744" expanded="true" signature="4904:4916" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:4951" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:4952" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:5038" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:5039" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:5105" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:5125" ph="DELETE FROM " />
+            <marker date="1520966805744" expanded="true" signature="4904:5126" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="113" column="43" lean-forward="false" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="131" column="62" lean-forward="true" selection-start-line="131" selection-start-column="62" selection-end-line="131" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>warsztatWAR</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>spring-boot-web-spring-security</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="clean install" />
+    <option value="maven clean install" />
+    <option value="\clean install" />
+    <option value="mvnclean install" />
+  </component>
+</project>

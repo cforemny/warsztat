@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Panel instruktora</title>
+
+</head>
+<body>
+
+<div class="container" th:fragment="instruktorPanel">
+
+    <form th:object="${wybranaData}" method="post">
+        <input size="15" id="datepicker4" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
+        <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
+    </form>
+    <br/>
+    <br/>
+    <ul class="nav nav-pills">
+        <li><a data-toggle="pill" class="btn btn-info" href="#naszeLokalizacje">Nasze lokalizacje</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#przedszkola">Przedszkola</a></li>
+        <li><a data-toggle="pill" class="btn btn-success" href="#eventy">Inne zajęcia</a></li>
+        <li><a data-toggle="pill" class="btn btn-warning" href="#wydatki">Wydatki</a></li>
+        <li><a data-toggle="pill" class="btn btn-default" href="#odbioryGotowki">Gotówka</a></li>
+        <li><a data-toggle="pill" class="btn btn-info" href="#cennik">Cennik</a></li>
+        <li><a data-toggle="pill" class="btn btn-success" href="#faktury">Płatności</a></li>
+    </ul>
+    <br/>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="naszeLokalizacje">
+            <div th:replace="instruktor/listaLokalizacji :: listaLokalizacji"/>
+        </div>
+        <div class="tab-pane fade" id="przedszkola">
+            <div th:replace="instruktor/listaPrzedszkoli :: listaPrzedszkoli"/>
+        </div>
+        <div class="tab-pane fade" id="eventy">
+            <div th:replace="instruktor/eventy :: eventy"/>
+        </div>
+        <div class="tab-pane fade" id="wydatki">
+            <div th:replace="instruktor/wydatki :: wydatki"/>
+        </div>
+        <div class="tab-pane fade" id="odbioryGotowki">
+            <div th:replace="instruktor/odbioryGotowki :: odbiorGotowki"></div>
+        </div>
+        <div class="tab-pane fade" id="cennik">
+            <div th:replace="instruktor/cennik :: cennik"></div>
+        </div>
+        <div class="tab-pane fade" id="faktury">
+            <div th:replace="instruktor/faktury :: faktury"></div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var currentMonth = date.getMonth();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+
+            $('#datepicker').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker1').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker2').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker3').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm-dd'
+            });
+            $('#datepicker4').datepicker({
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'yy-mm'
+            });
+        });
+    </script>
+</div>
+
+
+</body>
+</html>

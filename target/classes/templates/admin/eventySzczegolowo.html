@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="eventySzczegolowo">
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Inne wpływy</p>
+    </div>
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Zajęcia</td>
+            <td>Cena</td>
+            <td>Data</td>
+            <td>Czy zapłacono</td>
+        </tr>
+
+        <th:block th:each="eventDetail : ${eventListDetails}">
+            <tr>
+                <td th:text="${eventDetail.eventType}">
+                    <input type="hidden" th:field="*{eventType}"/></td>
+                <td th:text="${eventDetail.value}"/>
+                <td th:text="${eventDetail.date}"/>
+                <div th:switch="${eventDetail.isPaid}">
+                    <td th:case="'T'" style="background-color: chartreuse">Zapłacono</td>
+                    <td th:case="'N'" style="background-color: lightcoral">Niezapłacono</td>
+                </div>
+
+            </tr>
+        </th:block>
+
+    </table>
+</div>
+</body>
+</html>

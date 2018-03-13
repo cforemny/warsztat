@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <title>Warsztaty Robotow</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        body {
+            background: url("https://c1.staticflickr.com/9/8471/8356675679_169c48727b_b.jpg") no-repeat fixed bottom right;
+        }
+
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+
+<div class="well ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Panel administracyjny</h1></p></td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <div class="starter-template">
+        <h2><a th:href="@{/admin}">
+            <button type="button" class="btn btn-primary btn-lg">Panel administratora</button>
+        </a></h2>
+        <h2><a th:href="@{/instruktor}">
+            <button type="button" class="btn btn-primary btn-lg">Panel instruktora</button>
+        </a></h2>
+        <h2><a th:href="@{/manager}">
+            <button type="button" class="btn btn-primary btn-lg">Panel managera</button>
+        </a></h2>
+        <h2><a th:href="@{/about}">
+            <button type="button" class="btn btn-primary btn-lg">Panel użytkownika</button>
+        </a></h2>
+    </div>
+
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

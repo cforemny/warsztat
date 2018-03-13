@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Cos poszlo nie tak, cofnij sie do menu glownego i wybierz strone ponownie.</h1>
+
+    </div>
+
+</div>
+
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

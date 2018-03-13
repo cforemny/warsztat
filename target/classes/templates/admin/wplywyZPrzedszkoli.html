@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="wplywyZPrzedszkoli">
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Wpływy z przedszkoli</p>
+    </div>
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Przedszkole</td>
+            <td>Zysk</td>
+            <td>Data</td>
+        </tr>
+        <th:block th:each="nurseryIncome : ${nurserySchoolDetails}">
+            <tr>
+                <td th:text="${nurseryIncome.name}"/>
+                <td th:text="${nurseryIncome.numberOfChildren}*${nurseryIncome.value}"/>
+                <td th:text="${nurseryIncome.date}"/>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

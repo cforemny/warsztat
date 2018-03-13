@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:fragment="odbiorGotowki">
+
+    Nie używać polskich znakow przy wpisywaniu żadnych danych w pola.
+    <br/>
+    <br/>
+    <form th:object="${cashCollection}" method="post">
+        <select style="width: 180px" class="form-control" th:field="*{instructor}">
+            <option th:value="default">=Instruktor=</option>
+            <option th:value="Aska">Joanna Cichon</option>
+            <option th:value="Lukasz">Lukasz Krason</option>
+            <option th:value="Krzysiek">Krzysztof Skotniczny</option>
+            <option th:value="Cyprian">Cyprian Foremny</option>
+            <option th:value="Kuba">Jakub Zagorowski</option>
+        </select>
+        <input size="3" name="value" type="text" placeholder="Kwota" th:field="*{value}"/>
+        <input size="35" name="target" type="text" placeholder="Skąd odebrano" th:field="*{location}"/>
+        <input size="15" id="datepicker1" name="date" type="text" placeholder="Data" th:field="*{date}"/>
+        <input type="submit" class="btn btn-primary" value="Dodaj odbiór gotówki"/>
+    </form>
+    <br/><br/><br/>
+    <div>
+        <table class="table table-bordered table-condensed table-hover text-center">
+            <tr><b>Odbiory gotowki w tym miesiącu:</b><br/></tr>
+            <tr style="font-weight: bold;">
+                <td>Instruktoru</td>
+                <td>Kwota</td>
+                <td>Data</td>
+                <td>Skąd odebrano</td>
+            </tr>
+            <tr th:each="cash : ${cashCollectionList} ">
+                <td th:text="${cash.instructor}"></td>
+                <td th:text="${cash.value}"></td>
+                <td th:text="${cash.date}"></td>
+                <td th:text="${cash.location}"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

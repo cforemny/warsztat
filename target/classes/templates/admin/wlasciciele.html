@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .well {
+            background-color: rgba(200, 245, 255, 0.5);
+        }
+
+        td.odstepy {
+            padding: 0px 5px 0px 150px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="well well-sm ">
+    <table>
+        <tr>
+            <td><img src="http://www.nowysacz.warsztatyrobotow.pl/file/2016/03/02/warsztaty_robotow_nowy_sacz.png"/>
+            </td>
+            <td class="odstepy"><p>
+                <h1>Właścieiele</h1></p></td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+<table class="table">
+    <tr style="font-weight: bold">
+        <td>Kwota początkowa</td>
+        <td>Kwota pozostała do spłaty</td>
+    </tr>
+    <tr>
+        <td>71540 zł</td>
+        <td th:text="${payedValue}"></td>
+    </tr>
+    <tr style="font-weight: bold">
+        <td>Kwota spłaty</td>
+        <td>Komentarz</td>
+        <td>Data</td>
+    </tr>
+    <th:block th:each="debt : ${debts}">
+        <tr>
+            <td th:text="${debt.value}"/>
+            <td th:text="${debt.comment}"/>
+            <td th:text="${debt.date}"/>
+              </tr>
+    </th:block>
+</table>
+</div>
+</body>
+</html>

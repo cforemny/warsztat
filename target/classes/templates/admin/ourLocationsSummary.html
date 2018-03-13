@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div class="container" th:fragment="ourLocationsSummary">
+    <div>
+        <table class="table">
+            <tr>
+                <td><b>Wpływy z własnych lokalizacji w tym miesiącu:</b>
+
+                    <p th:text=" 'Przelew:&nbsp;' + ${remittancePayment} + '&nbsp;zł' + '&nbsp;Gotówka:&nbsp;' + ${cashPayment} + '&nbsp;zł' "></p>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Wpływy z przedszkoli:</b>
+                    <p th:text="${nurserySchoolIncome} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <td><b>Inne wplywy:</b>
+                    <p th:text="${eventsIncome} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <td><b>Wydatki instruktorów:</b>
+                    <p th:text="${instructorExpense} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <td><b>Koszty prowadzenia działalności:</b>
+                    <p th:text="${adminExpensesSummary} + 'zł'"></p></td>
+            </tr>
+            <tr>
+                <td><b>Gotówka zebrana w tym miesiącu:</b>
+                    <p th:text="${monthCash} + 'zł'"></p></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

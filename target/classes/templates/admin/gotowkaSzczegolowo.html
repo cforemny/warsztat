@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="gotowkaSzczegolowo">
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Gotówka u instruktorow</p>
+    </div>
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Instruktor</td>
+            <td>Liczba gotowki</td>
+            <!--<td>Miejsce odbioru</td>-->
+            <!--<td>Data</td>-->
+        </tr>
+        <th:block th:each="cash : ${cashDetailList}">
+            <tr>
+                <td th:text="${cash.instructor}"/>
+                <td th:text="${cash.value}"/>
+                <!--<td th:text="${cash.location}"/>-->
+                <!--<td th:text="${cash.date}"/>-->
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

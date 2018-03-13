@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+    <style>
+        footer {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:fragment="wplywyZLokalizacji">
+    <div class="well well-sm" style="background-color: #4682B4;">
+        <p style="font-size: 130%; font-weight: bold">Wpływy z naszych lokalizacji</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <table class="table">
+                    <tr style="font-weight: bold">
+                        <td>Lokalizacja</td>
+                        <td>Wpływ w gotówce</td>
+                    </tr>
+                    <th:block th:each="cashIncome : ${locationsIncomeCash}">
+                        <tr th:switch="${cashIncome.key}">
+                            <td th:case="'platnoscialeksandry'" th:text="'Aleksandry-zerówka'"/>
+                            <td th:case="'platnoscikampus'" th:text="'Kampus Wielicki'"/>
+                            <td th:case="'platnosciluzycka'" th:text="'Luzycka'"/>
+                            <td th:case="'platnosciruczaj'" th:text="'Ruczaj'"/>
+                            <td th:case="'platnosciskawina'" th:text="'Skawina'"/>
+                            <td th:case="'platnoscisolnemiasto'" th:text="'Solne miasto - wtorek'"/>
+                            <td th:case="'platnoscisolnemiastopiatek'" th:text="'Solne Miasto - piatek'"/>
+                            <td th:case="'platnosciswietokrzyska'" th:text="'Swietokrzyska'"/>
+
+                            <td th:text="${cashIncome.value}"/>
+                        </tr>
+                    </th:block>
+                </table>
+            </td>
+            <td>
+                <table class="table">
+                    <tr style="font-weight: bold">
+                        <td>Przelewy</td>
+                    </tr>
+                    <th:block th:each="remittanceIncome : ${locationsIncomeRemittance}">
+                        <tr>
+                            <td th:text="${remittanceIncome.value}"/>
+                        </tr>
+                    </th:block>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
