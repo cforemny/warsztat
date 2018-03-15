@@ -10,6 +10,16 @@ public class Payment {
     private int paymentValue;
     private int paymentId;
     private char paymentType;
+    private int paymentCount;
+
+    public Payment(String studentId, String date, int paymentValue, int paymentId, char paymentType, int paymentCount) {
+        this.studentId = studentId;
+        this.paymentDate = date;
+        this.paymentValue = paymentValue;
+        this.paymentId = paymentId;
+        this.paymentType = paymentType;
+        this.paymentCount = paymentCount;
+    }
 
     public Payment(String studentId, String date, int paymentValue, int paymentId, char paymentType) {
         this.studentId = studentId;
@@ -21,6 +31,18 @@ public class Payment {
 
     public Payment() {
 
+    }
+
+    public Payment(int paymentCount) {
+        this.paymentCount = paymentCount;
+    }
+
+    public int getPaymentCount() {
+        return paymentCount;
+    }
+
+    public void setPaymentCount(int paymentCount) {
+        this.paymentCount = paymentCount;
     }
 
     public char getPaymentType() {

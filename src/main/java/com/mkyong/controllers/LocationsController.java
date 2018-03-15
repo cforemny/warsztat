@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.util.List;
+
 
 /**
  * Created by Cyprian on 2017-06-04.
@@ -43,10 +45,12 @@ public class LocationsController {
         return "lokalizacje/Lokalizacja";
     }
 
-    @PostMapping("/{location}")
+    @PostMapping("/{location}/dodajStudenta")
     public String submitNewStudent(@ModelAttribute Student student,@PathVariable("location") String location, CourseDate courseDate, Model model) {
         this.location = location;
-        studentListCreator.addStudentToList(student, currentTable(adress));
+        List studentListFromTable = tableSelector.getStudentListFromTable(currentTable(adress), false);
+        int studentListFromTableSize = studentListFromTable.size();
+        studentListCreator.addStudentToList(student, currentTable(adress), studentListFromTableSize+1);
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
@@ -70,7 +74,15 @@ public class LocationsController {
     @PostMapping("{location}/platnosci")
     public String addPayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
         this.location = location;
-        studentListCreator.addNewPayment("platnosci" + location.toLowerCase(), payment.getPaymentValue(), payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
+        studentListCreator.addNewPayment("platnosci" + location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
+        prepareSiteObjects(model);
+        return "lokalizacje/Lokalizacja";
+    }
+
+    @PostMapping("{location}/grupowaPlatnosc")
+    public String addGroupPayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
+        this.location = location;
+        studentListCreator.addNewPayment("platnosci" + location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
@@ -106,11 +118,12 @@ public class LocationsController {
     private void prepareSiteObjects(Model model) {
 
         model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress),true));
+        model.addAttribute("studentListForCount", tableSelector.getStudentListFromTable(currentTable(adress),false));
         model.addAttribute("dateList", tableSelector.getDateTable("daty" + location.toLowerCase(),true));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci" + location.toLowerCase()));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
-        model.addAttribute("payment", new Payment());
+        model.addAttribute("payment", new Payment(1));
         model.addAttribute("data", new Date());
         model.addAttribute("checkbox", new Checkbox(true));
     }

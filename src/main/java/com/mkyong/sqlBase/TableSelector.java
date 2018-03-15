@@ -48,7 +48,7 @@ public class TableSelector {
             return studentList;
         } else {
             for (Student student : studentList) {
-                if (!removeStudentFromList(student, tableName)) {
+                if (!removeStudentFromList(student, tableName) || Integer.parseInt(student.getId()) == studentList.size() ) {
                     studentListRemoved.add(student);
                 }
             }
@@ -56,7 +56,7 @@ public class TableSelector {
         }
     }
 
-    @SuppressWarnings("ThrowablePrintedToSystemOut")
+
     public List getDateTable(String tableName, boolean checkbox) {
 
         List<String> dateList = new ArrayList<String>();

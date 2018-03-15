@@ -68,7 +68,7 @@
             </td>
             <td class="odstepy">
                 <h1><p th:text="${location}"/></h1>
-            </td>
+                           </td>
         </tr>
     </table>
 </div>
@@ -114,10 +114,10 @@
     <ul class="nav nav-pills">
         <li class="active"><a data-toggle="pill" href="#dodajPlatnosc">Płatności</a></li>
         <li><a data-toggle="pill" href="#dodaj">Dodaj kursanta</a></li>
-        <li><a data-toggle="pill" href="#usun">Usuń kursanta</a></li>
         <li><a data-toggle="pill" href="#dodajDate">Dodaj date</a></li>
-        <li><a data-toggle="pill" href="#usunPlatnosc">Usuń płatność</a></li>
-        <li><a data-toggle="pill" href="#usunDate">Usuń datę</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#usun">Usuń kursanta</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#usunPlatnosc">Usuń płatność</a></li>
+        <li><a data-toggle="pill" class="btn btn-danger" href="#usunDate">Usuń datę</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade" id="usunDate">
@@ -188,11 +188,11 @@
 
             <br/>
             <br/>
-            <form action="#" th:action="@{/instruktor/__${location}}" th:object="${student}" method="post">
+            <form action="#" th:action="@{/instruktor/__${location}__/dodajStudenta}" th:object="${student}" method="post">
                 <table>
                     <tr>
                         <td>Numer:</td>
-                        <td><input name="id" type="text" th:field="*{id}"/></td>
+                        <td><input name="id" type="text" th:value="${#lists.size(studentListForCount)+1}"  readonly="readonly" /></td>
                         <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj kursanta"/>
                         </td>
                     </tr>
@@ -243,8 +243,7 @@
             <br/><br/><br/><br/><br/>
         </div>
         <div class="tab-pane fade in active" id="dodajPlatnosc">
-            Dodaj platnosci: <br/><br/>
-
+            <br/>
             <form action="#" th:action="@{/instruktor/__${location}__/platnosci}" th:object="${payment}" method="post">
                 <table>
                     <tr>
@@ -291,6 +290,10 @@
                                 </select>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Liczba płatności</td>
+                        <td><input name="liczbaPlatnosci" type="text"  th:field="*{paymentCount}"/></td>
                     </tr>
                 </table>
             </form>

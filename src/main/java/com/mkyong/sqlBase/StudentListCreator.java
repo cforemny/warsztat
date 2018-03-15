@@ -1,12 +1,16 @@
 package com.mkyong.sqlBase;
 
+import com.mkyong.payment.paymentSummary.Payment;
+import com.mkyong.utils.Date;
 import com.mkyong.utils.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * Created by Cyprian on 2017-06-04.
@@ -17,14 +21,17 @@ public class StudentListCreator {
 
     private Connection connection;
     private Statement statement;
+    @Autowired
+    private TableSelector tableSelector;
 
-    public void addStudentToList(Student student, String tableName) {
+
+    public void addStudentToList(Student student, String tableName, int studentId) {
         try {
             getConnection();
             String insertQuery = "INSERT INTO " + tableName + " (imie, nazwisko, wiek, email, parentName, telephone, id)"
                     + " VALUES " + "('" + student.getName() + "'," + "'" + student.getLastName() + "'," + "'" + student.getAge() + "',"
                     + "'" + student.getEmail() + "'," + "'" + student.getParentName() + "'," + "'" + student.getTelephone() + "',"
-                    + "'" + student.getId() + "')";
+                    + "'" + studentId + "')";
 
             statement.execute(insertQuery);
 
@@ -72,12 +79,19 @@ public class StudentListCreator {
     }
 
 
-    public void addNewPayment(String tableName, double paymentValue, String studentId, String date, char typPlatnosci) {
+    public void addNewPayment(String tableName, Payment payment, String studentId, String date, char typPlatnosci) {
         try {
             getConnection();
-            String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + paymentValue +
-                    ",'" + typPlatnosci + "')";
-            statement.execute(queryPayment);
+
+            if(payment.getPaymentCount() == 1){
+                String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + payment.getPaymentValue() +
+                        ",'" + typPlatnosci + "')";
+                statement.execute(queryPayment);
+            }else {
+                List<Date> dateTable = tableSelector.getDateTable(tableName, true);
+
+            }
+
         } catch (Exception exception) {
             System.out.println(exception);
         } finally {
@@ -90,20 +104,22 @@ public class StudentListCreator {
     }
 
     public void removePayment(String tableName, String studentId, String date) {
-        try {
-            getConnection();
-            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
-            statement.execute(queryPayment);
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
             try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                getConnection();
+                String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
+                statement.execute(queryPayment);
+            } catch (Exception exception) {
+                System.out.println(exception);
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
+
+
 
     private void getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
