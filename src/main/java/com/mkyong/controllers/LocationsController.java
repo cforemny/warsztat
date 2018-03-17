@@ -74,18 +74,11 @@ public class LocationsController {
     @PostMapping("{location}/platnosci")
     public String addPayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
         this.location = location;
-        studentListCreator.addNewPayment("platnosci" + location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
+        studentListCreator.addNewPayment(location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
 
-    @PostMapping("{location}/grupowaPlatnosc")
-    public String addGroupPayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
-        this.location = location;
-        studentListCreator.addNewPayment("platnosci" + location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
-        prepareSiteObjects(model);
-        return "lokalizacje/Lokalizacja";
-    }
 
     @PostMapping("{location}/usunPlatnosc")
     public String removePayment(@ModelAttribute Payment payment, @PathVariable("location") String location,Model model) {

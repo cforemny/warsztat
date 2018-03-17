@@ -1,7 +1,6 @@
 package com.mkyong.sqlBase;
 
 import com.mkyong.payment.paymentSummary.Payment;
-import com.mkyong.utils.Date;
 import com.mkyong.utils.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -82,13 +81,24 @@ public class StudentListCreator {
     public void addNewPayment(String tableName, Payment payment, String studentId, String date, char typPlatnosci) {
         try {
             getConnection();
-
-            if(payment.getPaymentCount() == 1){
-                String queryPayment = "INSERT INTO " + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + payment.getPaymentValue() +
+            int dateIndex = 1;
+            if (payment.getPaymentCount() == 1) {
+                String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + payment.getPaymentValue() +
                         ",'" + typPlatnosci + "')";
                 statement.execute(queryPayment);
-            }else {
-                List<Date> dateTable = tableSelector.getDateTable(tableName, true);
+            } else {
+                List<String> dateTable = tableSelector.getDateTable("daty" + tableName, true);
+                for (String groupDate : dateTable) {
+                    if (groupDate.equals(date) || (dateIndex > 1 && dateIndex <= payment.getPaymentCount())) {
+                        dateIndex++;
+                        dateTable.indexOf(groupDate);
+                        String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + groupDate + "'," + payment.getPaymentValue() +
+                                ",'" + typPlatnosci + "')";
+                        statement.execute(queryPayment);
+
+                    }
+
+                }
 
             }
 
@@ -104,21 +114,20 @@ public class StudentListCreator {
     }
 
     public void removePayment(String tableName, String studentId, String date) {
+        try {
+            getConnection();
+            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
+            statement.execute(queryPayment);
+        } catch (Exception exception) {
+            System.out.println(exception);
+        } finally {
             try {
-                getConnection();
-                String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
-                statement.execute(queryPayment);
-            } catch (Exception exception) {
-                System.out.println(exception);
-            } finally {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 
 
     private void getConnection() throws ClassNotFoundException, SQLException {

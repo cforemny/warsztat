@@ -8,10 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="311f6f3a-425a-49ea-845b-7c43df284c50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/LocationsController.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/LocationsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/payment/paymentSummary/Payment.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/payment/paymentSummary/Payment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/StudentListCreator.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/StudentListCreator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/TableSelector.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/TableSelector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar" afterPath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar.original" afterPath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar.original" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" />
@@ -23,16 +21,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/instruktor/listaLokalizacji.html" afterPath="$PROJECT_DIR$/target/classes/templates/instruktor/listaLokalizacji.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Lokalizacja.html" afterPath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Lokalizacja.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Zyrafa.html" afterPath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Zyrafa.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,7 +58,7 @@
       <file leaf-file-name="Lokalizacja.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
+            <state relative-caret-position="2552">
               <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
               <folding />
             </state>
@@ -76,21 +68,9 @@
       <file leaf-file-name="LocationsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="127" column="59" lean-forward="true" selection-start-line="127" selection-start-column="59" selection-end-line="127" selection-end-column="59" />
+            <state relative-caret-position="1342">
+              <caret line="76" column="33" lean-forward="false" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Payment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-              <folding>
-                <element signature="e#1063#1064#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -98,8 +78,8 @@
       <file leaf-file-name="TableSelector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+            <state relative-caret-position="1342">
+              <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="26" />
               <folding>
                 <marker date="1521049868864" expanded="true" signature="773:787" ph="select * fro... missingValue" />
                 <marker date="1521049868864" expanded="true" signature="2135:2149" ph="select * fro... missingValue" />
@@ -118,20 +98,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentListCreator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StudentListCreator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="92" column="36" lean-forward="false" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1521144520091" expanded="true" signature="775:1173" ph="INSERT INTO missingValue... " />
-                <marker date="1521144520091" expanded="true" signature="1629:1686" ph="DELETE FROM " />
-                <marker date="1521144520091" expanded="true" signature="2142:2208" ph="INSERT INTO missingValue... " />
-                <marker date="1521144520091" expanded="true" signature="2766:2982" ph="INSERT INTO missingValue... " />
-                <marker date="1521144520091" expanded="true" signature="3589:3699" ph="DELETE from " />
-                <marker date="1521144520091" expanded="true" signature="4538:4580" ph="DELETE from " />
-                <marker date="1521144520091" expanded="true" signature="4538:4595" ph="DELETE from " />
+                <marker date="1521314956145" expanded="true" signature="745:1143" ph="INSERT INTO missingValue... " />
+                <marker date="1521314956145" expanded="true" signature="1599:1656" ph="DELETE FROM " />
+                <marker date="1521314956145" expanded="true" signature="2112:2178" ph="INSERT INTO missingValue... " />
+                <marker date="1521314956145" expanded="true" signature="2768:2998" ph="INSERT INTO platnoscimissingValue... " />
+                <marker date="1521314956145" expanded="true" signature="3468:3711" ph="INSERT INTO platnoscimissingValue... " />
+                <marker date="1521314956145" expanded="true" signature="4252:4362" ph="DELETE from " />
+                <marker date="1521314956145" expanded="true" signature="5164:5206" ph="DELETE from " />
+                <marker date="1521314956145" expanded="true" signature="5164:5221" ph="DELETE from " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Date.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,7 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>datap</find>
       <find>appconfig</find>
       <find>instructorWorkSummary</find>
       <find>th</find>
@@ -182,6 +175,7 @@
       <find>studentListCreator</find>
       <find>dodajPlatnosc</find>
       <find>dodajpla</find>
+      <find>addpayment</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -271,10 +265,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
       </list>
     </option>
   </component>
@@ -327,6 +321,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -553,9 +548,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1182,7 +1176,9 @@
       <workItem from="1520873218457" duration="15958000" />
       <workItem from="1520958135934" duration="14085000" />
       <workItem from="1521049561640" duration="1424000" />
-      <workItem from="1521136126008" duration="6266000" />
+      <workItem from="1521136126008" duration="6310000" />
+      <workItem from="1521285939635" duration="2861000" />
+      <workItem from="1521313986737" duration="1044000" />
     </task>
     <task id="LOCAL-00001" summary="Dzialjaca funkcjonalnosc dodawania i usuwania studentow, dodawania dat i wyswietlania platnosci">
       <created>1497895423923</created>
@@ -1457,11 +1453,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520873953457</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Dodano opcje grupowej platnosci na templacie">
+      <created>1521146677021</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1521146677021</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="606000000" />
+    <option name="totallyTimeSpent" value="609949000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1497,7 +1500,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.389738" sideWeight="0.8614892" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49679744" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.49359488" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24259408" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24659728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1507,7 +1510,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24979983" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960254" sideWeight="0.5065177" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19825707" sideWeight="0.4427542" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19759825" sideWeight="0.4427542" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1517,7 +1520,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="przed puszczeniem na serwer&#10;" />
     <MESSAGE value="Dodano podliczanie zyskow na miesiac dla lokalizacji ze wzgledu na gotowke i przelew. Dolozono kampus wielicki i panel rpzedszkoli + kosmetyczne poprawki headera z ustawieniami" />
     <MESSAGE value="Dodano funkcje doawania wydatkow rpzez insturktorow" />
     <MESSAGE value="Zmieniono strukture podsumowania. Teraz wydatki i przychody dziedzicza po klasie Summary zeby nie kopiowac kodu. Dodano wyswietlanie wydatkow isntruktorw na meisiac na pdosumowaniu dla admina." />
@@ -1542,14 +1544,15 @@
     <MESSAGE value="poprawienie lokalizacji na podsumwoaniu" />
     <MESSAGE value="zmiany w polaczeniu z baza - nie powinno sie wysypac z powodu zbyt duzej ilosci polaczen. Pdosumwoanie z saczem" />
     <MESSAGE value="Wersja przed zmianami na ogolny template lokalizacji" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wersja przed zmianami na ogolny template lokalizacji" />
+    <MESSAGE value="Dodano opcje grupowej platnosci na templacie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodano opcje grupowej platnosci na templacie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java</url>
-          <line>67</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
@@ -1585,7 +1588,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java</url>
-          <line>52</line>
+          <line>51</line>
           <properties />
           <option name="timeStamp" value="255" />
         </line-breakpoint>
@@ -1593,7 +1596,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="259" />
+      <option name="time" value="262" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -1833,21 +1836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding>
-            <element signature="e#148#149#0" expanded="false" />
-            <element signature="e#180#181#0" expanded="false" />
-            <element signature="e#238#239#0" expanded="false" />
-            <element signature="e#265#266#0" expanded="false" />
-            <element signature="e#305#306#0" expanded="false" />
-            <element signature="e#337#338#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -1887,7 +1875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="153" column="18" lean-forward="true" selection-start-line="153" selection-start-column="18" selection-end-line="153" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1895,7 +1882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="51" column="81" lean-forward="false" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1903,14 +1889,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2552">
+          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding>
+            <element signature="e#1063#1064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+        <state relative-caret-position="1342">
+          <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="26" />
           <folding>
             <marker date="1521049868864" expanded="true" signature="773:787" ph="select * fro... missingValue" />
             <marker date="1521049868864" expanded="true" signature="2135:2149" ph="select * fro... missingValue" />
@@ -1928,45 +1942,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521144520091" expanded="true" signature="775:1173" ph="INSERT INTO missingValue... " />
-            <marker date="1521144520091" expanded="true" signature="1629:1686" ph="DELETE FROM " />
-            <marker date="1521144520091" expanded="true" signature="2142:2208" ph="INSERT INTO missingValue... " />
-            <marker date="1521144520091" expanded="true" signature="2766:2982" ph="INSERT INTO missingValue... " />
-            <marker date="1521144520091" expanded="true" signature="3589:3699" ph="DELETE from " />
-            <marker date="1521144520091" expanded="true" signature="4538:4580" ph="DELETE from " />
-            <marker date="1521144520091" expanded="true" signature="4538:4595" ph="DELETE from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="127" column="59" lean-forward="true" selection-start-line="127" selection-start-column="59" selection-end-line="127" selection-end-column="59" />
+        <state relative-caret-position="1342">
+          <caret line="76" column="33" lean-forward="false" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        <state relative-caret-position="399">
+          <caret line="92" column="36" lean-forward="false" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
           <folding>
-            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1521314956145" expanded="true" signature="745:1143" ph="INSERT INTO missingValue... " />
+            <marker date="1521314956145" expanded="true" signature="1599:1656" ph="DELETE FROM " />
+            <marker date="1521314956145" expanded="true" signature="2112:2178" ph="INSERT INTO missingValue... " />
+            <marker date="1521314956145" expanded="true" signature="2768:2998" ph="INSERT INTO platnoscimissingValue... " />
+            <marker date="1521314956145" expanded="true" signature="3468:3711" ph="INSERT INTO platnoscimissingValue... " />
+            <marker date="1521314956145" expanded="true" signature="4252:4362" ph="DELETE from " />
+            <marker date="1521314956145" expanded="true" signature="5164:5206" ph="DELETE from " />
+            <marker date="1521314956145" expanded="true" signature="5164:5221" ph="DELETE from " />
           </folding>
         </state>
       </provider>
