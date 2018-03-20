@@ -29,17 +29,17 @@ public class DefaultController {
 
     @GetMapping("/404")
     public String error404() {
-        return "error/404";
+        return "home";
     }
 
     @GetMapping("/403")
     public String error403() {
-        return "error/403";
+        return "home";
     }
 
     @GetMapping("/500")
     public String error500() {
-        return "error/500";
+        return "home";
     }
 
     //TODO: usunac przekierowanie na main.css i usunac ten fragment

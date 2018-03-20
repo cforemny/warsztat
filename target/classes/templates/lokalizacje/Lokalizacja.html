@@ -57,7 +57,15 @@
             });
         });
     </script>
-</head>
+    <!--<script>-->
+        <!--function checkDates() {-->
+            <!--var space = document.getElementById("isEnoughSpaceforPayment")-->
+            <!--if (space = 'false' ) {-->
+                <!--alert("Za mało dat aby wpisać podaną liczbę płatności.")-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
+   </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 
@@ -68,12 +76,14 @@
             </td>
             <td class="odstepy">
                 <h1><p th:text="${location}"/></h1>
-                           </td>
+            </td>
         </tr>
     </table>
 </div>
 <br/>
 <br/>
+<input type="hidden" id="isEnoughSpaceforPayment" th:value='${isEnoughSpaceForPayment}'/>
+<p th:text="${isEnoughSpaceForPayment}"></p>
 
 <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover text-center">
@@ -188,11 +198,13 @@
 
             <br/>
             <br/>
-            <form action="#" th:action="@{/instruktor/__${location}__/dodajStudenta}" th:object="${student}" method="post">
+            <form action="#" th:action="@{/instruktor/__${location}__/dodajStudenta}" th:object="${student}"
+                  method="post">
                 <table>
                     <tr>
                         <td>Numer:</td>
-                        <td><input name="id" type="text" th:value="${#lists.size(studentListForCount)+1}"  readonly="readonly" /></td>
+                        <td><input name="id" type="text" th:value="${#lists.size(studentListForCount)+1}"
+                                   readonly="readonly"/></td>
                         <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj kursanta"/>
                         </td>
                     </tr>
@@ -293,7 +305,7 @@
                     </tr>
                     <tr>
                         <td>Liczba płatności</td>
-                        <td><input name="liczbaPlatnosci" type="text"  th:field="*{paymentCount}"/></td>
+                        <td><input name="liczbaPlatnosci" type="text" th:field="*{paymentCount}"/></td>
                     </tr>
                 </table>
             </form>

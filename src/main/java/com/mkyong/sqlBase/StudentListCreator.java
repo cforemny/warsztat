@@ -78,7 +78,7 @@ public class StudentListCreator {
     }
 
 
-    public void addNewPayment(String tableName, Payment payment, String studentId, String date, char typPlatnosci) {
+    public boolean addNewPayment(String tableName, Payment payment, String studentId, String date, char typPlatnosci) {
         try {
             getConnection();
             int dateIndex = 1;
@@ -88,20 +88,20 @@ public class StudentListCreator {
                 statement.execute(queryPayment);
             } else {
                 List<String> dateTable = tableSelector.getDateTable("daty" + tableName, true);
-                for (String groupDate : dateTable) {
-                    if (groupDate.equals(date) || (dateIndex > 1 && dateIndex <= payment.getPaymentCount())) {
-                        dateIndex++;
-                        dateTable.indexOf(groupDate);
-                        String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + groupDate + "'," + payment.getPaymentValue() +
-                                ",'" + typPlatnosci + "')";
-                        statement.execute(queryPayment);
-
-                    }
-
+                if(dateTable.indexOf(date) + payment.getPaymentCount() > dateTable.size()){
+                    return false;
                 }
+                for (String groupDate : dateTable) {
+                        if (groupDate.equals(date) || (dateIndex > 1 && dateIndex <= payment.getPaymentCount())) {
 
+                            dateIndex++;
+                            dateTable.indexOf(groupDate);
+                            String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + groupDate + "'," + payment.getPaymentValue() +
+                                    ",'" + typPlatnosci + "')";
+                            statement.execute(queryPayment);
+                        }
+                }
             }
-
         } catch (Exception exception) {
             System.out.println(exception);
         } finally {
@@ -111,6 +111,7 @@ public class StudentListCreator {
                 e.printStackTrace();
             }
         }
+        return true;
     }
 
     public void removePayment(String tableName, String studentId, String date) {

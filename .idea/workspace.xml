@@ -7,9 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="311f6f3a-425a-49ea-845b-7c43df284c50" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/DefaultController.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/DefaultController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/LocationsController.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/controllers/LocationsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/payment/paymentSummary/Payment.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/payment/paymentSummary/Payment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/StudentListCreator.class" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/sqlBase/StudentListCreator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar" afterPath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar.original" afterPath="$PROJECT_DIR$/target/spring-boot-web-spring-security-1.0.jar.original" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_conditionalcomments_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_java8time_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_extras_thymeleaf_extras_springsecurity3_Release.xml" />
@@ -20,11 +22,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring4_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_spring4_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_thymeleaf_thymeleaf_testing_Release.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spring-boot-web-spring-security.iml" afterPath="$PROJECT_DIR$/spring-boot-web-spring-security.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/instruktor/listaLokalizacji.html" afterPath="$PROJECT_DIR$/target/classes/templates/instruktor/listaLokalizacji.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Lokalizacja.html" afterPath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Lokalizacja.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Zyrafa.html" afterPath="$PROJECT_DIR$/target/classes/templates/lokalizacje/Zyrafa.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,77 +63,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Lokalizacja.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2552">
-              <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+            <state relative-caret-position="542">
+              <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="76" column="33" lean-forward="false" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+            <state relative-caret-position="66">
+              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TableSelector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java">
+      <file leaf-file-name="ManagerTaskCreator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/ManagerTaskCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="26" />
+            <state relative-caret-position="296">
+              <caret line="32" column="167" lean-forward="true" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="167" />
               <folding>
-                <marker date="1521049868864" expanded="true" signature="773:787" ph="select * fro... missingValue" />
-                <marker date="1521049868864" expanded="true" signature="2135:2149" ph="select * fro... missingValue" />
-                <marker date="1521049868864" expanded="true" signature="2853:2867" ph="select * fro... missingValue" />
-                <marker date="1521049868864" expanded="true" signature="3771:3795" ph="SHOW TABLES " />
-                <marker date="1521049868864" expanded="true" signature="4912:4924" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:4959" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:4960" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:5046" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:5047" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:5113" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:5133" ph="DELETE FROM " />
-                <marker date="1521049868864" expanded="true" signature="4912:5134" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentListCreator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="92" column="36" lean-forward="false" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1521314956145" expanded="true" signature="745:1143" ph="INSERT INTO missingValue... " />
-                <marker date="1521314956145" expanded="true" signature="1599:1656" ph="DELETE FROM " />
-                <marker date="1521314956145" expanded="true" signature="2112:2178" ph="INSERT INTO missingValue... " />
-                <marker date="1521314956145" expanded="true" signature="2768:2998" ph="INSERT INTO platnoscimissingValue... " />
-                <marker date="1521314956145" expanded="true" signature="3468:3711" ph="INSERT INTO platnoscimissingValue... " />
-                <marker date="1521314956145" expanded="true" signature="4252:4362" ph="DELETE from " />
-                <marker date="1521314956145" expanded="true" signature="5164:5206" ph="DELETE from " />
-                <marker date="1521314956145" expanded="true" signature="5164:5221" ph="DELETE from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Date.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/utils/Date.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding>
-                <element signature="e#238#239#0" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
+                <marker date="1511545963990" expanded="true" signature="998:1027" ph="SELECT * FRO... zadaniaManagera" />
+                <marker date="1511545963990" expanded="true" signature="2035:2171" ph="UPDATE zadan... " />
+                <marker date="1511545963990" expanded="true" signature="2737:2839" ph="INSERT INTO zadaniaManagera... " />
+                <marker date="1511545963990" expanded="true" signature="3372:3471" ph="INSERT INTO notatki" />
+                <marker date="1511545963990" expanded="true" signature="4050:4071" ph="SELECT * FRO... notatki" />
               </folding>
             </state>
           </provider>
@@ -146,11 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>appconfig</find>
-      <find>instructorWorkSummary</find>
-      <find>th</find>
-      <find>wybrana</find>
-      <find>rct</find>
       <find>incomesumma</find>
       <find>Kampus</find>
       <find>locationsIncomeCash</find>
@@ -176,6 +139,11 @@
       <find>dodajPlatnosc</find>
       <find>dodajpla</find>
       <find>addpayment</find>
+      <find>dupa</find>
+      <find>checkda</find>
+      <find>jdbc</find>
+      <find>plugin</find>
+      <find>localhost</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -218,9 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/eventySzczegolowo.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/zyski.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaPrzedszkoli.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/wplywyZLokalizacji.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/NurserySchool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/utils/Event.java" />
@@ -263,12 +228,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controller/OgolnyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/TableSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -321,7 +289,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,11 +312,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-boot-web-spring-security" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -389,167 +367,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lokalizacje" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instruktor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mkyong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mkyong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-boot-web-spring-security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mkyong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1178,7 +1002,10 @@
       <workItem from="1521049561640" duration="1424000" />
       <workItem from="1521136126008" duration="6310000" />
       <workItem from="1521285939635" duration="2861000" />
-      <workItem from="1521313986737" duration="1044000" />
+      <workItem from="1521313986737" duration="2176000" />
+      <workItem from="1521389468129" duration="5409000" />
+      <workItem from="1521477894055" duration="1073000" />
+      <workItem from="1521562651142" duration="444000" />
     </task>
     <task id="LOCAL-00001" summary="Dzialjaca funkcjonalnosc dodawania i usuwania studentow, dodawania dat i wyswietlania platnosci">
       <created>1497895423923</created>
@@ -1464,7 +1291,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="609949000" />
+    <option name="totallyTimeSpent" value="618007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1492,25 +1319,25 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34716156" sideWeight="0.3554844" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.49679744" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24672489" sideWeight="0.4759808" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.48879102" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.389738" sideWeight="0.8614892" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.389738" sideWeight="0.8614892" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49679744" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.49359488" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24659728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25260207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19759825" sideWeight="0.4427542" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24979983" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24672489" sideWeight="0.4759808" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960254" sideWeight="0.5065177" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19759825" sideWeight="0.4427542" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1596,7 +1423,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="262" />
+      <option name="time" value="264" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -1613,17 +1440,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/SolneMiastoPiatekController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/SwietokrzyskaController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Luzycka.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Ruczaj.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Skawina.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controller/AleksandryController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/SolneMiastoPiatek.html" />
@@ -1706,13 +1522,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/codeStyleSettings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1807,14 +1616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.8.RELEASE/spring-web-4.3.8.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -1871,13 +1672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="153" column="18" lean-forward="true" selection-start-line="153" selection-start-column="18" selection-end-line="153" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/instruktor/listaLokalizacji.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1892,21 +1686,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2552">
-          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/payment/paymentSummary/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <element signature="e#1063#1064#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1914,10 +1697,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1925,46 +1705,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1342">
           <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="26" />
-          <folding>
-            <marker date="1521049868864" expanded="true" signature="773:787" ph="select * fro... missingValue" />
-            <marker date="1521049868864" expanded="true" signature="2135:2149" ph="select * fro... missingValue" />
-            <marker date="1521049868864" expanded="true" signature="2853:2867" ph="select * fro... missingValue" />
-            <marker date="1521049868864" expanded="true" signature="3771:3795" ph="SHOW TABLES " />
-            <marker date="1521049868864" expanded="true" signature="4912:4924" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:4959" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:4960" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:5046" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:5047" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:5113" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:5133" ph="DELETE FROM " />
-            <marker date="1521049868864" expanded="true" signature="4912:5134" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="76" column="33" lean-forward="false" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+        <state relative-caret-position="935">
+          <caret line="81" column="32" lean-forward="false" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/StudentListCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="92" column="36" lean-forward="false" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+        <state relative-caret-position="1804">
+          <caret line="91" column="33" lean-forward="false" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521314956145" expanded="true" signature="745:1143" ph="INSERT INTO missingValue... " />
-            <marker date="1521314956145" expanded="true" signature="1599:1656" ph="DELETE FROM " />
-            <marker date="1521314956145" expanded="true" signature="2112:2178" ph="INSERT INTO missingValue... " />
-            <marker date="1521314956145" expanded="true" signature="2768:2998" ph="INSERT INTO platnoscimissingValue... " />
-            <marker date="1521314956145" expanded="true" signature="3468:3711" ph="INSERT INTO platnoscimissingValue... " />
-            <marker date="1521314956145" expanded="true" signature="4252:4362" ph="DELETE from " />
-            <marker date="1521314956145" expanded="true" signature="5164:5206" ph="DELETE from " />
-            <marker date="1521314956145" expanded="true" signature="5164:5221" ph="DELETE from " />
+            <marker date="1521391262102" expanded="true" signature="745:1143" ph="INSERT INTO missingValue... " />
+            <marker date="1521391262102" expanded="true" signature="1599:1656" ph="DELETE FROM " />
+            <marker date="1521391262102" expanded="true" signature="2112:2178" ph="INSERT INTO missingValue... " />
+            <marker date="1521391262102" expanded="true" signature="2771:3001" ph="INSERT INTO platnoscimissingValue... " />
+            <marker date="1521391262102" expanded="true" signature="3632:3879" ph="INSERT INTO platnoscimissingValue... " />
+            <marker date="1521391262102" expanded="true" signature="4445:4555" ph="DELETE from " />
+            <marker date="1521391262102" expanded="true" signature="5357:5399" ph="DELETE from " />
+            <marker date="1521391262102" expanded="true" signature="5357:5414" ph="DELETE from " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/DefaultController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/controllers/LocationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="78" column="62" lean-forward="false" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Zyrafa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="180" column="9" lean-forward="false" selection-start-line="180" selection-start-column="9" selection-end-line="180" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/lokalizacje/Lokalizacja.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mkyong/sqlBase/ManagerTaskCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="32" column="167" lean-forward="true" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="167" />
+          <folding>
+            <marker date="1511545963990" expanded="true" signature="998:1027" ph="SELECT * FRO... zadaniaManagera" />
+            <marker date="1511545963990" expanded="true" signature="2035:2171" ph="UPDATE zadan... " />
+            <marker date="1511545963990" expanded="true" signature="2737:2839" ph="INSERT INTO zadaniaManagera... " />
+            <marker date="1511545963990" expanded="true" signature="3372:3471" ph="INSERT INTO notatki" />
+            <marker date="1511545963990" expanded="true" signature="4050:4071" ph="SELECT * FRO... notatki" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
