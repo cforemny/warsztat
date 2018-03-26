@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml"
 >
 <head>
     <meta charset="UTF-8"/>
@@ -10,8 +9,8 @@
 <body>
 <div th:fragment="zadania">
     <form th:object="${task}" method="post">
-        <input size="5" type="text" placeholder="Numer zadania" th:field="*{id}"/>
-        <input size="12" type="text" placeholder="Uwagi" th:field="*{comments}"/>
+        <input size="5" type="text" placeholder="Numer zadania" th:field="*{zadanieId}"/>
+        <input size="12" type="text" placeholder="Uwagi" th:field="*{uwagi}"/>
         <input type="submit" class="btn btn-primary" value="Potwierdz wykonanie"/>
     </form>
     <br/>
@@ -24,9 +23,9 @@
             <td>Status Wykonania</td>
         </tr>
         <tr th:each=" task : ${taskList}">
-            <td th:text="${task.id}"></td>
-            <td th:text="${task.task}"></td>
-            <td th:text="${task.comments}"></td>
+            <td th:text="${task.zadanieId}"></td>
+            <td th:text="${task.typZadania}"></td>
+            <td th:text="${task.uwagi}"></td>
             <td th:style=" ${task.status} == 'wykonane' ? 'background: green' : ' background: red' "
                 th:text="${task.status}"></td>
         </tr>

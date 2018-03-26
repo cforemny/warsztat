@@ -10,7 +10,7 @@
 <div class="container" th:fragment="instruktorPanel">
 
     <form th:object="${wybranaData}" method="post">
-        <input size="15" id="datepicker4" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
+        <input size="15" id="datepicker4" name="date" type="text" placeholder="rok-miesiac" th:field="*{data}"/>
         <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
     </form>
     <br/>

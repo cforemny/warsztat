@@ -38,17 +38,17 @@
         </tr>
         <th:block th:each="expense : ${permanentExpenses}">
             <tr>
-                <td th:text="${expense.name}"/>
-                <td th:text="${expense.value} +' zł'"/>
+                <td th:text="${expense.kosztOpis}"/>
+                <td th:text="${expense.kosztWartosc} +' zł'"/>
             </tr>
         </th:block>
     </table>
 
     <form action="#" th:object="${permanentExpense}" method="post">
-        <input size="3" th:field="*{value}" type="text" placeholder="Kwota"/>
-        <input size="35" th:field="*{name}" type="text" placeholder="Na co wydano"/>
-        <input size="15" th:field="*{date}" id="datepicker" name="date" type="text" placeholder="Data"/>
-        Czy faktura: <select th:field="*{bill}">
+        <input size="3" th:field="*{kosztWartosc}" type="text" placeholder="Kwota"/>
+        <input size="35" th:field="*{kosztOpis}" type="text" placeholder="Na co wydano"/>
+        <input size="15" th:field="*{data}" id="datepicker" name="date" type="text" placeholder="Data"/>
+        Czy faktura: <select th:field="*{faktura}">
         <option value="T">Tak</option>
         <option value="N">Nie</option>
     </select>

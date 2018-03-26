@@ -11,7 +11,7 @@
     <br/>
     <br/>
     <form th:object="${expense}" method="post">
-        <select style="width: 200px" class="form-control" th:field="*{expenseInstructor}">
+        <select style="width: 200px" class="form-control" th:field="*{instruktor}">
             <option th:value="default">=Instruktor=</option>
             <option th:value="Aska">Joanna Cichon</option>
             <option th:value="Lukasz">Lukasz Krason</option>
@@ -19,10 +19,10 @@
             <option th:value="Cyprian">Cyprian Foremny</option>
             <option th:value="Kuba">Jakub Zagorowski</option>
         </select>
-        <input size="3" name="value" type="text" th:field="*{expenseValue}" placeholder="Kwota"/>
-        <input size="35" name="target" type="text" th:field="*{expenseType}" placeholder="Cel"/>
-        <input size="15" id="datepicker2" name="date" type="text" th:field="*{expenseData}" placeholder="Data"/>
-        Czy faktura: <select th:field="*{bill}">
+        <input size="3" name="value" type="text" th:field="*{kwota}" placeholder="Kwota"/>
+        <input size="35" name="target" type="text" th:field="*{opisWydatku}" placeholder="Cel"/>
+        <input size="15" id="datepicker2" name="date" type="text" th:field="*{data}" placeholder="Data"/>
+        Czy faktura: <select th:field="*{faktura}">
         <option value="T">Tak</option>
         <option value="N">Nie</option>
     </select>
@@ -40,11 +40,11 @@
                 <td>Faktura</td>
             </tr>
             <tr th:each="expense : ${expenseList} ">
-                <td th:text="${expense.expenseType}"></td>
-                <td th:text="${expense.expenseValue}"></td>
-                <td th:text="${expense.expenseData}"></td>
-                <td th:text="${expense.expenseInstructor}"></td>
-                <td th:text="${expense.bill}"></td>
+                <td th:text="${expense.opisWydatku}"></td>
+                <td th:text="${expense.kwota}"></td>
+                <td th:text="${expense.data}"></td>
+                <td th:text="${expense.instruktor}"></td>
+                <td th:text="${expense.faktura}"></td>
             </tr>
         </table>
     </div>

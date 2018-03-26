@@ -5,64 +5,57 @@ package com.mkyong.utils;
  */
 public class Event {
 
-    private String date;
-    private String eventType;
-    private double value;
+    private String data;
+    private String rodzajEventu;
+    private double cena;
     private char faktura;
-    private char isPaid;
-    private String comments;
+    private char czyZaplacono;
+    private String uwagi;
 
 
-    public Event(String date, String eventType, double value, char faktura, char isPaid, String comments) {
-        this.date = date;
-        this.eventType = eventType;
-        this.value = value;
+    public Event(String data, String rodzajEventu, double cena, char faktura, char czyZaplacono) {
+        this.data = data;
+        this.rodzajEventu = rodzajEventu;
+        this.cena = cena;
         this.faktura = faktura;
-        this.isPaid = isPaid;
-        this.comments = comments;
+        this.czyZaplacono = czyZaplacono;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public Event(String date, String eventType, double value, char faktura, char isPaid) {
-        this.date = date;
-        this.eventType = eventType;
-        this.value = value;
+    public Event(String data, String rodzajEventu, double cena, char faktura, char czyZaplacono, String uwagi) {
+        this.data = data;
+        this.rodzajEventu = rodzajEventu;
+        this.cena = cena;
         this.faktura = faktura;
-        this.isPaid = isPaid;
+        this.czyZaplacono = czyZaplacono;
+        this.uwagi = uwagi;
     }
+
 
     public Event() {
     }
 
-    public String getDate() {
-        return date;
+    public String getData() {
+        return data;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public String getEventType() {
-        return eventType;
+    public String getRodzajEventu() {
+        return rodzajEventu;
     }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
+    public void setRodzajEventu(String rodzajEventu) {
+        this.rodzajEventu = rodzajEventu;
     }
 
-    public double getValue() {
-        return value;
+    public double getCena() {
+        return cena;
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    public void setCena(double cena) {
+        this.cena = cena;
     }
 
     public char getFaktura() {
@@ -73,11 +66,21 @@ public class Event {
         this.faktura = faktura;
     }
 
-    public char getIsPaid() {
-        return isPaid;
+    public char getCzyZaplacono() {
+        return czyZaplacono;
     }
 
-    public void setIsPaid(char isPaid) {
-        this.isPaid = isPaid;
+    public void setCzyZaplacono(char czyZaplacono) {
+        this.czyZaplacono = czyZaplacono;
     }
+
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
+    }
+
+
 }

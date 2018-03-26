@@ -2,10 +2,13 @@ package com.mkyong.payment.paymentSummary;
 
 import com.mkyong.payment.Summary;
 import com.mkyong.utils.Event;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,75 +17,45 @@ import java.util.List;
 @Component
 public class EventSummary extends Summary {
 
-    private ResultSet resultSet;
-    private Statement statement;
-    private Connection connection;
-
     public EventSummary() throws SQLException, ClassNotFoundException {
     }
 
     public double getIncomeFromEvent(String date, String isCash) {
 
-        double payment = 0;
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        String monthNumber = switchMonth(month);
+
+        String query = "select sum(cena) as cena from eventy " + " WHERE data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + monthNumber + "-%' and faktura='" + isCash + "'";
+
         try {
-
-            String year = getYearForSummary(date);
-            String month = getMonthForSummary(date);
-            String monthNumber = switchMonth(month);
-
-            String query = "select data, cena from eventy " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%' and faktura='" + isCash + "'";
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String cena = resultSet.getString("cena");
-                payment = payment + Double.parseDouble(cena);
-            }
-            connection.close();
+            return Double.parseDouble(getJdbcTemplate().query(query, new ResultSetExtractor<String>() {
+                @Override
+                public String extractData(ResultSet rs) throws SQLException,
+                        DataAccessException {
+                    return rs.next() ? rs.getString("cena") : "0";
+                }
+            }));
         } catch (Exception e) {
-            e.printStackTrace();
+            return 0;
         }
-        return payment;
     }
 
     public List<Event> getListOfEventsByMonth(String date) {
 
-        List<Event> events = new ArrayList<>();
-        try {
-
-            String year = getYearForSummary(date);
-            String monthNumber;
-            if (date.contains(REGEX)) {
-                monthNumber = getActualMonthForSummary(date);
-            } else {
-                monthNumber = switchMonth(getMonthForSummary(date));
-
-            }
-
-            String query = "select data, rodzajeventu, cena, faktura, czyzaplacono, uwagi from eventy " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%' order by data";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String eventType = resultSet.getString("rodzajeventu");
-                String facture = resultSet.getString("faktura");
-                String eventDate = resultSet.getString("data");
-                String value = resultSet.getString("cena");
-                String czyZaplacono = resultSet.getString("czyzaplacono");
-                String uwagi = resultSet.getString("uwagi");
-
-
-                events.add(new Event(eventDate, eventType, Double.parseDouble(value), facture.charAt(0), czyZaplacono.charAt(0), uwagi));
-            }
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        String year = getYearForSummary(date);
+        String monthNumber;
+        if (date.contains(REGEX)) {
+            monthNumber = getActualMonthForSummary(date);
+        } else {
+            monthNumber = switchMonth(getMonthForSummary(date));
         }
+        String query = "select data, rodzajeventu, cena, faktura, czyzaplacono, uwagi from eventy " + " WHERE data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + monthNumber + "-%' order by data";
+
+        List<Event> events = getJdbcTemplate().query(query, new BeanPropertyRowMapper<Event>(Event.class));
+
         return events;
     }
 }

@@ -8,7 +8,7 @@
 <body>
 <div th:fragment="zestawieniePracy">
     <form th:object="${wybranaData}" method="post">
-        <input size="15" id="datepicker1" name="date" type="text" placeholder="rok-miesiac" th:field="*{date}"/>
+        <input size="15" id="datepicker1" name="date" type="text" placeholder="rok-miesiac" th:field="*{data}"/>
         <input type="submit" class="btn btn-primary" value="Wybierz datę"/>
     </form>
     <br/>
@@ -72,18 +72,18 @@
                     <td th:text=" ((${number.value.dduda} != 0) ? ${number.value.dduda} : '')"></td>
                 </tr>
                 <tr style="font-weight: bold">
-                <td></td>
-                <td>Podsumowanie:</td>
-                <td th:text="${instructorWorkSummary.cforemny}"></td>
-                <td th:text="${instructorWorkSummary.oforemna}"></td>
-                <td th:text="${instructorWorkSummary.kasiak}"></td>
-                <td th:text="${instructorWorkSummary.jcichon}"></td>
-                <td th:text="${instructorWorkSummary.kskotniczny}"></td>
-                <td th:text="${instructorWorkSummary.pszydlo}"></td>
-                <td th:text="${instructorWorkSummary.lkrason}"></td>
-                <td th:text="${instructorWorkSummary.mpiech}"></td>
-                <td th:text="${instructorWorkSummary.rjanus}"></td>
-                <td th:text="${instructorWorkSummary.dduda}"></td>
+                    <td></td>
+                    <td>Podsumowanie:</td>
+                    <td th:text="${instructorWorkSummary.cforemny}"></td>
+                    <td th:text="${instructorWorkSummary.oforemna}"></td>
+                    <td th:text="${instructorWorkSummary.kasiak}"></td>
+                    <td th:text="${instructorWorkSummary.jcichon}"></td>
+                    <td th:text="${instructorWorkSummary.kskotniczny}"></td>
+                    <td th:text="${instructorWorkSummary.pszydlo}"></td>
+                    <td th:text="${instructorWorkSummary.lkrason}"></td>
+                    <td th:text="${instructorWorkSummary.mpiech}"></td>
+                    <td th:text="${instructorWorkSummary.rjanus}"></td>
+                    <td th:text="${instructorWorkSummary.dduda}"></td>
                 </tr>
             </table>
         </div>

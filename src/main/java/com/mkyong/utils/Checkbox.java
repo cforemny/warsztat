@@ -19,7 +19,6 @@ public class Checkbox {
     }
 
 
-
     public void setCheckbox(boolean checkbox) {
         this.checkbox = checkbox;
     }

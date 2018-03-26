@@ -5,18 +5,18 @@ package com.mkyong.utils;
  */
 public class Student {
 
-    private String name;
-    private String lastName;
-    private String age;
+    private String imie;
+    private String nazwisko;
+    private String wiek;
     private String email;
     private String parentName;
     private String telephone;
     private String id;
 
-    public Student(String name, String lastName, String age, String email, String parentName, String telephone, String id) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
+    public Student(String imie, String nazwisko, String wiek, String email, String parentName, String telephone, String id) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
         this.email = email;
         this.parentName = parentName;
         this.telephone = telephone;
@@ -27,36 +27,28 @@ public class Student {
 
     }
 
-    public String getName() {
-        return name;
+    public String getImie() {
+        return imie;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImie(String imie) {
+        this.imie = imie;
     }
 
-    public String getId() {
-        return id;
+    public String getNazwisko() {
+        return nazwisko;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getWiek() {
+        return wiek;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
+    public void setWiek(String wiek) {
+        this.wiek = wiek;
     }
 
     public String getEmail() {
@@ -81,5 +73,13 @@ public class Student {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -57,16 +57,17 @@
             });
         });
     </script>
-    <!--<script>-->
-        <!--function checkDates() {-->
-            <!--var space = document.getElementById("isEnoughSpaceforPayment")-->
-            <!--if (space = 'false' ) {-->
-                <!--alert("Za mało dat aby wpisać podaną liczbę płatności.")-->
-            <!--}-->
-        <!--}-->
-    <!--</script>-->
-   </head>
-<body>
+    <script>
+        function checkDates() {
+
+            var space = document.getElementById("isEnoughSpaceforPayment").value;
+            if (space == "false") {
+                alert("Za mało dat aby wpisać podaną liczbę płatności.")
+            }
+        }
+    </script>
+</head>
+<body onload="checkDates();">
 <div th:replace="fragments/header :: header"/>
 
 <div class="well ">
@@ -82,31 +83,29 @@
 </div>
 <br/>
 <br/>
-<input type="hidden" id="isEnoughSpaceforPayment" th:value='${isEnoughSpaceForPayment}'/>
+<input id="isEnoughSpaceforPayment" type="hidden" th:value='${isEnoughSpaceForPayment}'/>
 <p th:text="${isEnoughSpaceForPayment}"></p>
-
 <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover text-center">
         <tr class="info">
-            <td class="col-xs-1">Numer</td>
+            <td>Numer</td>
             <td>Imie</td>
             <td>Nazwisko</td>
             <td>Telefon</td>
             <td>Mail</td>
-            <td th:each="date: ${dateList}" th:text="${date} "></td>
+            <td th:each="date: ${dateList}" th:text="${date.data} "></td>
         </tr>
         <tr th:each="student: ${studentList}">
             <td th:text="${student.id}"/>
-            <td th:text="${student.name}"/>
-            <td th:text="${student.lastName}"/>
+            <td th:text="${student.imie}"/>
+            <td th:text="${student.nazwisko}"/>
             <td th:text="${student.telephone}"/>
-            <td style="color: blue" th:text="${student.email}"/>
-
+            <td style="color: blue;" th:text="${student.email}"/>
             <td th:each="date: ${dateList}">
                 <div th:each="payment: ${paymentList}"
-                     th:if="${payment.paymentDate} == ${date} and ${student.id}==${payment.studentId}">
-                    <p th:class="${payment.paymentType}"
-                       th:text=" ${payment.paymentValue}">
+                     th:if="${payment.data} == ${date.data} and ${student.id}==${payment.studentId}">
+                    <p th:class="${payment.typPlatnosci}"
+                       th:text=" ${payment.platnosc}">
                     </p>
                 </div>
             </td>
@@ -137,11 +136,11 @@
                         <td>Wybierz Date: &nbsp;&nbsp;</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-control" th:field="*{date}">
+                                <select class="form-control" th:field="*{data}">
                                     <option th:each="date: ${dateList}"
-                                            th:field="*{date}"
-                                            th:text="${date}"
-                                            th:value="${date}">
+                                            th:field="*{data}"
+                                            th:text="${date.data}"
+                                            th:value="${date.data}">
                                     </option>
                                 </select>
                             </div>
@@ -163,7 +162,7 @@
                                 <select class="form-control" th:field="*{studentId}">
                                     <option th:each="student: ${studentList}"
                                             th:field="*{studentId}"
-                                            th:text="${student.name}+' '+${student.lastName}"
+                                            th:text="${student.imie}+' '+${student.nazwisko}"
                                             th:value="${student.id}">
                                     </option>
                                 </select>
@@ -176,11 +175,11 @@
                         <td>Wybierz Date:</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-control" th:field="*{paymentDate}">
+                                <select class="form-control" th:field="*{data}">
                                     <option th:each="date: ${dateList}"
-                                            th:field="*{paymentDate}"
-                                            th:text="${date}"
-                                            th:value="${date}">
+                                            th:field="*{data}"
+                                            th:text="${date.data}"
+                                            th:value="${date.data}">
                                     </option>
                                 </select>
                             </div>
@@ -210,17 +209,17 @@
                     </tr>
                     <tr>
                         <td>Imie:</td>
-                        <td><input name="name" type="text" th:field="*{name}"/></td>
+                        <td><input name="name" type="text" th:field="*{imie}"/></td>
                     </tr>
                     <tr>
                         <td>Nazwisko:</td>
-                        <td><input name="lastName" type="text" th:field="*{lastName}"/></td>
+                        <td><input name="lastName" type="text" th:field="*{nazwisko}"/></td>
                         <td>&nbsp;&nbsp;<input type="button" class="btn btn-primary .btn-xs" onclick="clearform()"
                                                value="Wyczysc pola"/></td>
                     </tr>
                     <tr>
                         <td>Wiek:</td>
-                        <td><input name="age" type="text" th:field="*{age}"/></td>
+                        <td><input name="age" type="text" th:field="*{wiek}"/></td>
                     </tr>
                     <tr>
                         <td>Dane rodzica:</td>
@@ -265,24 +264,24 @@
                                 <select class="form-control" th:field="*{studentId}">
                                     <option th:each="student: ${studentList}"
                                             th:field="*{studentId}"
-                                            th:text="${student.name}+' '+${student.lastName}"
+                                            th:text="${student.imie}+' '+${student.nazwisko}"
                                             th:value="${student.id}">
                                     </option>
                                 </select>
                             </div>
                         </td>
-                        <td>&nbsp;&nbsp;<input type="submit" class="btn btn-primary .btn-xs" value="Dodaj platnosc"/>
+                        <td>&nbsp;&nbsp;<input type="submit"  class="btn btn-primary .btn-xs" value="Dodaj platnosc"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Wybierz Date:</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-control" th:field="*{paymentDate}">
+                                <select class="form-control" th:field="*{data}">
                                     <option th:each="date: ${dateList}"
-                                            th:field="*{paymentDate}"
-                                            th:text="${date}"
-                                            th:value="${date}">
+                                            th:field="*{data}"
+                                            th:text="${date.data}"
+                                            th:value="${date.data}">
                                     </option>
                                 </select>
                             </div>
@@ -290,13 +289,13 @@
                     </tr>
                     <tr>
                         <td>Kwota:</td>
-                        <td><input name="kwota" type="text" th:field="*{paymentValue}"/></td>
+                        <td><input name="kwota" type="text" th:field="*{platnosc}"/></td>
                     </tr>
                     <tr>
                         <td>Platność gotówką:</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-control" th:field="*{paymentType}">
+                                <select class="form-control" th:field="*{typPlatnosci}">
                                     <option th:value="'T'" th:text="'Tak'"></option>
                                     <option th:value="'N'" th:text="'Nie'"></option>
                                 </select>

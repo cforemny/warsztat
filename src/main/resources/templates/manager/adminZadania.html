@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml"
 >
 <head>
     <meta charset="UTF-8"/>
@@ -9,8 +8,8 @@
 </head>
 <body>
 <div th:fragment="adminZadania">
-    <form  th:object="${task}" method="post">
-        <input size="20" type="text" placeholder="Zadanie" th:field="*{task}"/>
+    <form th:object="${task}" method="post">
+        <input size="20" type="text" placeholder="Zadanie" th:field="*{typZadania}"/>
         <input type="submit" class="btn btn-primary" value="Dodaj zadanie"/>
     </form>
     <br/>

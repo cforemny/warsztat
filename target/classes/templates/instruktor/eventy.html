@@ -12,9 +12,9 @@
     <br/>
     <br/>
     <form th:object="${event}" method="post">
-        <input size="3" type="text" placeholder="Kwota" th:field="*{value}"/>
-        <input size="35" type="text" placeholder="Jaki event" th:field="*{eventType}"/>
-        <input size="15" id="datepicker3" name="date" type="text" placeholder="Data" th:field="*{date}"/>
+        <input size="3" type="text" placeholder="Kwota" th:field="*{cena}"/>
+        <input size="35" type="text" placeholder="Jaki event" th:field="*{rodzajEventu}"/>
+        <input size="15" id="datepicker3" name="date" type="text" placeholder="Data" th:field="*{data}"/>
         Czy faktura: <select th:field="*{faktura}">
         <option value="T">Tak</option>
         <option value="N">Nie</option>
@@ -33,11 +33,11 @@
                 <td>Czy zapłacono</td>
             </tr>
             <tr th:each="event : ${eventList} ">
-                <td th:text="${event.eventType}"></td>
-                <td th:text="${event.value}"></td>
-                <td th:text="${event.date}"></td>
+                <td th:text="${event.rodzajEventu}"></td>
+                <td th:text="${event.cena}"></td>
+                <td th:text="${event.data}"></td>
                 <td th:text="${event.faktura}"></td>
-                <td th:switch="${event.isPaid}">
+                <td th:switch="${event.czyZaplacono}">
                     <div th:case="'T'">
                         <p>Zapłacono</p>
                     </div>

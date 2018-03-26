@@ -1,8 +1,14 @@
 package com.mkyong.payment.paymentSummary;
 
+import com.mkyong.utils.TableName;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -13,9 +19,8 @@ import java.util.TreeMap;
 @Component
 public class MonthIncomeForLocations extends MonthIncome {
 
-    private ResultSet resultSet;
-    private Statement statement;
-    private Connection connection;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public MonthIncomeForLocations() throws SQLException, ClassNotFoundException {
     }
@@ -24,25 +29,26 @@ public class MonthIncomeForLocations extends MonthIncome {
 
         Map<String, Integer> locationSummary = new TreeMap<>();
 
-        try {
+        List<TableName> paymentTables = super.prepareTableList();
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        String monthNumber = switchMonth(month);
 
-            List<String> paymentTables = super.prepareTableList();
-            String year = getYearForSummary(date);
-            String month = getMonthForSummary(date);
-            String monthNumber = switchMonth(month);
-
-            for (String paymentTable : paymentTables) {
-                String query = "select data, platnosc, typPlatnosci from " + paymentTable + " WHERE data LIKE '" + year + "%'" +
-                        "AND data LIKE '%-" + monthNumber + "-%'";
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-                statement = connection.createStatement();
-                resultSet = statement.executeQuery(query);
-                locationSummary.put(paymentTable, getIncomeValue(resultSet, isCash));
-                connection.close();
+        for (TableName paymentTable : paymentTables) {
+            String query = "select sum(platnosc) as platnosc from " + paymentTable.getTables_in_testowa() + " WHERE data LIKE '" + year + "%'" +
+                    "AND data LIKE '%-" + monthNumber + "-%' AND typPlatnosci = '" + isCash + "'";
+            try {
+                int paymentSum = Integer.parseInt(jdbcTemplate.query(query, new ResultSetExtractor<String>() {
+                    @Override
+                    public String extractData(ResultSet rs) throws SQLException,
+                            DataAccessException {
+                        return rs.next() ? rs.getString("platnosc") : "0";
+                    }
+                }));
+                locationSummary.put(paymentTable.getTables_in_testowa(), paymentSum);
+            } catch (Exception e) {
+                locationSummary.put(paymentTable.getTables_in_testowa(), 0);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return locationSummary;
     }

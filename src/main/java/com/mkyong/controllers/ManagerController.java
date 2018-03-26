@@ -57,20 +57,20 @@ public class ManagerController {
         if (note.getContent() != null) {
             managerTaskCreator.createNote(note);
         }
-        if (managerTask.getId() != 0) {
+        if (managerTask.getZadanieId() != 0) {
             managerTaskCreator.confirmTask(managerTask);
         }
-        if(wybranaData.getDate() == null) {
+        if (wybranaData.getData() == null) {
             model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(getCurrentDate()));
             model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(getCurrentDate()));
         }
-        if(managerTask.getTask() != null){
+        if (managerTask.getTypZadania() != null) {
             managerTaskCreator.addTask(managerTask);
         }
 
 
-        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getDate()));
-        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(wybranaData.getDate()));
+        model.addAttribute("instructorMap", jobSummaryCreator.getInstrucorsList(wybranaData.getData()));
+        model.addAttribute("instructorWorkSummary", jobSummaryCreator.getInstructorWorkSummaryByMonth(wybranaData.getData()));
         model.addAttribute("instructor", new Instructor());
         model.addAttribute("task", new ManagerTask());
         model.addAttribute("notatka", new Note());

@@ -6,46 +6,71 @@ package com.mkyong.utils;
 
 public class NurserySchool {
 
-    private int numberOfChildren;
-    private String date;
-    private int value;
-    private String name;
+    private int liczbaDzieci;
+    private String data;
+    private int cena;
+    private String nazwaPrzedszkola;
     private String czyZaplacono;
-    private String comments;
+    private String uwagi;
 
-    public String getComments() {
-        return comments;
-    }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public NurserySchool(int numberOfChildren, String date, int value, String name, String czyZaplacono, String comments) {
-        this.numberOfChildren = numberOfChildren;
-        this.date = date;
-        this.value = value;
-        this.name = name;
+    public NurserySchool(int liczbaDzieci, String data, int cena, String nazwaPrzedszkola, String czyZaplacono, String uwagi) {
+        this.liczbaDzieci = liczbaDzieci;
+        this.data = data;
+        this.cena = cena;
+        this.nazwaPrzedszkola = nazwaPrzedszkola;
         this.czyZaplacono = czyZaplacono;
-        this.comments = comments;
+        this.uwagi = uwagi;
     }
 
-    public NurserySchool(int numberOfChildren, String date, int value, String name, String czyZaplacono) {
-        this.numberOfChildren = numberOfChildren;
-        this.date = date;
-        this.value = value;
-        this.name = name;
+    public NurserySchool(int liczbaDzieci, String data, int cena, String nazwaPrzedszkola, String czyZaplacono) {
+        this.liczbaDzieci = liczbaDzieci;
+        this.data = data;
+        this.cena = cena;
+        this.nazwaPrzedszkola = nazwaPrzedszkola;
         this.czyZaplacono = czyZaplacono;
     }
 
-    public NurserySchool(int numerOfChildren, String date, int value, String name) {
-        this.numberOfChildren = numerOfChildren;
-        this.date = date;
-        this.value = value;
-        this.name = name;
+    public NurserySchool(int numerOfChildren, String data, int cena, String nazwaPrzedszkola) {
+        this.liczbaDzieci = numerOfChildren;
+        this.data = data;
+        this.cena = cena;
+        this.nazwaPrzedszkola = nazwaPrzedszkola;
     }
 
     public NurserySchool() {
+    }
+
+    public int getLiczbaDzieci() {
+        return liczbaDzieci;
+    }
+
+    public void setLiczbaDzieci(int liczbaDzieci) {
+        this.liczbaDzieci = liczbaDzieci;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public int getCena() {
+        return cena;
+    }
+
+    public void setCena(int cena) {
+        this.cena = cena;
+    }
+
+    public String getNazwaPrzedszkola() {
+        return nazwaPrzedszkola;
+    }
+
+    public void setNazwaPrzedszkola(String nazwaPrzedszkola) {
+        this.nazwaPrzedszkola = nazwaPrzedszkola;
     }
 
     public String getCzyZaplacono() {
@@ -56,35 +81,11 @@ public class NurserySchool {
         this.czyZaplacono = czyZaplacono;
     }
 
-    public int getNumberOfChildren() {
-        return numberOfChildren;
+    public String getUwagi() {
+        return uwagi;
     }
 
-    public void setNumberOfChildren(int numberOfChildren) {
-        this.numberOfChildren = numberOfChildren;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
     }
 }

@@ -1,14 +1,13 @@
 package com.mkyong.sqlBase;
 
+import com.mkyong.payment.Summary;
 import com.mkyong.payment.paymentSummary.Payment;
+import com.mkyong.utils.Date;
 import com.mkyong.utils.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 /**
@@ -16,140 +15,73 @@ import java.util.List;
  */
 
 @Component
-public class StudentListCreator {
+public class StudentListCreator extends Summary {
 
-    private Connection connection;
-    private Statement statement;
     @Autowired
     private TableSelector tableSelector;
 
+    public StudentListCreator() throws SQLException, ClassNotFoundException {
+    }
 
     public void addStudentToList(Student student, String tableName, int studentId) {
-        try {
-            getConnection();
-            String insertQuery = "INSERT INTO " + tableName + " (imie, nazwisko, wiek, email, parentName, telephone, id)"
-                    + " VALUES " + "('" + student.getName() + "'," + "'" + student.getLastName() + "'," + "'" + student.getAge() + "',"
-                    + "'" + student.getEmail() + "'," + "'" + student.getParentName() + "'," + "'" + student.getTelephone() + "',"
-                    + "'" + studentId + "')";
 
-            statement.execute(insertQuery);
-
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        String insertQuery = "INSERT INTO " + tableName + " (imie, nazwisko, wiek, email, parentName, telephone, id)"
+                + " VALUES " + "('" + student.getImie() + "'," + "'" + student.getNazwisko() + "'," + "'" + student.getWiek() + "',"
+                + "'" + student.getEmail() + "'," + "'" + student.getParentName() + "'," + "'" + student.getTelephone() + "',"
+                + "'" + studentId + "')";
+        getJdbcTemplate().execute(insertQuery);
     }
 
     public void deleteStudent(String studentListId, String tableName) {
-        try {
-            getConnection();
-            String query = "DELETE FROM " + tableName + " WHERE " + tableName + ".id=" + studentListId;
-            statement.execute(query);
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+
+        String deleteQuery = "DELETE FROM " + tableName + " WHERE " + tableName + ".id=" + studentListId;
+        getJdbcTemplate().execute(deleteQuery);
     }
 
     public void addNewDate(String tableName, String date) {
-        try {
-            getConnection();
-            String queryData = "INSERT INTO " + tableName + " (data) " + " VALUES ('" + date + "')";
-            statement.execute(queryData);
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+
+        String queryData = "INSERT INTO " + tableName + " (data) " + " VALUES ('" + date + "')";
+        getJdbcTemplate().execute(queryData);
     }
 
-
     public boolean addNewPayment(String tableName, Payment payment, String studentId, String date, char typPlatnosci) {
-        try {
-            getConnection();
-            int dateIndex = 1;
-            if (payment.getPaymentCount() == 1) {
-                String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + payment.getPaymentValue() +
-                        ",'" + typPlatnosci + "')";
-                statement.execute(queryPayment);
-            } else {
-                List<String> dateTable = tableSelector.getDateTable("daty" + tableName, true);
-                if(dateTable.indexOf(date) + payment.getPaymentCount() > dateTable.size()){
-                    return false;
-                }
-                for (String groupDate : dateTable) {
-                        if (groupDate.equals(date) || (dateIndex > 1 && dateIndex <= payment.getPaymentCount())) {
 
-                            dateIndex++;
-                            dateTable.indexOf(groupDate);
-                            String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + groupDate + "'," + payment.getPaymentValue() +
-                                    ",'" + typPlatnosci + "')";
-                            statement.execute(queryPayment);
-                        }
-                }
+        int dateIndex = 1;
+        if (payment.getPaymentCount() == 1) {
+            String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES (" + Integer.parseInt(studentId) + ",'" + date + "'," + payment.getPlatnosc() +
+                    ",'" + typPlatnosci + "')";
+            getJdbcTemplate().execute(queryPayment);
+        } else {
+            List<Date> dateTable = tableSelector.getDateTable("daty" + tableName, true);
+            if (dateTable.indexOf(date) + payment.getPaymentCount() > dateTable.size()-1) {
+                return false;
             }
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            for (Date groupDate : dateTable) {
+                if ((groupDate.getData()).equals(date) || (dateIndex > 1 && dateIndex <= payment.getPaymentCount())) {
+
+                    dateIndex++;
+                    dateTable.indexOf(groupDate.getData());
+                    String queryPayment = "INSERT INTO " + "platnosci" + tableName + " (studentId,data,platnosc, typPlatnosci) " + " VALUES " +
+                            "(" + Integer.parseInt(studentId) + ",'" + groupDate.getData() + "'," + payment.getPlatnosc() +
+                            ",'" + typPlatnosci + "')";
+                    getJdbcTemplate().execute(queryPayment);
+                }
             }
         }
         return true;
     }
 
     public void removePayment(String tableName, String studentId, String date) {
-        try {
-            getConnection();
-            String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
-            statement.execute(queryPayment);
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+
+        String queryPayment = "DELETE from " + tableName + " WHERE studentId = " + Integer.parseInt(studentId) + " AND  data = '" + date + "'";
+        getJdbcTemplate().execute(queryPayment);
     }
 
+    public void removeDate(String tableName, String date) {
 
-    private void getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-        statement = connection.createStatement();
+        String queryDate = "DELETE from " + tableName + " WHERE data = '" + date + "'";
+        getJdbcTemplate().execute(queryDate);
+
     }
 
-    public void removePayment(String tableName, String date) {
-        try {
-            getConnection();
-            String queryDate = "DELETE from " + tableName + " WHERE data = '" + date + "'";
-            statement.execute(queryDate);
-        } catch (Exception exception) {
-            System.out.println(exception);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

@@ -5,51 +5,51 @@ package com.mkyong.utils;
  */
 public class CashCollection {
 
-    private String instructor;
-    private String value;
-    private String date;
-    private String location;
+    private String instruktor;
+    private String kwota;
+    private String data;
+    private String miejsce;
 
 
     public CashCollection() {
     }
 
-    public CashCollection(String instructor, String value, String date, String location) {
-        this.instructor = instructor;
-        this.value = value;
-        this.date = date;
-        this.location = location;
+    public CashCollection(String instruktor, String kwota, String data, String miejsce) {
+        this.instruktor = instruktor;
+        this.kwota = kwota;
+        this.data = data;
+        this.miejsce = miejsce;
     }
 
-    public String getInstructor() {
-        return instructor;
+    public String getInstruktor() {
+        return instruktor;
     }
 
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
+    public void setInstruktor(String instruktor) {
+        this.instruktor = instruktor;
     }
 
-    public String getValue() {
-        return value;
+    public String getKwota() {
+        return kwota;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setKwota(String kwota) {
+        this.kwota = kwota;
     }
 
-    public String getDate() {
-        return date;
+    public String getData() {
+        return data;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public String getLocation() {
-        return location;
+    public String getMiejsce() {
+        return miejsce;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setMiejsce(String miejsce) {
+        this.miejsce = miejsce;
     }
 }

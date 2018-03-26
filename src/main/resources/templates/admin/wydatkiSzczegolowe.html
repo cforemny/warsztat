@@ -25,10 +25,10 @@
         </tr>
         <th:block th:each="expense : ${expenseDetailsList}">
             <tr>
-                <td th:text="${expense.expenseInstructor}"/>
-                <td th:text="${expense.expenseValue}"/>
-                <td th:text="${expense.expenseType}"/>
-                <td th:text="${expense.expenseData}"/>
+                <td th:text="${expense.instruktor}"/>
+                <td th:text="${expense.kwota}"/>
+                <td th:text="${expense.opisWydatku}"/>
+                <td th:text="${expense.data}"/>
             </tr>
         </th:block>
     </table>

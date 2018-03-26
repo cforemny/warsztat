@@ -31,28 +31,28 @@
     </table>
 </div>
 <div class="container">
-<table class="table">
-    <tr style="font-weight: bold">
-        <td>Kwota początkowa</td>
-        <td>Kwota pozostała do spłaty</td>
-    </tr>
-    <tr>
-        <td>71540 zł</td>
-        <td th:text="${payedValue}"></td>
-    </tr>
-    <tr style="font-weight: bold">
-        <td>Kwota spłaty</td>
-        <td>Komentarz</td>
-        <td>Data</td>
-    </tr>
-    <th:block th:each="debt : ${debts}">
+    <table class="table">
+        <tr style="font-weight: bold">
+            <td>Kwota początkowa</td>
+            <td>Kwota pozostała do spłaty</td>
+        </tr>
         <tr>
-            <td th:text="${debt.value}"/>
-            <td th:text="${debt.comment}"/>
-            <td th:text="${debt.date}"/>
-              </tr>
-    </th:block>
-</table>
+            <td>71540 zł</td>
+            <td th:text="${payedValue}"></td>
+        </tr>
+        <tr style="font-weight: bold">
+            <td>Kwota spłaty</td>
+            <td>Komentarz</td>
+            <td>Data</td>
+        </tr>
+        <th:block th:each="debt : ${debts}">
+            <tr>
+                <td th:text="${debt.value}"/>
+                <td th:text="${debt.comment}"/>
+                <td th:text="${debt.date}"/>
+            </tr>
+        </th:block>
+    </table>
 </div>
 </body>
 </html>

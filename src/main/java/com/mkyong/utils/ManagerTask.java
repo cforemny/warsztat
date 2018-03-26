@@ -5,43 +5,43 @@ package com.mkyong.utils;
  */
 public class ManagerTask {
 
-    private int id;
-    private String task;
-    private String comments;
+    private int zadanieId;
+    private String typZadania;
+    private String uwagi;
     private String status;
 
-    public ManagerTask(int id, String task, String comments, String status) {
-        this.id = id;
-        this.task = task;
-        this.comments = comments;
+    public ManagerTask(int zadanieId, String typZadania, String uwagi, String status) {
+        this.zadanieId = zadanieId;
+        this.typZadania = typZadania;
+        this.uwagi = uwagi;
         this.status = status;
     }
 
     public ManagerTask() {
     }
 
-    public int getId() {
-        return id;
+    public int getZadanieId() {
+        return zadanieId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setZadanieId(int zadanieId) {
+        this.zadanieId = zadanieId;
     }
 
-    public String getTask() {
-        return task;
+    public String getTypZadania() {
+        return typZadania;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setTypZadania(String typZadania) {
+        this.typZadania = typZadania;
     }
 
-    public String getComments() {
-        return comments;
+    public String getUwagi() {
+        return uwagi;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
     }
 
     public String getStatus() {

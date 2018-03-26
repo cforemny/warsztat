@@ -39,18 +39,19 @@ public class LocationsController {
     public String getLocation(@PathVariable("location") String location, Model model) {
         this.adress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI().toString();
         this.location = location;
-        tableSelector.removeDuplicatesFromPayments("platnosci"+location.toLowerCase());
+        tableSelector.removeDuplicatesFromPayments("platnosci" + location.toLowerCase());
         prepareSiteObjects(model);
         model.addAttribute("location", location);
+        model.addAttribute("isEnoughSpaceForPayment", "true");
         return "lokalizacje/Lokalizacja";
     }
 
     @PostMapping("/{location}/dodajStudenta")
-    public String submitNewStudent(@ModelAttribute Student student,@PathVariable("location") String location, CourseDate courseDate, Model model) {
+    public String submitNewStudent(@ModelAttribute Student student, @PathVariable("location") String location, CourseDate courseDate, Model model) {
         this.location = location;
         List studentListFromTable = tableSelector.getStudentListFromTable(currentTable(adress), false);
         int studentListFromTableSize = studentListFromTable.size();
-        studentListCreator.addStudentToList(student, currentTable(adress), studentListFromTableSize+1);
+        studentListCreator.addStudentToList(student, currentTable(adress), studentListFromTableSize + 1);
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
@@ -64,7 +65,7 @@ public class LocationsController {
     }
 
     @PostMapping("{location}/dodajDate")
-    public String addNewColumn(@ModelAttribute CourseDate courseDate,@PathVariable("location") String location, Model model) {
+    public String addNewColumn(@ModelAttribute CourseDate courseDate, @PathVariable("location") String location, Model model) {
         this.location = location;
         studentListCreator.addNewDate("daty" + location.toLowerCase(), courseDate.getCurrentDate());
         prepareSiteObjects(model);
@@ -74,9 +75,9 @@ public class LocationsController {
     @PostMapping("{location}/platnosci")
     public String addPayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
         this.location = location;
-        boolean isAdded = studentListCreator.addNewPayment(location.toLowerCase(), payment, payment.getStudentId(), payment.getPaymentDate(), payment.getPaymentType());
-        if(!isAdded){
-            model.addAttribute("isEnoughSpaceForPayment",false);
+        boolean isAdded = studentListCreator.addNewPayment(location.toLowerCase(), payment, payment.getStudentId(), payment.getData(), payment.getTypPlatnosci());
+        if (!isAdded) {
+            model.addAttribute("isEnoughSpaceForPayment", "false");
         }
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
@@ -84,16 +85,17 @@ public class LocationsController {
 
 
     @PostMapping("{location}/usunPlatnosc")
-    public String removePayment(@ModelAttribute Payment payment, @PathVariable("location") String location,Model model) {
+    public String removePayment(@ModelAttribute Payment payment, @PathVariable("location") String location, Model model) {
         this.location = location;
-        studentListCreator.removePayment("platnosci" + location.toLowerCase(), payment.getStudentId(), payment.getPaymentDate());
+        studentListCreator.removePayment("platnosci" + location.toLowerCase(), payment.getStudentId(), payment.getData());
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
+
     @PostMapping("{location}/usunDate")
     public String removeDate(@ModelAttribute Date data, @PathVariable("location") String location, Model model) {
         this.location = location;
-        studentListCreator.removePayment("daty" + location.toLowerCase(), data.getDate());
+        studentListCreator.removeDate("daty" + location.toLowerCase(), data.getData());
         prepareSiteObjects(model);
         return "lokalizacje/Lokalizacja";
     }
@@ -102,8 +104,8 @@ public class LocationsController {
     public String showAll(@ModelAttribute Payment payment, Model model, @PathVariable("location") String location, @ModelAttribute Checkbox checkbox) {
         this.location = location;
         prepareSiteObjects(model);
-        model.addAttribute("dateList", tableSelector.getDateTable("daty" + location.toLowerCase(),checkbox.isCheckbox()));
-        model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress),checkbox.isCheckbox()));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty" + location.toLowerCase(), checkbox.isCheckbox()));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress), checkbox.isCheckbox()));
         return "lokalizacje/Lokalizacja";
     }
 
@@ -113,9 +115,9 @@ public class LocationsController {
 
     private void prepareSiteObjects(Model model) {
 
-        model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress),true));
-        model.addAttribute("studentListForCount", tableSelector.getStudentListFromTable(currentTable(adress),false));
-        model.addAttribute("dateList", tableSelector.getDateTable("daty" + location.toLowerCase(),true));
+        model.addAttribute("studentList", tableSelector.getStudentListFromTable(currentTable(adress), true));
+        model.addAttribute("studentListForCount", tableSelector.getStudentListFromTable(currentTable(adress), false));
+        model.addAttribute("dateList", tableSelector.getDateTable("daty" + location.toLowerCase(), true));
         model.addAttribute("paymentList", tableSelector.getPaymentList("platnosci" + location.toLowerCase()));
         model.addAttribute("courseDate", new CourseDate());
         model.addAttribute("student", new Student());
@@ -123,8 +125,6 @@ public class LocationsController {
         model.addAttribute("data", new Date());
         model.addAttribute("checkbox", new Checkbox(true));
     }
-
-
 
 
 }

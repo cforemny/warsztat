@@ -5,20 +5,20 @@ package com.mkyong.utils;
  */
 public class Date {
 
-    private String date;
+    private String data;
 
     public Date(String date) {
-        this.date = date;
+        this.data = data;
     }
 
     public Date() {
     }
 
-    public String getDate() {
-        return date;
+    public String getData() {
+        return data;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setData(String date) {
+        this.data = date;
     }
 }

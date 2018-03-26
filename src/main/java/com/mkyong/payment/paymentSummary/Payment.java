@@ -6,27 +6,27 @@ package com.mkyong.payment.paymentSummary;
 public class Payment {
 
     private String studentId;
-    private String paymentDate;
-    private int paymentValue;
-    private int paymentId;
-    private char paymentType;
+    private String data;
+    private int platnosc;
+    private int obecnoscId;
+    private char typPlatnosci;
     private int paymentCount;
 
-    public Payment(String studentId, String date, int paymentValue, int paymentId, char paymentType, int paymentCount) {
+    public Payment(String studentId, String data, int platnosc, int obecnoscId, char typPlatnosci, int paymentCount) {
         this.studentId = studentId;
-        this.paymentDate = date;
-        this.paymentValue = paymentValue;
-        this.paymentId = paymentId;
-        this.paymentType = paymentType;
+        this.data = data;
+        this.platnosc = platnosc;
+        this.obecnoscId = obecnoscId;
+        this.typPlatnosci = typPlatnosci;
         this.paymentCount = paymentCount;
     }
 
-    public Payment(String studentId, String date, int paymentValue, int paymentId, char paymentType) {
+    public Payment(String studentId, String data, int platnosc, int obecnoscId, char typPlatnosci) {
         this.studentId = studentId;
-        this.paymentDate = date;
-        this.paymentValue = paymentValue;
-        this.paymentId = paymentId;
-        this.paymentType = paymentType;
+        this.data = data;
+        this.platnosc = platnosc;
+        this.obecnoscId = obecnoscId;
+        this.typPlatnosci = typPlatnosci;
     }
 
     public Payment() {
@@ -37,22 +37,6 @@ public class Payment {
         this.paymentCount = paymentCount;
     }
 
-    public int getPaymentCount() {
-        return paymentCount;
-    }
-
-    public void setPaymentCount(int paymentCount) {
-        this.paymentCount = paymentCount;
-    }
-
-    public char getPaymentType() {
-        return paymentType;
-    }
-
-    public void setPaymentType(char paymentType) {
-        this.paymentType = paymentType;
-    }
-
     public String getStudentId() {
         return studentId;
     }
@@ -61,27 +45,43 @@ public class Payment {
         this.studentId = studentId;
     }
 
-    public String getPaymentDate() {
-        return paymentDate;
+    public String getData() {
+        return data;
     }
 
-    public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public int getPaymentValue() {
-        return paymentValue;
+    public int getPlatnosc() {
+        return platnosc;
     }
 
-    public void setPaymentValue(int paymentValue) {
-        this.paymentValue = paymentValue;
+    public void setPlatnosc(int platnosc) {
+        this.platnosc = platnosc;
     }
 
-    public int getPaymentId() {
-        return paymentId;
+    public int getObecnoscId() {
+        return obecnoscId;
     }
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+    public void setObecnoscId(int obecnoscId) {
+        this.obecnoscId = obecnoscId;
+    }
+
+    public char getTypPlatnosci() {
+        return typPlatnosci;
+    }
+
+    public void setTypPlatnosci(char typPlatnosci) {
+        this.typPlatnosci = typPlatnosci;
+    }
+
+    public int getPaymentCount() {
+        return paymentCount;
+    }
+
+    public void setPaymentCount(int paymentCount) {
+        this.paymentCount = paymentCount;
     }
 }

@@ -26,11 +26,11 @@
 
         <th:block th:each="eventDetail : ${eventListDetails}">
             <tr>
-                <td th:text="${eventDetail.eventType}">
-                    <input type="hidden" th:field="*{eventType}"/></td>
-                <td th:text="${eventDetail.value}"/>
-                <td th:text="${eventDetail.date}"/>
-                <div th:switch="${eventDetail.isPaid}">
+                <td th:text="${eventDetail.rodzajEventu}">
+                    <input type="hidden" th:field="*{rodzajEventu}"/></td>
+                <td th:text="${eventDetail.cena}"/>
+                <td th:text="${eventDetail.data}"/>
+                <div th:switch="${eventDetail.czyZaplacono}">
                     <td th:case="'T'" style="background-color: chartreuse">Zapłacono</td>
                     <td th:case="'N'" style="background-color: lightcoral">Niezapłacono</td>
                 </div>

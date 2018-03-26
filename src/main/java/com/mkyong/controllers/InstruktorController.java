@@ -59,13 +59,13 @@ public class InstruktorController {
                              @ModelAttribute CashCollection cashCollection, @ModelAttribute Expense expense,
                              @ModelAttribute Event event, @ModelAttribute com.mkyong.utils.Date wybranaData, Model model) {
 
-        if (expense.getExpenseValue() != null)
+        if (expense.getKwota() != null)
             expenseCreator.insertExpenseToTable(expense);
-        if (cashCollection.getLocation() != null)
+        if (cashCollection.getMiejsce() != null)
             cashCollectionCreator.insertCashCollectionIntoTable(cashCollection);
-        if (nurserySchool.getName() != null)
+        if (nurserySchool.getNazwaPrzedszkola() != null)
             preSchoolCreator.insertPreschoolIntoTable(nurserySchool);
-        if (event.getEventType() != null)
+        if (event.getRodzajEventu() != null)
             eventCreator.insertNewEventToTable(event);
 
 
@@ -102,11 +102,11 @@ public class InstruktorController {
 
     private void createAtributtes(Model model, com.mkyong.utils.Date wybranaData) {
 
-        if (wybranaData.getDate() != null) {
-            model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(wybranaData.getDate()));
-            model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(wybranaData.getDate()));
-            model.addAttribute("expenseList", monthExpense.getExpenseListByDate(wybranaData.getDate()));
-            model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(wybranaData.getDate()));
+        if (wybranaData.getData() != null) {
+            model.addAttribute("nurserySchoolList", nurserySchoolSummary.getListOfNurserySchoolByMonth(wybranaData.getData()));
+            model.addAttribute("eventList", eventSummary.getListOfEventsByMonth(wybranaData.getData()));
+            model.addAttribute("expenseList", monthExpense.getExpenseListByDate(wybranaData.getData()));
+            model.addAttribute("cashCollectionList", cashSummary.getListOfCashCollectionByMonth(wybranaData.getData()));
 
         } else {
 

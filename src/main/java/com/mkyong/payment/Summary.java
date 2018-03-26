@@ -1,6 +1,8 @@
 package com.mkyong.payment;
 
-import java.sql.Connection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.sql.SQLException;
 
 /**
@@ -9,10 +11,18 @@ import java.sql.SQLException;
 public class Summary {
 
     protected final String REGEX = "-";
-    private Connection connection;
-
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public Summary() throws SQLException, ClassNotFoundException {
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public String getYearForSummary(String date) {

@@ -5,67 +5,60 @@ package com.mkyong.utils;
  */
 public class Expense {
 
-    private String expenseType;
-    private String expenseValue;
-    private String expenseInstructor;
-    private String expenseData;
-    private char bill;
+    private String opisWydatku;
+    private String kwota;
+    private String instruktor;
+    private String data;
+    private char faktura;
 
     public Expense() {
     }
 
-    public Expense(String expenseType, String expenseValue, String expenseInstructor, String expenseData, char bill) {
-        this.expenseType = expenseType;
-        this.expenseValue = expenseValue;
-        this.expenseInstructor = expenseInstructor;
-        this.expenseData = expenseData;
-        this.bill = bill;
+    public Expense(String opisWydatku, String kwota, String instruktor, String data, char faktura) {
+        this.opisWydatku = opisWydatku;
+        this.kwota = kwota;
+        this.instruktor = instruktor;
+        this.data = data;
+        this.faktura = faktura;
     }
 
-    public Expense(String expenseType, String expenseValue, String expenseInstructor, String expenseData) {
-        this.expenseType = expenseType;
-        this.expenseValue = expenseValue;
-        this.expenseInstructor = expenseInstructor;
-        this.expenseData = expenseData;
+    public String getOpisWydatku() {
+        return opisWydatku;
     }
 
-    public char getBill() {
-        return bill;
+    public void setOpisWydatku(String opisWydatku) {
+        this.opisWydatku = opisWydatku;
     }
 
-    public void setBill(char bill) {
-        this.bill = bill;
+    public String getKwota() {
+        return kwota;
     }
 
-    public String getExpenseType() {
-        return expenseType;
+    public void setKwota(String kwota) {
+        this.kwota = kwota;
     }
 
-    public void setExpenseType(String expenseType) {
-        this.expenseType = expenseType;
+    public String getInstruktor() {
+        return instruktor;
     }
 
-    public String getExpenseValue() {
-        return expenseValue;
+    public void setInstruktor(String instruktor) {
+        this.instruktor = instruktor;
     }
 
-    public void setExpenseValue(String expenseValue) {
-        this.expenseValue = expenseValue;
+    public String getData() {
+        return data;
     }
 
-    public String getExpenseInstructor() {
-        return expenseInstructor;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public void setExpenseInstructor(String expenseInstructor) {
-        this.expenseInstructor = expenseInstructor;
+    public char getFaktura() {
+        return faktura;
     }
 
-    public String getExpenseData() {
-        return expenseData;
-    }
-
-    public void setExpenseData(String expenseData) {
-        this.expenseData = expenseData;
+    public void setFaktura(char faktura) {
+        this.faktura = faktura;
     }
 }

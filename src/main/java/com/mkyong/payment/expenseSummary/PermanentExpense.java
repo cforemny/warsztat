@@ -1,10 +1,13 @@
 package com.mkyong.payment.expenseSummary;
 
 import com.mkyong.payment.Summary;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-import java.util.LinkedList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,123 +16,92 @@ import java.util.List;
 @Component
 public class PermanentExpense extends Summary {
 
-    private String name;
-    private double value;
-    private String date;
-    private char bill;
-    private ResultSet resultSet;
-    private Statement statement;
-    private Connection connection;
+    private String kosztOpis;
+    private double kosztWartosc;
+    private String data;
+    private char faktura;
+
 
     public PermanentExpense() throws SQLException, ClassNotFoundException {
     }
 
-    public PermanentExpense(String name, double value, String date, char bill) throws SQLException, ClassNotFoundException {
-        this.name = name;
-        this.value = value;
-        this.date = date;
-        this.bill = bill;
+    public PermanentExpense(String kosztOpis, double kosztWartosc, String data, char faktura) throws SQLException, ClassNotFoundException {
+        this.kosztOpis = kosztOpis;
+        this.kosztWartosc = kosztWartosc;
+        this.data = data;
+        this.faktura = faktura;
     }
 
-    public PermanentExpense(String name, double value) throws SQLException, ClassNotFoundException {
-        this.name = name;
-        this.value = value;
+    public String getKosztOpis() {
+        return kosztOpis;
     }
 
-    public String getDate() {
-        return date;
+    public void setKosztOpis(String kosztOpis) {
+        this.kosztOpis = kosztOpis;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public double getKosztWartosc() {
+        return kosztWartosc;
     }
 
-    public char getBill() {
-        return bill;
+    public void setKosztWartosc(double kosztWartosc) {
+        this.kosztWartosc = kosztWartosc;
     }
 
-    public void setBill(char bill) {
-        this.bill = bill;
+    public String getData() {
+        return data;
     }
 
-    public String getName() {
-        return name;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public char getFaktura() {
+        return faktura;
     }
 
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
+    public void setFaktura(char faktura) {
+        this.faktura = faktura;
     }
 
     public List<PermanentExpense> getPermanentExpense(String date) {
 
-        List<PermanentExpense> permanentExpenses = new LinkedList<>();
-        try {
-            String year = getYearForSummary(date);
-            String month = getMonthForSummary(date);
-            String monthNumber = switchMonth(month);
 
-            String query = "select * from kosztystale " + " WHERE data LIKE '" + year + "%'" +
-                    "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String name = resultSet.getString("kosztOpis");
-                String value = resultSet.getString("kosztWartosc");
-                permanentExpenses.add(new PermanentExpense(name, Double.parseDouble(value)));
-            }
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String year = getYearForSummary(date);
+        String month = getMonthForSummary(date);
+        String monthNumber = switchMonth(month);
+
+        String query = "select * from kosztystale " + " WHERE data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
+
+        List<PermanentExpense> permanentExpenses = getJdbcTemplate().query(query, new BeanPropertyRowMapper<PermanentExpense>(PermanentExpense.class));
+
         return permanentExpenses;
     }
 
     public double getPermanenetExpenseSummary(String date) {
+
         String year = getYearForSummary(date);
         String month = getMonthForSummary(date);
         String monthNumber = switchMonth(month);
-        double expensesSummary = 0;
-        String query = "select * from kosztystale " + " WHERE data LIKE '" + year + "%'" +
-                "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
 
-                String value = resultSet.getString("kosztWartosc");
-                expensesSummary = expensesSummary + Double.parseDouble(value);
+        String query = "select sum(kosztWartosc) as kosztWartosc from kosztystale " + " WHERE data LIKE '" + year + "%'" +
+                "AND data LIKE '%-" + monthNumber + "-%' OR data = 0000-00-00";
+
+        return Double.parseDouble(getJdbcTemplate().query(query, new ResultSetExtractor<String>() {
+            @Override
+            public String extractData(ResultSet rs) throws SQLException,
+                    DataAccessException {
+                return rs.next() ? rs.getString("kosztWartosc") : "0";
             }
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return expensesSummary;
+        }));
     }
 
     public void insertPermanentExpense(PermanentExpense permanentExpense) {
 
-        String query = "insert into kosztystale (kosztOpis, kosztWartosc, data, faktura) values('" + permanentExpense.getName() + "'," + permanentExpense.getValue() +
-                ",'" + permanentExpense.getDate() + "','" + permanentExpense.getBill() + "')";
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-            statement.execute(query);
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String query = "insert into kosztystale (kosztOpis, kosztWartosc, data, faktura) values('" + permanentExpense.getKosztOpis() + "'," + permanentExpense.getKosztWartosc() +
+                ",'" + permanentExpense.getData() + "','" + permanentExpense.getFaktura() + "')";
+
+        getJdbcTemplate().execute(query);
     }
 }

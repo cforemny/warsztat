@@ -12,7 +12,7 @@
     <br/>
     <br/>
     <form th:object="${cashCollection}" method="post">
-        <select style="width: 180px" class="form-control" th:field="*{instructor}">
+        <select style="width: 180px" class="form-control" th:field="*{instruktor}">
             <option th:value="default">=Instruktor=</option>
             <option th:value="Aska">Joanna Cichon</option>
             <option th:value="Lukasz">Lukasz Krason</option>
@@ -20,9 +20,9 @@
             <option th:value="Cyprian">Cyprian Foremny</option>
             <option th:value="Kuba">Jakub Zagorowski</option>
         </select>
-        <input size="3" name="value" type="text" placeholder="Kwota" th:field="*{value}"/>
-        <input size="35" name="target" type="text" placeholder="Skąd odebrano" th:field="*{location}"/>
-        <input size="15" id="datepicker1" name="date" type="text" placeholder="Data" th:field="*{date}"/>
+        <input size="3" name="value" type="text" placeholder="Kwota" th:field="*{kwota}"/>
+        <input size="35" name="target" type="text" placeholder="Skąd odebrano" th:field="*{miejsce}"/>
+        <input size="15" id="datepicker1" name="date" type="text" placeholder="Data" th:field="*{data}"/>
         <input type="submit" class="btn btn-primary" value="Dodaj odbiór gotówki"/>
     </form>
     <br/><br/><br/>
@@ -36,10 +36,10 @@
                 <td>Skąd odebrano</td>
             </tr>
             <tr th:each="cash : ${cashCollectionList} ">
-                <td th:text="${cash.instructor}"></td>
-                <td th:text="${cash.value}"></td>
-                <td th:text="${cash.date}"></td>
-                <td th:text="${cash.location}"></td>
+                <td th:text="${cash.instruktor}"></td>
+                <td th:text="${cash.kwota}"></td>
+                <td th:text="${cash.data}"></td>
+                <td th:text="${cash.miejsce}"></td>
             </tr>
         </table>
     </div>

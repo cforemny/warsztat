@@ -1,48 +1,25 @@
 package com.mkyong.sqlBase;
 
+import com.mkyong.payment.Summary;
 import com.mkyong.utils.Expense;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Created by Cyprian on 2017-07-16.
  */
 @Component
-public class ExpenseCreator {
-
-    private Connection connection;
-    private Statement statement;
-
+public class ExpenseCreator extends Summary {
 
     public ExpenseCreator() throws SQLException, ClassNotFoundException {
     }
 
     public void insertExpenseToTable(Expense expense) {
 
-        String query = "INSERT INTO wydatkiinstruktorow (instruktor, opisWydatku,kwota,data,faktura) VALUES ('" + expense.getExpenseInstructor() + "','" +
-                expense.getExpenseType() + "'," + expense.getExpenseValue() + ",'" + expense.getExpenseData() + "','" + expense.getBill() + "')";
-        try {
-            getConnection();
-            statement.execute(query);
-            statement.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String query = "INSERT INTO wydatkiinstruktorow (instruktor, opisWydatku,kwota,data,faktura) VALUES ('" + expense.getInstruktor() + "','" +
+                expense.getOpisWydatku() + "'," + expense.getKwota() + ",'" + expense.getData() + "','" + expense.getFaktura() + "')";
+
+        getJdbcTemplate().update(query);
     }
-
-    private void getConnection() throws ClassNotFoundException, SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-            statement = connection.createStatement();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
 }

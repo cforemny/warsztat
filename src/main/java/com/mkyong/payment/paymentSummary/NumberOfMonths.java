@@ -1,10 +1,14 @@
 package com.mkyong.payment.paymentSummary;
 
+import com.mkyong.payment.Summary;
 import com.mkyong.sqlBase.TableSelector;
+import com.mkyong.utils.Date;
+import com.mkyong.utils.TableName;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -12,14 +16,14 @@ import java.util.*;
  */
 
 @Component
-public class NumberOfMonths {
+public class NumberOfMonths extends Summary {
 
     private static final String REGEX = "-";
     @Autowired
     private TableSelector tableSelector;
-    private Statement statement;
-    private ResultSet resultSet;
-    private Connection connection;
+
+    public NumberOfMonths() throws SQLException, ClassNotFoundException {
+    }
 
     public Map prepareButtons() {
 
@@ -34,11 +38,11 @@ public class NumberOfMonths {
 
     private List getDataTables() {
 
-        List<String> tableList = tableSelector.showTablesFromBase();
+        List<TableName> tableList = tableSelector.showTablesFromBase();
         List<String> dataTables = new ArrayList<>();
-        for (String tableName : tableList) {
-            if (tableName.contains("daty"))
-                dataTables.add(tableName);
+        for (TableName tableName : tableList) {
+            if ((tableName.getTables_in_testowa()).contains("daty"))
+                dataTables.add(tableName.getTables_in_testowa());
         }
         return dataTables;
     }
@@ -46,28 +50,15 @@ public class NumberOfMonths {
     private List getDataList() {
 
         List dataList = new ArrayList<String>();
-        try {
-            getConnection();
-            List<String> dataTables = getDataTables();
-
-            for (String dataTablename : dataTables) {
-                String query = "SELECT * FROM " + dataTablename;
-                resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    String data = resultSet.getString("data");
-                    dataList.add(data);
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+        List<String> dataTables = getDataTables();
+        for (String dataTablename : dataTables) {
+            String query = "SELECT * FROM " + dataTablename;
+            List<Date> dataListForMonth = getJdbcTemplate().query(query, new BeanPropertyRowMapper(Date.class));
+            for (Date data : dataListForMonth) {
+                dataList.add(data.getData());
             }
         }
+
         return dataList;
     }
 
@@ -81,12 +72,6 @@ public class NumberOfMonths {
         }
 
         return yearSet;
-    }
-
-    private void getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql:// 144.76.228.149:3306/testowa?useLegacyDatetimeCode=false&serverTimezone=UTC", "cypek", "foremny1a");
-        statement = connection.createStatement();
     }
 
     private String cutDataMonth(String data) {

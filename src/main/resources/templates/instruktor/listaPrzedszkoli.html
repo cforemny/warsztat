@@ -7,7 +7,7 @@
 <body>
 <div th:fragment="listaPrzedszkoli">
     <form th:object="${nurserySchool}" method="post">
-        <select name="przedszkola" style="width: 200px" class="form-control" th:field="*{name}">
+        <select name="przedszkola" style="width: 200px" class="form-control" th:field="*{nazwaPrzedszkola}">
             <option th:value="default">=Wybierz przedszkole=</option>
             <option th:value="skosna">Bajka Skośna</option>
             <option th:value="lubostron">Bajka Lubostroń</option>
@@ -15,9 +15,9 @@
             <option th:value="bulgarska">Bułgarska</option>
             <option th:value="lipinskiego">Lipińskiego</option>
         </select>
-        Liczba dzieci:<input size="10" th:field="*{numberOfChildren}" type="text"/>
-        <input size="15" id="datepicker" th:field="*{date}" type="text" placeholder="Data"/>
-        Cena zajęć:<input size="5" th:field="*{value}" type="text" placeholder="Cena"/>
+        Liczba dzieci:<input size="10" th:field="*{liczbaDzieci}" type="text"/>
+        <input size="15" id="datepicker" th:field="*{data}" type="text" placeholder="Data"/>
+        Cena zajęć:<input size="5" th:field="*{cena}" type="text" placeholder="Cena"/>
         <input type="submit" class="btn btn-primary" value="Zatwierdź zajęcia"/>
     </form>
 
@@ -32,10 +32,10 @@
                 <td>Data zajęć</td>
             </tr>
             <tr th:each="przedszkole : ${nurserySchoolList} ">
-                <td th:text="${przedszkole.name}"></td>
-                <td th:text="${przedszkole.numberOfChildren}"></td>
-                <td th:text="${przedszkole.value}*${przedszkole.numberOfChildren}"></td>
-                <td th:text="${przedszkole.date}"></td>
+                <td th:text="${przedszkole.nazwaPrzedszkola}"></td>
+                <td th:text="${przedszkole.liczbaDzieci}"></td>
+                <td th:text="${przedszkole.cena}*${przedszkole.liczbaDzieci}"></td>
+                <td th:text="${przedszkole.data}"></td>
             </tr>
         </table>
     </div>

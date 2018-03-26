@@ -21,9 +21,9 @@
 
             </tr>
             <tr th:each="event : ${eventList} ">
-                <td th:text="${event.eventType}"></td>
-                <td th:text="${event.value}"></td>
-                <td th:text="${event.date}"></td>
+                <td th:text="${event.rodzajEventu}"></td>
+                <td th:text="${event.cena}"></td>
+                <td th:text="${event.data}"></td>
                 <td th:switch="${event.faktura}">
                     <div th:case="'T'">
                         <p style="background-color: chartreuse">Tak</p>
@@ -32,23 +32,23 @@
                         <p style=" background-color: lightsalmon">Nie</p>
                     </div>
                 </td>
-                <td th:switch="${event.isPaid}">
+                <td th:switch="${event.czyZaplacono}">
                     <div th:case="'T'">
                         <p>Zapłacono</p>
                     </div>
                     <div th:case="'N'">
-                        <form th:action="@{/instruktor/(cenaWydarzenia=${event.value},dataWydarzenia=${event.date}, potwierdzenie=${'T'})}"
+                        <form th:action="@{/instruktor/(cenaWydarzenia=${event.cena},dataWydarzenia=${event.data}, potwierdzenie=${'T'})}"
                               th:object="${event}" method="post">
                             <input type="submit" class="btn btn-primary" value="Potwierdz wplate"/>
                         </form>
                     </div>
                 </td>
-                <td th:text="${event.comments}"></td>
+                <td th:text="${event.uwagi}"></td>
             </tr>
             <tr th:each="nurserySchool : ${nurserySchoolList} ">
-                <td th:text="${nurserySchool.name}"></td>
-                <td th:text="${nurserySchool.value}*${nurserySchool.numberOfChildren}"></td>
-                <td th:text="${nurserySchool.date}"></td>
+                <td th:text="${nurserySchool.nazwaPrzedszkola}"></td>
+                <td th:text="${nurserySchool.cena}*${nurserySchool.liczbaDzieci}"></td>
+                <td th:text="${nurserySchool.data}"></td>
                 <td><p style="background-color: chartreuse">Tak</p></td>
                 <td th:switch="${nurserySchool.czyZaplacono}">
                     <div th:case="'T'">
@@ -56,13 +56,13 @@
                     </div>
                     <div th:case="'N'">
 
-                        <form th:action="@{/instruktor/przedszkole/(liczbaDzieci=${nurserySchool.numberOfChildren},dataPrzedszkola=${nurserySchool.date}, potwierdzeniePrzedszkola=${'T'})}"
+                        <form th:action="@{/instruktor/przedszkole/(liczbaDzieci=${nurserySchool.liczbaDzieci},dataPrzedszkola=${nurserySchool.data}, potwierdzeniePrzedszkola=${'T'})}"
                               th:object="${nurserySchool}" method="post">
                             <input type="submit" class="btn btn-primary" value="Potwierdz wplate"/>
                         </form>
                     </div>
                 </td>
-                <td th:text="${nurserySchool.comments}"></td>
+                <td th:text="${nurserySchool.uwagi}"></td>
             </tr>
         </table>
     </div>

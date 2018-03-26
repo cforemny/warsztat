@@ -6,6 +6,7 @@ import com.mkyong.payment.paymentSummary.*;
 import com.mkyong.utils.Debt;
 import com.mkyong.utils.Event;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,18 +38,21 @@ public class AdminController {
     private PermanentExpense permanentExpense;
     @Autowired
     private Debt debt;
-
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @GetMapping("")
     public String admin(Model model) throws SQLException, ClassNotFoundException {
+
         model.addAttribute("dataMap", numberOfMonths.prepareButtons());
         model.addAttribute("event", new Event());
         return "admin";
     }
+
     @GetMapping("/wlasciciele")
-    public String owners(Model model   ){
-        model.addAttribute("debts",debt.getDebtList());
-        model.addAttribute("payedValue",debt.payedValue());
+    public String owners(Model model) {
+        model.addAttribute("debts", debt.getDebtList());
+        model.addAttribute("payedValue", debt.payedValue());
         return "admin/wlasciciele";
     }
 
@@ -70,8 +74,8 @@ public class AdminController {
     @GetMapping("/zyski")
     public String getIncome(@RequestParam("data") String data, Model model) {
         model.addAttribute("incomeSummary", addAllIncome(data));
-        model.addAttribute("paybackExpenses", monthExpense.getExpensesToPayback(data));
-        model.addAttribute("noneBackExpenses", monthExpense.getNoneBackExpenses(data));
+        model.addAttribute("paybackExpenses", monthExpense.getExpenses(data, "T"));
+        model.addAttribute("noneBackExpenses", monthExpense.getExpenses(data, "N"));
         model.addAttribute("incomeForTaxes", addAllIncomeForTaxes(data));
         model.addAttribute("vat", countVat(data));
         model.addAttribute("tax", incomeTax(data));
@@ -121,7 +125,7 @@ public class AdminController {
     private double countVat(String data) {
 
         double vat;
-        double expenses = monthExpense.getExpensesToPayback(data);
+        double expenses = monthExpense.getExpenses(data, "T");
         double income = addAllIncomeForTaxes(data);
         vat = (income - income / 1.23) - (expenses - expenses / 1.23);
         return (int) vat;
@@ -130,7 +134,7 @@ public class AdminController {
     private double incomeTax(String data) {
 
         double tax;
-        double expenses = monthExpense.getExpensesToPayback(data);
+        double expenses = monthExpense.getExpenses(data, "T");
         tax = ((addAllIncomeForTaxes(data) / 1.23) - (expenses / 1.23)) * 0.19;
         return (int) tax;
     }
